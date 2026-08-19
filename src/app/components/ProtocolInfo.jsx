@@ -3,13 +3,9 @@ import ExternalLink from './ExternalLink.jsx';
 export default function ProtocolInfo({ snapshot }) {
   const mint = snapshot?.mint ?? '';
   return <aside aria-label="Raiku protocol information" className="grid content-start gap-3">
-    <section className="flex min-h-[140px] items-center border border-rule bg-surface-muted px-6 py-5">
-      <div>
-        <p className="m-0 text-[10px] text-muted">Protocol analytics</p>
-        <img src="/raiku-logo.jpg" alt="Raiku" className="mt-2 h-10 w-auto max-w-[280px] object-contain dark:hidden" />
-        <h2 className="m-0 mt-2 hidden text-5xl font-bold tracking-[-0.04em] text-ink dark:block">Raiku</h2>
-        <p className="m-0 mt-1.5 text-[11px] font-medium text-[#333] dark:text-muted">rkuSOL holder intelligence</p>
-      </div>
+    <section className="flex min-h-[160px] items-center justify-center border border-rule bg-transparent px-4 py-6">
+      <img src="/raiku-logo.jpg" alt="Raiku" className="h-12 w-auto max-w-[300px] object-contain dark:hidden" />
+      <h2 className="m-0 hidden text-5xl font-bold tracking-[-0.04em] text-ink dark:block">Raiku</h2>
     </section>
     <section className="border border-rule bg-surface-muted p-5 text-xs leading-6 text-[#303030] dark:text-muted">
       <p className="mt-0">A compact view of rkuSOL supply, holder distribution, and estimated points derived from public on-chain balances.</p>
