@@ -11,6 +11,10 @@ data/*_state.json
 data/crawl*_data.json
 data/context.json
 
+# AI tooling
+.superpowers/
+docs/superpowers/
+
 # OS
 Thumbs.db
 .DS_Store
