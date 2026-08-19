@@ -1,151 +1,159 @@
-# Raiku Dashboard Resolv-Style Dark + Tailwind Design
+# Raiku Dashboard White Brutalist + Tailwind Design
 
 **Date:** 2026-08-19  
-**Status:** Design approved by the user's direct instruction to continue with this screenshot direction. Implementation not started for this redesign.
+**Status:** Revised from the dark direction after the user's latest screenshot feedback. Implementation not started for this revision.
 
 ## Goal
 
-Replace the current light/card-heavy presentation with a restrained dark protocol-analytics interface inspired by the supplied Resolv Labs screenshot: near-black canvas, flat charcoal panels, thin borders, compact technical typography, a one-third/two-thirds desktop grid, and a clear primary action hierarchy. Do not copy Resolv branding, copy, logo, or metric semantics.
+Restyle the Raiku dashboard as a white brutalist analytics document inspired by the supplied Performance screenshot: rigid rectangular panels, near-black rules, compact grotesk typography, repeated chart/card geometry, large intentional empty states, and a fixed bottom notice. Preserve Raiku-specific data and behavior; do not copy the source brand, author, logo, wording, or metric semantics.
 
-## Current context
+## Visual system
 
-- Repository: `yjm26/raiku-dashboard`
-- Active implementation branch: `feat/raiku-react-vite`
-- Current shipped baseline: React/Vite dashboard with Recharts, normalized `public/data/dashboard.json`, wallet lookup, holder tables, and existing tests.
-- Existing UI styling is concentrated in `src/styles/global.css` and `src/styles/tokens.css`.
-- The data pipeline and snapshot contract remain unchanged.
-
-## Visual direction
-
-### Canvas and palette
-
-Use a warm near-black canvas rather than pure black:
+### Canvas and tokens
 
 ```css
---color-canvas: #0d0e0c;
---color-surface-1: #1c1d1b;
---color-surface-2: #111210;
---color-surface-3: #20211f;
---color-border: #292a27;
---color-border-strong: #353632;
---color-text-primary: #e5e5e2;
---color-text-secondary: #a8aaa5;
---color-text-muted: #737570;
---color-text-disabled: #5b5d59;
---color-accent: #647ff1;
---color-accent-hover: #8198ff;
---color-button-light: #e6e7e3;
---color-button-light-text: #171815;
+--page: #f4f3ef;
+--surface: #ffffff;
+--surface-muted: #e8e7e2;
+--ink: #111111;
+--muted: #66645f;
+--rule: #171717;
+--accent: #3458d4;
+--gap: 16px;
+--page-gutter: 16px;
+--radius: 0px;
 ```
 
-Rules:
+- Page background: warm off-white, never black.
+- Panels: white or pale gray, flat, no gradients, no shadows.
+- Borders: solid `1px` near-black; use `2px` only for major section separators.
+- Panel radius: `0–2px`; controls can be `0–4px`, not soft SaaS pills.
+- Accent: restrained blue for active states, links, source marks, and chart focus.
+- Text: black/near-black primary, gray secondary. Verify normal text at WCAG AA.
 
-- No gradients, glassmorphism, or decorative shadows.
-- Use borders and spacing for hierarchy.
-- Use blue sparingly for active state, links, chart focus, and status indicators.
-- Use warm off-white for primary text and muted gray for metadata.
-- All normal text must retain WCAG AA contrast; screenshot density must not justify unreadable type.
+### Font
 
-### Geometry
+Use a compact neutral grotesk/system sans for the interface:
 
-- Content panels: square or nearly square, `0–2px` radius.
-- Buttons, pills, and status chips: `5–8px` radius or pill where appropriate.
-- Default border: `1px solid var(--color-border)`.
-- No floating-card shadows.
-- Use Tailwind utility classes as the primary styling mechanism; keep only global reset/theme and small Recharts overrides in CSS.
+```css
+font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+```
+
+Use a monospace stack only for addresses, tabular data, timestamps, and empty-state instructions:
+
+```css
+font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+```
+
+Type hierarchy:
+
+| Element | Size | Weight | Treatment |
+| --- | ---: | ---: | --- |
+| Dashboard title | 18–20px | 600–700 | plain, left aligned |
+| Section title | 14–16px | 600 | slab/header bar |
+| Panel title | 11–13px | 600 | compact, top-left |
+| Primary metric | 26–44px | 700–800 | tabular numerals |
+| Supporting label | 10–12px | 400–500 | readable muted gray |
+| Empty state | 10–12px | 400 | compact mono/sans |
+| Mobile body | 12–14px | 400–500 | never below 12px |
+
+Typography should feel technical and blunt, not decorative. Avoid rounded display fonts, excessive letter spacing, and all-monospace body copy.
 
 ## Layout
 
-### Desktop shell
+### Desktop frame
 
-At approximately `1280px`:
-
-- Max content width: `1145px` to `1180px`.
-- Outer horizontal padding: `16–32px` depending on viewport.
-- Header at the top, followed by a two-column dashboard grid.
-- Left column: approximately `32.5%` / `300–370px`.
-- Right column: remaining `67.5%`.
-- Grid gap: `16px`.
+- Use a wide edge-aligned shell with `16px` page gutter; do not over-center it in a narrow floating container.
+- Header is a shallow full-width slab, approximately `64–68px` tall.
+- Header and dashboard panels share the same left/right boundaries.
+- Header-to-grid and row gaps are `16–18px`.
 
 ```text
-header: title + metadata                         utility actions
+[Raiku Dashboard title + metadata]                 [utility controls]
 
-main grid:
-  left: identity panel
-        information panel
-  right: metric row (2fr 1fr 1fr)
-         main chart/result panel
+[Performance / analytics section bar]
 
-performance section: full width
+[summary card] [summary card] [summary card]
+
+[large chart/result panel 2fr] [narrow panel 1fr]
+
+[large chart/result panel 2fr] [narrow panel 1fr]
+
+[methodology / data / tables]
 ```
 
-### Left information column
+### Summary row
 
-Add a Raiku-specific `ProtocolInfo` component:
+Three equal cards: `grid-template-columns: repeat(3, minmax(0, 1fr))`, `16px` gap. Each has a compact top-left title, a centered metric/empty state, and a small source/freshness marker near the bottom-left.
 
-1. Identity panel: Raiku mark/name, charcoal surface, generous internal spacing, roughly `100px` desktop height.
-2. Information panel: short Raiku/rkuSOL explanation, methodology links, and data-source links. Use concise paragraphs rather than a copied protocol essay. It may grow naturally on mobile.
+### Analytical rows
 
-### Right analytics column
+Repeated `2fr 1fr` rows with identical gutters and aligned vertical rules. Adapt current data to this geometry:
 
-- Three compact summary/result cards in a `2fr 1fr 1fr` grid.
-- One large chart panel below spanning the full column.
-- Preserve the current Recharts data and interactions, but restyle chart grid, axis labels, tooltip, and series for the dark palette.
-- Empty and loading states should be centered and intentional, not blank.
+- Large left: points accrual / holder growth / total supply trend.
+- Narrow right: top-10 concentration / APY / coverage / latest snapshot.
+- Next row: top holders / new holders or another data-backed comparison.
+
+Do not invent fake metrics or fake “Run” behavior. If a chart has data, show it; if a panel is intentionally deferred, use an original empty message such as “Run analysis to populate this panel.”
 
 ### Performance section
 
-Add a full-width section heading and keep the existing insights/table content below it. The heading uses `surface-1`, compact padding, and a restrained `14px` title. Performance cards use the same flat panel system.
+Add a full-width `Performance` section bar using pale gray fill, solid black border, and compact title. Existing network insights, lookup, tables, and methodology become the content under this section, using the same rectangular panel system.
+
+## Panel anatomy and states
+
+Each panel keeps stable dimensions between states:
+
+1. Compact title in the top-left.
+2. Optional action/status at top-right.
+3. Main metric, chart, table, or centered empty state.
+4. Source/freshness/coverage marker near the bottom-left.
+
+Empty state rules:
+
+- Preserve panel height and border.
+- Center visible instruction text.
+- Use `role="status"`/`aria-live` where appropriate.
+- Never communicate empty data solely with whitespace.
+
+Loaded chart rules:
+
+- Black axes and rules.
+- One restrained blue series/accent.
+- Sparse straight grid lines.
+- Thick/blocky marks over soft gradients.
+- Tooltip and text summary remain available.
 
 ## Header and controls
 
-- Title: `Raiku Dashboard` / `rkuSOL Analytics`, compact `16–20px`, medium weight.
-- Metadata below: network, snapshot time, coverage/status.
-- Right actions: quiet icon/utility controls, share/export affordance if available, a `Data` control, and one light primary action for refresh/analyze.
-- Existing wallet lookup remains functional and is not replaced by a fake Run flow.
-- External links remain `target="_blank"` with `rel="noreferrer"`.
-- Icon-only controls require `aria-label`, visible focus, and a `44px` touch target on mobile.
-
-## Typography and density
-
-- Use a compact sans stack; use monospace only for addresses, numeric metadata, and chart empty-state copy.
-- Desktop metadata may be `10–12px`; mobile body text must be at least `12px`.
-- Labels use uppercase or tracked small caps sparingly.
-- Keep padding dense (`8–16px`) but preserve large chart whitespace.
-- Numbers use tabular numerals and consistent formatting.
+- Left: `Raiku Dashboard` / `rkuSOL Analytics`, timestamp, network, coverage.
+- Right: quiet utility controls, Data/source control, and a clear primary refresh/analyze action only when wired to real behavior.
+- Use rectangular outlined buttons; primary action is solid black with white text or accent-filled if needed.
+- Icon-only buttons need accessible labels, visible focus, and 44px touch targets.
+- Existing lookup and external links remain functional; no fake controls.
 
 ## Responsive behavior
 
-- `>=1024px`: two-column shell, metric row `2fr 1fr 1fr`, full-width performance grid.
-- `768–1023px`: reduce margins, allow header actions to wrap, collapse metric row if chart would become too narrow.
-- `<768px`: one-column order: header, primary actions, identity/info, metrics, chart, performance, tables.
-- `<420px`: stack all metric cards and buttons; body text `12–14px`; no accidental horizontal overflow.
-- Data tables may use intentional horizontal scrolling; the shell must not.
-- Use `prefers-reduced-motion` and avoid animated transitions that communicate essential data.
+- `>=1024px`: three equal summary cards, repeated `2fr 1fr` rows.
+- `768–1023px`: reduce gutter/padding; summary can become two columns; retain chart split when readable.
+- `<700px`: all grids become one column; summary, large panel, narrow panel stack in data order.
+- `<420px`: full-width buttons, 12–14px body text, no shell overflow; only tables may scroll horizontally.
+- Notice bar stacks text/actions on mobile.
+- Respect `prefers-reduced-motion`.
 
-## Tailwind migration boundary
+## Tailwind boundary
 
-- Add Tailwind v4 using `tailwindcss` and `@tailwindcss/vite`.
-- Add the Vite Tailwind plugin.
-- Replace the current large global component stylesheet with Tailwind utility classes in React components and a small `global.css` containing the Tailwind import, base reset, CSS theme tokens, focus/reduced-motion rules, and Recharts-specific selectors.
-- Keep components modular: `AppShell`, `TopBar`, `ProtocolInfo`, `MetricCard`, `MetricGroup`, chart cards, lookup, tables, and methodology note.
-- Do not migrate data-pipeline scripts or change the JSON contract.
-- Do not add another UI framework.
-
-## Accessibility and states
-
-- Keep semantic `header`, `main`, `aside`, `section`, `table`, and heading hierarchy.
-- Loading, empty, and error chart states use visible text plus `role="status"`/`aria-live` where appropriate.
-- Focus rings must be visible against the dark canvas.
-- Chart colors cannot be the only differentiator; labels/tooltips remain available.
-- Clipboard fallback and retry behavior remain covered.
+- Add Tailwind v4 and `@tailwindcss/vite`.
+- Use Tailwind utilities for component layout, surfaces, spacing, borders, typography, responsive behavior, and states.
+- Keep `global.css` small: Tailwind import, base reset, theme variables, focus/reduced-motion rules, and Recharts selectors only.
+- Keep components modular: `AppShell`, `TopBar`, `ProtocolInfo`, `MetricCard`, `MetricGroup`, chart cards, lookup, tables, methodology/notice.
+- Do not change snapshot JSON or data-pipeline scripts.
 
 ## Acceptance criteria
 
-1. The rendered desktop layout visibly follows the screenshot's dark protocol-dashboard structure: header, left info column, right metric/chart column, performance section.
-2. Panels are flat charcoal/black with thin borders and minimal radius; no white dashboard cards remain.
-3. Tailwind v4 is active in the Vite build and the large light-theme stylesheet is removed/reduced to base/theme/chart rules.
-4. Existing data, lookup, chart, table, and external-link behavior remains functional.
-5. Mobile collapses without horizontal shell overflow and preserves primary controls.
-6. Tests and production build pass.
-7. Browser QA confirms no runtime console errors and the app visibly renders the dark redesign.
+1. Desktop visibly matches the screenshot's brutalist geometry: shallow section bar, three-card row, repeated `2fr 1fr` analytical rows, rigid borders, large empty/chart fields.
+2. Background is white/off-white; no dark-theme canvas remains.
+3. Tailwind v4 is active in Vite and the old large light-theme CSS is reduced to base/theme/chart rules.
+4. Existing charts, data, lookup, tables, links, loading/error states, and snapshot behavior remain functional.
+5. Mobile stacks cleanly with readable type and no shell overflow.
+6. Tests, build, and browser QA pass with no runtime console errors.

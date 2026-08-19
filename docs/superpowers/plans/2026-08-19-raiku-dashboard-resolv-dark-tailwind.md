@@ -1,325 +1,192 @@
-# Raiku Resolv-Style Dark Tailwind Migration Implementation Plan
+# Raiku White Brutalist Tailwind Migration Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Restyle the existing React/Vite Raiku dashboard into a dark Resolv-inspired protocol analytics layout and migrate the UI styling to Tailwind v4 without changing the data pipeline or snapshot contract.
+**Goal:** Convert the existing Raiku React/Vite dashboard into a white brutalist analytics matrix matching the supplied Performance screenshot's geometry, typography, panel states, and repeated chart rows while migrating UI styling to Tailwind v4.
 
-**Architecture:** Keep the existing React component/data boundaries and Recharts data flow. Add Tailwind v4 through `@tailwindcss/vite`; use utility classes in components for layout and surfaces, with a small `global.css` for Tailwind import, base tokens, focus/reduced-motion rules, and Recharts selectors. Add a dedicated `ProtocolInfo` component and compose the dashboard as a header plus one-third/two-thirds grid.
+**Architecture:** Preserve the current snapshot/data contract and component boundaries. Add Tailwind v4 through `@tailwindcss/vite`; move layout/surfaces/typography/responsive styles into component utility classes; retain only base tokens, focus/reduced-motion rules, and Recharts selectors in `global.css`. Add a dedicated `ProtocolInfo` component and compose summary cards plus repeated `2fr 1fr` analytical rows.
 
 **Tech Stack:** React, Vite, Tailwind CSS v4, `@tailwindcss/vite`, Recharts, Vitest, Testing Library.
 
-## Global Constraints
+## Global constraints
 
-- Canvas is near-black: `#0d0e0c`; surfaces are flat charcoal; no gradients or card shadows.
-- Panels use `1px` subtle borders and `0–2px` radius; controls may use `5–8px` radius.
-- Desktop shell is approximately `1145–1180px`; primary grid is `32.5% / 67.5%` with `16px` gap.
-- Right metrics use `2fr 1fr 1fr`; one large chart panel follows.
-- Mobile collapses to one column; body text remains at least `12px`.
-- Existing snapshot JSON, data utilities, lookup, tables, links, and chart data remain compatible.
-- Normal text and controls must meet WCAG AA contrast; visible keyboard focus is required.
-- Do not copy Resolv branding, logos, text, author names, or metric meanings.
-- Do not change data-pipeline scripts under `src/*.mjs` except if a build configuration requires no change; this plan is UI-only.
+- Page background: `#f4f3ef` or white; never near-black.
+- Panels: `#ffffff`/`#e8e7e2`, solid `1px` near-black rules, no gradients, no shadows, `0–2px` radius.
+- Font: Inter/system grotesk; monospace only for addresses, tabular data, timestamps, and empty states.
+- Desktop: shallow header/section slabs, three equal summary cards, repeated `2fr 1fr` rows, `16px` gaps.
+- Mobile: one column, body text at least `12px`, no shell overflow.
+- Keep charts, lookup, tables, links, snapshot loading/error behavior, and `public/data/dashboard.json` unchanged semantically.
+- Do not copy the source screenshot's brand, logo, author, or wording.
+- Do not modify data pipeline scripts under `src/*.mjs`.
 
 ---
 
-### Task 1: Add Tailwind v4 and replace the light theme foundation
+### Task 1: Tailwind v4 foundation and white brutalist tokens
 
-**Files:**
-- Modify: `package.json`
-- Modify: `package-lock.json`
-- Modify: `vite.config.js`
-- Modify: `src/styles/tokens.css`
-- Modify: `src/styles/global.css`
-- Test: existing `src/app/App.test.jsx`, `src/app/data.test.js`
+**Files:** `package.json`, `package-lock.json`, `vite.config.js`, `src/styles/tokens.css`, `src/styles/global.css`.
 
-**Interfaces:**
-- Vite continues to load `src/app/main.jsx`.
-- Existing component class names may remain temporarily while Tasks 2–4 migrate them; no component should lose its current behavior.
-
-- [ ] **Step 1: Add Tailwind dependencies**
-
-Run from the isolated worktree:
+- [ ] Install dependencies:
 
 ```bash
 npm install -D tailwindcss @tailwindcss/vite
 ```
 
-Expected: `package.json` and `package-lock.json` include both packages; no unrelated dependency removal.
-
-- [ ] **Step 2: Register the Vite plugin**
-
-Update `vite.config.js` so the plugin list is:
+- [ ] Register the plugin:
 
 ```js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  test: {
-    environment: 'jsdom',
-    exclude: ['**/node_modules/**', 'src/build_snapshot.test.mjs'],
-  },
+  test: { environment: 'jsdom', exclude: ['**/node_modules/**', 'src/build_snapshot.test.mjs'] },
 });
 ```
 
-- [ ] **Step 3: Define dark design tokens**
-
-Replace the light values in `src/styles/tokens.css` with the exact design values from the spec: canvas `#0d0e0c`, surface values `#1c1d1b`, `#111210`, `#20211f`, border values `#292a27` and `#353632`, warm primary text, muted secondary text, blue accent, button-light colors, radius, and easing variables.
-
-- [ ] **Step 4: Replace the large light component stylesheet**
-
-Rewrite `src/styles/global.css` to contain:
+- [ ] Replace light/dark legacy tokens with:
 
 ```css
-@import "tailwindcss";
-
-@layer base {
-  :root { color-scheme: dark; }
-  * { box-sizing: border-box; }
-  html { min-width: 320px; background: #0d0e0c; }
-  body { min-width: 320px; min-height: 100vh; margin: 0; background: #0d0e0c; color: #e5e5e2; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
-  button, input { font: inherit; }
-  :focus-visible { outline: 2px solid #8198ff; outline-offset: 2px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+:root {
+  --page: #f4f3ef;
+  --surface: #ffffff;
+  --surface-muted: #e8e7e2;
+  --ink: #111111;
+  --muted: #66645f;
+  --rule: #171717;
+  --accent: #3458d4;
+  --gap: 16px;
+  --radius: 0px;
 }
 ```
 
-Keep only small compatibility selectors needed by Recharts and any not-yet-migrated component during the transition. Do not preserve the old light card gradients or shadows.
+- [ ] Replace the large legacy stylesheet with `@import "tailwindcss"`, base reset, `color-scheme: light`, system font stack, visible focus ring, reduced-motion rule, and Recharts-only selectors. Remove old dark canvas, gradients, shadows, and large semantic card stylesheet.
 
-- [ ] **Step 5: Run the foundation gate**
+- [ ] Verify:
 
 ```bash
 npm test -- --run
 npm run build
 ```
 
-Expected: existing tests pass and Vite recognizes Tailwind without CSS processing errors.
-
-- [ ] **Step 6: Commit**
+- [ ] Commit:
 
 ```bash
 git add package.json package-lock.json vite.config.js src/styles/tokens.css src/styles/global.css
-git commit -m "chore: add tailwind dark dashboard foundation"
+git commit -m "chore: add tailwind white brutalist foundation"
 ```
 
 ---
 
-### Task 2: Build the dark shell, header, and left protocol information column
+### Task 2: Header slab, shell grid, and Raiku protocol information
 
-**Files:**
-- Create: `src/app/components/ProtocolInfo.jsx`
-- Modify: `src/app/components/AppShell.jsx`
-- Modify: `src/app/components/TopBar.jsx`
-- Modify: `src/app/App.jsx`
-- Modify: `src/app/App.test.jsx`
+**Files:** create `src/app/components/ProtocolInfo.jsx`; modify `AppShell.jsx`, `TopBar.jsx`, `App.jsx`, `App.test.jsx`.
 
-**Interfaces:**
-- `ProtocolInfo({ snapshot }) -> JSX` renders a semantic `<aside>` with identity and information panels.
-- `AppShell({ children }) -> JSX` remains the top-level page wrapper and must retain `.app-shell` and `.app-shell--white` test-compatible classes only if existing tests still assert them; the visual class may be renamed after tests are updated.
-- `TopBar({ snapshot }) -> JSX` retains the current Solscan link and timestamp behavior.
+- [ ] Add a failing test for `role="complementary"` named `Raiku protocol information`, then run `npm test -- --run src/app/App.test.jsx` and confirm it fails.
 
-- [ ] **Step 1: Add failing shell assertions**
+- [ ] Implement `ProtocolInfo({ snapshot })`:
+  - semantic `<aside aria-label="Raiku protocol information">`;
+  - identity slab containing Raiku/rkuSOL Analytics;
+  - concise original copy about rkuSOL holders, estimated points, and on-chain sources;
+  - underlined Solscan/methodology links;
+  - Tailwind utilities: `bg-white border border-[#171717] rounded-none p-5 text-[#111]`.
 
-Extend `src/app/App.test.jsx` with assertions for:
+- [ ] Make `AppShell` a white brutalist page wrapper with `min-h-screen bg-[#f4f3ef] text-[#111]`, `mx-auto w-full px-3 sm:px-4 lg:px-6`, and no shadow.
 
-```js
-expect(screen.getByRole('complementary', { name: /raiku protocol/i })).toBeInTheDocument();
-expect(screen.getByText('Raiku')).toBeInTheDocument();
-expect(screen.getByRole('heading', { name: /network insights/i })).toBeInTheDocument();
-```
-
-Run:
-
-```bash
-npm test -- --run src/app/App.test.jsx
-```
-
-Expected: the new complementary region assertion fails because `ProtocolInfo` does not exist yet.
-
-- [ ] **Step 2: Implement the shell grid**
-
-`AppShell.jsx` should use Tailwind utilities similar to:
+- [ ] In `App.jsx`, keep `TopBar` first, then compose:
 
 ```jsx
-export default function AppShell({ children }) {
-  return (
-    <div className="app-shell min-h-screen bg-[#0d0e0c] text-[#e5e5e2]">
-      <div className="mx-auto w-full max-w-[1180px] px-3 py-4 sm:px-5 lg:px-8">
-        {children}
-      </div>
-    </div>
-  );
-}
-```
-
-- [ ] **Step 3: Add `ProtocolInfo.jsx`**
-
-Use an `<aside aria-label="Raiku protocol information">` with two flat panels:
-
-- Identity: Raiku mark/name and `rkuSOL Analytics`.
-- Information: two or three concise paragraphs explaining rkuSOL, estimated points, data sources, and links to Solscan/methodology.
-
-Use classes with `bg-[#1c1d1b]`, `border border-[#292a27]`, `rounded-[2px]`, `p-5`, `text-[#a8aaa5]`, and underlined links. Avoid copied Resolv text.
-
-- [ ] **Step 4: Restructure the success layout**
-
-In `App.jsx`, keep `TopBar` above the content and wrap the content after it with:
-
-```jsx
-<div className="mt-4 grid gap-4 lg:grid-cols-[minmax(280px,0.485fr)_minmax(0,1fr)]">
+<div className="mt-4 grid gap-4 lg:grid-cols-[minmax(280px,0.5fr)_minmax(0,1fr)]">
   <ProtocolInfo snapshot={snapshot} />
   <main className="app-main min-w-0" aria-busy="false">...</main>
 </div>
 ```
 
-Keep loading/error states full-width and centered using utilities.
+- [ ] Restyle `TopBar` as a shallow full-width slab with title/meta left and compact outlined actions right; retain Solscan link/timestamp and accessible labels.
 
-- [ ] **Step 5: Restyle `TopBar` with utilities**
-
-Use a compact header: title/meta left, utility actions right. Preserve Solscan behavior and add a light `Analyze`/`Refresh` button only if it is wired to an existing behavior; otherwise use a non-action status element rather than a fake button. Ensure utility controls have accessible labels and focus states.
-
-- [ ] **Step 6: Verify and commit**
+- [ ] Verify tests/build, then commit:
 
 ```bash
 npm test -- --run
 npm run build
-
 git add src/app/App.jsx src/app/App.test.jsx src/app/components/AppShell.jsx src/app/components/TopBar.jsx src/app/components/ProtocolInfo.jsx
-git commit -m "feat: add dark protocol dashboard shell"
+git commit -m "feat: add white brutalist dashboard shell"
 ```
 
 ---
 
-### Task 3: Migrate metrics, header, cards, charts, and empty states to Tailwind
+### Task 3: Summary cards, repeated analytical rows, and font treatment
 
-**Files:**
-- Modify: `src/app/components/DashboardHeader.jsx`
-- Modify: `src/app/components/MetricCard.jsx`
-- Modify: `src/app/components/MetricGroup.jsx`
-- Modify: `src/app/components/ChartCard.jsx`
-- Modify: `src/app/components/PointsAccrualChart.jsx`
-- Modify: `src/app/components/HolderGrowthChart.jsx`
-- Modify: `src/app/components/InsightGrid.jsx`
-- Modify: `src/app/components/DistributionCard.jsx`
-- Modify: `src/app/components/TopHoldersCard.jsx`
-- Modify: `src/app/components/NewHoldersCard.jsx`
-- Modify: `src/app/components/insights.test.jsx`
+**Files:** `DashboardHeader.jsx`, `MetricCard.jsx`, `MetricGroup.jsx`, `ChartCard.jsx`, `PointsAccrualChart.jsx`, `HolderGrowthChart.jsx`, `InsightGrid.jsx`, `DistributionCard.jsx`, `TopHoldersCard.jsx`, `NewHoldersCard.jsx`, `insights.test.jsx`.
 
-**Interfaces:**
-- Existing props stay unchanged: `snapshot`, `data`, `rows`, `primary`, `secondary`.
-- Recharts keeps the same data keys: `points`, `holders`, and `label`.
+- [ ] Add tests for rectangular bordered cards, `Network insights`, and chart regions.
 
-- [ ] **Step 1: Add visual contract tests**
-
-Extend `insights.test.jsx` to assert:
-
-```js
-expect(document.querySelector('.chart-card')).toHaveClass('border');
-expect(screen.getByRole('region', { name: /points accrual/i })).toBeInTheDocument();
-expect(screen.getByText(/top 10/i)).toBeInTheDocument();
-```
-
-- [ ] **Step 2: Migrate metric/header components**
-
-Use utility classes for:
-
-- Header title: compact `text-base`/`sm:text-lg`, not the previous oversized hero.
-- Search: dark input, subtle border, blue focus ring, compact action button.
-- Metric cards: `min-h-[100px]`, `border border-[#292a27]`, `bg-[#111210]`, `rounded-[2px]`, `p-2`, compact label, centered body where appropriate.
-- Metric grid: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]`.
-- Numeric values: `tabular-nums font-mono` where appropriate.
-
-- [ ] **Step 3: Migrate chart cards**
-
-`ChartCard` should render a flat dark panel with a compact header and `min-h-[300px]`. `PointsAccrualChart` and `HolderGrowthChart` should update Recharts colors:
+- [ ] Migrate `MetricGroup` to a summary grid:
 
 ```jsx
-<CartesianGrid stroke="#292a27" vertical={false} />
-<XAxis tick={{ fill: '#737570', fontSize: 10 }} />
-<YAxis tick={{ fill: '#737570', fontSize: 10 }} />
-<Tooltip contentStyle={{ background: '#20211f', border: '1px solid #353632', color: '#e5e5e2' }} />
+<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">...</div>
 ```
 
-Use blue for points and a restrained secondary accent for holders; do not add gradients.
+Use three equal cards in the top summary band; keep existing data-driven metrics, regrouping only presentation. `MetricCard` uses `min-h-[108px] border border-[#171717] bg-white rounded-none p-3` with compact top-left label, tabular numeric value, and bottom source/detail.
 
-- [ ] **Step 4: Migrate insight cards**
+- [ ] Make `ChartCard` a stable result panel: `min-h-[280px] border border-[#171717] bg-white rounded-none p-2`; title top-left, status/action top-right, chart/empty message centered, source line bottom-left.
 
-Apply the same flat panel classes to distribution, top-holder, and new-holder cards. Keep labels, rows, links, and values readable. Remove rounded white-card assumptions.
+- [ ] Make `InsightGrid` use repeated rows:
 
-- [ ] **Step 5: Verify and commit**
+```jsx
+<div className="grid gap-4 lg:grid-cols-[2fr_1fr]">...</div>
+<div className="grid gap-4 lg:grid-cols-[2fr_1fr]">...</div>
+```
+
+Map current data to these rows: large points/holder charts; narrow distribution/coverage; then large top-holder/new-holder panels with a narrow methodology/status panel.
+
+- [ ] Use restrained brutalist chart styling:
+
+```jsx
+<CartesianGrid stroke="#d2d0ca" vertical={false} />
+<XAxis tick={{ fill: '#66645f', fontSize: 10 }} />
+<YAxis tick={{ fill: '#66645f', fontSize: 10 }} />
+<Tooltip contentStyle={{ background: '#ffffff', border: '1px solid #171717', color: '#111111', borderRadius: 0 }} />
+```
+
+No gradients, glow, or decorative fills.
+
+- [ ] Verify and commit:
 
 ```bash
 npm test -- --run
 npm run build
-
 git add src/app/components
- git commit -m "feat: migrate dashboard analytics to tailwind dark surfaces"
+git commit -m "feat: build brutalist metric and chart matrix"
 ```
 
 ---
 
-### Task 4: Migrate lookup, tables, methodology, and responsive behavior
+### Task 4: Performance section, lookup, tables, and notice treatment
 
-**Files:**
-- Modify: `src/app/components/WalletSearch.jsx`
-- Modify: `src/app/components/DataSection.jsx`
-- Modify: `src/app/components/HoldersTable.jsx`
-- Modify: `src/app/components/PointsTable.jsx`
-- Modify: `src/app/components/MethodologyNote.jsx`
-- Modify: `src/app/components/data-section.test.jsx`
-- Modify: `src/app/App.test.jsx`
+**Files:** `WalletSearch.jsx`, `DataSection.jsx`, `HoldersTable.jsx`, `PointsTable.jsx`, `MethodologyNote.jsx`, `App.jsx`, `data-section.test.jsx`, `App.test.jsx`.
 
-**Interfaces:**
-- `WalletSearch({ rows })` retains exact matching behavior and not-found status.
-- `DataSection({ rows })` retains filter, tabs, and row count.
-- Table rows continue to use existing `realRows` fields.
+- [ ] Add a full-width `Performance` section slab above the insight/data area with `bg-[#e8e7e2] border-y-2 border-[#171717] px-2 py-3` and a `14–16px` heading.
 
-- [ ] **Step 1: Add responsive and dark-surface assertions**
+- [ ] Keep lookup behavior unchanged while restyling inputs/buttons as rectangular white/gray controls with black borders, visible focus, and black primary button.
 
-Add DOM assertions for:
+- [ ] Restyle table wrappers as intentional horizontal scroll regions: white surface, black border, compact headers, black dividers, mono/tabular numeric cells, blue underlined external links.
 
-```js
-expect(screen.getByRole('table')).toBeInTheDocument();
-expect(screen.getByRole('tablist')).toBeInTheDocument();
-expect(screen.getByRole('textbox', { name: /wallet address/i })).toBeInTheDocument();
-```
+- [ ] Keep the methodology/source note as a rectangular panel with readable 12px mobile body text.
 
-- [ ] **Step 2: Migrate lookup and tabs**
+- [ ] Add an optional dismissible `NoticeBar` only if a real consent/status requirement exists; do not add fake cookie consent just to mimic the screenshot. If added, use a fixed bottom white panel with black border, outlined secondary action, solid black primary action, and mobile stacking.
 
-Use dark inputs (`bg-[#111210]`, `text-[#e5e5e2]`, `placeholder:text-[#737570]`, `border-[#353632]`) and light primary action for the main lookup button only where appropriate. Keep result cards flat and compact.
-
-- [ ] **Step 3: Migrate table styling**
-
-Use a scroll wrapper with `overflow-x-auto`, dark table surface, thin row dividers, muted uppercase headers, tabular numeric cells, and blue underlined address links. Do not cause the overall page to overflow horizontally.
-
-- [ ] **Step 4: Migrate methodology and responsive classes**
-
-Use a full-width `Performance`/methodology section heading with `bg-[#1c1d1b]`, then stack to one column below `768px`. Keep body copy at least `12px` on mobile.
-
-- [ ] **Step 5: Verify and commit**
+- [ ] Verify lookup, tabs, filter, table, and notice accessibility tests, then commit:
 
 ```bash
 npm test -- --run
 npm run build
-
-git add src/app/components src/app/App.test.jsx
-git commit -m "feat: polish dark lookup and data surfaces"
+git add src/app src/styles
+git commit -m "feat: align performance and data panels"
 ```
 
 ---
 
-### Task 5: Final browser QA, accessibility checks, and deployment verification
+### Task 5: Responsive/browser QA and final verification
 
-**Files:**
-- Modify: `README.md` only if Tailwind/Vercel setup documentation is missing.
-- No data-pipeline source changes.
-
-- [ ] **Step 1: Run complete test/build gates**
+- [ ] Run complete gates:
 
 ```bash
 npm run test:all
@@ -327,41 +194,30 @@ npm run build
 git diff --check HEAD
 ```
 
-Expected: all Vitest tests pass, Node snapshot test passes, Vite build passes, and diff check is clean.
-
-- [ ] **Step 2: Run the local app for browser QA**
+- [ ] Run Vite locally:
 
 ```bash
 npm run dev -- --host 127.0.0.1 --port 8766
 ```
 
-Open `http://127.0.0.1:8766/` and verify:
+- [ ] Browser-check desktop and mobile:
+  - warm white canvas;
+  - shallow title/performance slabs;
+  - three equal summary cards;
+  - repeated `2fr 1fr` panel rows;
+  - rigid black rules and no rounded SaaS cards;
+  - readable compact grotesk font and mono data/helper text;
+  - charts/lookup/tables still work;
+  - no shell horizontal overflow;
+  - no console errors.
 
-- dark canvas and charcoal panels are visible;
-- header actions are aligned;
-- left protocol info and right metrics/chart grid appear at desktop width;
-- performance/data section follows without white surfaces;
-- chart tooltips and lookup still work;
-- mobile viewport stacks the layout without shell overflow;
-- no console errors occur.
+- [ ] Scan active UI source for stale dark tokens, gradients, shadows, and `transition: all`; confirm Tailwind package/plugin are present.
 
-- [ ] **Step 3: Check the Tailwind migration boundary**
-
-Run a source scan limited to UI files and confirm:
-
-```text
-No light-theme values such as #ffffff backgrounds remain in active UI component classes.
-No transition: all remains.
-Tailwind package and @tailwindcss/vite plugin are present.
-```
-
-- [ ] **Step 4: Commit any final docs/QA fixes**
+- [ ] Commit final QA fixes:
 
 ```bash
-git add README.md src/app src/styles package.json package-lock.json vite.config.js
-git commit -m "chore: verify dark tailwind dashboard release"
+git add package.json package-lock.json vite.config.js src/app src/styles README.md
+git commit -m "chore: verify white brutalist tailwind dashboard"
 ```
 
-- [ ] **Step 5: Deployment check**
-
-Push the completed branch to the configured Vercel-connected branch only after the local gates pass. Verify the deployed page title and presence of `Raiku Dashboard`, `Network insights`, and the dark canvas; do not claim deployment success from a local build alone.
+- [ ] Only after all local gates pass, push the Vercel-connected branch and verify the deployed title and visible white brutalist layout. Do not claim deployment success from local build output alone.
