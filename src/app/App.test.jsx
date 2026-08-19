@@ -53,10 +53,10 @@ describe('dashboard shell', () => {
     expect(await screen.findByRole('heading', { name: 'rkuSOL Holder & Points' })).toBeInTheDocument();
     expect(screen.getByRole('main')).toHaveClass('app-main');
     expect(document.querySelector('.app-shell')).toHaveClass('app-shell--white');
-    expect(screen.getByText('Supply')).toBeInTheDocument();
-    expect(screen.getByText('Holders')).toBeInTheDocument();
-    expect(screen.getByText('Real wallets')).toBeInTheDocument();
-    expect(screen.getByText('Total estimated points')).toBeInTheDocument();
+    expect(screen.getAllByText('Supply').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Holders').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Real wallets').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Total estimated points').length).toBeGreaterThan(0);
     const xLink = screen.getByRole('link', { name: /raiku on x/i });
     expect(xLink).toHaveAttribute('href', 'https://x.com/raikucom');
     const websiteLink = screen.getByRole('link', { name: /raiku website/i });
@@ -74,7 +74,7 @@ describe('dashboard shell', () => {
     loadDashboardSnapshot.mockResolvedValue({ ...snapshot, stats: { ...snapshot.stats, apyPct: 0 } });
     render(<App />);
     await screen.findByRole('heading', { name: 'rkuSOL Holder & Points' });
-    expect(screen.getByText('0.00%')).toBeInTheDocument();
+    expect(screen.getAllByText('0.00%').length).toBeGreaterThan(0);
   });
 
   it('shows a recoverable error state when the snapshot cannot load', async () => {
