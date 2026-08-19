@@ -1,5 +1,10 @@
 # Node
 node_modules/
+dist/
+.vite/
+
+# Isolated implementation worktrees
+.worktrees/
 
 # RPC state / temp crawl files
 data/*_state.json

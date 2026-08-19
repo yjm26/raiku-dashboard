@@ -1,12 +1,14 @@
 import fs from 'node:fs';
+import path from 'node:path';
+import { p, ROOT } from './paths.mjs';
 
-// rkuSOL Dashboard — Dune-style (https://dune.com/saul/resolv-labs-dashboard)
+// rkuSOL Dashboard — Dune-style
 // Dark theme, blue accent, KPI row, query-panel grid, tabbed queries.
 
-const holdersData = JSON.parse(fs.readFileSync('C:/Deepseek-workspace/raiku-github/data/holders_full.json', 'utf8'));
-const firstSeenData = JSON.parse(fs.readFileSync('C:/Deepseek-workspace/raiku-github/data/firstseen.json', 'utf8'));
+const holdersData = JSON.parse(fs.readFileSync(p('holders_full.json'), 'utf8'));
+const firstSeenData = JSON.parse(fs.readFileSync(p('firstseen.json'), 'utf8'));
 let pdaLabels = {};
-try { pdaLabels = JSON.parse(fs.readFileSync('C:/Deepseek-workspace/raiku-github/data/pda_labels.json', 'utf8')); } catch {}
+try { pdaLabels = JSON.parse(fs.readFileSync(p('pda_labels.json'), 'utf8')); } catch {}
 
 const NOW = Date.now();
 const DAY = 86400000;
@@ -431,7 +433,9 @@ document.getElementById("addrInput").addEventListener("keydown", e => { if (e.ke
 </body>
 </html>`;
 
-fs.writeFileSync('C:/Deepseek-workspace/raiku-github/dashboard.html', html, 'utf8');
-fs.writeFileSync('C:/Deepseek-workspace/raiku-github/index.html', html, 'utf8');
-console.log('Dune-style dashboard generated:', fs.statSync('C:/Deepseek-workspace/raiku-github/dashboard.html').size, 'bytes');
+const outHtml = path.join(ROOT, 'dashboard.html');
+const outIndex = path.join(ROOT, 'index.html');
+fs.writeFileSync(outHtml, html, 'utf8');
+fs.writeFileSync(outIndex, html, 'utf8');
+console.log('Dune-style dashboard generated:', fs.statSync(outHtml).size, 'bytes');
 console.log('  real wallets:', realWallets, '| total pts:', Math.round(totalPoints).toLocaleString(), '| daily:', Math.round(dailyPoints).toLocaleString());

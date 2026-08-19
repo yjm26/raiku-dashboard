@@ -1,0 +1,1 @@
+export function searchWallet(rows = [], query = '') { const normalized = query.trim().toLowerCase(); if (!normalized) return null; return rows.find((row) => String(row.owner).toLowerCase() === normalized) || null; }

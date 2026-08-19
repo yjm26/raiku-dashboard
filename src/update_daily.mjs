@@ -1,9 +1,9 @@
 import fs from 'node:fs';
-import { rpc, sleep } from './rpc.mjs';
+import { sleep } from './rpc.mjs';
 import { p, SRC } from './paths.mjs';
 
 // Daily update: refresh balances (1 RPC call), reuse cached firstSeen (never changes),
-// regenerate dashboard. Run: node update_daily.mjs
+// regenerate public/data/dashboard.json. Run: node src/update_daily.mjs
 
 const MINT = 'rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp';
 const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';

@@ -3,8 +3,26 @@
 Dashboard ala Dune untuk token **rkuSOL** (Raiku Liquid Staking) di Solana.
 
 - **Mint:** `rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp`
-- **Output:** `dashboard.html` — buka langsung di browser (self-contained + Chart.js dari CDN)
+- **Output data:** `public/data/dashboard.json` — snapshot ter-normalisasi yang dibaca aplikasi React
+- **Build output:** `dist/` — static Vite site untuk deployment
 - **Data:** on-chain (Solana RPC) + Raiku official API (`staking-api.mainnet.raiku.sh`)
+- **App:** React/Vite static dashboard with a white Dune-style analytics UI
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Production build and preview:
+
+```bash
+npm run build
+npm run preview
+```
+
+The generated site is in `dist/`. Vercel can deploy this repository directly from `main` using the Vite build command `npm run build` and output directory `dist`.
 
 ## Fitur
 
@@ -43,35 +61,43 @@ fetch_holders.mjs       → getProgramAccounts (dataSlice + dataSize + memcmp) �
 crawl_firstseen.mjs     → per wallet asli: getTokenAccountsByOwner + getSignaturesForAddress(account)
                           → first acquisition (cached di data/firstseen.json — TIDAK berubah)
 classify_pda.mjs        → program owner tiap PDA → label (Sanctum dkk)
-generate_dashboard.mjs  → gabungkan semua → dashboard.html
-update_daily.mjs        → update harian: fetch balance ulang + regenerate (firstSeen reuse)
+generate_dashboard3.mjs  → gabungkan semua → public/data/dashboard.json
+update_daily.mjs          → update harian: fetch balance ulang + regenerate snapshot (firstSeen reuse)
+npm run build             → Vite build terpisah → dist/
 ```
 
 ## Update Harian
 
-```powershell
-node update_daily.mjs
+Refresh data dan buat snapshot, lalu jalankan build Vite sebagai langkah terpisah:
+
+```bash
+node src/update_daily.mjs
+npm run build
 ```
+
+Untuk hanya membangun snapshot dari data yang sudah tersimpan, jalankan `node src/generate_dashboard3.mjs`. Generator menulis `public/data/dashboard.json` dan tidak lagi menghasilkan HTML.
 
 Hanya perlu **1 panggilan RPC berat** (`getProgramAccounts`) + regenerate — cepat. FirstSeen tidak perlu di-crawl ulang (sejarah tidak berubah). Jadwalkan via Task Scheduler / cron.
 
 ## Struktur Repo
 
 ```
-├── dashboard.html          ← hasil akhir (buka di browser)
 ├── README.md
+├── public/data/dashboard.json ← snapshot ter-normalisasi untuk Vite/React
 ├── src/
-│   ├── rpc.mjs             ← RPC helper (multi-endpoint, retry)
-│   ├── fetch_holders.mjs   ← ambil semua holder + klasifikasi + Raiku stats
-│   ├── crawl_firstseen.mjs ← first acquisition per wallet (sekali saja)
-│   ├── classify_pda.mjs    ← label program owner PDA
-│   ├── generate_dashboard.mjs
-│   └── update_daily.mjs
+│   ├── paths.mjs             ← repository-relative paths
+│   ├── build_snapshot.mjs     ← pure deterministic snapshot calculations
+│   ├── generate_dashboard3.mjs← write public/data/dashboard.json
+│   ├── rpc.mjs               ← RPC helper (multi-endpoint, retry)
+│   ├── fetch_holders.mjs     ← ambil semua holder + klasifikasi + Raiku stats
+│   ├── crawl_firstseen.mjs   ← first acquisition per wallet (sekali saja)
+│   ├── classify_pda.mjs      ← label program owner PDA
+│   └── update_daily.mjs      ← refresh data + regenerate snapshot
 └── data/
-    ├── holders_full.json   ← snapshot holder terakhir
-    ├── firstseen.json      ← cache first acquisition
-    ├── pda_labels.json     ← label PDA
-    └── *.json              ← hasil antara
+    ├── holders_full.json     ← snapshot holder terakhir
+    ├── firstseen.json        ← cache first acquisition
+    ├── pda_labels.json       ← label PDA
+    └── *.json                ← hasil antara
 ```
 
 ## Catatan Teknis
