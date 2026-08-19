@@ -8,7 +8,6 @@ import ProtocolInfo from './components/ProtocolInfo.jsx';
 import InsightGrid from './components/InsightGrid.jsx';
 import WalletSearch from './components/WalletSearch.jsx';
 import DataSection from './components/DataSection.jsx';
-import MethodologyNote from './components/MethodologyNote.jsx';
 import ApyCalculator from './components/ApyCalculator.jsx';
 import FaqSection from './components/FaqSection.jsx';
 
