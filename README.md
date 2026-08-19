@@ -1,58 +1,74 @@
 # rkuSOL Holder & Points Dashboard
 
-Dashboard ala Dune untuk token **rkuSOL** (Raiku Liquid Staking) di Solana.
+Dune-style analytics dashboard untuk **rkuSOL** — liquid staking token dari [Raiku](https://raiku.com/stake), Solana validator client yang mengoptimalkan AOT compute reservations & JIT MEV bundle processing.
 
-- **Mint:** `rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp`
-- **Output data:** `public/data/dashboard.json` — snapshot ter-normalisasi yang dibaca aplikasi React
-- **Build output:** `dist/` — static Vite site untuk deployment
-- **Data:** on-chain (Solana RPC) + Raiku official API (`staking-api.mainnet.raiku.sh`)
-- **App:** React/Vite static dashboard with a white Dune-style analytics UI
+**Live:** [raiku-dashboard.vercel.app](https://raiku-dashboard.vercel.app)
 
-## Local development
+![token](https://img.shields.io/badge/token-rkuSOL-01ffd9)
+![solana](https://img.shields.io/badge/chain-Solana-9945FF)
+![stack](https://img.shields.io/badge/stack-React%2FVite-lightgrey)
+
+---
+
+## Apa ini?
+
+Dashboard publik yang menampilkan:
+
+- **Snapshot on-chain** — supply, total holders, real wallets (ex-pool/PDA), official holders (Raiku API)
+- **Points estimasi** — total points, daily accrual, leaderboard per wallet
+- **Charts** — points accrual over time, holder growth since launch
+- **Analytics** — top-10 concentration, top holders, new holders 7d, APY
+- **Wallet lookup** — cari address → balance, days held, estimasi points, **rank**
+
+## Data & sumber
+
+| Data | Sumber | Metode |
+|---|---|---|
+| Supply, holders, balance | Solana RPC (`getProgramAccounts` + `getMultipleAccounts`) | Public endpoints, no API key |
+| Klasifikasi pool/PDA | Program owner check | Owner != System Program → pool/PDA |
+| First acquisition | `getSignaturesForAddress` per token account | Cached di `data/firstseen.json` |
+| Official holders, APY, TVL | [Raiku staking API](https://staking-api.mainnet.raiku.sh/v1/lsts) | `/v1/lsts` filtered by mint |
+| Points | Kalkulasi lokal | `balance × days held` |
+
+### Live API (Vercel)
+
+- `api/dashboard.js` — serverless function, fetch fresh on-chain tiap dipanggil
+- Cache: `s-maxage=86400` + `stale-while-revalidate` → refresh maks 1×/hari (lazy, di background)
+- Cron Vercel `15 0 * * *` (07:15 WIB) — warm cache walau tanpa visitor
+- Frontend fallback: coba `/api/dashboard` → fallback `/data/dashboard.json` (static)
+
+## Akurasi & batasan
+
+Dashboard ini **estimasi, bukan angka resmi Raiku**. Detail:
+
+- **Points = balance saat ini × days held** — mengikuti standar points program Solana (points berhenti saat unstake). Wallet yang sudah unstake (balance 0) **tidak** dihitung — ini by design, konsisten dengan cara kerja kebanyakan program points.
+- **Days held** = hari sejak first acquisition wallet (dari histori on-chain per-account). Akurat untuk ~100% real wallets (coverage ditampilkan di UI).
+- **Real wallets vs Holders**: "Holders" = semua pemilik token account (termasuk pool/PDA). "Real wallets" = hanya yang owner-nya System Program. `~73% supply` ada di pool/program (normal untuk LST).
+- **Solscan match**: total holders dashboard ≈ angka Solscan (1001+), karena keduanya menghitung semua token accounts.
+- Data on-chain publik; verifikasi mandiri sebelum mengambil keputusan.
+
+## Development
 
 ```bash
 npm install
-npm run dev
+npm run dev        # local dev server
 ```
 
-Production build and preview:
+Build & preview:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-The generated site is in `dist/`. Vercel can deploy this repository directly from `main` using the Vite build command `npm run build` and output directory `dist`.
+Test:
 
-## Fitur
+```bash
+npm test           # vitest (unit + component)
+npm run test:snapshot
+```
 
-| Fitur | Deskripsi |
-|---|---|
-| KPI cards | rkuSOL cap, total holders, real wallets, official holders, top-10 share, APY, total points, daily points |
-| Pie chart | Distribusi top-10 wallet vs Others (real wallets, ex-pool) |
-| Daily points | Grafik akumulasi points harian (estimasi) |
-| Top holders | 10 besar dengan label pool/program (Sanctum dkk) |
-| Holders over time | Pertumbuhan jumlah wallet sejak launch |
-| New holders (7d) | Deteksi holder baru (first acquisition ≤ 7 hari) |
-| Search address | Paste address → lihat balance, first seen, days held, estimasi points |
-| Tabs | All Holders / Points (top 100) |
-
-## Metodologi Points
-
-- **Rumus:** `1 rkuSOL = 1 point per hari` (info Discord Raiku)
-- **Score per wallet** = `balance rkuSOL × days held`
-- **Days held** = hari sejak **first acquisition** (transaksi rkuSOL pertama wallet itu, dari histori on-chain per-account)
-- **Daily points total** = jumlah balance seluruh wallet (bertambah tiap hari)
-- ⚠️ **Estimasi, bukan angka resmi Raiku/Discord** — leaderboard resmi bisa berbeda (mungkin pakai balance staking/histori balance yang beda)
-
-### Verifikasi formula (contoh card PolyFeed)
-
-- Card: balance 10.0172, days 33, score 338.63
-- `338.63 / 10.0172 = 33.80 hari` → cocok dengan `days held` 33 (dibulatkan)
-- Bukan sejak launch (11 Mei): `10.0172 × 99.5 = 997` ≠ 338.63
-- **Kesimpulan:** score = balance × days sejak first acquisition wallet
-
-## Pipeline Data
+## Pipeline data
 
 ```
 fetch_holders.mjs       → getProgramAccounts (dataSlice + dataSize + memcmp) → semua token account rkuSOL
@@ -63,49 +79,54 @@ crawl_firstseen.mjs     → per wallet asli: getTokenAccountsByOwner + getSignat
 classify_pda.mjs        → program owner tiap PDA → label (Sanctum dkk)
 generate_dashboard3.mjs  → gabungkan semua → public/data/dashboard.json
 update_daily.mjs          → update harian: fetch balance ulang + regenerate snapshot (firstSeen reuse)
-npm run build             → Vite build terpisah → dist/
+npm run build            → Vite build terpisah → dist/
 ```
 
-## Update Harian
-
-Refresh data dan buat snapshot, lalu jalankan build Vite sebagai langkah terpisah:
+### Update data harian
 
 ```bash
-node src/update_daily.mjs
-npm run build
+node src/update_daily.mjs   # refresh balances + regenerate snapshot
+npm run build               # rebuild static site
 ```
 
-Untuk hanya membangun snapshot dari data yang sudah tersimpan, jalankan `node src/generate_dashboard3.mjs`. Generator menulis `public/data/dashboard.json` dan tidak lagi menghasilkan HTML.
+Hanya butuh **1 panggilan RPC berat** (`getProgramAccounts`) + regenerate. FirstSeen tidak perlu di-crawl ulang (sejarah tidak berubah). Di Vercel, ini otomatis via cron + SWR cache — tanpa Hermes/Task Scheduler.
 
-Hanya perlu **1 panggilan RPC berat** (`getProgramAccounts`) + regenerate — cepat. FirstSeen tidak perlu di-crawl ulang (sejarah tidak berubah). Jadwalkan via Task Scheduler / cron.
-
-## Struktur Repo
+## Struktur repo
 
 ```
 ├── README.md
-├── public/data/dashboard.json ← snapshot ter-normalisasi untuk Vite/React
+├── api/dashboard.js        ← Vercel serverless (live data + cache)
+├── vercel.json             ← cron 07:15 WIB
+├── public/data/dashboard.json ← snapshot ter-normalisasi untuk React
 ├── src/
-│   ├── paths.mjs             ← repository-relative paths
-│   ├── build_snapshot.mjs     ← pure deterministic snapshot calculations
-│   ├── generate_dashboard3.mjs← write public/data/dashboard.json
-│   ├── rpc.mjs               ← RPC helper (multi-endpoint, retry)
-│   ├── fetch_holders.mjs     ← ambil semua holder + klasifikasi + Raiku stats
-│   ├── crawl_firstseen.mjs   ← first acquisition per wallet (sekali saja)
-│   ├── classify_pda.mjs      ← label program owner PDA
-│   └── update_daily.mjs      ← refresh data + regenerate snapshot
+│   ├── paths.mjs           ← repository-relative paths
+│   ├── build_snapshot.mjs  ← pure deterministic snapshot calculations
+│   ├── generate_dashboard3.mjs ← write public/data/dashboard.json
+│   ├── rpc.mjs             ← RPC helper (multi-endpoint, retry)
+│   ├── fetch_holders.mjs   ← ambil semua holder + klasifikasi + Raiku stats
+│   ├── crawl_firstseen.mjs ← first acquisition per wallet (sekali saja)
+│   ├── classify_pda.mjs    ← label program owner PDA
+│   ├── update_daily.mjs    ← refresh data + regenerate snapshot
+│   └── app/                ← React frontend (components, data layer)
 └── data/
-    ├── holders_full.json     ← snapshot holder terakhir
-    ├── firstseen.json        ← cache first acquisition
-    ├── pda_labels.json       ← label PDA
-    └── *.json                ← hasil antara
+    ├── holders_full.json   ← snapshot holder terakhir
+    ├── firstseen.json      ← cache first acquisition
+    ├── pda_labels.json     ← label PDA
+    └── *.json              ← hasil antara
 ```
 
-## Catatan Teknis
+## Deployment (Vercel)
 
-- **Endpoints RPC:** helius gratis (`gabriela-...helius-rpc.com`) primary — **publicnode menyembunyikan** sebagian histori signature (return 0 untuk account yang punya histori). mainnet-beta lebih dalam untuk mint.
-- **PDA/pool** = address yang owner-nya program (bukan System Program) atau tidak ada di chain → bukan wallet asli. rkuSOL ~73% supply ada di pool/program (Sanctum dkk), normal untuk LST baru.
-- `getProgramAccounts` dengan `dataSlice: {offset: 32, length: 40}` + `dataSize: 165` + `memcmp` mint = cara efisien ambil semua holder.
+Repo ini siap deploy langsung ke Vercel:
+
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- Cron otomatis aktif via `vercel.json` (butuh Hobby plan ke atas untuk cron)
 
 ## Disclaimer
 
 Dashboard ini **tidak berafiliasi dengan Raiku**. Data on-chain publik; estimasi points bukan angka resmi. Jangan gunakan sebagai dasar keputusan finansial.
+
+---
+
+Dibuat oleh [@eunoiabluu](https://x.com/eunoiabluu) — X: [@eunoiabluu](https://x.com/eunoiabluu) · GitHub: [yjm26/raiku-dashboard](https://github.com/yjm26/raiku-dashboard)
