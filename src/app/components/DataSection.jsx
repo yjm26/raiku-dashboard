@@ -15,11 +15,12 @@ function usePagedRows(rows, filter, page) {
   return { filtered, pageRows, totalPages, safePage };
 }
 
-export default function DataSection({ rows = [] }) {
+export default function DataSection({ rows = [], allRows = [] }) {
   const [tab, setTab] = useState('holders');
   const [filter, setFilter] = useState('');
   const [page, setPage] = useState(1);
-  const { filtered, pageRows, totalPages, safePage } = usePagedRows(rows, filter, page);
+  const rowsSource = tab === 'holders' && allRows.length ? allRows : rows;
+  const { filtered, pageRows, totalPages, safePage } = usePagedRows(rowsSource, filter, page);
 
   function changePage(next) {
     setPage(Math.min(Math.max(1, next), totalPages));

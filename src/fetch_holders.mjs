@@ -86,10 +86,25 @@ async function fetchOwnerInfo(owners) {
     try { res = await rpc('getMultipleAccounts', [batch, { encoding: 'jsonParsed' }]); }
     catch { res = []; }
     const arr = Array.isArray(res) ? res : (res?.value || []);
+    const missing = [];
     for (let j = 0; j < batch.length; j++) {
       const acc = arr[j];
-      if (!acc || typeof acc === 'string') { unknown++; continue; }
+      if (!acc || typeof acc === 'string') { missing.push(batch[j]); continue; }
       info[batch[j]] = { program: acc.owner || '', executable: !!acc.executable };
+    }
+    // Retry missing (rate-limit / transient failures) before labeling as PDA
+    if (missing.length) {
+      await sleep(600);
+      try {
+        const r2 = await rpc('getMultipleAccounts', [missing, { encoding: 'jsonParsed' }]);
+        const arr2 = Array.isArray(r2) ? r2 : (r2?.value || []);
+        for (let j = 0; j < missing.length; j++) {
+          const acc = arr2[j];
+          if (acc && typeof acc === 'object') {
+            info[missing[j]] = { program: acc.owner || '', executable: !!acc.executable };
+          } else { unknown++; }
+        }
+      } catch { unknown += missing.length; }
     }
     await sleep(400);
   }
@@ -157,12 +172,21 @@ async function fetchSolPriceUsd() {
 
   console.log('  classifying owners (PDA vs wallet)...');
   const { info, unknown } = await fetchOwnerInfo(holders.map(h => h.owner));
-  if (unknown) console.log(`  ⚠ ${unknown} owners don't exist on-chain → pool/PDA`);
+  if (unknown) console.log(`  ⚠ ${unknown} owners have no fetchable on-chain account`);
   for (const h of holders) {
-    h.isPda = (info[h.owner]?.program || '') !== SYSTEM_PROGRAM;
+    const prog = info[h.owner]?.program;
+    // isPda = owner is a KNOWN non-System program, OR unfetchable (no signature
+    // history → not a real wallet). Real wallets are System-Program accounts
+    // with on-chain activity; anything else is pool/program/closed.
+    h.isPda = (prog && prog !== SYSTEM_PROGRAM) || !prog ? true : false;
+    if (prog && prog !== SYSTEM_PROGRAM) {
+      h.pdaProgram = prog;
+    } else if (!prog) {
+      h.pdaProgram = null; // closed/unfetchable
+    }
   }
   const nPda = holders.filter(h => h.isPda).length;
-  console.log(`  ${nPda} program-owned (pool/PDA), ${holders.length - nPda} real wallets`);
+  console.log(`  ${nPda} non-wallet (pool/PDA/closed), ${holders.length - nPda} real wallets`);
 
   const stats = await fetchRaikuStats();
   const solPriceUsd = await fetchSolPriceUsd();
