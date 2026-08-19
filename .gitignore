@@ -1,0 +1,11 @@
+# Node
+node_modules/
+
+# RPC state / temp crawl files
+data/*_state.json
+data/crawl*_data.json
+data/context.json
+
+# OS
+Thumbs.db
+.DS_Store
