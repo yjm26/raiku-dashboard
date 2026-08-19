@@ -153,15 +153,19 @@ export default async function handler(req, res) {
     // Use committed firstSeen data for accurate days-held estimates; any brand-new
     // wallet missing from it falls back to the launch date (its points ~0 anyway).
     let firstSeenData = {};
+    let history = [];
     try {
       const fs = await import('node:fs');
       const path = await import('node:path');
-      firstSeenData = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data/firstseen.json'), 'utf8'));
+      const cwd = process.cwd();
+      firstSeenData = JSON.parse(fs.readFileSync(path.join(cwd, 'data/firstseen.json'), 'utf8'));
+      try { history = JSON.parse(fs.readFileSync(path.join(cwd, 'data/history.json'), 'utf8')); } catch {}
     } catch { /* no persisted firstSeen — fall back to launch-date estimates */ }
     const snapshot = buildSnapshot({
       holdersData,
       firstSeenData,
       pdaLabels: {},
+      history,
     });
 
     res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=86400');

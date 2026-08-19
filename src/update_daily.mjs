@@ -144,5 +144,34 @@ async function fetchRaikuStats() {
   // regenerate dashboard
   const { execSync } = await import('node:child_process');
   execSync(`node "${SRC}/generate_dashboard3.mjs"`, { stdio: 'inherit' });
+
+  // Append to history (for APY/TVL trend charts). Daily cron appends one point/day.
+  try {
+    const HISTORY = p('history.json');
+    let history = [];
+    try { history = JSON.parse(fs.readFileSync(HISTORY, 'utf8')); } catch {}
+    if (!Array.isArray(history)) history = [];
+    const today = new Date().toISOString().slice(0, 10);
+    const tvlLamports = Number(stats.tvlLamports) || 0;
+    // Only append once per day (dedupe by date)
+    if (!history.some((h) => h.date === today)) {
+      history.push({
+        date: today,
+        tvlSol: tvlLamports / 1e9,
+        apy: Number(stats.latestApy ?? stats.latest_apy) || null,
+        avgApy: Number(stats.avgApy ?? stats.avg_apy) || null,
+        supply: supplyUi,
+        holders: perOwner.size,
+        realWallets: holders.filter((h) => !h.isPda).length,
+      });
+      // keep last 180 days
+      history = history.slice(-180);
+      fs.writeFileSync(HISTORY, JSON.stringify(history, null, 1));
+      console.log(`history: appended ${today}, total ${history.length} points`);
+    } else {
+      console.log(`history: ${today} already recorded, skip`);
+    }
+  } catch (e) { console.log('history append ERR', e.message); }
+
   console.log('DONE. dashboard refreshed.');
 })();

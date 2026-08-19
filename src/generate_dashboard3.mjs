@@ -11,8 +11,14 @@ try {
 } catch {
   // PDA labels are optional; the snapshot builder supplies a generic label.
 }
+let history = [];
+try {
+  history = JSON.parse(fs.readFileSync(p('history.json'), 'utf8'));
+} catch {
+  // History is optional; charts simply stay empty until points accumulate.
+}
 
-const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels });
+const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels, history });
 const output = `${JSON.stringify(snapshot, null, 2)}\n`;
 fs.mkdirSync(path.dirname(OUT_SNAPSHOT), { recursive: true });
 fs.writeFileSync(OUT_SNAPSHOT, output, 'utf8');

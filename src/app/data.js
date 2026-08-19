@@ -92,6 +92,7 @@ export function normalizeSnapshot(raw) {
     holderTimeline: cloneArray(raw.holderTimeline),
     dailyTimeline: cloneArray(raw.dailyTimeline),
     newHolders: cloneArray(raw.newHolders),
+    history: cloneArray(raw.history),
     realRows: cloneArray(raw.realRows),
     coverage: {
       ...coverage,
