@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { formatNumber } from '../data.js';
 
-// APY playground: stake N SOL → how much rkuSOL you receive, daily yield,
-// and estimated daily points (1 rkuSOL = 1 point/day).
+// Staking projection: stake N SOL → how much rkuSOL you receive, daily yield,
+// points per day, and projected points over 30/90 days (1 rkuSOL = 1 point/day).
 export default function ApyCalculator({ snapshot }) {
   const stats = snapshot?.stats || {};
   const [solInput, setSolInput] = useState('100');
@@ -20,7 +20,10 @@ export default function ApyCalculator({ snapshot }) {
     const dailyYieldRkuSol = dailyYieldSol != null && Number.isFinite(rate) && rate > 0 ? dailyYieldSol / rate : null;
     const dailyPoints = rkuSol != null ? rkuSol : null; // 1 rkuSOL = 1 point/day
     const dailyYieldUsd = dailyYieldSol != null && Number.isFinite(solPrice) ? dailyYieldSol * solPrice : null;
-    return { sol, rkuSol, dailyYieldSol, dailyYieldRkuSol, dailyPoints, dailyYieldUsd };
+    const proj30 = dailyPoints != null ? dailyPoints * 30 : null;
+    const proj90 = dailyPoints != null ? dailyPoints * 90 : null;
+    const proj365 = dailyPoints != null ? dailyPoints * 365 : null;
+    return { sol, rkuSol, dailyYieldSol, dailyYieldRkuSol, dailyPoints, dailyYieldUsd, proj30, proj90, proj365 };
   }, [solInput, rate, apyFraction, solPrice]);
 
   const fmt = (v, opts) => (v == null || !Number.isFinite(Number(v))) ? '—' : formatNumber(Number(v), opts || { maximumFractionDigits: 2 });
@@ -30,7 +33,7 @@ export default function ApyCalculator({ snapshot }) {
       <div className="flex items-start justify-between">
         <div>
           <p className="m-0 text-[12px] text-muted">Playground</p>
-          <h2 id="apy-calc-title" className="m-0 mt-0.5 text-[15px] font-normal text-ink">APY calculator</h2>
+          <h2 id="apy-calc-title" className="m-0 mt-0.5 text-[15px] font-normal text-ink">Staking projection</h2>
         </div>
         <span className="font-mono text-[13px] text-muted">{apy != null ? `${formatNumber(apy, { maximumFractionDigits: 2 })}% APY` : ''}</span>
       </div>
@@ -60,6 +63,10 @@ export default function ApyCalculator({ snapshot }) {
           ['Daily yield', result ? `${fmt(result.dailyYieldSol)} SOL` : '—'],
           ['≈ USD/day', result && result.dailyYieldUsd != null ? `$${fmt(result.dailyYieldUsd)}` : '—'],
           ['Points / day', result ? fmt(result.dailyPoints, { maximumFractionDigits: 0 }) : '—'],
+          ['Points · 30d', result ? fmt(result.proj30, { maximumFractionDigits: 0 }) : '—'],
+          ['Points · 90d', result ? fmt(result.proj90, { maximumFractionDigits: 0 }) : '—'],
+          ['Points · 1y', result ? fmt(result.proj365, { maximumFractionDigits: 0 }) : '—'],
+          ['Yield / 1y', result ? `${fmt(result.dailyYieldSol * 365)} SOL` : '—'],
         ].map(([label, value]) => (
           <div className="bg-surface p-3" key={label}>
             <span className="block font-mono text-[12px] uppercase text-muted">{label}</span>
@@ -69,7 +76,7 @@ export default function ApyCalculator({ snapshot }) {
       </div>
 
       <p className="mb-0 mt-2 text-[12px] text-muted">
-        Estimate based on {apy != null ? `${formatNumber(apy, { maximumFractionDigits: 2 })}% APY` : 'reported APY'} and {rate != null ? `${rate.toFixed(4)} SOL/rkuSOL` : 'current rate'}. Yield compounds; daily figure is an approximation. Points assume 1 rkuSOL held = 1 point/day.
+        Estimate based on {apy != null ? `${formatNumber(apy, { maximumFractionDigits: 2 })}% APY` : 'reported APY'} and {rate != null ? `${rate.toFixed(4)} SOL/rkuSOL` : 'current rate'}. Yield compounds; daily figure is an approximation. Points assume 1 rkuSOL held = 1 point/day. Projections assume a constant balance.
       </p>
     </section>
   );
