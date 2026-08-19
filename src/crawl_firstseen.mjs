@@ -51,7 +51,9 @@ async function main() {
   async function worker() {
     while (idx < total) {
       const h = realWallets[idx++];
-      if (results[h.owner] !== undefined) continue;
+      // Retry wallets whose previous attempt produced no timestamp (null/undefined),
+      // so a transient RPC failure is never treated as a permanent "no history".
+      if (results[h.owner] !== undefined && results[h.owner] !== null) continue;
       let firstSeen = null;
       try {
         const accs = await rpc('getTokenAccountsByOwner', [h.owner, { mint: MINT }, { encoding: 'jsonParsed' }]);
@@ -61,7 +63,7 @@ async function main() {
           if (ts && (firstSeen === null || ts < firstSeen)) firstSeen = ts;
           await sleep(100);
         }
-      } catch (e) { /* skip */ }
+      } catch (e) { /* skip, retried next run */ }
       results[h.owner] = firstSeen;
       if (idx % 25 === 0) {
         console.log(`processed ${idx}/${total}, found=${Object.values(results).filter(Boolean).length}`);
