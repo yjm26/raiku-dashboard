@@ -11,9 +11,9 @@
   --accent-soft: #f2ffe0;
   --gap: 16px;
   --radius: 2px;
-  /* charts — light */
-  --chart-points: #01ffd9;
-  --chart-holders: #01ffd9;
+  /* charts — light: black series, gradient fade fill */
+  --chart-points: #111315;
+  --chart-holders: #111315;
   --chart-grid: #f1f1f0;
   --chart-axis: #e8e8e6;
   --chart-tick: #999;
@@ -30,9 +30,9 @@
   --rule-strong: #35393b;
   --accent: #c0ff38;
   --accent-soft: #1c2410;
-  /* charts — dark */
-  --chart-points: #01ffd9;
-  --chart-holders: #01ffd9;
+  /* charts — dark: neon series, gradient fade fill */
+  --chart-points: #c0ff38;
+  --chart-holders: #c0ff38;
   --chart-grid: #1c201e;
   --chart-axis: #3a3f3c;
   --chart-tick: #fdfdfd;
