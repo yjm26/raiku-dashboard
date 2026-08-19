@@ -98,7 +98,25 @@ async function fetchRaikuStats() {
   console.log('[2/4] Load cached firstSeen...');
   const firstSeen = JSON.parse(fs.readFileSync(p('firstseen.json'), 'utf8'));
 
-  console.log('[3/4] Classify PDA (cached)...');
+  console.log('[3/4] Classify PDA (fresh owner info)...');
+  const SYSTEM_PROGRAM = '11111111111111111111111111111111';
+  const owners = [...perOwner.keys()];
+  const info = {};
+  let unknown = 0;
+  for (let i = 0; i < owners.length; i += 50) {
+    const batch = owners.slice(i, i + 50);
+    let res;
+    try { res = await rpc('getMultipleAccounts', [batch, { encoding: 'jsonParsed' }]); }
+    catch { res = []; }
+    const arr = Array.isArray(res) ? res : (res?.value || []);
+    for (let j = 0; j < batch.length; j++) {
+      const acc = arr[j];
+      if (!acc || typeof acc === 'string') { unknown++; continue; }
+      info[batch[j]] = { program: acc.owner || '', executable: !!acc.executable };
+    }
+    await sleep(400);
+  }
+  if (unknown) console.log(`  ⚠ ${unknown} owners don't exist on-chain → pool/PDA`);
   let pdaLabels = {};
   try { pdaLabels = JSON.parse(fs.readFileSync(p('pda_labels.json'), 'utf8')); } catch {}
   const stats = await fetchRaikuStats();
@@ -109,7 +127,9 @@ async function fetchRaikuStats() {
     owner,
     amountUi: amt / 10 ** DECIMALS,
     share: amt / supplyRaw,
-    isPda: !!pdaLabels[owner], // PDA label exists => program-owned
+    // Fresh program-owner check each run: system program => real wallet,
+    // anything else (new pools/PDAs) is correctly excluded.
+    isPda: (info[owner]?.program || '') !== SYSTEM_PROGRAM,
   })).sort((a, b) => b.amountUi - a.amountUi);
 
   const combined = {
@@ -124,5 +144,34 @@ async function fetchRaikuStats() {
   // regenerate dashboard
   const { execSync } = await import('node:child_process');
   execSync(`node "${SRC}/generate_dashboard3.mjs"`, { stdio: 'inherit' });
+
+  // Append to history (for APY/TVL trend charts). Daily cron appends one point/day.
+  try {
+    const HISTORY = p('history.json');
+    let history = [];
+    try { history = JSON.parse(fs.readFileSync(HISTORY, 'utf8')); } catch {}
+    if (!Array.isArray(history)) history = [];
+    const today = new Date().toISOString().slice(0, 10);
+    const tvlLamports = Number(stats.tvlLamports) || 0;
+    // Only append once per day (dedupe by date)
+    if (!history.some((h) => h.date === today)) {
+      history.push({
+        date: today,
+        tvlSol: tvlLamports / 1e9,
+        apy: Number(stats.latestApy ?? stats.latest_apy) || null,
+        avgApy: Number(stats.avgApy ?? stats.avg_apy) || null,
+        supply: supplyUi,
+        holders: perOwner.size,
+        realWallets: holders.filter((h) => !h.isPda).length,
+      });
+      // keep last 180 days
+      history = history.slice(-180);
+      fs.writeFileSync(HISTORY, JSON.stringify(history, null, 1));
+      console.log(`history: appended ${today}, total ${history.length} points`);
+    } else {
+      console.log(`history: ${today} already recorded, skip`);
+    }
+  } catch (e) { console.log('history append ERR', e.message); }
+
   console.log('DONE. dashboard refreshed.');
 })();

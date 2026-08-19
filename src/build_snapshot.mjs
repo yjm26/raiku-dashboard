@@ -46,7 +46,7 @@ const compareByFirstSeenDesc = (left, right) => (
  * All inputs are already loaded source data. Keeping file I/O in the generator
  * makes this function portable and deterministic for fixture-based tests.
  */
-export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {}, now = Date.now() }) {
+export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {}, now = Date.now(), history = [] }) {
   if (!holdersData || !Array.isArray(holdersData.holders)) {
     throw new TypeError('holdersData.holders must be an array');
   }
@@ -148,6 +148,13 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     apyPct,
     totalPoints,
     dailyPoints,
+    // LST economics (from Raiku API + CoinGecko)
+    tvlLamports: statsSource.tvlLamports,
+    tvlSol: statsSource.tvlSol,
+    tvlUsd: statsSource.tvlUsd,
+    rateSolPerRkuSol: statsSource.rateSolPerRkuSol,
+    solPriceUsd: statsSource.solPriceUsd ?? holdersData.solPriceUsd,
+    avgApy: statsSource.avgApy,
   };
 
   return {
@@ -161,6 +168,7 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     dailyTimeline,
     newHolders: newHolders.slice(0, 20),
     realRows: realRows.map((row, index) => ({ ...row, rank: index + 1 })),
+    history: Array.isArray(history) ? history : [],
     coverage,
   };
 }

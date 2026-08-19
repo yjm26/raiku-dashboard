@@ -119,6 +119,18 @@ async function fetchRaikuStats() {
   return {};
 }
 
+async function fetchSolPriceUsd() {
+  try {
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd', {
+      headers: { accept: 'application/json' },
+      signal: AbortSignal.timeout(15000),
+    });
+    const data = await r.json();
+    const usd = Number(data?.solana?.usd);
+    return Number.isFinite(usd) && usd > 0 ? usd : null;
+  } catch { return null; }
+}
+
 (async () => {
   console.log('Fetching rkuSOL token accounts via getProgramAccounts...');
   const accounts = await fetchHolderAccounts();
@@ -153,13 +165,18 @@ async function fetchRaikuStats() {
   console.log(`  ${nPda} program-owned (pool/PDA), ${holders.length - nPda} real wallets`);
 
   const stats = await fetchRaikuStats();
+  const solPriceUsd = await fetchSolPriceUsd();
+  const tvlLamports = Number(stats.tvlLamports) || 0;
+  const tvlSol = tvlLamports / 1e9;
   console.log('  Raiku official:', JSON.stringify(stats));
+  console.log('  SOL price:', solPriceUsd, '| TVL:', tvlSol.toFixed(2), 'SOL');
 
   const out = {
     fetchedAt: new Date().toISOString(),
     mint: MINT,
     supplyUi,
-    stats,
+    solPriceUsd,
+    stats: { ...stats, tvlSol, tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null, rateSolPerRkuSol: supplyUi ? tvlSol / supplyUi : null },
     holders,
   };
   fs.writeFileSync(p('holders_full.json'), JSON.stringify(out, null, 1));
