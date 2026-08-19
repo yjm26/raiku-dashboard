@@ -94,6 +94,7 @@ export function normalizeSnapshot(raw) {
     newHolders: cloneArray(raw.newHolders),
     history: cloneArray(raw.history),
     realRows: cloneArray(raw.realRows),
+    allRows: cloneArray(raw.allRows && raw.allRows.length ? raw.allRows : raw.realRows),
     coverage: {
       ...coverage,
       found: coverage.found ?? 0,

@@ -46,6 +46,35 @@ const compareByFirstSeenDesc = (left, right) => (
  * All inputs are already loaded source data. Keeping file I/O in the generator
  * makes this function portable and deterministic for fixture-based tests.
  */
+// Known program addresses (mainnet) → human label
+const PROGRAM_LABELS = {
+  'SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY': 'Sanctum Pool',
+  'SPMBzsVUuoHB4Nb2nTvM5RDNpLwG4P7f3fFfLqVjQqo': 'Sanctum Validator',
+  'XP1BRLn8eCYSygrd8er5P4GKdzqKbC3DLoSsS5UYVZy': 'Sanctum Pool',
+  '5ocnV1qiCgaQR8Jb8xWnVbApfaygJ8tNoZfgPwsgx9kx': 'Sanctum',
+  '1oopBoJG58DgkUVKkEzKgyG9dvRmpgeEm1AVjoHkF78': 'Pool (1oopBoJ)',
+  'XPC1MM4dYACDfykNuXYZ5una2DsMDWL24CrYubCvarC': 'Jupiter',
+  'sVau1tXvayVWfotzm9AhK5rKTLwK6gKsW4QVQHdG2kv': 'Solv/other pool',
+  'T1TANpTeScyeqVzzgNVi5cB4Q7C7h8zFJqJtB9kQZmn': 'Titan',
+  'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4': 'Jupiter',
+  'CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK': 'Raydium CLMM',
+  'whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc': 'Whirlpool (DEX)',
+  TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA: 'Token Program',
+  '11111111111111111111111111111111': 'System Program',
+};
+
+function labelPda(holder, pdaLabels) {
+  // 1. Known from pda_labels.json
+  const known = pdaLabels?.[holder.owner]?.known;
+  if (known && known !== 'Unknown program' && known !== 'no-account (uninitialized/PDA)') return known;
+  // 2. Program address we captured during classification
+  if (holder.pdaProgram && PROGRAM_LABELS[holder.pdaProgram]) return PROGRAM_LABELS[holder.pdaProgram];
+  // 3. Unknown program → generic
+  if (holder.pdaProgram) return 'Pool / Program';
+  // 4. No account on chain → closed/uninitialized
+  return 'Closed account';
+}
+
 export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {}, now = Date.now(), history = [] }) {
   if (!holdersData || !Array.isArray(holdersData.holders)) {
     throw new TypeError('holdersData.holders must be an array');
@@ -80,7 +109,7 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
       firstMs,
       daysHeld,
       score: amount * daysHeld,
-      pdaLabel: holder.isPda ? (pdaLabels?.[holder.owner]?.known || 'Pool/Program') : null,
+      pdaLabel: holder.isPda ? labelPda(holder, pdaLabels) : null,
     };
   });
 
@@ -168,6 +197,7 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     dailyTimeline,
     newHolders: newHolders.slice(0, 20),
     realRows: realRows.map((row, index) => ({ ...row, rank: index + 1 })),
+    allRows: [...realRows.map((row, index) => ({ ...row, rank: index + 1 })), ...pdaRows.map((row, index) => ({ ...row, rank: realRows.length + index + 1, isPda: true }))],
     history: Array.isArray(history) ? history : [],
     coverage,
   };
