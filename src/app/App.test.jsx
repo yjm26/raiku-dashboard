@@ -57,12 +57,10 @@ describe('dashboard shell', () => {
     expect(screen.getByText('Holders')).toBeInTheDocument();
     expect(screen.getByText('Real wallets')).toBeInTheDocument();
     expect(screen.getByText('Total estimated points')).toBeInTheDocument();
-    const tokenLinks = screen.getAllByRole('link', { name: /view token on solscan/i });
-    expect(tokenLinks).toHaveLength(2);
-    expect(tokenLinks[1]).toHaveAttribute(
-      'href',
-      `https://solscan.io/token/${snapshot.mint}`,
-    );
+    const xLink = screen.getByRole('link', { name: /raiku on x/i });
+    expect(xLink).toHaveAttribute('href', 'https://x.com/raikucom');
+    const websiteLink = screen.getByRole('link', { name: /raiku website/i });
+    expect(websiteLink).toHaveAttribute('href', 'https://raiku.com/stake');
   });
 
   it('preserves a numeric zero APY in the secondary metrics', async () => {
