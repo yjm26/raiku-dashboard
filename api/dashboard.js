@@ -117,6 +117,18 @@ async function fetchRaikuStats() {
   return {};
 }
 
+async function fetchSolPriceUsd() {
+  try {
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd', {
+      headers: { accept: 'application/json' },
+      signal: AbortSignal.timeout(15000),
+    });
+    const data = await r.json();
+    const usd = Number(data?.solana?.usd);
+    return Number.isFinite(usd) && usd > 0 ? usd : null;
+  } catch { return null; }
+}
+
 export default async function handler(req, res) {
   // Only GET
   if (req.method !== 'GET') {
@@ -147,9 +159,25 @@ export default async function handler(req, res) {
       .sort((a, b) => b.amountRaw - a.amountRaw);
 
     const stats = await fetchRaikuStats();
+    const solPriceUsd = await fetchSolPriceUsd();
+    const tvlLamports = Number(stats.tvlLamports) || 0;
+    const tvlSol = tvlLamports / 1e9;
     console.log('[api/dashboard] Raiku stats:', JSON.stringify(stats));
+    console.log('[api/dashboard] SOL price:', solPriceUsd, '| TVL:', tvlSol.toFixed(2), 'SOL');
 
-    const holdersData = { fetchedAt: new Date().toISOString(), mint: MINT, supplyUi, stats, holders };
+    const holdersData = {
+      fetchedAt: new Date().toISOString(),
+      mint: MINT,
+      supplyUi,
+      solPriceUsd,
+      stats: {
+        ...stats,
+        tvlSol,
+        tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null,
+        rateSolPerRkuSol: supplyUi ? tvlSol / supplyUi : null,
+      },
+      holders,
+    };
     // Use committed firstSeen data for accurate days-held estimates; any brand-new
     // wallet missing from it falls back to the launch date (its points ~0 anyway).
     let firstSeenData = {};
