@@ -1,25 +1,12 @@
 :root {
-  --color-canvas: #ffffff;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f7f9fc;
-  --color-border: #e5eaf1;
-  --color-border-strong: #cfd8e6;
-  --color-text: #172033;
-  --color-text-muted: #667085;
-  --color-blue: #315efb;
-  --color-blue-soft: #eef3ff;
-  --color-green: #126b40;
-  --color-green-soft: #eaf8f0;
-  --color-amber: #a76300;
-  --color-amber-soft: #fff5df;
-
-  --color-positive: var(--color-green);
-  --color-positive-soft: var(--color-green-soft);
-  --color-live: var(--color-green);
-  --color-warning: var(--color-amber);
-  --color-concentration: var(--color-amber);
-
-  --radius-card: 14px;
-  --shadow-card: 0 2px 8px rgb(20 34 58 / 0.04);
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --page: #f4f3ef;
+  --surface: #ffffff;
+  --surface-muted: #e8e7e2;
+  --ink: #111111;
+  --muted: #66645f;
+  --rule: #171717;
+  --accent: #3458d4;
+  --accent-soft: #e9edff;
+  --gap: 16px;
+  --radius: 0px;
 }

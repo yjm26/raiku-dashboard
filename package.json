@@ -22,9 +22,11 @@
     "vite": "latest"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "jsdom": "latest",
+    "tailwindcss": "^4.3.3",
     "vitest": "latest"
   }
 }

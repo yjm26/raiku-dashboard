@@ -1,14 +1,2 @@
 import { formatNumber } from '../data.js';
-
-export default function DistributionCard({ snapshot }) {
-  const top = Number(snapshot?.stats?.top10Share || 0);
-  const others = Math.max(0, 100 - top);
-  return (
-    <section className="insight-card distribution-card" aria-labelledby="distribution-title">
-      <header className="insight-card__header"><div><p className="insight-card__eyebrow">Concentration</p><h2 id="distribution-title">Holder distribution</h2></div><span className="insight-card__badge">Top 10 vs others</span></header>
-      <div className="distribution-card__summary"><strong>{formatNumber(top, { maximumFractionDigits: 1 })}%</strong><span>of supply held by the top 10</span></div>
-      <div className="distribution-bar" role="img" aria-label={`${formatNumber(top, { maximumFractionDigits: 1 })}% top ten, ${formatNumber(others, { maximumFractionDigits: 1 })}% others`}><span style={{ width: `${Math.min(100, top)}%` }} /><span style={{ width: `${Math.min(100, others)}%` }} /></div>
-      <div className="distribution-legend"><span><i className="legend-dot legend-dot--blue" />Top 10 <b>{formatNumber(top, { maximumFractionDigits: 1 })}%</b></span><span><i className="legend-dot legend-dot--gray" />Others <b>{formatNumber(others, { maximumFractionDigits: 1 })}%</b></span></div>
-    </section>
-  );
-}
+export default function DistributionCard({ snapshot }) { const top = Number(snapshot?.stats?.top10Share || 0); const others = Math.max(0, 100 - top); return <section className="min-h-[280px] border border-rule bg-surface p-2" aria-labelledby="distribution-title"><header className="flex items-start justify-between border-b border-rule pb-2"><div><p className="m-0 font-mono text-[10px] uppercase tracking-wide text-muted">Concentration</p><h2 id="distribution-title" className="m-0 mt-1 text-xs font-bold uppercase">Holder distribution</h2></div><span className="font-mono text-[10px] text-muted">top 10</span></header><div className="flex min-h-[245px] flex-col justify-center px-2"><strong className="font-mono text-4xl font-black tracking-[-0.08em]">{formatNumber(top, { maximumFractionDigits: 1 })}%</strong><span className="mt-1 text-xs text-muted">of supply held by the top ten wallets</span><div className="mt-6 flex h-5 border border-rule"><span className="bg-accent" style={{ width: `${Math.min(100, top)}%` }} /><span className="bg-surface-muted" style={{ width: `${Math.min(100, others)}%` }} /></div><div className="mt-2 flex justify-between font-mono text-[10px] text-muted"><span>top 10 {formatNumber(top, { maximumFractionDigits: 1 })}%</span><span>others {formatNumber(others, { maximumFractionDigits: 1 })}%</span></div></div></section>; }

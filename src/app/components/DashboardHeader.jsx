@@ -2,62 +2,9 @@ import { useState } from 'react';
 import CopyAddressButton from './CopyAddressButton.jsx';
 import ExternalLink from './ExternalLink.jsx';
 
-function formatDate(value) {
-  if (!value) return '—';
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return '—';
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'UTC',
-  }).format(date);
-}
-
+function formatDate(value) { if (!value) return '—'; const date = new Date(value); return Number.isNaN(date.getTime()) ? '—' : new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(date); }
 export default function DashboardHeader({ snapshot, onSearch = () => {} }) {
-  const [query, setQuery] = useState('');
-  const mint = snapshot?.mint ?? '';
-  const solscanUrl = mint ? `https://solscan.io/token/${mint}` : 'https://solscan.io';
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    onSearch(query.trim());
-  }
-
-  return (
-    <section className="dashboard-header" aria-labelledby="dashboard-title">
-      <div className="dashboard-header__intro">
-        <p className="eyebrow">Dashboard · Solana · Raiku liquid staking</p>
-        <h1 id="dashboard-title">rkuSOL Holder &amp; Points</h1>
-        <p className="dashboard-header__description">
-          Explore holder distribution and estimated points accrued from rkuSOL balances over time.
-          Points are estimates based on first acquisition and are not official Raiku or Discord figures.
-        </p>
-      </div>
-      <div className="dashboard-header__details">
-        <span className="dashboard-header__detail-label">Token</span>
-        <CopyAddressButton value={mint} />
-        <ExternalLink href={solscanUrl} aria-label="View token on Solscan">View token on Solscan</ExternalLink>
-        <span className="dashboard-header__separator" aria-hidden="true">·</span>
-        <span>Snapshot {formatDate(snapshot?.ts)}</span>
-        <span className="dashboard-header__separator" aria-hidden="true">·</span>
-        <span>Launch {formatDate(snapshot?.stats?.launchDate)}</span>
-      </div>
-      <form className="wallet-search" onSubmit={handleSubmit} role="search">
-        <label htmlFor="wallet-search-input">Search a wallet</label>
-        <div className="wallet-search__controls">
-          <span className="wallet-search__icon" aria-hidden="true">⌕</span>
-          <input
-            id="wallet-search-input"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Paste a wallet address to view balance and estimated points"
-          />
-          <button type="submit">Search</button>
-        </div>
-        <p className="wallet-search__hint">Wallet search results will appear here when the lookup is available.</p>
-      </form>
-    </section>
-  );
+  const [query, setQuery] = useState(''); const mint = snapshot?.mint ?? ''; const solscanUrl = mint ? `https://solscan.io/token/${mint}` : 'https://solscan.io';
+  function handleSubmit(event) { event.preventDefault(); onSearch(query.trim()); }
+  return <section className="mb-4 border border-rule bg-surface p-3 sm:p-4" aria-labelledby="dashboard-title"><div className="flex flex-wrap items-end justify-between gap-4"><div><p className="m-0 font-mono text-[10px] uppercase tracking-[0.1em] text-muted">Holder intelligence / live snapshot</p><h2 id="dashboard-title" className="m-0 mt-2 text-2xl font-black tracking-[-0.07em] sm:text-3xl">rkuSOL Holder &amp; Points</h2><p className="m-0 mt-2 max-w-2xl text-sm text-muted">Supply, wallets, and estimated points in a blunt, data-first view. Estimates are based on first acquisition and are not official Raiku or Discord figures.</p></div><div className="flex items-center gap-2 text-xs"><CopyAddressButton value={mint} /><ExternalLink href={solscanUrl}>Solscan ↗</ExternalLink></div></div><div className="mt-4 grid gap-3 border-t border-rule pt-3 text-xs text-muted sm:grid-cols-[auto_1fr]"><div className="flex flex-wrap items-center gap-2 font-mono"><span>snapshot {formatDate(snapshot?.ts)}</span><span aria-hidden="true">·</span><span>launch {formatDate(snapshot?.stats?.launchDate)}</span></div><form className="flex min-w-0 gap-2 sm:justify-self-end" onSubmit={handleSubmit} role="search"><label className="sr-only" htmlFor="wallet-search-input">Search a wallet</label><input id="wallet-search-input" className="min-w-0 flex-1 border border-rule bg-page px-3 py-2 text-xs outline-none placeholder:text-muted focus:ring-2 focus:ring-accent sm:w-72" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search wallet address" /><button className="border border-rule bg-ink px-3 py-2 font-semibold text-white transition-colors hover:bg-accent" type="submit">Search</button></form></div></section>;
 }
