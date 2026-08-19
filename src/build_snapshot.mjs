@@ -148,6 +148,13 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     apyPct,
     totalPoints,
     dailyPoints,
+    // LST economics (from Raiku API + CoinGecko)
+    tvlLamports: statsSource.tvlLamports,
+    tvlSol: statsSource.tvlSol,
+    tvlUsd: statsSource.tvlUsd,
+    rateSolPerRkuSol: statsSource.rateSolPerRkuSol,
+    solPriceUsd: statsSource.solPriceUsd ?? holdersData.solPriceUsd,
+    avgApy: statsSource.avgApy,
   };
 
   return {
