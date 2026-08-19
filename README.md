@@ -1,6 +1,6 @@
 # rkuSOL Holder & Points Dashboard
 
-Dune-style analytics dashboard untuk **rkuSOL** — liquid staking token dari [Raiku](https://raiku.com/stake), Solana validator client yang mengoptimalkan AOT compute reservations & JIT MEV bundle processing.
+Analytics dashboard untuk **rkuSOL**, liquid staking token dari [Raiku](https://raiku.com/stake) di Solana.
 
 **Live:** [raiku-dashboard.vercel.app](https://raiku-dashboard.vercel.app)
 
@@ -10,15 +10,14 @@ Dune-style analytics dashboard untuk **rkuSOL** — liquid staking token dari [R
 
 ---
 
-## Apa ini?
+## Fitur
 
-Dashboard publik yang menampilkan:
-
-- **Snapshot on-chain** — supply, total holders, real wallets (ex-pool/PDA), official holders (Raiku API)
+- **Snapshot on-chain** — supply, total holders, real wallets (ex-pool/PDA), official holders
 - **Points estimasi** — total points, daily accrual, leaderboard per wallet
-- **Charts** — points accrual over time, holder growth since launch
-- **Analytics** — top-10 concentration, top holders, new holders 7d, APY
-- **Wallet lookup** — cari address → balance, days held, estimasi points, **rank**
+- **Charts** — points accrual, holder growth sejak launch
+- **Analytics** — top-10 concentration, top holders, new holders 7d, APY, TVL, rkuSOL rate
+- **APY calculator** — simulasi stake: berapa rkuSOL, yield harian, points/day
+- **Wallet lookup** — cari address → balance, days held, estimasi points, rank
 
 ## Data & sumber
 
@@ -89,7 +88,7 @@ node src/update_daily.mjs   # refresh balances + regenerate snapshot
 npm run build               # rebuild static site
 ```
 
-Hanya butuh **1 panggilan RPC berat** (`getProgramAccounts`) + regenerate. FirstSeen tidak perlu di-crawl ulang (sejarah tidak berubah). Di Vercel, ini otomatis via cron + SWR cache — tanpa Hermes/Task Scheduler.
+Hanya butuh **1 panggilan RPC berat** (`getProgramAccounts`) + regenerate. FirstSeen tidak perlu di-crawl ulang (sejarah tidak berubah). Di Vercel, ini otomatis via cron + SWR cache.
 
 ## Struktur repo
 
