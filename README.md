@@ -43,7 +43,7 @@ This dashboard provides **estimates, not official Raiku figures**. Details:
 
 - **Points = current balance × days held** — follows common Solana points-program convention (points stop accruing after unstake). Unstaked wallets (balance 0) are **not** counted — by design, consistent with how most points programs work.
 - **Days held** = days since a wallet's first acquisition (from per-account on-chain history). Accurate for ~100% of real wallets (coverage shown in the UI).
-- **Real wallets vs Holders**: "Holders" counts every token-account owner (including pools/PDAs). "Real wallets" only counts System-Program-owned accounts. ~73% of supply sits in pool/program accounts (normal for an LST).
+- **Real wallets vs Holders**: "Holders" counts every token-account owner (including pools/PDAs). "Real wallets" only counts System-Program-owned accounts. ~51% of supply sits in pool/program accounts (normal for an LST).
 - **Solscan match**: dashboard total holders ≈ Solscan (1001+), since both count all token accounts.
 - Data is public on-chain data; verify independently before making decisions.
 

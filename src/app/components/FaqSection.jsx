@@ -62,7 +62,7 @@ export default function FaqSection({ coverage, snapshot }) {
         </FaqItem>
 
         <FaqItem q="Why are holders different from real wallets?">
-          <p className="m-0"><strong className="text-ink">Holders</strong> counts every token account owner (including pools/programs). <strong className="text-ink">Real wallets</strong> only counts System-Program-owned accounts — pools and PDAs are separated. ~73% of supply sits in pool/program accounts, normal for an LST.</p>
+          <p className="m-0"><strong className="text-ink">Holders</strong> counts every token account owner (including pools/programs). <strong className="text-ink">Real wallets</strong> only counts System-Program-owned accounts. ~51% of supply sits in pool/program accounts, normal for an LST.</p>
         </FaqItem>
 
         <FaqItem q="What's in the snapshot?">
