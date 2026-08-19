@@ -1,7022 +1,6022 @@
 {
- "fetchedAt": "2026-08-19T15:47:36.310Z",
+ "fetchedAt": "2026-08-19T16:07:33.208Z",
  "mint": "rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp",
  "supplyUi": 182717.53797321,
- "solPriceUsd": 81.95,
  "stats": {
   "officialHolders": 1001,
   "tvlLamports": 185794292697821,
   "latestApy": 0.05397443531181123,
-  "avgApy": 0.052750828307618056,
-  "launchDate": "2026-05-11T21:00:00.000Z",
-  "tvlSol": 185794.292697821,
-  "tvlUsd": 15225842.28658643,
-  "rateSolPerRkuSol": 1.0168388582658228
+  "launchDate": "2026-05-11T21:00:00.000Z"
  },
  "holders": [
   {
    "owner": "61Dz6DkjDbn1seiD2SgDGpQE8V81ip22RyYwVsB9CcNy",
-   "amountRaw": 69244253908431,
    "amountUi": 69244.253908431,
    "share": 0.37896884270946984,
    "isPda": true
   },
   {
    "owner": "Ar1HrwURVUrDRdGPpLDf22iG89XuehvMS8G34LRgkUmi",
-   "amountRaw": 54329215370439,
    "amountUi": 54329.215370439,
    "share": 0.29733990493241397,
    "isPda": false
   },
   {
    "owner": "BFvJqKjuWT6CcvRKE4A4ZvbqZFmu1uxYJpcZ5ko8nkgR",
-   "amountRaw": 27394671639684,
    "amountUi": 27394.671639684,
    "share": 0.14992907601294736,
    "isPda": false
   },
   {
    "owner": "2NhLJRL9AeooN1DYv5b2LrcyCqZZbvrPp16N4gAjQEWk",
-   "amountRaw": 23675549605516,
    "amountUi": 23675.549605516,
    "share": 0.12957458746509218,
    "isPda": true
   },
   {
    "owner": "EatQ6Lu9iBwdZzMtAqdT4JD2R413tLVs2diim5z4jQ3t",
-   "amountRaw": 1282220986080,
    "amountUi": 1282.22098608,
    "share": 0.007017503630483457,
    "isPda": false
   },
   {
    "owner": "BF8g3ghv52zXv7P4FTZuLMKdi5tQZxWFADhx6rxpLu2N",
-   "amountRaw": 596809161170,
    "amountUi": 596.80916117,
    "share": 0.003266293798559742,
    "isPda": false
   },
   {
    "owner": "4YpatyXDJG93XxHMU5N19wJk29wjZXWcUHiN3hDaekDd",
-   "amountRaw": 555558735789,
    "amountUi": 555.558735789,
    "share": 0.0030405331746012026,
    "isPda": false
   },
   {
    "owner": "6GPu2patPUS39eskTgSqJVGHMJ53uvaP9WYbpLTNtz5z",
-   "amountRaw": 404153848685,
    "amountUi": 404.153848685,
    "share": 0.00221190507035103,
    "isPda": false
   },
   {
    "owner": "AYhux5gJzCoeoc1PoJ1VxwPDe22RwcvpHviLDD1oCGvW",
-   "amountRaw": 387393039060,
-   "amountUi": 387.39303906,
-   "share": 0.0021201743595997856,
+   "amountUi": 387.359460614,
+   "share": 0.00211999058716955,
    "isPda": true
   },
   {
    "owner": "FPUqspsUG5ZudHfi1dPhp8DSYjU5nZCGXzqw9EdzZEGV",
-   "amountRaw": 340470495309,
    "amountUi": 340.470495309,
    "share": 0.0018633706380113315,
    "isPda": false
   },
   {
    "owner": "FwkLodYCyxvmnsUTzbfokN5j1djXbbaYK2vS7KFvvqCX",
-   "amountRaw": 162330977068,
    "amountUi": 162.330977068,
    "share": 0.0008884258121505606,
    "isPda": false
   },
   {
    "owner": "2F4zzy2W4poxyca1iVdbkDMXCPu4xqivcuaSFvCzQ415",
-   "amountRaw": 160590101567,
    "amountUi": 160.590101567,
    "share": 0.0008788981252064905,
    "isPda": false
   },
   {
    "owner": "28eiZ4fAv2C22YCVnAqch6qbqF4cZGcXrUekgLoVoz6d",
-   "amountRaw": 122485491484,
    "amountUi": 122.485491484,
    "share": 0.0006703543230861549,
    "isPda": false
   },
   {
    "owner": "4GDPQkaEhoR6mJxXUsUbMP4V18dJ6KCzYiseeWh1zoxk",
-   "amountRaw": 105255273106,
    "amountUi": 105.255273106,
    "share": 0.0005760545718464776,
    "isPda": false
   },
   {
    "owner": "7JNZSh9BD3voixR67EoZvpubFrh7b9MDCQYXcHLdV6gZ",
-   "amountRaw": 101279462908,
    "amountUi": 101.279462908,
    "share": 0.000554295247360708,
    "isPda": false
   },
   {
    "owner": "G3E5TyR5nQFEqfhwivbjwuT6XoLawvvKPP5i4VvtnRm9",
-   "amountRaw": 100733375175,
    "amountUi": 100.733375175,
    "share": 0.0005513065483061046,
    "isPda": false
   },
   {
    "owner": "DxC4y3EScYLfqNrMSvMXv4tT4cZaNe9UnbGGDeWoZmuu",
-   "amountRaw": 100111838266,
    "amountUi": 100.111838266,
    "share": 0.0005479049213145504,
    "isPda": false
   },
   {
    "owner": "6jiZ8ycNYCzCRW62hDxbBQLjanpSx9fYLBzAdyHXdtTo",
-   "amountRaw": 100111838266,
    "amountUi": 100.111838266,
    "share": 0.0005479049213145504,
    "isPda": false
   },
   {
    "owner": "2D8Ca6F5rJS468vvPTvCjpAdHS6fhxE4g2GR4wyHQm1G",
-   "amountRaw": 79694222338,
    "amountUi": 79.694222338,
    "share": 0.00043616077154938867,
    "isPda": false
   },
   {
    "owner": "BNNosiBujbDLR6evJzHbfdWf3Vb5zFP4qh33Q3kDRtdo",
-   "amountRaw": 76740252065,
    "amountUi": 76.740252065,
    "share": 0.00041999390379401696,
    "isPda": false
   },
   {
    "owner": "H3T2vjWyDKG25JfgpggQrrkCivDa3iFQ7ueS5ifqaT8s",
-   "amountRaw": 64464250748,
    "amountUi": 64.464250748,
    "share": 0.00035280822773264234,
    "isPda": true
   },
   {
    "owner": "5fFbhoGnQhmopkzxLnNCusgzKYMufYpKAfe56GQDEKFF",
-   "amountRaw": 57373511572,
    "amountUi": 57.373511572,
    "share": 0.0003140011200261033,
    "isPda": false
   },
   {
    "owner": "7c6x6uuJFVV1fMEGBvoftaYG1f5SivwFhuAzHbfikowf",
-   "amountRaw": 57326031011,
    "amountUi": 57.326031011,
    "share": 0.0003137412623160735,
    "isPda": false
   },
   {
    "owner": "53zSVgcrwaJmbGPPqastyqYnyiuWKxgG7wghb2uDFS5m",
-   "amountRaw": 52096223841,
    "amountUi": 52.096223841,
    "share": 0.00028511890220761586,
    "isPda": false
   },
   {
    "owner": "GjEvdyUXrCkFz9FxQXEwLGqhpsiiHLjBXhvZpuNjfYqA",
-   "amountRaw": 48372921880,
    "amountUi": 48.37292188,
    "share": 0.00026474153721955484,
    "isPda": false
   },
   {
    "owner": "5zcERAjxHZo689pUNTw1rVSqFtcwy2Q58TUeE8muo1CM",
-   "amountRaw": 46118275642,
    "amountUi": 46.118275642,
    "share": 0.0002524020198256056,
    "isPda": true
   },
   {
    "owner": "5Len53yPBqDS4wJASnfeAwC3yEy7ewWfXmqX9sPvRqhJ",
-   "amountRaw": 44421910386,
    "amountUi": 44.421910386,
    "share": 0.0002431179342648166,
    "isPda": false
   },
   {
    "owner": "DFZgpRgoJP8c2Phx9rP79yn9rUQkWAU1ksnAH6dY7c8U",
-   "amountRaw": 42445523442,
    "amountUi": 42.445523442,
    "share": 0.00023230131005937346,
    "isPda": false
   },
   {
    "owner": "8JS6XsMPo2u3EyeeY3p2jvzHEhdUtCKgarHpJ3PAonyv",
-   "amountRaw": 40848089375,
    "amountUi": 40.848089375,
    "share": 0.00022355866781101843,
    "isPda": false
   },
   {
    "owner": "BRJDdtqehL9nDAWYp9r7PkaQ5EUcJKQ1jFEeigj43due",
-   "amountRaw": 39760847304,
    "amountUi": 39.760847304,
    "share": 0.00021760826981934118,
    "isPda": true
   },
   {
    "owner": "GHr1ynv3EFehCUzjYWmrBnL44aJfsmyFRbbRVGkZBPWF",
-   "amountRaw": 34787160146,
    "amountUi": 34.787160146,
    "share": 0.0001903876361945096,
    "isPda": false
   },
   {
    "owner": "5ZwXmBu3ZvTRmFGSoyUb4rX5R9SAz5fKropohACsAmf5",
-   "amountRaw": 32975139739,
    "amountUi": 32.975139739,
    "share": 0.00018047057827494812,
    "isPda": false
   },
   {
    "owner": "7vud9gTbJAKoeDQc4hxipJkNANTX3gKqACyBurfqevtB",
-   "amountRaw": 32968295245,
    "amountUi": 32.968295245,
    "share": 0.00018043311884945496,
    "isPda": false
   },
   {
    "owner": "HHQWFoAtc9n1akAivVnZWyMLvLbjGozQbnkWoUJ3mvhv",
-   "amountRaw": 31036700911,
    "amountUi": 31.036700911,
    "share": 0.00016986164139071638,
    "isPda": false
   },
   {
    "owner": "BEJCQgYRu7hqSWx6WyyDbXZQ2ufXpEPbMMpenK9Sf28r",
-   "amountRaw": 29180087487,
    "amountUi": 29.180087487,
    "share": 0.00015970052908264546,
    "isPda": false
   },
   {
    "owner": "8AMDAdQb3KvJDZR2t7p4kuxSVxo67r6vk97XGDNrWW14",
-   "amountRaw": 29105279909,
    "amountUi": 29.105279909,
    "share": 0.00015929111256560063,
    "isPda": true
   },
   {
    "owner": "3uJkEPKZiKjQ7vAsUC3rJUUGAgqpfKvykmKA6g31Hh4V",
-   "amountRaw": 28623771196,
    "amountUi": 28.623771196,
    "share": 0.00015665584986262682,
    "isPda": true
   },
   {
    "owner": "EMVUkAemWvA7nLfPk6HYTSomzDrsN3suaaWZg6j9oPmj",
-   "amountRaw": 27750172109,
    "amountUi": 27.750172109,
    "share": 0.00015187470462232653,
    "isPda": true
   },
   {
    "owner": "3dpaqbmFZyUrSZzJfYNXZj26ukG3JazL41zKK7FGawd6",
-   "amountRaw": 27716146502,
    "amountUi": 27.716146502,
    "share": 0.00015168848491196142,
    "isPda": false
   },
   {
    "owner": "9nBb3ovsUsDcNxdJ3sSFCEAgwTTbuwTiqYe5JUEu3uuN",
-   "amountRaw": 27473282698,
    "amountUi": 27.473282698,
    "share": 0.0001503593087053752,
    "isPda": false
   },
   {
    "owner": "CYSsQsbx2YVi1JKiZua1PQubt7QuAFtJ9HY7xYUKGN94",
-   "amountRaw": 27262290400,
    "amountUi": 27.2622904,
    "share": 0.0001492045629686472,
    "isPda": false
   },
   {
    "owner": "7Sc6J1L8fzReddFptjg8CWRF3irEMBnPiD49wnJrPuz2",
-   "amountRaw": 22206437694,
    "amountUi": 22.206437694,
    "share": 0.00012153424318390226,
    "isPda": false
   },
   {
    "owner": "5RRzt5impbDhzGepEZj44JqTu7o6NmXNRKSM4rSQPX1z",
-   "amountRaw": 22039741636,
    "amountUi": 22.039741636,
    "share": 0.0001206219275964164,
    "isPda": false
   },
   {
    "owner": "8D2miCyNyyYDA5Ky95LkJJZwmmg9fVrHzZXYjCcFfuV4",
-   "amountRaw": 21335030658,
    "amountUi": 21.335030658,
    "share": 0.0001167650948817411,
    "isPda": true
   },
   {
    "owner": "8xuSKnjUphnhwAwF4DatKz2AjvJxo3ywhxGCS7SGVyer",
-   "amountRaw": 20747153077,
    "amountUi": 20.747153077,
    "share": 0.00011354768298181614,
    "isPda": false
   },
   {
    "owner": "2LRLro3HmpKV3KSMsFCHqhzpfFiX8hKZzg5MyuQY4Jn7",
-   "amountRaw": 20223178973,
    "amountUi": 20.223178973,
    "share": 0.00011068001023506084,
    "isPda": false
   },
   {
    "owner": "E3DZpRApET9QDDM2s3j4nXuGnbN51kraYLAp99eL4kLe",
-   "amountRaw": 20052419491,
    "amountUi": 20.052419491,
    "share": 0.00010974545581902532,
    "isPda": false
   },
   {
    "owner": "G2su3FGxnPZ5QLb5uxwGDos6eeeuB7RdYP2UJThVS9wM",
-   "amountRaw": 19534289937,
    "amountUi": 19.534289937,
    "share": 0.00010690976987586223,
    "isPda": false
   },
   {
    "owner": "2cYb9jzMNCT7ybnLYnu6BimkAiJa28ua7sKDbm7u45Ug",
-   "amountRaw": 19331095931,
    "amountUi": 19.331095931,
    "share": 0.0001057977036327751,
    "isPda": false
   },
   {
    "owner": "7cbBKmZgtUqDxLUNgcRiH8Zi2QwWUmhGvobh9ysVwCGw",
-   "amountRaw": 19162806781,
    "amountUi": 19.162806781,
    "share": 0.0001048766691668626,
    "isPda": false
   },
   {
    "owner": "DCKsHbZ579GGUkf2iAuo7cG252XabmsmesrUrJJEcqnD",
-   "amountRaw": 18215146293,
    "amountUi": 18.215146293,
    "share": 0.00009969019118280097,
    "isPda": false
   },
   {
    "owner": "ncy9Jyr1sBkZi9h2LgzsMVFJQpS39s612gj7ZkSewjU",
-   "amountRaw": 17929241516,
    "amountUi": 17.929241516,
    "share": 0.00009812545481336762,
    "isPda": false
   },
   {
    "owner": "6NsvYpebZVEafGiSYu1G2hpVh3fm4eozWg3YBe7ahD9T",
-   "amountRaw": 16076691301,
    "amountUi": 16.076691301,
    "share": 0.00008798658015716674,
    "isPda": false
   },
   {
    "owner": "penyeP9cdBdETMJHEmCBj8jpTaNTrjWLkHJ7TZiMEnw",
-   "amountRaw": 15047363816,
    "amountUi": 15.047363816,
    "share": 0.00008235314454711096,
    "isPda": false
   },
   {
    "owner": "AUSukfTntJHtFTbUqxu4r7p2M8g227fYKP9jduFs439D",
-   "amountRaw": 15029898678,
    "amountUi": 15.029898678,
    "share": 0.00008225755909760386,
    "isPda": false
   },
   {
    "owner": "JALuUiK4Pg3k75Raostg1skYwh5Wpnf494v8bNxZX3LB",
-   "amountRaw": 14949718588,
    "amountUi": 14.949718588,
    "share": 0.00008181873920713579,
    "isPda": false
   },
   {
    "owner": "GZrmGJuuq7Gpw5kQtoKVRqyyjXbR69JdSNY6tMAvevfy",
-   "amountRaw": 14939366122,
    "amountUi": 14.939366122,
    "share": 0.00008176208090211027,
    "isPda": false
   },
   {
    "owner": "2xBHcRRWQyzDTk6Q7K8pMMVK1MaNNhVM9eALsS2ZUXEy",
-   "amountRaw": 14863709210,
    "amountUi": 14.86370921,
    "share": 0.00008134801604090853,
    "isPda": false
   },
   {
    "owner": "FT8wjbDcWrPfaEkMt3swnwmsmx1tMQox1fePg8HuzeCQ",
-   "amountRaw": 14079295143,
    "amountUi": 14.079295143,
    "share": 0.00007705497402807771,
    "isPda": false
   },
   {
    "owner": "3n2X5GSaANeJcHZLqeS6CthJ2yiM7iVJH63rwVvZhMY4",
-   "amountRaw": 13241655574,
    "amountUi": 13.241655574,
    "share": 0.0000724706326545484,
    "isPda": false
   },
   {
    "owner": "ELSAoCm6yGSqGMnjixAyHUgDnFxwAZkEpUUH1TeeRyyi",
-   "amountRaw": 13009910812,
    "amountUi": 13.009910812,
    "share": 0.00007120231016853735,
    "isPda": false
   },
   {
    "owner": "CgXbPuw3RrqQNKBhRkJhjCWQ6kpEyZzpTdTRtsM824Ca",
-   "amountRaw": 12958479517,
    "amountUi": 12.958479517,
    "share": 0.00007092083037425761,
    "isPda": false
   },
   {
    "owner": "9yhNFc1MGW8V1swQteHKUmBKvr8K5Tvadjf79Kqo2EpE",
-   "amountRaw": 12958322182,
    "amountUi": 12.958322182,
    "share": 0.00007091996929107017,
    "isPda": false
   },
   {
    "owner": "53irB5ujq6BEgAtWAvdLr2LdXRhTkACjM5QysBPi9CYj",
-   "amountRaw": 12722378229,
    "amountUi": 12.722378229,
    "share": 0.00006962866493344143,
    "isPda": false
   },
   {
    "owner": "9Tu4SyL2hmgTya2GqcicMN9Dg8yhMukkhFnq9h32vLAK",
-   "amountRaw": 12656479808,
    "amountUi": 12.656479808,
    "share": 0.00006926800759462778,
    "isPda": false
   },
   {
    "owner": "33XG2J1jpw2qtgAVEtWBzCXS6inMNRxXGrXB7MmK4kGS",
-   "amountRaw": 12063563892,
    "amountUi": 12.063563892,
    "share": 0.00006602302124806846,
    "isPda": false
   },
   {
    "owner": "2krpWdSvphccEVZfdTejnpj4SFwv2vBEuc14sKhRm8zw",
-   "amountRaw": 12028197359,
    "amountUi": 12.028197359,
    "share": 0.00006582946274573584,
    "isPda": false
   },
   {
    "owner": "jHZb3EXfY1aC5zrEbF7VRTYB8jjDGcCozhxjgKpSY83",
-   "amountRaw": 11947942975,
    "amountUi": 11.947942975,
    "share": 0.00006539023624952633,
    "isPda": false
   },
   {
    "owner": "3KYVodCo5BjgN8jKetZH8isa7qtbhGfSWQovJojpnwxU",
-   "amountRaw": 11947942975,
    "amountUi": 11.947942975,
    "share": 0.00006539023624952633,
    "isPda": false
   },
   {
    "owner": "G6BcN7EndishXpsbB7L25ibrqVmRSUwsUVit6aJ2Vrua",
-   "amountRaw": 11815000702,
    "amountUi": 11.815000702,
    "share": 0.00006466265271006614,
    "isPda": false
   },
   {
    "owner": "HRkYERGkbipE6rKBqEpcMbEmo6AXj9ok6awL1Rem5a8M",
-   "amountRaw": 11755350553,
    "amountUi": 11.755350553,
    "share": 0.00006433619171643811,
    "isPda": false
   },
   {
    "owner": "Gc7RTBon5ARP5Wh8sXTPSwXYLj5Fzi1bJLJtKUch6HLG",
-   "amountRaw": 11402267754,
    "amountUi": 11.402267754,
    "share": 0.00006240379484355682,
    "isPda": false
   },
   {
    "owner": "HjN9MwqFzrF8haDpfXNJYxAghczpRdf9yEjUZQwk6Ze6",
-   "amountRaw": 11335966081,
    "amountUi": 11.335966081,
    "share": 0.0000620409305354261,
    "isPda": false
   },
   {
    "owner": "A9e7Fop4NXU8nibLv8WVLdQokLpVvZjGyrT6GN9V8D83",
-   "amountRaw": 11264272240,
    "amountUi": 11.26427224,
    "share": 0.00006164855527799179,
    "isPda": false
   },
   {
    "owner": "4ouTyMmsNFZbs51U7WbpMSkdS5PTSwkWnM6YMCcFwikL",
-   "amountRaw": 11199709345,
    "amountUi": 11.199709345,
    "share": 0.00006129520717733237,
    "isPda": false
   },
   {
    "owner": "B63YhEoaj2x2aVTJ2xw4UmLqtkmtRZ8LDMLv3ebnZpC",
-   "amountRaw": 11163691368,
    "amountUi": 11.163691368,
    "share": 0.00006109808336864093,
    "isPda": false
   },
   {
    "owner": "ANQ4iRSQXozkG6w2Lp4YiugNkbRUH2iHExBfnXNCRX55",
-   "amountRaw": 11160944834,
    "amountUi": 11.160944834,
    "share": 0.00006108305178475213,
    "isPda": false
   },
   {
    "owner": "GURfdPNogurcujrhcLNieNsrfCEkRHAZ69gzPc5wS9oL",
-   "amountRaw": 11067616634,
    "amountUi": 11.067616634,
    "share": 0.00006057227322985674,
    "isPda": false
   },
   {
    "owner": "4RgbajhfW15V7CRSDYLiEdKRCTs9v8mzKkWR8A6kGEMp",
-   "amountRaw": 10990205331,
    "amountUi": 10.990205331,
    "share": 0.000060148606712352817,
    "isPda": false
   },
   {
    "owner": "czqHAP51UvKDcBZRuf91CudojKoVFT9H6Jd1iq5HzDr",
-   "amountRaw": 10974061346,
    "amountUi": 10.974061346,
    "share": 0.000060060251838600264,
    "isPda": false
   },
   {
    "owner": "Gmi5dX9JXjpuhTVFUwgWSUSpjiYYTVJUmnXgEfYTZL83",
-   "amountRaw": 10963126965,
    "amountUi": 10.963126965,
    "share": 0.00006000040875445361,
    "isPda": false
   },
   {
    "owner": "3vRBmh1C9NTJn73Nkf8fRkDyxwaJEPr9UrRGn2sg77gS",
-   "amountRaw": 10959707156,
    "amountUi": 10.959707156,
    "share": 0.00005998169238470644,
    "isPda": false
   },
   {
    "owner": "EPe28JEabNcHWe1EzBxKtmv27DRtPtQiuxA5JAD2Sa1L",
-   "amountRaw": 10945745971,
    "amountUi": 10.945745971,
    "share": 0.000059905283819032536,
    "isPda": false
   },
   {
    "owner": "9Nazkg5SsEXiJMVPboFDuo4YF9VGqapjbaYv4BFX8ZoB",
-   "amountRaw": 10939264927,
    "amountUi": 10.939264927,
    "share": 0.00005986981352936089,
    "isPda": false
   },
   {
    "owner": "BcB15F4r8jMw6JerDz3RmZp2LZjgVWSfEgEhWinNMjbh",
-   "amountRaw": 10913020279,
    "amountUi": 10.913020279,
    "share": 0.00005972617845036892,
    "isPda": false
   },
   {
    "owner": "7d4LJjLMT22SmH6ZYJ9r2xhsiuw1iN7zmoGjWMptq6YU",
-   "amountRaw": 10897566833,
    "amountUi": 10.897566833,
    "share": 0.00005964160284711038,
    "isPda": false
   },
   {
    "owner": "84LhCtMHkM7TiG62r7JswEtiCi64s2Ncty495CbMULzB",
-   "amountRaw": 10894349905,
    "amountUi": 10.894349905,
    "share": 0.000059623996830546867,
    "isPda": false
   },
   {
    "owner": "7B2Sh3ADn5hdU7oEsrgkmjvUifQiSYv2TAc5ycXAa4Wk",
-   "amountRaw": 10889413555,
    "amountUi": 10.889413555,
    "share": 0.000059596980540513866,
    "isPda": false
   },
   {
    "owner": "4ncMjiR2VHYvjGCmrZq49yMJqywgX9Yc6kvcWPYjgiqZ",
-   "amountRaw": 10865843074,
    "amountUi": 10.865843074,
    "share": 0.00005946798098600227,
    "isPda": false
   },
   {
    "owner": "EWRV6nN3hPmNd2isHAnuVsCns3zwfKefLpAyLsFPFxHt",
-   "amountRaw": 10863462175,
    "amountUi": 10.863462175,
    "share": 0.00005945495049628349,
    "isPda": false
   },
   {
    "owner": "HXEVDwksuV6VGUZC5Xfv6TvP6YEL6Q8MGPtd81EwSSrU",
-   "amountRaw": 10783000804,
    "amountUi": 10.783000804,
    "share": 0.000059014591175046377,
    "isPda": false
   },
   {
    "owner": "45gmEUFAkoozkd2k8bcnCrRsnyqRhzgZhXgxJL12c741",
-   "amountRaw": 10768243255,
    "amountUi": 10.768243255,
    "share": 0.00005893382416623213,
    "isPda": false
   },
   {
    "owner": "3FvdkYuHc1RVXtpMmRcTLT61m1He5Q7QuQSPXpM6NtpA",
-   "amountRaw": 10730675236,
    "amountUi": 10.730675236,
    "share": 0.00005872821708868105,
    "isPda": false
   },
   {
    "owner": "2Pb9N8jicKaHdxNWC999Hhos74sBKrfexfGhSrfiwq7Q",
-   "amountRaw": 10728258713,
    "amountUi": 10.728258713,
    "share": 0.00005871499163136149,
    "isPda": false
   },
   {
    "owner": "7ZbtyVsBDvgegGFQS6JCNLHLnTQ7re2mR9qLh2rYhsP4",
-   "amountRaw": 10703236456,
    "amountUi": 10.703236456,
    "share": 0.000058578046610770914,
    "isPda": false
   },
   {
    "owner": "12Tw4rFSKjdRFGd4aZMg2Rnu6HMyTBzj2gouw8DhJUrc",
-   "amountRaw": 10664304578,
    "amountUi": 10.664304578,
    "share": 0.00005836497523058568,
    "isPda": false
   },
   {
    "owner": "puiRBGikahXM4C7weFtNRFcs7bSUx8wVn1m5v6RA91o",
-   "amountRaw": 10645558967,
    "amountUi": 10.645558967,
    "share": 0.00005826238184405073,
    "isPda": true
   },
   {
    "owner": "EcACfqnQbbepHjnox4hajEdEdoEq6TiJGSQc44dbHGnX",
-   "amountRaw": 10625630498,
    "amountUi": 10.625630498,
    "share": 0.00005815331476039223,
    "isPda": false
   },
   {
    "owner": "BXm3KXUAsGriXpV7FbCU5rWHS5YpZ9La2oLC7ZsStKA3",
-   "amountRaw": 10614176403,
    "amountUi": 10.614176403,
    "share": 0.00005809062731874292,
    "isPda": false
   },
   {
    "owner": "5BAucbYjQ3D6XTz2F2QWY8SnewNpbhdL7XwDxyKnH3Ki",
-   "amountRaw": 10576397191,
    "amountUi": 10.576397191,
    "share": 0.00005788386439702744,
    "isPda": false
   },
   {
    "owner": "9K97EHZubfDCv2mf4Rehrf9VktfmG5xnsqTeRpZKYX6i",
-   "amountRaw": 10561451362,
    "amountUi": 10.561451362,
    "share": 0.00005780206694525688,
    "isPda": false
   },
   {
    "owner": "4YneiVJpLpsrBgJS4tZ8qQuhRWti6hMxxw2eVLsRwTca",
-   "amountRaw": 10516121372,
    "amountUi": 10.516121372,
    "share": 0.00005755397915629682,
    "isPda": false
   },
   {
    "owner": "AmcyLcNJjREKVXJb2t6D4MKVx4Vqd387bErLjdzT9dW6",
-   "amountRaw": 10480291901,
    "amountUi": 10.480291901,
    "share": 0.000057357887027443515,
    "isPda": false
   },
   {
    "owner": "AytcBDmHuJRKYCUh23t1abt2P2Ex3Mu55SAAeuFHt4Rp",
-   "amountRaw": 10477173542,
    "amountUi": 10.477173542,
    "share": 0.00005734082047195798,
    "isPda": false
   },
   {
    "owner": "FQB54sbjqnehcNe94eT6iNnyzmqwCZSpn9eta7AS5uVg",
-   "amountRaw": 10464803012,
    "amountUi": 10.464803012,
    "share": 0.000057273117447184226,
    "isPda": false
   },
   {
    "owner": "3MtVYTxT61suuvvWKgN87rg8xDPYneZcQfHHYFWv3Vzr",
-   "amountRaw": 10464765135,
    "amountUi": 10.464765135,
    "share": 0.00005727291014907579,
    "isPda": false
   },
   {
    "owner": "HXQsDPPmnuyMWVwwmczK2xVkc7idgSacdPbFT2waX9Uk",
-   "amountRaw": 10461809296,
    "amountUi": 10.461809296,
    "share": 0.00005725673305391138,
    "isPda": false
   },
   {
    "owner": "FGnG7sCtcg3xj6PJpFVn1NhuDPsSWJnvxxoLDTXTwoMt",
-   "amountRaw": 10460908267,
    "amountUi": 10.460908267,
    "share": 0.00005725180178672162,
    "isPda": false
   },
   {
    "owner": "61heH9o1PMwzs79YFKudBQLD2186DZWQT36VmtbUVkLh",
-   "amountRaw": 10455774378,
    "amountUi": 10.455774378,
    "share": 0.00005722370437988839,
    "isPda": false
   },
   {
    "owner": "RcCvyf7aKvk6MqAMzBaVpCULiPkq176aFowBb2ucVQz",
-   "amountRaw": 10454450103,
    "amountUi": 10.454450103,
    "share": 0.00005721645671765142,
    "isPda": false
   },
   {
    "owner": "2QJTQosHj9R7qRaDt4fYQkN2hC8kEYdbUcp2gfeFCerm",
-   "amountRaw": 10448212063,
    "amountUi": 10.448212063,
    "share": 0.00005718231637146903,
    "isPda": false
   },
   {
    "owner": "5EbRSSPsKQSqWyRFSfUJBEzn7nQdbfUANBUggoeDoiSA",
-   "amountRaw": 10445984274,
    "amountUi": 10.445984274,
    "share": 0.00005717012384181527,
    "isPda": false
   },
   {
    "owner": "79eBX6JjiubmTHRdGN7aA9ZixkVU6Usb6WShBjXugW5i",
-   "amountRaw": 10386963720,
    "amountUi": 10.38696372,
    "share": 0.000056847108576533763,
    "isPda": false
   },
   {
    "owner": "HaGCEk8PB8TUS87bVtxDUs2MmXQ7cK76mkWq2CpcjB7Y",
-   "amountRaw": 10380941075,
    "amountUi": 10.380941075,
    "share": 0.000056814147071760845,
    "isPda": false
   },
   {
    "owner": "5B7zDi6UvTQWQvyfM6bu7NXEoinoPbBX7agiBapy6maK",
-   "amountRaw": 10330376454,
    "amountUi": 10.330376454,
    "share": 0.000056537410522216194,
    "isPda": false
   },
   {
    "owner": "EiFYeEby3qQgL6edWtXHMxPJoson6oHbvzJ1vnUg1cXD",
-   "amountRaw": 10269069947,
    "amountUi": 10.269069947,
    "share": 0.00005620188439987435,
    "isPda": false
   },
   {
    "owner": "4fYezwajVT2aV8bPBSscFv8vyrP2mdp3dxz6YMDis1vj",
-   "amountRaw": 10265473431,
    "amountUi": 10.265473431,
    "share": 0.00005618220092537106,
    "isPda": false
   },
   {
    "owner": "GCUgny8JQ8WiTTcUJwE41dTFGesCu1jbeov1XNLUyDDK",
-   "amountRaw": 10265473431,
    "amountUi": 10.265473431,
    "share": 0.00005618220092537106,
    "isPda": false
   },
   {
    "owner": "6Gsk1CQdh89m6hNVSL8o7XnFXUX8GK3PurwCTCooP2f",
-   "amountRaw": 10265448179,
    "amountUi": 10.265448179,
    "share": 0.00005618206272298348,
    "isPda": false
   },
   {
    "owner": "CCEMQ1kvPZ3KfNiYsmycqLf1NQgrnS6feZwyojWtWGmt",
-   "amountRaw": 10222337937,
    "amountUi": 10.222337937,
    "share": 0.00005594612345586003,
    "isPda": false
   },
   {
    "owner": "CzqCWXiTuDyMWz5rbMJYYg1ksTKCTQEkWoiwKUias4eR",
-   "amountRaw": 10192074794,
    "amountUi": 10.192074794,
    "share": 0.00005578049544151782,
    "isPda": false
   },
   {
    "owner": "AfBvkxAxqcpAAzLDQAxmQXB6cvaUTxAK1Vu3bk8Avmh5",
-   "amountRaw": 10190178968,
    "amountUi": 10.190178968,
    "share": 0.00005577011972158951,
    "isPda": false
   },
   {
    "owner": "6cH58r9RSYVu3MFo42HYJrvWqBPfcdoLW54d38G9ftk1",
-   "amountRaw": 10177752466,
    "amountUi": 10.177752466,
    "share": 0.000055702110366068196,
    "isPda": false
   },
   {
    "owner": "BqrbgHy2Zc7R1E9urkRHuhXsKA5NWKJCkC9B6RspWZF6",
-   "amountRaw": 10175749291,
    "amountUi": 10.175749291,
    "share": 0.00005569114713275069,
    "isPda": false
   },
   {
    "owner": "32djbWCoUq7XojG3ZNMFNDLQ5z6KYg3KLMZts1ihGmmK",
-   "amountRaw": 10170121900,
    "amountUi": 10.1701219,
    "share": 0.00005566034882481364,
    "isPda": false
   },
   {
    "owner": "2xXqH7WPUVmCNFkuPTJMhjVHFat9UntASMHJGZSUJEWY",
-   "amountRaw": 10165808640,
    "amountUi": 10.16580864,
    "share": 0.00005563674266172801,
    "isPda": false
   },
   {
    "owner": "4zrj6dAzPPv3wdj3uavZZMe4bEY7HNJej1YxwcVvGeJC",
-   "amountRaw": 10165771846,
    "amountUi": 10.165771846,
    "share": 0.000055636541290801014,
    "isPda": false
   },
   {
    "owner": "EJnkvtSnDFfoAvLs4Sg3X7tuNGmhhoyBsV9YEc6YuGVf",
-   "amountRaw": 10165771846,
    "amountUi": 10.165771846,
    "share": 0.000055636541290801014,
    "isPda": false
   },
   {
    "owner": "EW96V8KsMGzR6EGY3pQ3AMsS8R2dQaBBmNikMRqKvVkR",
-   "amountRaw": 10155751529,
    "amountUi": 10.155751529,
    "share": 0.00005558170081346561,
    "isPda": false
   },
   {
    "owner": "559yChHwnx1WYdniUt7a4esK6yBZyXjr29vZ7nJwWgsP",
-   "amountRaw": 10152893781,
    "amountUi": 10.152893781,
    "share": 0.000055566060563319404,
    "isPda": false
   },
   {
    "owner": "5CVvAyCBiBqGjE1DJQANskmL9W7DVmLRctaVW4j3Rkgj",
-   "amountRaw": 10152755612,
    "amountUi": 10.152755612,
    "share": 0.000055565304374277384,
    "isPda": false
   },
   {
    "owner": "5YBnr8ZvGKpz1oQWq8Z7d17nrpYQhwGirMQqZ8rnrsWu",
-   "amountRaw": 10152472650,
    "amountUi": 10.15247265,
    "share": 0.000055563755743515724,
    "isPda": false
   },
   {
    "owner": "5hxA7zgwemc85VkjUmXErfEceCuruMsAEeBvTce1Xs8t",
-   "amountRaw": 10146653209,
    "amountUi": 10.146653209,
    "share": 0.00005553190635968234,
    "isPda": false
   },
   {
    "owner": "4zcCceWZk9CFAWA9rEFz1wukyAyNc6EfDzZGjDP12PoL",
-   "amountRaw": 10145107937,
    "amountUi": 10.145107937,
    "share": 0.000055523449196691084,
    "isPda": false
   },
   {
    "owner": "H43NbQpbjh3nDFgm8tDrYjNrszYZzWD9KfH1paFckY7n",
-   "amountRaw": 10139987908,
    "amountUi": 10.139987908,
    "share": 0.00005549542764464527,
    "isPda": false
   },
   {
    "owner": "EcgQDAbXAmpXmhTZY2gauwrcwEXwfnhV7ed4XhmfDrMw",
-   "amountRaw": 10136556759,
    "amountUi": 10.136556759,
    "share": 0.00005547664921189021,
    "isPda": false
   },
   {
    "owner": "FAoysUkWwexVCTLRTtAit3DCjvhXTc2XVKsLHJgTEp93",
-   "amountRaw": 10134448905,
    "amountUi": 10.134448905,
    "share": 0.0000554651130779023,
    "isPda": false
   },
   {
    "owner": "BrJSJBW6s6vyPK78FSLTopFgGM8MijGgaXWdUMVMPnxH",
-   "amountRaw": 10131390693,
    "amountUi": 10.131390693,
    "share": 0.00005544837570264033,
    "isPda": false
   },
   {
    "owner": "2D1nec46ez5Nyg2HMyLnVof7uKPrfJn4aR43WzZbVD9H",
-   "amountRaw": 10122048180,
    "amountUi": 10.12204818,
    "share": 0.00005539724479805596,
    "isPda": false
   },
   {
    "owner": "CP8uhFrz5NppYT6fJaZrA5ej8ksMKKDgyWwqZNhKwJQk",
-   "amountRaw": 10121998812,
    "amountUi": 10.121998812,
    "share": 0.00005539697461052745,
    "isPda": false
   },
   {
    "owner": "5D9GJuD99jTnSgVecxBxn8VWa6LQnkDwdrA1BPnq6Yht",
-   "amountRaw": 10121652932,
    "amountUi": 10.121652932,
    "share": 0.00005539508163405767,
    "isPda": false
   },
   {
    "owner": "CDhpw4i6e9vHT3f5yGjEPJQ2vK8VSVnqjpEXwCSfkYeT",
-   "amountRaw": 10113356879,
    "amountUi": 10.113356879,
    "share": 0.000055349677930111,
    "isPda": false
   },
   {
    "owner": "EYZb2biard6pYm5FqiBUh1Y9xkVS34QuWp8uzrWvAnty",
-   "amountRaw": 10106636089,
    "amountUi": 10.106636089,
    "share": 0.00005531289552775078,
    "isPda": false
   },
   {
    "owner": "8sahg9d11CM1E3U942Y3dw4UcujNfngjpJi5fLYE3ysN",
-   "amountRaw": 10106009766,
    "amountUi": 10.106009766,
    "share": 0.000055309467706825934,
    "isPda": false
   },
   {
    "owner": "J5Y25RW2PqqaKvwXZyw7vh2wX29FMec9zKPvAbQYnzH7",
-   "amountRaw": 10103220123,
    "amountUi": 10.103220123,
    "share": 0.00005529420019046738,
    "isPda": false
   },
   {
    "owner": "GmC5GdzaGkVLQ134wUvfoh3ym6TtMzWWNjSMHxUCGd2J",
-   "amountRaw": 10093183574,
    "amountUi": 10.093183574,
    "share": 0.00005523927087655844,
    "isPda": false
   },
   {
    "owner": "86RgubKWbH5Ri7Bo3aWQN89mqGyubXK8sSXjE6WYnkN1",
-   "amountRaw": 10093128309,
    "amountUi": 10.093128309,
    "share": 0.000055238968415171244,
    "isPda": false
   },
   {
    "owner": "Qrj5zjWmVuddS94iht95Nu7bvRQNt8mk1udkYRpaPBA",
-   "amountRaw": 10087884267,
    "amountUi": 10.087884267,
    "share": 0.000055210268148857626,
    "isPda": false
   },
   {
    "owner": "AdzmA867WJm3MoySNsDnjbq7NgkuJ7Hw2fP83fdFPMK1",
-   "amountRaw": 10085833344,
    "amountUi": 10.085833344,
    "share": 0.0000551990435941556,
    "isPda": false
   },
   {
    "owner": "5jLug56fsigUeNQWPaGK3vj2ZEZi3FodSznoqkpVmchR",
-   "amountRaw": 10084770234,
    "amountUi": 10.084770234,
    "share": 0.00005519322526926029,
    "isPda": false
   },
   {
    "owner": "GB7AWRSfRPoh5AY4WEdd8jghQQLjtrYn9Ppvfdtk6Mbq",
-   "amountRaw": 10080269056,
    "amountUi": 10.080269056,
    "share": 0.000055168590644418416,
    "isPda": false
   },
   {
    "owner": "VeofgsjffnLERn9mQWXzRJzQHR4pXcASxgqnDm4bu9W",
-   "amountRaw": 10078548927,
    "amountUi": 10.078548927,
    "share": 0.00005515917650158856,
    "isPda": false
   },
   {
    "owner": "E8pj89aPfwqoCPNikgeKDvyoepKmnhzLu9oAbyu467g3",
-   "amountRaw": 10076220070,
    "amountUi": 10.07622007,
    "share": 0.00005514643083400879,
    "isPda": false
   },
   {
    "owner": "22hoUWcELs4Xg8rzfte5CfDrUKETAHzYDVGtZULRDze8",
-   "amountRaw": 10076220070,
    "amountUi": 10.07622007,
    "share": 0.00005514643083400879,
    "isPda": false
   },
   {
    "owner": "EBEiuM9RfSrLr9xGeGVG7V5sPbPBjpGQHpmsaeJNxmuB",
-   "amountRaw": 10076183600,
    "amountUi": 10.0761836,
    "share": 0.000055146231236310593,
    "isPda": false
   },
   {
    "owner": "pC2ycfTyhw1GJzeCJuEhaw5fvvk6WHWoSneeGsfAM7p",
-   "amountRaw": 10076110329,
    "amountUi": 10.076110329,
    "share": 0.0000551458302293749,
    "isPda": false
   },
   {
    "owner": "8tX2SQRCugiHLDMzSZvCMJBVtTBLh34ab9gWcXAZoq7j",
-   "amountRaw": 10066143850,
    "amountUi": 10.06614385,
    "share": 0.000055091284403557886,
    "isPda": false
   },
   {
    "owner": "AUbXZB3aHSnSCQT12iNKpaduoDKLKsTbRzTkrUVtheic",
-   "amountRaw": 10066143850,
    "amountUi": 10.06614385,
    "share": 0.000055091284403557886,
    "isPda": false
   },
   {
    "owner": "EpoXrqc5JhgugjRjrH6GvKkyHGFr1tnRMBdhuDTwtmx5",
-   "amountRaw": 10066143850,
    "amountUi": 10.06614385,
    "share": 0.000055091284403557886,
    "isPda": false
   },
   {
    "owner": "H3JJQn1H8dfYHi3eGyuhZyvDFMsimueC27fwb4kZhnsz",
-   "amountRaw": 10066118598,
    "amountUi": 10.066118598,
    "share": 0.00005509114620117031,
    "isPda": false
   },
   {
    "owner": "6SkTQbqXkheJyfxKRcWqCRibn5G1tw7R5fJDJonYnMgh",
-   "amountRaw": 10066107416,
    "amountUi": 10.066107416,
    "share": 0.00005509108500288511,
    "isPda": true
   },
   {
    "owner": "DcLea3335kR5zm5VC1nCAbWKVxQJQi9VDCggvECrMRnK",
-   "amountRaw": 10066107416,
    "amountUi": 10.066107416,
    "share": 0.00005509108500288511,
    "isPda": false
   },
   {
    "owner": "GuSFg4cwbus8EE1F35kN5sPFBcuq8kxpSMmhnwgCptCa",
-   "amountRaw": 10066107405,
    "amountUi": 10.066107405,
    "share": 0.0000550910849426829,
    "isPda": false
   },
   {
    "owner": "5qi9QoZzFMjQxcea16x76hTFcMKnb8ugXGBLPSt5KMfq",
-   "amountRaw": 10066057644,
    "amountUi": 10.066057644,
    "share": 0.000055090812604293536,
    "isPda": false
   },
   {
    "owner": "J6NDy2dSynsDHnEUqxMbhMSqnqfAW4zTgv3RAdHajT35",
-   "amountRaw": 10064793016,
    "amountUi": 10.064793016,
    "share": 0.000055083891385815943,
    "isPda": false
   },
   {
    "owner": "exk8pboGjMgrKgAkeyJeEnNhC4AD8c6PSmpVXdFj5M2",
-   "amountRaw": 10063264180,
    "amountUi": 10.06326418,
    "share": 0.00005507552417587563,
    "isPda": false
   },
   {
    "owner": "DFPgHiVVEvj7dRL9oQDWw7nbewKaCZRsq7m5FJKGhhhc",
-   "amountRaw": 10060463520,
    "amountUi": 10.06046352,
    "share": 0.000055060196364265056,
    "isPda": false
   },
   {
    "owner": "GJCsWsYx4Y9Q2XVUPczvYWwQSPxCLwQdPJVqXngjTwWd",
-   "amountRaw": 10060463520,
    "amountUi": 10.06046352,
    "share": 0.000055060196364265056,
    "isPda": false
   },
   {
    "owner": "76KVNupDdXkYp5MnvxLjnrumEEJmQ7CFvd7k9WfAAXEZ",
-   "amountRaw": 10057517638,
    "amountUi": 10.057517638,
    "share": 0.00005504407376304858,
    "isPda": false
   },
   {
    "owner": "4WvYKjkguCpiGy6fDoHKd7jZ2zeiBLW4RSzV5AbButRH",
-   "amountRaw": 10055480016,
    "amountUi": 10.055480016,
    "share": 0.00005503292200376699,
    "isPda": false
   },
   {
    "owner": "AAyiJaGRKYHUwm4bcUdmRYEj8JkZ2Fxeokzvca6nFcmk",
-   "amountRaw": 10053360004,
    "amountUi": 10.053360004,
    "share": 0.00005502131932991578,
    "isPda": false
   },
   {
    "owner": "ALjfsE5WoYfjDsw5yYhvUcDKzncVGV6EA6phhLsQTHZP",
-   "amountRaw": 10051774033,
    "amountUi": 10.051774033,
    "share": 0.00005501263942421219,
    "isPda": false
   },
   {
    "owner": "BVD3DdgNnWNyyDWdxnPMMjyGzhHX7xYogSM9VFgGUEsF",
-   "amountRaw": 10051158860,
    "amountUi": 10.05115886,
    "share": 0.00005500927262643884,
    "isPda": false
   },
   {
    "owner": "2ze1anAry1BagD43kEcKYHWHHTUsfxvZFk8TkYiCgqKA",
-   "amountRaw": 10050915070,
    "amountUi": 10.05091507,
    "share": 0.000055007938381227876,
    "isPda": false
   },
   {
    "owner": "G99BJMRwoDbGZmVenBomwqXqDmZePJMA8YGahUtY13KL",
-   "amountRaw": 10048102642,
    "amountUi": 10.048102642,
    "share": 0.000054992546164196075,
    "isPda": false
   },
   {
    "owner": "EyqLVA2Z7MoUWoA8M9rShBXgV5v2ZA2EXxWomYRtLgvP",
-   "amountRaw": 10047199063,
    "amountUi": 10.047199063,
    "share": 0.000054987600941038936,
    "isPda": false
   },
   {
    "owner": "ABCSKkdk9cMYBMh9knyeQZtcbfFSS8kWxXgAvF5CBJRq",
-   "amountRaw": 10045479505,
    "amountUi": 10.045479505,
    "share": 0.000054978189923251186,
    "isPda": false
   },
   {
    "owner": "2sB31WuA7gHnoWsKz1RsLYApBDcqsuW4TPSafKp5VxKK",
-   "amountRaw": 10044712344,
    "amountUi": 10.044712344,
    "share": 0.00005497399130603847,
    "isPda": false
   },
   {
    "owner": "7wSJWQvyMp3ySQYfZ94FpjhZ5xjgWcGWs7FyagcDhvtC",
-   "amountRaw": 10040731596,
    "amountUi": 10.040731596,
    "share": 0.00005495220495731597,
    "isPda": false
   },
   {
    "owner": "QmS4smK5hRzFyCoZ47EiUgJu49KK2dJosRhRVKaxKLQ",
-   "amountRaw": 10036244413,
    "amountUi": 10.036244413,
    "share": 0.00005492764692610685,
    "isPda": false
   },
   {
    "owner": "9kbaEP44jYS7h8SaX8drFxPFmpnfCv6CQWYJBTCbci6a",
-   "amountRaw": 10035091563,
    "amountUi": 10.035091563,
    "share": 0.00005492133746061827,
    "isPda": false
   },
   {
    "owner": "Cj8YzYwyFzTYoM5JW3T75pbWfAec3bmgXd1fB7j34da8",
-   "amountRaw": 10033981571,
    "amountUi": 10.033981571,
    "share": 0.000054915262553894416,
    "isPda": false
   },
   {
    "owner": "ACqaz6CasySM4mFrwKiGa5igKS77evff5LtJ635wsJ6p",
-   "amountRaw": 10033278180,
    "amountUi": 10.03327818,
    "share": 0.0000549114129453248,
    "isPda": false
   },
   {
    "owner": "C1WyMetwg8vBNjzsR7FdZpDeF6nsYHDkkadt1qKYJ5j5",
-   "amountRaw": 10030468818,
    "amountUi": 10.030468818,
    "share": 0.00005489603750829143,
    "isPda": false
   },
   {
    "owner": "2uDVMVDTdpbEiYnM6iHSpq9nNBreNP8iDdq7iwWg7Wme",
-   "amountRaw": 10029738938,
    "amountUi": 10.029738938,
    "share": 0.00005489204292732183,
    "isPda": false
   },
   {
    "owner": "Aj6sF88Q7PRGboMBanAFS6bcf8MV1LF8A9EFkvYKN169",
-   "amountRaw": 10029144275,
    "amountUi": 10.029144275,
    "share": 0.00005488878837930966,
    "isPda": false
   },
   {
    "owner": "1qHRE2TcE4G3xvXXU8K8JG8njiTHDpLqCHbKP6iFVDC",
-   "amountRaw": 10029065004,
    "amountUi": 10.029065004,
    "share": 0.000054888354534803656,
    "isPda": false
   },
   {
    "owner": "CizBEJfe4jZE23z5HHHfjh5eb3FD1W9T1XQuKcoLu4Ms",
-   "amountRaw": 10026337792,
    "amountUi": 10.026337792,
    "share": 0.000054873428698837105,
    "isPda": false
   },
   {
    "owner": "2eX1mPXBefC7bPi8vpn2r6BstZ6ob6TKBGjfFg76RPHQ",
-   "amountRaw": 10026283442,
    "amountUi": 10.026283442,
    "share": 0.000054873131245179385,
    "isPda": false
   },
   {
    "owner": "8L9SErDssAsJyN3wo4udow14BSexmJCauUMPXqcEXbaD",
-   "amountRaw": 10026277934,
    "amountUi": 10.026277934,
    "share": 0.00005487310110028984,
    "isPda": false
   },
   {
    "owner": "DXe8aYLoffDsEHDUnrhzABYaBJCM78RVBVp5H81QRNDY",
-   "amountRaw": 10026241644,
    "amountUi": 10.026241644,
    "share": 0.00005487290248771875,
    "isPda": false
   },
   {
    "owner": "Csdwb2NmdQPncH2nZtGdjUFcPYsq7rQTJEHyAc6wMznG",
-   "amountRaw": 10026209745,
    "amountUi": 10.026209745,
    "share": 0.000054872727906776195,
    "isPda": false
   },
   {
    "owner": "4VxLFo8zvXHu3UAqgXsXVccT8JBLkfwKE9obWZgtv7bE",
-   "amountRaw": 10025601883,
    "amountUi": 10.025601883,
    "share": 0.00005486940112158227,
    "isPda": false
   },
   {
    "owner": "6DpSj1WuRrW6ZH8ACCEDpemEgiwyKmrcqTgTfLkrmE6r",
-   "amountRaw": 10024289799,
    "amountUi": 10.024289799,
    "share": 0.00005486222017981525,
    "isPda": false
   },
   {
    "owner": "9VmNbhSB4oKwV4FbAMfjBBJifQ3RSA7VNg1d9kt7evUV",
-   "amountRaw": 10023104442,
    "amountUi": 10.023104442,
    "share": 0.00005485573280584366,
    "isPda": false
   },
   {
    "owner": "Fnoy1oAkQLQfJZTjkCfyZSh8j4HtxxZKsd5fechpQxDF",
-   "amountRaw": 10020604516,
    "amountUi": 10.020604516,
    "share": 0.000054842050889878006,
    "isPda": false
   },
   {
    "owner": "74HfRQDH8TTDTZzN2V82pNsx66LKRJoP1oXzmhTzEApM",
-   "amountRaw": 10018666555,
    "amountUi": 10.018666555,
    "share": 0.0000548314445681122,
    "isPda": false
   },
   {
    "owner": "FBfAyjdWNDAhPvsDXDFTGvCF9YQPs7w8rHYnG1NfSxt9",
-   "amountRaw": 10017165178,
    "amountUi": 10.017165178,
    "share": 0.0000548232276393124,
    "isPda": false
   },
   {
    "owner": "BeQpQ7D7Ke8qZrfTxDUdc9tnFA6imJ6o96EUdZpPiL6t",
-   "amountRaw": 10016447252,
    "amountUi": 10.016447252,
    "share": 0.00005481929848172872,
    "isPda": false
   },
   {
    "owner": "DZ2BUyU7m9WFxEuTMkztsRhiYmtqBYW7qj3eUG3x6inL",
-   "amountRaw": 10016311455,
    "amountUi": 10.016311455,
    "share": 0.00005481855527447283,
    "isPda": false
   },
   {
    "owner": "BPLopWbh4UTRX3YAvwngn3dKr4cg63pXUgHYotexYYjS",
-   "amountRaw": 10016275201,
    "amountUi": 10.016275201,
    "share": 0.000054818356858927156,
    "isPda": false
   },
   {
    "owner": "4RFSHA4ie1ki5p6ZM67uFkzsmc3bPfXkFPx9incY3hJg",
-   "amountRaw": 10016275201,
    "amountUi": 10.016275201,
    "share": 0.000054818356858927156,
    "isPda": false
   },
   {
    "owner": "8s2jpk5afpcCjwR6zquRHRT6NLCSuVzDftHKnyNchCGD",
-   "amountRaw": 10015369817,
    "amountUi": 10.015369817,
    "share": 0.00005481340175713429,
    "isPda": false
   },
   {
    "owner": "HBspPy3WgrTsCnrCDDXBjTCwKWgux9z8c83N2eZyL1yS",
-   "amountRaw": 10014165592,
    "amountUi": 10.014165592,
    "share": 0.00005480681111994993,
    "isPda": false
   },
   {
    "owner": "BHJDqCucnZf9M4FfxeNNyBGGDKztJnVFVPx2hVH1JwzZ",
-   "amountRaw": 10014165592,
    "amountUi": 10.014165592,
    "share": 0.00005480681111994993,
    "isPda": true
   },
   {
    "owner": "2Ud477k6m5QYL1Csv4ktA2e5xDTapFkREapAn2HATXMW",
-   "amountRaw": 10013568654,
    "amountUi": 10.013568654,
    "share": 0.000054803544121025685,
    "isPda": false
   },
   {
    "owner": "GVhpMMKD7jht7bV6Uko1hcpHV1HMoRHnnULeXxfDNcsG",
-   "amountRaw": 10013446040,
    "amountUi": 10.01344604,
    "share": 0.00005480287306338469,
    "isPda": false
   },
   {
    "owner": "HeSYT1ugz93VfwH8v38hButjFuTrgivNk5D5DNJ7fieN",
-   "amountRaw": 10013353645,
    "amountUi": 10.013353645,
    "share": 0.00005480236739216656,
    "isPda": false
   },
   {
    "owner": "EJ5NS1RMYF3LGESQdPaP2e9EpBN85Rvu3gVSpTkxbRng",
-   "amountRaw": 10012344903,
    "amountUi": 10.012344903,
    "share": 0.00005479684661944168,
    "isPda": false
   },
   {
    "owner": "2zzVYxv9FQMD91KA8AEBMLuYxB4zsP9Uq77pdC4f3aEd",
-   "amountRaw": 10011328215,
    "amountUi": 10.011328215,
    "share": 0.00005479128235882786,
    "isPda": false
   },
   {
    "owner": "3uKftm3Q8RFfD2uZvXdA2BTvJUWd94moFSAVhqH48CmY",
-   "amountRaw": 10011248558,
    "amountUi": 10.011248558,
    "share": 0.000054790846401771494,
    "isPda": false
   },
   {
    "owner": "FiuVhejvNepreE9ZEZoums8Q8gagKHdC6uRkBzGgxfJA",
-   "amountRaw": 10011200268,
    "amountUi": 10.011200268,
    "share": 0.00005479058211405979,
    "isPda": false
   },
   {
    "owner": "7UVDTcus6Tc1BFrZRjREfSCtmBDhMT2fCbdEsPjoTWH1",
-   "amountRaw": 10011183826,
    "amountUi": 10.011183826,
    "share": 0.000054790492128171286,
    "isPda": false
   },
   {
    "owner": "DvvuJthjtrkmFQg24R6hPMZUA3Un5m4uxLP5pyjK4Rzk",
-   "amountRaw": 10009751941,
    "amountUi": 10.009751941,
    "share": 0.000054782655524110815,
    "isPda": false
   },
   {
    "owner": "69Fzcmtun1tZnREZTrzykkmKqv4AGE7eHNXt5BmszpkD",
-   "amountRaw": 10008230868,
    "amountUi": 10.008230868,
    "share": 0.00005477433080051355,
    "isPda": false
   },
   {
    "owner": "8jwtUodLGwE5Ln4DQ2XJ4njXnyUewQmnvPUtJn1iAq6d",
-   "amountRaw": 10008230868,
    "amountUi": 10.008230868,
    "share": 0.00005477433080051355,
    "isPda": false
   },
   {
    "owner": "J9gXAbnBZHWkCfj9FyKT2qW8uNgDVk4GZa7KzU9t5Jrx",
-   "amountRaw": 10008230868,
    "amountUi": 10.008230868,
    "share": 0.00005477433080051355,
    "isPda": false
   },
   {
    "owner": "GhhwweARSCFVGD6BGCMj25W84ShuhfpQ4wd6NFguxyuS",
-   "amountRaw": 10008230868,
    "amountUi": 10.008230868,
    "share": 0.00005477433080051355,
    "isPda": false
   },
   {
    "owner": "8MAHej1gxf8vo5ra8kfsbvnN3hpK2qGVfREAkYhZB5f9",
-   "amountRaw": 10007669762,
    "amountUi": 10.007669762,
    "share": 0.00005477125990755919,
    "isPda": false
   },
   {
    "owner": "5KudpC8DqiQ4DrnnbiKgyUGhhURjQrSbHKKb7CiS6BPb",
-   "amountRaw": 10007669762,
    "amountUi": 10.007669762,
    "share": 0.00005477125990755919,
    "isPda": false
   },
   {
    "owner": "EtBYZmfRQPruyw8MFDUxTLGtXVNv29779cBDMkqiRTti",
-   "amountRaw": 10007561911,
    "amountUi": 10.007561911,
    "share": 0.000054770669646759944,
    "isPda": false
   },
   {
    "owner": "4kV5Ap1rUp97jhMZ4j1LatEK3JTq39oxriaoEzGhuAF1",
-   "amountRaw": 10007507300,
    "amountUi": 10.0075073,
    "share": 0.00005477037076466791,
    "isPda": false
   },
   {
    "owner": "8N3mEQanEMcZcnXYpVBYY2aFCLfSY2etNc9WKJizHCcp",
-   "amountRaw": 10007046805,
    "amountUi": 10.007046805,
    "share": 0.00005476785050851129,
    "isPda": false
   },
   {
    "owner": "AjrzPSCj3nvH9RXmQVvijmxyTYNMAPptmfrqDgmYENgN",
-   "amountRaw": 10006402242,
    "amountUi": 10.006402242,
    "share": 0.00005476432286137271,
    "isPda": false
   },
   {
    "owner": "9QWTME4zWxvcRZ9qbpi9gRAjpcaFGLHqJkVv1Ng8uD4K",
-   "amountRaw": 10006344976,
    "amountUi": 10.006344976,
    "share": 0.00005476400944865581,
    "isPda": false
   },
   {
    "owner": "6TyXLEnTmTDLyQdzLUUW76aY36NGWk5YatdAWhpR4SgL",
-   "amountRaw": 10006344976,
    "amountUi": 10.006344976,
    "share": 0.00005476400944865581,
    "isPda": false
   },
   {
    "owner": "7bN256axH4JLFwY9VfwxMzC8tEuaVvp2aeMH75akYwcU",
-   "amountRaw": 10006344976,
    "amountUi": 10.006344976,
    "share": 0.00005476400944865581,
    "isPda": false
   },
   {
    "owner": "8Vm3vT1RxfZ257HfuQYciRFQ7p6uYAAXQYgTmzc8845G",
-   "amountRaw": 10005249874,
    "amountUi": 10.005249874,
    "share": 0.00005475801603383561,
    "isPda": false
   },
   {
    "owner": "8SB3usxFcZuk3BjzurZ6b8atnZ5wrQfbrwyHv4jHvJre",
-   "amountRaw": 10004434508,
    "amountUi": 10.004434508,
    "share": 0.0000547535535941101,
    "isPda": false
   },
   {
    "owner": "Az3TE83VXEzRpiS6PqA9NAHpKTb9CQ6SVEDFWBdxqWDY",
-   "amountRaw": 10004176274,
    "amountUi": 10.004176274,
    "share": 0.000054752140297921535,
    "isPda": false
   },
   {
    "owner": "6qNxygnN4QBHyoSN8gwifB1Mq7MzTPtwc5GpHyLvBdcC",
-   "amountRaw": 10001325525,
    "amountUi": 10.001325525,
    "share": 0.0000547365383528011,
    "isPda": false
   },
   {
    "owner": "4h2PdFDFvCvihjPXx2KTpEVDvKrNZ6w4R55TP5t6WVFh",
-   "amountRaw": 10000967256,
    "amountUi": 10.000967256,
    "share": 0.00005473457757222155,
    "isPda": false
   },
   {
    "owner": "i4EcbjiB6FpTJGWxdWVnArAddfULjgUnxefvxr8E2Yt",
-   "amountRaw": 10000456601,
    "amountUi": 10.000456601,
    "share": 0.00005473178279397714,
    "isPda": false
   },
   {
    "owner": "2oTwCQMkkt1YvNsv7zY5n24xmnUQmaH56gnyWhKQHr3L",
-   "amountRaw": 10000431546,
    "amountUi": 10.000431546,
    "share": 0.00005473164566975646,
    "isPda": false
   },
   {
    "owner": "7da5KbLDoD1n3mLvvc8hmoznR1SwstjHuRuvz68bNShL",
-   "amountRaw": 10000431546,
    "amountUi": 10.000431546,
    "share": 0.00005473164566975646,
    "isPda": false
   },
   {
    "owner": "6ZjhUU4YRHFT4NbV7KxqVjyXfinqvNeLhJJwSk64tPek",
-   "amountRaw": 9819330368,
    "amountUi": 9.819330368,
    "share": 0.00005374049189213412,
    "isPda": false
   },
   {
    "owner": "4UUPd2KKsNKMYuq27QaD4q44FhxbQrEpFqaDn61dzTfV",
-   "amountRaw": 8738856809,
    "amountUi": 8.738856809,
    "share": 0.00004782713748190548,
    "isPda": false
   },
   {
    "owner": "CtAFL1LuwBBa5Shq8Jshctyb2iSbMWGp6VL6gW4guUMe",
-   "amountRaw": 8043200215,
    "amountUi": 8.043200215,
    "share": 0.00004401985876243195,
    "isPda": false
   },
   {
    "owner": "75s8Fx8r3AS8nxKN5R7BzMKhMfniVyUn7DRLP9odPXho",
-   "amountRaw": 7640183889,
    "amountUi": 7.640183889,
    "share": 0.00004181417927227217,
    "isPda": false
   },
   {
    "owner": "3PcQvSXoNfctD2QSXWpwa6eg9EjYM1UjdFdscV6vVLFe",
-   "amountRaw": 7569413786,
    "amountUi": 7.569413786,
    "share": 0.00004142685956675831,
    "isPda": false
   },
   {
    "owner": "2ZY2exxnNzPTH7PYvMjGWUrQsvAzCPQyrmJNfsmSejT1",
-   "amountRaw": 7421417874,
    "amountUi": 7.421417874,
    "share": 0.00004061688853911838,
    "isPda": false
   },
   {
    "owner": "4vxozEgpnvtH2mTZRhvv91eweujtHuA7M45kp9KGsxas",
-   "amountRaw": 7342183701,
    "amountUi": 7.342183701,
    "share": 0.0000401832455846494,
    "isPda": false
   },
   {
    "owner": "54W6opjqEZerWvZaXHfT5ECiTPjxTpj6vu5SeRESyYmx",
-   "amountRaw": 7312614633,
    "amountUi": 7.312614633,
    "share": 0.00004002141619307597,
    "isPda": false
   },
   {
    "owner": "3qBWJDawk1Ep6NCB6JybcpdDHWxApKpyBfSWSqxxvj12",
-   "amountRaw": 6963405291,
    "amountUi": 6.963405291,
    "share": 0.00003811021847295782,
    "isPda": false
   },
   {
    "owner": "4HpPjyzGseMep7KpujEHopaxkRErQkPU9qpCnWt77TpB",
-   "amountRaw": 6422833029,
    "amountUi": 6.422833029,
    "share": 0.000035151705196146604,
    "isPda": false
   },
   {
    "owner": "9hNYPUJH2Ve2zG7YEsoYNTd7rM2cNDVbQXWhXwnJCB8L",
-   "amountRaw": 6238228346,
    "amountUi": 6.238228346,
    "share": 0.00003414137698656298,
    "isPda": false
   },
   {
    "owner": "DAYKxQtkycQ2GJSg3KWQDo1HxyarhxMZSt6DXMJZZTR9",
-   "amountRaw": 5977293891,
    "amountUi": 5.977293891,
    "share": 0.00003271330140118454,
    "isPda": false
   },
   {
    "owner": "EuHeF7JK9BgDnNVEbcWbYopuKq6cGoEwB8cih4C6m4Ax",
-   "amountRaw": 5169232883,
    "amountUi": 5.169232883,
    "share": 0.000028290841373737817,
    "isPda": false
   },
   {
    "owner": "AR8UeRmhUTxRB7Dkzwygxrt3jFSzxT3tqdhtQ5wx4zHV",
-   "amountRaw": 5077875764,
    "amountUi": 5.077875764,
    "share": 0.00002779085040399634,
    "isPda": false
   },
   {
    "owner": "5FyTJMhYnqkHmmvWx9WrtU9r6eexos3RU7jBW7Syr2HC",
-   "amountRaw": 5038025843,
    "amountUi": 5.038025843,
    "share": 0.00002757275464021781,
    "isPda": false
   },
   {
    "owner": "EjJVr911EtoEw1c4KHj3VqKtJokQgjfmdUkNPxTxBVop",
-   "amountRaw": 5020267519,
    "amountUi": 5.020267519,
    "share": 0.000027475564604729242,
    "isPda": false
   },
   {
    "owner": "CVu6UKvwbun6mZ4S3kdwAqQRXxJWaexfajbj3pLRSgwQ",
-   "amountRaw": 4964883665,
    "amountUi": 4.964883665,
    "share": 0.00002717245273810525,
    "isPda": false
   },
   {
    "owner": "6pHR1GYAGbaDJdAHsfzFSu1KadmqPuymL4Wr66FQi3AY",
-   "amountRaw": 4677846102,
    "amountUi": 4.677846102,
    "share": 0.000025601516712018443,
    "isPda": false
   },
   {
    "owner": "EZbXNKuegiqqnmvAwHEenBztV3etEYwaHEoAZ7X87c5F",
-   "amountRaw": 4542971993,
    "amountUi": 4.542971993,
    "share": 0.000024863360372478802,
    "isPda": false
   },
   {
    "owner": "FCx3t3NsthiBvicNC85T88NTCkVZdfzopjPjv1jfPs5E",
-   "amountRaw": 4473803600,
    "amountUi": 4.4738036,
    "share": 0.00002448480671108839,
    "isPda": false
   },
   {
    "owner": "3oSna3ifK58CLigCt4p1zi44uGLDc4VKQKdK9rNRemet",
-   "amountRaw": 4350115021,
    "amountUi": 4.350115021,
    "share": 0.000023807867976186352,
    "isPda": false
   },
   {
    "owner": "EACFJcajxZLRfPL3xh3KZfWWvEELWxCt9fQjwPwr2PFt",
-   "amountRaw": 4063952584,
    "amountUi": 4.063952584,
    "share": 0.00002224172145202534,
    "isPda": false
   },
   {
    "owner": "EBaxVNgqJJafLHanogrsTqGxxEi4hrV77t8XdWVQYuG2",
-   "amountRaw": 4057220570,
    "amountUi": 4.05722057,
    "share": 0.000022204877621516925,
    "isPda": false
   },
   {
    "owner": "DheMp3RPekY4sfym67RrvHoCnyS1sMv8D23AR8tqweW7",
-   "amountRaw": 3996960150,
    "amountUi": 3.99696015,
    "share": 0.000021875076658410498,
    "isPda": false
   },
   {
    "owner": "Gnpvjtf32BD5xkE8sApUU5bXogFqhCAqQDqqWQiRaTBn",
-   "amountRaw": 3980271262,
    "amountUi": 3.980271262,
    "share": 0.00002178373956956221,
    "isPda": false
   },
   {
    "owner": "29wdm1MP9kfDjzUUDtg1oF9dXcAWUgUQWh4VzCR3zzMi",
-   "amountRaw": 3975530372,
    "amountUi": 3.975530372,
    "share": 0.000021757793018111327,
    "isPda": false
   },
   {
    "owner": "238rXcnguxYCkP2uhNRXqL4B7QMpBCkkpYuys4XLLBnr",
-   "amountRaw": 3969564802,
    "amountUi": 3.969564802,
    "share": 0.00002172514388072598,
    "isPda": false
   },
   {
    "owner": "4wwNqs8ArKYeKDEekyk5AdromMqtxy4ofcmdCLeBL1ae",
-   "amountRaw": 3536088203,
    "amountUi": 3.536088203,
    "share": 0.000019352757497851466,
    "isPda": false
   },
   {
    "owner": "8ysMTSBV8oDgN5QqvUuZT2hWMEBo7WkckP8fWTjhSLXz",
-   "amountRaw": 3474375847,
    "amountUi": 3.474375847,
    "share": 0.00001901501019299752,
    "isPda": false
   },
   {
    "owner": "6KuLp1VSz9MCdP11YTuHiN1NoPfK7yrmdaVHm4czupLp",
-   "amountRaw": 3286660546,
    "amountUi": 3.286660546,
    "share": 0.000017987657793867,
    "isPda": false
   },
   {
    "owner": "4FCxtvHuxns67vV1aSFQVBkuVYFR7hzSFT3SWczpSibG",
-   "amountRaw": 3282753878,
    "amountUi": 3.282753878,
    "share": 0.00001796627687967926,
    "isPda": false
   },
   {
    "owner": "5HANsNMkvBw1ZiGdenH2kGcZZYbFPtnMwCAoUfyhj2fH",
-   "amountRaw": 3260718766,
    "amountUi": 3.260718766,
    "share": 0.00001784568028974912,
    "isPda": false
   },
   {
    "owner": "9zGp1bHef45yLJzip6wTtLChNbza1uKW3B8Hax2VJBLT",
-   "amountRaw": 3206352567,
    "amountUi": 3.206352567,
    "share": 0.000017548137976060704,
    "isPda": false
   },
   {
    "owner": "DTsYJNCpDbm7dsv5ARhuFJwk41BWhGzB8bRAbN4b8K6z",
-   "amountRaw": 3162815504,
    "amountUi": 3.162815504,
    "share": 0.000017309862748171068,
    "isPda": false
   },
   {
    "owner": "AuBrbmSmVgo6ig9UtPAireYD6me8Y65UstJ695ft7TPU",
-   "amountRaw": 3143047907,
    "amountUi": 3.143047907,
    "share": 0.000017201676105447704,
    "isPda": false
   },
   {
    "owner": "6K3nWyWLZBRGmiUWo8zC4WgyL8d2QwCbVkqViV3UQ8rB",
-   "amountRaw": 3134033653,
    "amountUi": 3.134033653,
    "share": 0.000017152341738862043,
    "isPda": false
   },
   {
    "owner": "D628pSrUZgA2LVXasVHCS52pwCQ32pHvvkLzskofGNgX",
-   "amountRaw": 3123280310,
    "amountUi": 3.12328031,
    "share": 0.000017093489462724343,
    "isPda": false
   },
   {
    "owner": "FWQR4F8PwuNo9LU76heCrHWWeZLHDS1U2aUdkhq1sDWP",
-   "amountRaw": 3108015105,
    "amountUi": 3.108015105,
    "share": 0.00001700994408897791,
    "isPda": false
   },
   {
    "owner": "7rsu6RWXAqT5dgiJ4BEkDKjqurYZSRoQp94WVChXfHba",
-   "amountRaw": 3099147994,
    "amountUi": 3.099147994,
    "share": 0.000016961415025493592,
    "isPda": false
   },
   {
    "owner": "6DqoCk53niTcWT3TLdgzzPkhBuTKAKSUvENVLNGHfXHp",
-   "amountRaw": 3095988022,
    "amountUi": 3.095988022,
    "share": 0.000016944120725039173,
    "isPda": false
   },
   {
    "owner": "DntNJankpXxfHW5aitJyad3vuRtCgTSeK7NNbmpiYUKH",
-   "amountRaw": 3093326868,
    "amountUi": 3.093326868,
    "share": 0.00001692955641977588,
    "isPda": false
   },
   {
    "owner": "5uyVeeUaWKjrDABz4mv7kQNN9BMrrN44LECKSQ41HjPt",
-   "amountRaw": 3089608508,
    "amountUi": 3.089608508,
    "share": 0.000016909206101786452,
    "isPda": false
   },
   {
    "owner": "Bt3uN1g7hdznAjkF9K8UpNWABQdGx99sfwgMRWFzVxeB",
-   "amountRaw": 3089273299,
    "amountUi": 3.089273299,
    "share": 0.000016907371526935464,
    "isPda": false
   },
   {
    "owner": "5Bv3Ve7J2KpCzqSfd8tWFrVPPxsagaAxsvnq2dvwwkiN",
-   "amountRaw": 3087865040,
    "amountUi": 3.08786504,
    "share": 0.000016899664226281015,
    "isPda": false
   },
   {
    "owner": "8JNBouobgir5UeghsoTMiY4FwVNkVk9NSAhGrvQftifo",
-   "amountRaw": 3086942911,
    "amountUi": 3.086942911,
    "share": 0.000016894617480302337,
    "isPda": false
   },
   {
    "owner": "AzU9TzNHEr1zMgb7qC2dT8NkRWgh9KDt6JXsm7pGmmyb",
-   "amountRaw": 3083793772,
    "amountUi": 3.083793772,
    "share": 0.000016877382468081116,
    "isPda": false
   },
   {
    "owner": "2SRJQtR9kFtEoZuhAjEcj2ms6hDdQGzCDwfkuQ247NeK",
-   "amountRaw": 3077304321,
    "amountUi": 3.077304321,
    "share": 0.000016841866167500537,
    "isPda": false
   },
   {
    "owner": "57UAwJzr1Sy8YxyNMSRWNB8NJy1PKLDmswzJnkA5JQUa",
-   "amountRaw": 3074462839,
    "amountUi": 3.074462839,
    "share": 0.000016826314940007438,
    "isPda": false
   },
   {
    "owner": "7kxGfCGfc7usrYYjPGSD9BdPHX1SSyMQaYPECKAhEhL6",
-   "amountRaw": 3072642258,
    "amountUi": 3.072642258,
    "share": 0.000016816351030575456,
    "isPda": false
   },
   {
    "owner": "DPVbT8AsvcJAAhqA1w4FosbhD1XjinTbwafHRJpFtDMK",
-   "amountRaw": 3063977519,
    "amountUi": 3.063977519,
    "share": 0.000016768929534554257,
    "isPda": false
   },
   {
    "owner": "CTMqjGdgzbV31jc6D9wb5Vd4pcuVUUftpxCFEECrEpy2",
-   "amountRaw": 3040193703,
    "amountUi": 3.040193703,
    "share": 0.000016638762412865658,
    "isPda": false
   },
   {
    "owner": "4DJfGVACqR8AzyFwviodnXqjovfmjCZTDk45mHAe5Sx6",
-   "amountRaw": 3039789030,
    "amountUi": 3.03978903,
    "share": 0.00001663654766651734,
    "isPda": false
   },
   {
    "owner": "69EMxY1dw8aE4nUUD5zowmni2WV7v5BN6xAa4Ra97ZsV",
-   "amountRaw": 3032419904,
    "amountUi": 3.032419904,
    "share": 0.000016596216967659735,
    "isPda": false
   },
   {
    "owner": "3ewTHfrcaN44kkTSLrvST7rKGeoYDmXAhX2tXPeDGKt9",
-   "amountRaw": 3022866021,
    "amountUi": 3.022866021,
    "share": 0.00001654392925020264,
    "isPda": false
   },
   {
    "owner": "CwL5rtxh84tCgNB2KqB7eXiWn2NPCt2WjtSGfqu1P5yk",
-   "amountRaw": 3021598076,
    "amountUi": 3.021598076,
    "share": 0.000016536989878021594,
    "isPda": false
   },
   {
    "owner": "6wUEJNzPuzH9ePs4UP4TcSRC1rbtZEtrYyhBQy6xWYBe",
-   "amountRaw": 3015055480,
    "amountUi": 3.01505548,
    "share": 0.000016501182718661995,
    "isPda": false
   },
   {
    "owner": "BbQ7s1ZCy6xA3U4kyXMVLAA65Q53Rz5dBtQmKzu5aXLj",
-   "amountRaw": 3012378400,
    "amountUi": 3.0123784,
    "share": 0.00001648653125154124,
    "isPda": false
   },
   {
    "owner": "3v4gFLSfuboxfbp8Xau266toSKSypBv29bkkyDfkURes",
-   "amountRaw": 3008596359,
    "amountUi": 3.008596359,
    "share": 0.00001646583241199933,
    "isPda": false
   },
   {
    "owner": "H6ADZEhdTn3NAScnMgVWV6Za8RWnSsrmtWZziDXREa1u",
-   "amountRaw": 3002469260,
    "amountUi": 3.00246926,
    "share": 0.000016432299237964893,
    "isPda": false
   },
   {
    "owner": "AHVH34pevA5XhNpaaCmbn8C6cKThY7LXrMX6Ys2S1vpf",
-   "amountRaw": 2992477519,
    "amountUi": 2.992477519,
    "share": 0.00001637761515503102,
    "isPda": false
   },
   {
    "owner": "C37ST84uNhCeGNKXPpwt3pkZEaCFTTHpZpH1CEinToQn",
-   "amountRaw": 2989628553,
    "amountUi": 2.989628553,
    "share": 0.00001636202296814189,
    "isPda": false
   },
   {
    "owner": "3xDJ7YHNrskNjxv1f45Nf8GuC9bahvNMgsrBD4xuFXhp",
-   "amountRaw": 2985144447,
    "amountUi": 2.985144447,
    "share": 0.00001633748177713341,
    "isPda": false
   },
   {
    "owner": "Dh9GMSBNqvsw7MAXF7DUgmnS1qog8p6XhCUqmS3fCb3k",
-   "amountRaw": 2895692020,
    "amountUi": 2.89569202,
    "share": 0.000015847915050303304,
    "isPda": false
   },
   {
    "owner": "H3Zg4osTWKmLSx5jf1cjd8vvSSs5oFQi6FsJ2Vt7JF1X",
-   "amountRaw": 2753115237,
    "amountUi": 2.753115237,
    "share": 0.00001506760252758912,
    "isPda": false
   },
   {
    "owner": "85z6JgKCy2idZcU4aXEUqFzhGYnujgAsvCLLg1ugfKQc",
-   "amountRaw": 2617680376,
    "amountUi": 2.617680376,
    "share": 0.000014326377232511766,
    "isPda": false
   },
   {
    "owner": "5DGRMCndpu2PYRYEJufDxNsZAgKLjDUxioAFNY4Nqg3X",
-   "amountRaw": 2522298828,
    "amountUi": 2.522298828,
    "share": 0.000013804360851063015,
    "isPda": false
   },
   {
    "owner": "PRwv5uEvMHHNpBJGtaa7gwpHTrRwmVcAfdC9EY7uRLh",
-   "amountRaw": 2488048582,
    "amountUi": 2.488048582,
    "share": 0.000013616911707538425,
    "isPda": false
   },
   {
    "owner": "GAv1nhLUg3yD3SyLbKbcBFSMnwrkPbEBiMRND83i6Boo",
-   "amountRaw": 2415512264,
    "amountUi": 2.415512264,
    "share": 0.000013219925633817164,
    "isPda": false
   },
   {
    "owner": "7fAENUDhoDdmn7YGHuEW3XEw18XHrENCWK2AZEX1CEi6",
-   "amountRaw": 2177395579,
    "amountUi": 2.177395579,
    "share": 0.000011916730069552761,
    "isPda": false
   },
   {
    "owner": "5Lsr9RfFkwEkGbJgLjRoRVrYy3WXCb44NE3ceXXF6Bu7",
-   "amountRaw": 2107527921,
    "amountUi": 2.107527921,
    "share": 0.000011534349380895254,
    "isPda": false
   },
   {
    "owner": "4FEZiHUSUgQX4RwKxBZj6i7XPwRZSXeUEFn7BRJYWAR7",
-   "amountRaw": 2079371644,
    "amountUi": 2.079371644,
    "share": 0.000011380252093287712,
    "isPda": false
   },
   {
    "owner": "8jGo7FC5sge9radsnoA14YDraburReJaCDVRcHxBq8gR",
-   "amountRaw": 2050763087,
    "amountUi": 2.050763087,
    "share": 0.000011223679509630227,
    "isPda": false
   },
   {
    "owner": "GW8CjR8h29YuMz1fuUmPYZZUg3ABCxHvEbjHMGzhZ1ZW",
-   "amountRaw": 2033186991,
    "amountUi": 2.033186991,
    "share": 0.00001112748679493539,
    "isPda": false
   },
   {
    "owner": "hgMS1kFsaU1GvZafY8TpfqQzSdNdYnW3EBpghecBRe6",
-   "amountRaw": 2019387534,
    "amountUi": 2.019387534,
    "share": 0.000011051963355023327,
    "isPda": false
   },
   {
    "owner": "AWcCqVLgHYAQtKK1qjsqi6rEk3r454yzVPJfiyQSCjkU",
-   "amountRaw": 2006412666,
    "amountUi": 2.006412666,
    "share": 0.000010980952831655272,
    "isPda": false
   },
   {
    "owner": "BF6A7NMHefrpwdSqj7wMfW18AR6WgV421B3d7mq9ndD5",
-   "amountRaw": 2000279330,
    "amountUi": 2.00027933,
    "share": 0.000010947385522966495,
    "isPda": false
   },
   {
    "owner": "E25ks58fFpPgL8oJR7jiesNZdwpmBp7rfsTfoEh11wXc",
-   "amountRaw": 2000000000,
    "amountUi": 2,
    "share": 0.00001094585676988073,
    "isPda": false
   },
   {
    "owner": "FgtFTjq1ByUCFJWnJmHp4QGV8Fi8Km4N49qzuJPrB4fu",
-   "amountRaw": 2000000000,
    "amountUi": 2,
    "share": 0.00001094585676988073,
    "isPda": false
   },
   {
    "owner": "6HpVoypP8EXwqbYyKFFXverBrUgEbnbRt5aSZz1xfUER",
-   "amountRaw": 1996505654,
    "amountUi": 1.996505654,
    "share": 0.000010926732464470528,
    "isPda": false
   },
   {
    "owner": "5JMrAWGsAUT2FoYqrt9vRnmLPAq6Sc6WCFNx1xMyZEow",
-   "amountRaw": 1995117265,
    "amountUi": 1.995117265,
    "share": 0.000010919133910903088,
    "isPda": false
   },
   {
    "owner": "9ssYCh3mJeujwvvyVU3DZDVFaxZeFqCQSVkTsrNmormM",
-   "amountRaw": 1991554167,
    "amountUi": 1.991554167,
    "share": 0.000010899633330720564,
    "isPda": false
   },
   {
    "owner": "A4MWeZcVEJZfnKTedgGZE2kjp4zj66ZPB9e2S1fUsY5m",
-   "amountRaw": 1982415894,
    "amountUi": 1.982415894,
    "share": 0.00001084962021702953,
    "isPda": false
   },
   {
    "owner": "HFvVPriJssbfDviMR5DzUe9djPdQYuTrRwJxpdJL6Vuv",
-   "amountRaw": 1974340546,
    "amountUi": 1.974340546,
    "share": 0.000010805424415742059,
    "isPda": false
   },
   {
    "owner": "7jbBQTLP519LACPrDso6pE3gkqPoivSFy8vRGjF5Sy8s",
-   "amountRaw": 1754435185,
    "amountUi": 1.754435185,
    "share": 0.0000096018981235246,
    "isPda": false
   },
   {
    "owner": "gwwtR9PVzgoC8uEcawt4HhX9yyRB7nwVWN1PVbmufWo",
-   "amountRaw": 1619548467,
    "amountUi": 1.619548467,
    "share": 0.000008863672775830954,
    "isPda": false
   },
   {
    "owner": "EnrHtqUMj4J8fiif9GWFtMuv74EA6Pogeto3Qu55ogrx",
-   "amountRaw": 1593074936,
    "amountUi": 1.593074936,
    "share": 0.000008718785036571455,
    "isPda": false
   },
   {
    "owner": "EskADYQ2q9deMwW9mnky8ACrV8sPi7N6kHKjWxD8jMVu",
-   "amountRaw": 1535874165,
    "amountUi": 1.535874165,
    "share": 0.00000840572931332508,
    "isPda": false
   },
   {
    "owner": "CbwwtjxWfgzG74fNstnR9os2nRUnySR226nREZguh8cx",
-   "amountRaw": 1501935089,
    "amountUi": 1.501935089,
    "share": 0.000008219983180926034,
    "isPda": false
   },
   {
    "owner": "7aXRfCNSULDzQ9VSQWQ9GgoJa1gipicWHUohW15nzCiD",
-   "amountRaw": 1486811921,
    "amountUi": 1.486811921,
    "share": 0.000008137215165508612,
    "isPda": false
   },
   {
    "owner": "6AxLxeeypZFrP5XXuMFU8Ne3uz9oSaBQDpY9H6P2qzvQ",
-   "amountRaw": 1366916979,
    "amountUi": 1.366916979,
    "share": 0.000007481038734226033,
    "isPda": false
   },
   {
    "owner": "3PAhVtfwd1qJUWh9d3T76qTNd7zyDkqqPTNJdyJENdwK",
-   "amountRaw": 1359462785,
    "amountUi": 1.359462785,
    "share": 0.00000744024246429658,
    "isPda": false
   },
   {
    "owner": "Hg7SJJXueMo4mSa3iUdGBrGRDziHo6ifM6uc6z9zSTDS",
-   "amountRaw": 1334312790,
    "amountUi": 1.33431279,
    "share": 0.000007302598342779972,
    "isPda": false
   },
   {
    "owner": "HCqUvLva2YijQBd1w72D1Yv8ENLvGodzDL8nuEpCj4U2",
-   "amountRaw": 1311679530,
    "amountUi": 1.31167953,
    "share": 0.000007178728131682237,
    "isPda": false
   },
   {
    "owner": "CkAgeEXP3Rs5pqLYHMeD4iapEcs8bxZGHqXPyGNs8CMa",
-   "amountRaw": 1295271627,
    "amountUi": 1.295271627,
    "share": 0.000007088928853616189,
    "isPda": false
   },
   {
    "owner": "5jXZRgm1HYKnsubuxzXstETt8W4kJEaY4SHetbXypKVe",
-   "amountRaw": 1266099128,
    "amountUi": 1.266099128,
    "share": 0.000006929269855779444,
    "isPda": false
   },
   {
    "owner": "6ULFKXHskM7Jk523LcmWs74Xp4QfgYmwd8fa93Ro1kJn",
-   "amountRaw": 1180727970,
    "amountUi": 1.18072797,
    "share": 0.000006462039621906016,
    "isPda": false
   },
   {
    "owner": "CV6pPms2H4j17ibKTRhjX2eMXtMijAVGPrXVh5msNSLD",
-   "amountRaw": 1137935694,
    "amountUi": 1.137935694,
    "share": 0.000006227840559929413,
    "isPda": false
   },
   {
    "owner": "m8kpbvos8UfKke9netejdzmiovkfTGaP3argzwBTpD8",
-   "amountRaw": 1104366207,
    "amountUi": 1.104366207,
    "share": 0.0000060441171616592264,
    "isPda": false
   },
   {
    "owner": "Dujinh4LMx8NpysR2ewXy66SvKdDdePFGGARwsfU19oA",
-   "amountRaw": 1095228106,
    "amountUi": 1.095228106,
    "share": 0.000005994104989311875,
    "isPda": false
   },
   {
    "owner": "C7a3h3nmRJnqR6sHo21emT6nV4fLroGz9KChCrFsgjAD",
-   "amountRaw": 1091946694,
    "amountUi": 1.091946694,
    "share": 0.000005976146056434391,
    "isPda": false
   },
   {
    "owner": "5d7F27i3PygNT3tgxuuutwCaqsBTmGUZBasZR3VNDdjp",
-   "amountRaw": 1091937535,
    "amountUi": 1.091937535,
    "share": 0.000005976095929883313,
    "isPda": false
   },
   {
    "owner": "5yLp8L5u5RBwpxwQ4G8fqzMgAZW97Uy3UE4jAFhnaLzz",
-   "amountRaw": 1090005342,
    "amountUi": 1.090005342,
    "share": 0.00000596552117596843,
    "isPda": false
   },
   {
    "owner": "BubmhQkmKAit28vMe4tyYxp5gZkCZ3qKHoD96CUtV6ze",
-   "amountRaw": 1055401629,
    "amountUi": 1.055401629,
    "share": 0.0000057761375328664,
    "isPda": false
   },
   {
    "owner": "787kBvGdo7YJ8XDEJc2Lio4Zm8meTVr5S1AXQDBsdBoS",
-   "amountRaw": 1027937910,
    "amountUi": 1.02793791,
    "share": 0.000005625830565595274,
    "isPda": false
   },
   {
    "owner": "By7UySnEdV1wgady2acLZemc4H3B1eUQTTW5n8wiZjpG",
-   "amountRaw": 1017735823,
    "amountUi": 1.017735823,
    "share": 0.000005569995274067343,
    "isPda": false
   },
   {
    "owner": "6cUeCg3EV4ynSev88v1G4gixC1VYDJmwWsWgaCtKHbi1",
-   "amountRaw": 1015272910,
    "amountUi": 1.01527291,
    "share": 0.000005556515927600004,
    "isPda": false
   },
   {
    "owner": "94fgmNHM29zfnxMDTBLkMiyVCtaYazXynhGw5hs4Cwgg",
-   "amountRaw": 1010732226,
    "amountUi": 1.010732226,
    "share": 0.0000055316650892493595,
    "isPda": false
   },
   {
    "owner": "9uLfQVcH2nhRmkyiWeDFULMqRjhL52JBWrAF2yGWYpA6",
-   "amountRaw": 1009904611,
    "amountUi": 1.009904611,
    "share": 0.000005527135611624057,
    "isPda": false
   },
   {
    "owner": "9PjrNqgHxUEiAUnUtG6n4T8bdMZKnT8J6UoAuGq7aTfb",
-   "amountRaw": 1008147441,
    "amountUi": 1.008147441,
    "share": 0.000005517518746053892,
    "isPda": false
   },
   {
    "owner": "4bZW6pYjj67fU2YYkUc3vLRQ4MePfTpiKfTHFJQ1Shxt",
-   "amountRaw": 1005934259,
    "amountUi": 1.005934259,
    "share": 0.000005505406159465053,
    "isPda": false
   },
   {
    "owner": "GRZProV5JwriYcsDYrrXiBaKMz3U8ejsWtF8MivCgK1U",
-   "amountRaw": 1005318546,
    "amountUi": 1.005318546,
    "share": 0.000005502036406310376,
    "isPda": false
   },
   {
    "owner": "Hs8TYGF2fRFRvhAY9jJs83DTWRHyYJQd7SArdtSC6RtW",
-   "amountRaw": 1001985325,
    "amountUi": 1.001985325,
    "share": 0.000005483793926486197,
    "isPda": false
   },
   {
    "owner": "6fpvNoMBHr6QwU8kDqotRp6RbhKsuntbiXMwFqBnSqLV",
-   "amountRaw": 1001248994,
    "amountUi": 1.001248994,
    "share": 0.000005479764039655585,
    "isPda": false
   },
   {
    "owner": "79rRDdu5smLUYW3c9aZLPKmYoZDvebsDpcPjcY5Bcndt",
-   "amountRaw": 1001120026,
    "amountUi": 1.001120026,
    "share": 0.0000054790582070276365,
    "isPda": false
   },
   {
    "owner": "HdPv7iDTJHQB7v3ZmPF2Lqf1XWKTmFrDQHqELGVQQtGc",
-   "amountRaw": 1001021269,
    "amountUi": 1.001021269,
    "share": 0.000005478517717039124,
    "isPda": false
   },
   {
    "owner": "7sXYhu7sEXU4wSVTWkvo4nVthxGivDWGhnW4vqBGAMjJ",
-   "amountRaw": 1000005971,
    "amountUi": 1.000005971,
    "share": 0.000005472961063795752,
    "isPda": false
   },
   {
    "owner": "9jKjB8b9KbXm83xg391NBTJ8ivxBEAyuM4QmuUfDKu2f",
-   "amountRaw": 996644298,
    "amountUi": 0.996644298,
    "share": 0.000005454562868213164,
    "isPda": false
   },
   {
    "owner": "GRyj1uPmKmJFMki5HY3Ei2KXUU2M5W1Wx42DYAUUePKc",
-   "amountRaw": 995363185,
    "amountUi": 0.995363185,
    "share": 0.000005447551428511148,
    "isPda": false
   },
   {
    "owner": "Ci8McKQTzJjUXGuM8z4SKzHMBEbsTG5KG5vz5ZHkhTzb",
-   "amountRaw": 995121069,
    "amountUi": 0.995121069,
    "share": 0.000005446226344982299,
    "isPda": false
   },
   {
    "owner": "3eUWQwp55Vk3BBnZjQVWii6MqXXb9kzH5MrqKv3LYEL2",
-   "amountRaw": 992976733,
    "amountUi": 0.992976733,
    "share": 0.0000054344905476210496,
    "isPda": false
   },
   {
    "owner": "2MDWNF6jpVt5zVHhgqFUvPMJH7HjZGF51kuGtWKWsi3d",
-   "amountRaw": 991800499,
    "amountUi": 0.991800499,
    "share": 0.000005428053103175118,
    "isPda": false
   },
   {
    "owner": "9x3EoqkkCE3o8A6q8tFsyGNBdHG85Yf2LDBFQJNqdxy4",
-   "amountRaw": 951277389,
    "amountUi": 0.951277389,
    "share": 0.000005206273024210057,
    "isPda": false
   },
   {
    "owner": "HivmAfTTMMnhUwRGFkz7PJqATG6k5GSJxaxZxx4zniAw",
-   "amountRaw": 947297858,
    "amountUi": 0.947297858,
    "share": 0.000005184493336041407,
    "isPda": false
   },
   {
    "owner": "4y1UYw3GsggNv4SNhSb7J6NDLkAfJKa8HiNLK9FpkQ1w",
-   "amountRaw": 913018682,
    "amountUi": 0.913018682,
    "share": 0.000004996885860698641,
    "isPda": false
   },
   {
    "owner": "Fx1728gmjhpahnGu9SdC4Bh5qexxz3BLWwaYZabsV1C8",
-   "amountRaw": 895661914,
    "amountUi": 0.895661914,
    "share": 0.000004901893512440616,
    "isPda": false
   },
   {
    "owner": "5ocCEcS6s4ALjGmoMAucbMJtBBEX7iNWTF4RJBX5Hnwu",
-   "amountRaw": 807284803,
    "amountUi": 0.807284803,
    "share": 0.00000441821191306969,
    "isPda": false
   },
   {
    "owner": "HAaNhMroVgvfr5tXmcXWJy7Gi6BRrs3CgVGFU6na2atN",
-   "amountRaw": 699547539,
    "amountUi": 0.699547539,
    "share": 0.000003828573582808277,
    "isPda": false
   },
   {
    "owner": "8rf6jhE7b2h129FnZFPPj5XWr7X1jMRbMk84Y7BR7LA",
-   "amountRaw": 667696906,
    "amountUi": 0.667696906,
    "share": 0.0000036542573493842587,
    "isPda": false
   },
   {
    "owner": "Ep31aXAZaPbui4sr5XJRG2ani4JjDZZdZLqyvpTXMZvh",
-   "amountRaw": 667200198,
    "amountUi": 0.667200198,
    "share": 0.0000036515389020720317,
    "isPda": false
   },
   {
    "owner": "BKuxoNMEx5k3vvFSbZPDCMf7frBbCXkvuVvzRrwe4ciU",
-   "amountRaw": 613050605,
    "amountUi": 0.613050605,
    "share": 0.000003355182057509364,
    "isPda": false
   },
   {
    "owner": "AiJATvCidku9UxyvNCLX4xpoMLmNuTMQL2KAQJLLB2X3",
-   "amountRaw": 607190408,
    "amountUi": 0.607190408,
    "share": 0.000003323109619006721,
    "isPda": false
   },
   {
    "owner": "J2wqdMYHKXfa2sT6Sj8Ghh29h7uH3HeK7xDNExCX8Tb7",
-   "amountRaw": 597986579,
    "amountUi": 0.597986579,
    "share": 0.000003272737722022484,
    "isPda": false
   },
   {
    "owner": "ALtA9F1HR2ucZuQwrsqAsDgb7ixq9YGm1N7EXMkXF3XE",
-   "amountRaw": 569013736,
    "amountUi": 0.569013736,
    "share": 0.0000031141714271753633,
    "isPda": false
   },
   {
    "owner": "HixbJSUbazQWGSRcgkwwy6xPH2MW8iPoRtkDdcvhEwkq",
-   "amountRaw": 552427518,
    "amountUi": 0.552427518,
    "share": 0.0000030233962438843542,
    "isPda": false
   },
   {
    "owner": "8P2Mkgkfeo3rhdYRdiyBgKaeKRY47k4BoQMpt4u8RkFt",
-   "amountRaw": 527141633,
    "amountUi": 0.527141633,
    "share": 0.0000028850084061295165,
    "isPda": false
   },
   {
    "owner": "Ag8z13LBgBPLqHxe9wiTZt1tE8ywQ5TkqeCSVqnUhXDp",
-   "amountRaw": 521391876,
    "amountUi": 0.521391876,
    "share": 0.000002853540397837707,
    "isPda": false
   },
   {
    "owner": "DCczXUF4vFKkJNS19F9sjXQJPFmqKxWH9ePpADoZep3P",
-   "amountRaw": 520071976,
    "amountUi": 0.520071976,
    "share": 0.000002846316679662424,
    "isPda": false
   },
   {
    "owner": "8a9kcfQD2mh2DuAZJXqPb9QTNd1oDagoMngo33HGMbdx",
-   "amountRaw": 507333814,
    "amountUi": 0.507333814,
    "share": 0.0000027766016312806554,
    "isPda": false
   },
   {
    "owner": "HxrLCuci6UCR1m3HGqJS6vV5RBF4WEGS9hZH3bu9qRq7",
-   "amountRaw": 506722445,
    "amountUi": 0.506722445,
    "share": 0.0000027732556525268827,
    "isPda": false
   },
   {
    "owner": "CLywpXJUKX348bDW2fXeMgFWyu9Qxg7nfPVp7wsgYWvh",
-   "amountRaw": 501895303,
    "amountUi": 0.501895303,
    "share": 0.0000027468370500569452,
    "isPda": false
   },
   {
    "owner": "FQP6dQBzzkvRiDHKjxMso8ycvzZPG2YVR2fRSAdqDGnn",
-   "amountRaw": 494908348,
    "amountUi": 0.494908348,
    "share": 0.000002708597945713144,
    "isPda": false
   },
   {
    "owner": "HCNEA4LkYVbbfG5P9hEJKKX1xjMWxAC6E254YbZPnhsV",
-   "amountRaw": 491264145,
    "amountUi": 0.491264145,
    "share": 0.0000026886534836739592,
    "isPda": false
   },
   {
    "owner": "2YV1L2fb9uY3Nb5JE643jQts1a9KcEwEFxzvZcMtvZsg",
-   "amountRaw": 469102351,
    "amountUi": 0.469102351,
    "share": 0.000002567363572230158,
    "isPda": false
   },
   {
    "owner": "3wcRU7YA7xVv2SVPvi6gR5PJrYxEDbvR5LcA3VJYaGqd",
-   "amountRaw": 459018623,
    "amountUi": 0.459018623,
    "share": 0.00000251217605103294,
    "isPda": false
   },
   {
    "owner": "89bSBDySprsExPZFHzoqfiVfhdkPRpQDQXYfji5fJm5Z",
-   "amountRaw": 458903495,
    "amountUi": 0.458903495,
    "share": 0.000002511545963733839,
    "isPda": false
   },
   {
    "owner": "4dVGQmLJq7sHgYrEjvtKdeV3gaBW9d8bhFqnj7AKDTkd",
-   "amountRaw": 458735836,
    "amountUi": 0.458735836,
    "share": 0.0000025106283780337483,
    "isPda": false
   },
   {
    "owner": "BgzkBL5FkN3g4uNxBxTmAgx66YfiCaT9DGw8uJ1uSxyc",
-   "amountRaw": 458719123,
    "amountUi": 0.458719123,
    "share": 0.0000025105369089816506,
    "isPda": false
   },
   {
    "owner": "2QrNCHHnuoWSQD5Y8WfyAtbYjcGZg8zk3gjniHb8H2u5",
-   "amountRaw": 458701266,
    "amountUi": 0.458701266,
    "share": 0.0000025104391788994805,
    "isPda": false
   },
   {
    "owner": "53LTGS6HwccrxN5uCeX62Kxw3sB1yZAWEy9ynqjvYWer",
-   "amountRaw": 458699904,
    "amountUi": 0.458699904,
    "share": 0.0000025104317247710202,
    "isPda": false
   },
   {
    "owner": "kDF1EeNkLpMGqQHFqSwRhScNtQDG6XKuamMoASKxmhL",
-   "amountRaw": 458663300,
    "amountUi": 0.4586633,
    "share": 0.000002510231393700418,
    "isPda": false
   },
   {
    "owner": "GQfDvwxfdS9f3rbSXstpziUTjrnsvY9V8QnnMuc96QXB",
-   "amountRaw": 458654169,
    "amountUi": 0.458654169,
    "share": 0.0000025101814203913352,
    "isPda": false
   },
   {
    "owner": "DY7JixtPqSQ4XPdRDPGrC2arYFk1hP8ToBZnEYG7gPgm",
-   "amountRaw": 449109495,
    "amountUi": 0.449109495,
    "share": 0.000002457944103131733,
    "isPda": false
   },
   {
    "owner": "73PStm48cfDKMB9Br83bkYaL8hqgNHzGBchmYwnBiSdm",
-   "amountRaw": 448908634,
    "amountUi": 0.448908634,
    "share": 0.0000024568448052634054,
    "isPda": false
   },
   {
    "owner": "5QNqfn8W4gXtTCvqoDEx1KWuXj3jK25Hodrn66JLoJv5",
-   "amountRaw": 448740851,
    "amountUi": 0.448740851,
    "share": 0.0000024559265409201948,
    "isPda": false
   },
   {
    "owner": "8Xff9oehMcURovUyv4NjdhVd2NMnLiTgg55Xe9uGUVc3",
-   "amountRaw": 448724864,
    "amountUi": 0.448724864,
    "share": 0.000002455839045214105,
    "isPda": false
   },
   {
    "owner": "8G7MzQnjqCtmQQ5wukSrcakA4ERQ5bQve6t8B5UKz6Lv",
-   "amountRaw": 448100368,
    "amountUi": 0.448100368,
    "share": 0.000002452421223329423,
    "isPda": false
   },
   {
    "owner": "mHseCBxWAesyGkv3DFbRkRE5AUhmvADf6ydg37bJLGK",
-   "amountRaw": 438888843,
    "amountUi": 0.438888843,
    "share": 0.0000024020072066883355,
    "isPda": false
   },
   {
    "owner": "7JDVGAa19WQRAycyvHpRvN1es337kJhVNFVkEJCcgLVe",
-   "amountRaw": 438835186,
    "amountUi": 0.438835186,
    "share": 0.0000024017135457699844,
    "isPda": false
   },
   {
    "owner": "F1dn25xDMVadiiCRAfgy3YPQENawDDr9HAmxyvAANmNk",
-   "amountRaw": 438519225,
    "amountUi": 0.438519225,
    "share": 0.0000023999843138445503,
    "isPda": false
   },
   {
    "owner": "gfGK9YsfN9wV4oc6tYheihijXz2ubSoxgsJkrF4oxkY",
-   "amountRaw": 438276905,
    "amountUi": 0.438276905,
    "share": 0.000002398658113838312,
    "isPda": false
   },
   {
    "owner": "4X61P8dURCy2puYGBDAAgE24B9iPYPj2r5Z6bYjjzaNt",
-   "amountRaw": 438107923,
    "amountUi": 0.438107923,
    "share": 0.000002397733287453968,
    "isPda": false
   },
   {
    "owner": "F5M3aLQCaCce79HQRuWV8kyb23o4fBfbKFaod5TC4VBy",
-   "amountRaw": 428774281,
    "amountUi": 0.428774281,
    "share": 0.0000023466509332172963,
    "isPda": false
   },
   {
    "owner": "9cUJb7XRVT4RZeRetFr572pAx7z2dZ1YHY77WbH5b9aJ",
-   "amountRaw": 397309438,
    "amountUi": 0.397309438,
    "share": 0.000002174446100834904,
    "isPda": false
   },
   {
    "owner": "BUGuHo4fNPjXekaT4aZZd8Rig4bjuqiK6fYmssqucaYz",
-   "amountRaw": 395926678,
    "amountUi": 0.395926678,
    "share": 0.000002166878354381344,
    "isPda": false
   },
   {
    "owner": "5hkuKZ6y9UgYXf5FYDALPgDqpQAvs6SBPTHZ7Ww1FiFa",
-   "amountRaw": 361351833,
    "amountUi": 0.361351833,
    "share": 0.0000019776527037759307,
    "isPda": false
   },
   {
    "owner": "FgjA39etXTdQB1zPEBjk31excx41Wmus5QMK8WygEJTW",
-   "amountRaw": 356198692,
    "amountUi": 0.356198692,
    "share": 0.0000019494499321254305,
    "isPda": false
   },
   {
    "owner": "4KwDooQnB1spuhYkmUDzWSjr3FUg4oshWZ22RZKgyZ2g",
-   "amountRaw": 348904225,
    "amountUi": 0.348904225,
    "share": 0.0000019095278366281197,
    "isPda": false
   },
   {
    "owner": "B36jYcyRewTw6cLhUuMDRvPrCPjrRojURG7wHbPr3YGq",
-   "amountRaw": 321144189,
    "amountUi": 0.321144189,
    "share": 0.0000017575991476367533,
    "isPda": false
   },
   {
    "owner": "ALQ4w8r1ZzoLyca5skK5HWDpEHKUjj53YJZxwgmHuZdu",
-   "amountRaw": 320167332,
    "amountUi": 0.320167332,
    "share": 0.0000017522528792334255,
    "isPda": false
   },
   {
    "owner": "FctXsvxqBfZboXQQLFpu5ZVfS6DbJreFKBVgWkVLMXQ7",
-   "amountRaw": 320114946,
    "amountUi": 0.320114946,
    "share": 0.000001751966174407052,
    "isPda": false
   },
   {
    "owner": "FQGHM54xjGTGvxd5NPt16e8KrtHC8U9JMHzFNMpwNCWf",
-   "amountRaw": 319538500,
    "amountUi": 0.3195385,
    "share": 0.0000017488113267312667,
    "isPda": false
   },
   {
    "owner": "AcNSmd5CxwLs21TYUmhWt7CW2v159TdYRkvQxb1iBYRj",
-   "amountRaw": 318789792,
    "amountUi": 0.318789792,
    "share": 0.0000017447137014660348,
    "isPda": false
   },
   {
    "owner": "4PJKdfva3iHq48hk9tyDUbQQVu2hNMxNtrsV23tjSWGZ",
-   "amountRaw": 318137052,
    "amountUi": 0.318137052,
    "share": 0.0000017411413021920489,
    "isPda": false
   },
   {
    "owner": "E6NDjo3fLmG8mXsNYyhZaKbonH1vaQLkHtippUsZWXdW",
-   "amountRaw": 312163073,
    "amountUi": 0.312163073,
    "share": 0.0000017084461429519112,
    "isPda": false
   },
   {
    "owner": "5fJ7rZD9nDfK1t4G1bb78QhjnTxTDtU8cKjVEgMV4ifb",
-   "amountRaw": 312120113,
    "amountUi": 0.312120113,
    "share": 0.0000017082110259484942,
    "isPda": false
   },
   {
    "owner": "H1gaZusM5RCeUDTejo91AqZ94fi24RjtLf3MPpHzXW2D",
-   "amountRaw": 311230541,
    "amountUi": 0.311230541,
    "share": 0.000001703342462099246,
    "isPda": false
   },
   {
    "owner": "8zNWPcdf63SxSiE2qsdYcwmJubeN8XPmRgeD2oBv3Uju",
-   "amountRaw": 308247581,
    "amountUi": 0.308247581,
    "share": 0.0000016870169356441042,
    "isPda": false
   },
   {
    "owner": "6SNLFE5s2a7erNkNhPcretvS7VDhcUkH9GLGpen2J6iU",
-   "amountRaw": 308207285,
    "amountUi": 0.308207285,
    "share": 0.0000016867963985219048,
    "isPda": false
   },
   {
    "owner": "3girDZ8NwFMzP4AUK1VDtiB39Rnoxy14v9KEUrKjdSzk",
-   "amountRaw": 306331208,
    "amountUi": 0.306331208,
    "share": 0.000001676528763456271,
    "isPda": false
   },
   {
    "owner": "3EYd7TXa7RecdWU1R1NqC3k8ektrX4bDm9fPrfyS5SYJ",
-   "amountRaw": 302767038,
    "amountUi": 0.302767038,
    "share": 0.000001657022316294518,
    "isPda": false
   },
   {
    "owner": "G975bgWHSDNnc7qXnoC42wJaqJtYq4LFPyNsa413Sd5B",
-   "amountRaw": 299105772,
    "amountUi": 0.299105772,
    "share": 0.000001636984469678301,
    "isPda": false
   },
   {
    "owner": "DUxcdMxYTxpf3DG5XppaB7ux5sNSUxiD8dzmoiHRxgC1",
-   "amountRaw": 298608955,
    "amountUi": 0.298608955,
    "share": 0.00000163426542581688,
    "isPda": false
   },
   {
    "owner": "AzFeDjyvZTqovZe6wp2HYgXqgzLkitzNCRLBxvTayPey",
-   "amountRaw": 296770392,
    "amountUi": 0.296770392,
    "share": 0.000001624203102186679,
    "isPda": false
   },
   {
    "owner": "9HATUttMhLaY3WRyH8KC8AhKSeXQFJstzYBVF9gX281Y",
-   "amountRaw": 291686670,
    "amountUi": 0.29168667,
    "share": 0.0000015963802557517332,
    "isPda": false
   },
   {
    "owner": "3t82rUUGcBFovUJJ7DqNfg1sYhaonhZv7FmaoXvanxhh",
-   "amountRaw": 285440291,
    "amountUi": 0.285440291,
    "share": 0.0000015621942708195379,
    "isPda": false
   },
   {
    "owner": "EoUU7xMrSBJ4kq1GeKJ3ksiNKT7Dc3ThnoG8p5LT189c",
-   "amountRaw": 278370001,
    "amountUi": 0.278370001,
    "share": 0.0000015234990799887778,
    "isPda": false
   },
   {
    "owner": "2MWsex3SHB8Z33fupDfb9NxnoMPx9FTt1A2NAu5DPUaX",
-   "amountRaw": 268550580,
    "amountUi": 0.26855058,
    "share": 0.0000014697580920741983,
    "isPda": false
   },
   {
    "owner": "DWLaueTpTYcAhVmua3ha5BrggcMfNVWGWuSkvWD4qccH",
-   "amountRaw": 264914221,
    "amountUi": 0.264914221,
    "share": 0.0000014498565596852648,
    "isPda": false
   },
   {
    "owner": "2WYgnBbueE53KxHyCdJT6KHsGFLAnk7K2uHXSkjXF9WE",
-   "amountRaw": 260405835,
    "amountUi": 0.260405835,
    "share": 0.0000014251824859755971,
    "isPda": false
   },
   {
    "owner": "9WZAVpAdKWyb55n1ovyuHBDSQgBLLysToxq6CWSv42CJ",
-   "amountRaw": 258096491,
    "amountUi": 0.258096491,
    "share": 0.0000014125436116474054,
    "isPda": false
   },
   {
    "owner": "mLaBCN8Fy5pfZYGT7fL1B5drb2yrdFXggRu6uZehRFc",
-   "amountRaw": 253857762,
    "amountUi": 0.253857762,
    "share": 0.0000013893453513872356,
    "isPda": false
   },
   {
    "owner": "5awC8a1qxMWfgk529NUuW9oTiDtc7xbAm4x9gEGYtzEY",
-   "amountRaw": 251802855,
    "amountUi": 0.251802855,
    "share": 0.000001378098992538523,
    "isPda": false
   },
   {
    "owner": "571AfEdTwMUFnGSv7dod4jYWAjTSVdf1JHmda5e7ieYF",
-   "amountRaw": 251083698,
    "amountUi": 0.251083698,
    "share": 0.0000013741630977799943,
    "isPda": false
   },
   {
    "owner": "9Fd2vDxLoaHMoBwR1EYDk9WLVHmtaPrJP44Fg7UXLtwq",
-   "amountRaw": 248879411,
    "amountUi": 0.248879411,
    "share": 0.0000013620991928891393,
    "isPda": false
   },
   {
    "owner": "BVq6LD8p8XCGBBnoAY6vWT2zxojo7L85cQyYCjFKE5AQ",
-   "amountRaw": 248169703,
    "amountUi": 0.248169703,
    "share": 0.00000135821501183092,
    "isPda": false
   },
   {
    "owner": "BMD9UAXVwWz4cBLTbSPiRsEFPJTE9yCrDAiT8EL8ssVB",
-   "amountRaw": 246385262,
    "amountUi": 0.246385262,
    "share": 0.0000013484488940307687,
    "isPda": false
   },
   {
    "owner": "CPpw5U5iwkWYoAVPJ9NfBkDtWFehADZfmbXTFP3idtLD",
-   "amountRaw": 245339677,
    "amountUi": 0.245339677,
    "share": 0.0000013427264822054008,
    "isPda": false
   },
   {
    "owner": "8kLkB2f15ZjFEDpGdfRxZWViETx4Fwvw7ECYH5cYD9o1",
-   "amountRaw": 238602858,
    "amountUi": 0.238602858,
    "share": 0.0000013058563542760952,
    "isPda": false
   },
   {
    "owner": "G9SdarnrRupquqy8K91TaG1HtBwiJ34pXUeE6Wydd38i",
-   "amountRaw": 238385663,
    "amountUi": 0.238385663,
    "share": 0.0000013046676615955282,
    "isPda": false
   },
   {
    "owner": "AXp7UhFYVD4BxEr7bujbSeeYhyAC3YErAP7WwKWn5x1p",
-   "amountRaw": 230520766,
    "amountUi": 0.230520766,
    "share": 0.0000012616236435595957,
    "isPda": false
   },
   {
    "owner": "4L4vaAQ3xUdDd95zPiCHqPW6a9smmbYbZxCDiZEisTqX",
-   "amountRaw": 228316127,
    "amountUi": 0.228316127,
    "share": 0.0000012495578121979492,
    "isPda": false
   },
   {
    "owner": "9HhFnZUQSW1HjYHz4n2w5nzjirCk4wP7oYLXWfjJB2rz",
-   "amountRaw": 228176174,
    "amountUi": 0.228176174,
    "share": 0.0000012487918594516918,
    "isPda": false
   },
   {
    "owner": "poApAHKUgFxmcEjqSsEsHCaoWhVV47zeU6mHgdNhLtQ",
-   "amountRaw": 225547096,
    "amountUi": 0.225547096,
    "share": 0.0000012344031038392694,
    "isPda": false
   },
   {
    "owner": "HbbX6mkn2cUFiXdweY2tnqwuGvxKY21oabsUjvuEWRhU",
-   "amountRaw": 223726916,
    "amountUi": 0.223726916,
    "share": 0.0000012244413890515686,
    "isPda": false
   },
   {
    "owner": "Y1LfG1yddxB1euRrHurtzfPY25ddgNraCTQqL3QvzCy",
-   "amountRaw": 218719287,
    "amountUi": 0.218719287,
    "share": 0.000001197034994156218,
    "isPda": false
   },
   {
    "owner": "7GwLHokcG1jGHmF8FuzDNtwefqhhPQ93VQA8vRRXwLjG",
-   "amountRaw": 218520191,
    "amountUi": 0.218520191,
    "share": 0.00000119594535600649,
    "isPda": false
   },
   {
    "owner": "3qhEmJzx4J1xphoWpfcqwPXjvWrhvY5WrEzVHq4cU2ou",
-   "amountRaw": 218389338,
    "amountUi": 0.218389338,
    "share": 0.0000011952292069085354,
    "isPda": false
   },
   {
    "owner": "CXVPpVGsSBAs6Doh9seTQuFLQSX8DbyiWqcMDXmtFW3U",
-   "amountRaw": 213481030,
    "amountUi": 0.21348103,
    "share": 0.0000011683663887333056,
    "isPda": false
   },
   {
    "owner": "7usBbWKHKvHr8QrMtcVp16VL7NtLJPc64ASd2kRpHW8Y",
-   "amountRaw": 210158872,
    "amountUi": 0.210158872,
    "share": 0.000001150184455915849,
    "isPda": false
   },
   {
    "owner": "22cBTPjQy4U5vXNEWR5FLENPkM9zHhtH4xK8rD3s74S8",
-   "amountRaw": 208587455,
    "amountUi": 0.208587455,
    "share": 0.000001141584203211971,
    "isPda": false
   },
   {
    "owner": "7gqXQqRCcisPgU6wNnCNKaQUH8FbCfQB9JZB6wewnRDq",
-   "amountRaw": 208587455,
    "amountUi": 0.208587455,
    "share": 0.000001141584203211971,
    "isPda": false
   },
   {
    "owner": "A54VMiqPWDN2BS9tFHBxG3whtLy4rQqwpx4cG6TKnqeD",
-   "amountRaw": 208462550,
    "amountUi": 0.20846255,
    "share": 0.00000114090060709205,
    "isPda": false
   },
   {
    "owner": "iaszdXf3kroDE4APLs2ngmwFs9htgyXKSbpqGD5TXzt",
-   "amountRaw": 208462550,
    "amountUi": 0.20846255,
    "share": 0.00000114090060709205,
    "isPda": false
   },
   {
    "owner": "6jZ71tyTHKk3qTfScQ6DSt6PNymRkgExDNJCWA8V9dUZ",
-   "amountRaw": 202506477,
    "amountUi": 0.202506477,
    "share": 0.0000011083034461075732,
    "isPda": false
   },
   {
    "owner": "sorry2RLPsSLQyHUBK4XcKpkzLN7eg59yuSnvJJS1LT",
-   "amountRaw": 200101263,
    "amountUi": 0.200101263,
    "share": 0.0000010951398821351172,
    "isPda": false
   },
   {
    "owner": "GUb31iGSmutw3eZ5b83Wyug5N7AZfnbcV3RwL9CUoM7Z",
-   "amountRaw": 199157607,
    "amountUi": 0.199157607,
    "share": 0.000001089975320427098,
    "isPda": false
   },
   {
    "owner": "53mgq8iYcnL3KQZztFqmutnR4G6qBznjdNUKhGHgDuq7",
-   "amountRaw": 198835715,
    "amountUi": 0.198835715,
    "share": 0.0000010882136285634128,
    "isPda": false
   },
   {
    "owner": "HjUTwM9QQin6No6TAAh88PvtyYUkoME5XekR2VRfYjdp",
-   "amountRaw": 198835715,
    "amountUi": 0.198835715,
    "share": 0.0000010882136285634128,
    "isPda": false
   },
   {
    "owner": "4qwyQg42kxuTihVquv7WMqw6UFjvbZL8FUEY6J5EMoXB",
-   "amountRaw": 198835715,
    "amountUi": 0.198835715,
    "share": 0.0000010882136285634128,
    "isPda": false
   },
   {
    "owner": "8QbJmRn7pRpGXAZidsGLMEw8Gq7focRMzC9LUykHhydZ",
-   "amountRaw": 198835715,
    "amountUi": 0.198835715,
    "share": 0.0000010882136285634128,
    "isPda": false
   },
   {
    "owner": "GTvWdnM2a2zqou1RNf1V2DSKYRKQ6KmFdqLmhbJWNYYW",
-   "amountRaw": 198835375,
    "amountUi": 0.198835375,
    "share": 0.0000010882117677677617,
    "isPda": false
   },
   {
    "owner": "9Mub2uQb5Fuw4yerTAgN5ygArDvSMzEWUbgRndWD4Qgf",
-   "amountRaw": 198654719,
    "amountUi": 0.198654719,
    "share": 0.000001087223050417452,
    "isPda": false
   },
   {
    "owner": "AqoP99nbLfm1CuGH2UC9GHjCQpwfbMRFuKFGpSXoBxtK",
-   "amountRaw": 198654719,
    "amountUi": 0.198654719,
    "share": 0.000001087223050417452,
    "isPda": false
   },
   {
    "owner": "gmvP9y7bbe6nyHZZwjuSTCmdPpc9cDLtCLimrPRrdJ3",
-   "amountRaw": 198535762,
    "amountUi": 0.198535762,
    "share": 0.0000010865720072755647,
    "isPda": false
   },
   {
    "owner": "F6H9s7n7R5CBuZtTnomoUFP6TCJyaqz3Mq71UdKayo7s",
-   "amountRaw": 198535762,
    "amountUi": 0.198535762,
    "share": 0.0000010865720072755647,
    "isPda": false
   },
   {
    "owner": "5t212E78ctHgvuBz16sEdwajwvU7sNA4oi1bbxb4PMNN",
-   "amountRaw": 198418554,
    "amountUi": 0.198418554,
    "share": 0.0000010859305362854226,
    "isPda": false
   },
   {
    "owner": "FwWFiJh8xa9Xx1UC2zNy84BsA2MQND93Sf6dvN6odDQf",
-   "amountRaw": 197560782,
    "amountUi": 0.197560782,
    "share": 0.0000010812360115588156,
    "isPda": false
   },
   {
    "owner": "FyqEiZNpUaM6RRjoutYX8MzXk237XevgzMxyghDSzotP",
-   "amountRaw": 195432681,
    "amountUi": 0.195432681,
    "share": 0.0000010695890671898956,
    "isPda": false
   },
   {
    "owner": "Bcsq8Q695XKcwt7FuHWV8M9nsWyMrLg17d9myr8zEJkJ",
-   "amountRaw": 190057952,
    "amountUi": 0.190057952,
    "share": 0.0000010401735602844335,
    "isPda": false
   },
   {
    "owner": "325MGXBka5JgZNDBzJWBc3UpQHkSJbbwATcW28ghNcux",
-   "amountRaw": 190044354,
    "amountUi": 0.190044354,
    "share": 0.000001040099139404255,
    "isPda": false
   },
   {
    "owner": "22YLUHC959dRUM5RWJJB8KHNMnzkSJkVXgUj3Wp8ZyLL",
-   "amountRaw": 188893929,
    "amountUi": 0.188893929,
    "share": 0.0000010338029457670099,
    "isPda": false
   },
   {
    "owner": "EoiJ9wRvqaC1KXxn8YJYYzgJn7Vh8e9SvxvGUej2q2V7",
-   "amountRaw": 188893929,
    "amountUi": 0.188893929,
    "share": 0.0000010338029457670099,
    "isPda": false
   },
   {
    "owner": "AwuDm4JuPX3ru4kEphYG83stmjn9gofJaiJWLd85udKs",
-   "amountRaw": 188893929,
    "amountUi": 0.188893929,
    "share": 0.0000010338029457670099,
    "isPda": false
   },
   {
    "owner": "2GELz9c5hyv2z2DJMkAucWRdgZA2uEayjYUQkEFYauV9",
-   "amountRaw": 188893929,
    "amountUi": 0.188893929,
    "share": 0.0000010338029457670099,
    "isPda": false
   },
   {
    "owner": "dvnWZmw9Hm9xpQUtSmLRyYdwEbXv6SaLu17zUGaSE7r",
-   "amountRaw": 188893929,
    "amountUi": 0.188893929,
    "share": 0.0000010338029457670099,
    "isPda": false
   },
   {
    "owner": "BMU1CsdQWc9tmqCmvVPBtFxDPP8J7ciMk5ddCUVK4SHU",
-   "amountRaw": 188839267,
    "amountUi": 0.188839267,
    "share": 0.0000010335037845556323,
    "isPda": false
   },
   {
    "owner": "C6E55kacXzmUSBS29LWvJa5e2UJeyJ3XdBF32E4mBq6P",
-   "amountRaw": 188608974,
    "amountUi": 0.188608974,
    "share": 0.0000010322434074590792,
    "isPda": false
   },
   {
    "owner": "3X859kbwkt3JyYhEXf3jo2zyo2cc3Qk7wtc1NGuWtSJM",
-   "amountRaw": 188608974,
    "amountUi": 0.188608974,
    "share": 0.0000010322434074590792,
    "isPda": false
   },
   {
    "owner": "5WQdDJYGkhqPGsYiUFXq2LPcZeHWp45T53uoYGoBqHxh",
-   "amountRaw": 187560973,
    "amountUi": 0.187560973,
    "share": 0.0000010265077730387333,
    "isPda": false
   },
   {
    "owner": "2T65iiPwwLGs2h6qcLw6a2Et8dmEnFkU7d3wb68p9AZX",
-   "amountRaw": 186066612,
    "amountUi": 0.186066612,
    "share": 0.0000010183292423044855,
    "isPda": false
   },
   {
    "owner": "GBRXZuAFwwxbLDFaqTm11qZogpyBVgp1c3P9XRzgsfLs",
-   "amountRaw": 185802283,
    "amountUi": 0.185802283,
    "share": 0.0000010168825886174225,
    "isPda": false
   },
   {
    "owner": "EmKGoHJwp7irCrwhBLDq9J7FreAoDJjWLMPH3r7fk3h9",
-   "amountRaw": 178952144,
    "amountUi": 0.178952144,
    "share": 9.793922684435357e-7,
    "isPda": false
   },
   {
    "owner": "91gUrK9hiKgLnkdfaLsjKeo9yNLcu4u4pgQydxBypUhx",
-   "amountRaw": 178952144,
    "amountUi": 0.178952144,
    "share": 9.793922684435357e-7,
    "isPda": false
   },
   {
    "owner": "J5meUWWU3hkGwYYbqQWgmiCyytWYug4fB1DcTEdcAu7u",
-   "amountRaw": 178735811,
    "amountUi": 0.178735811,
    "share": 9.782082934272363e-7,
    "isPda": false
   },
   {
    "owner": "5GMhQCyMfJWwyX5W7vQ2X2xUhaYnhWQsrB5bXAo1Xe3L",
-   "amountRaw": 178735811,
    "amountUi": 0.178735811,
    "share": 9.782082934272363e-7,
    "isPda": false
   },
   {
    "owner": "AVnsAaNSk2JwsFrULmX2gpYPcjBoMmh23Y5BfkVTNWQx",
-   "amountRaw": 178735811,
    "amountUi": 0.178735811,
    "share": 9.782082934272363e-7,
    "isPda": false
   },
   {
    "owner": "6QgUziqT3VJAooAj2c8ZB7NpjPXowWvPWRnX4uUUC4ft",
-   "amountRaw": 178682186,
    "amountUi": 0.178682186,
    "share": 9.77914807642594e-7,
    "isPda": false
   },
   {
    "owner": "HV9QnyBV9Up2JeK5F9fXtXfVTPo1KEkRZD3zUh1o677G",
-   "amountRaw": 178682186,
    "amountUi": 0.178682186,
    "share": 9.77914807642594e-7,
    "isPda": false
   },
   {
    "owner": "9fsavsTX5es3UUoQkhYrMDVLTgG3Uvwwt7YGwyDn893m",
-   "amountRaw": 178682186,
    "amountUi": 0.178682186,
    "share": 9.77914807642594e-7,
    "isPda": false
   },
   {
    "owner": "CJUMTAxqihstGof2LV7SPnqRYVc6kpWbpwRKeiW4Mjsm",
-   "amountRaw": 178682186,
    "amountUi": 0.178682186,
    "share": 9.77914807642594e-7,
    "isPda": false
   },
   {
    "owner": "DHyKcAiTwk3932ACc6BokaiHHqBekC69VHvE6XnCfH62",
-   "amountRaw": 178496230,
    "amountUi": 0.17849623,
    "share": 9.76897083771844e-7,
    "isPda": false
   },
   {
    "owner": "QgWwHvqj4Fy3iBpMxwcaKyoTxTfUtAVYudoG56YBYkq",
-   "amountRaw": 175600420,
    "amountUi": 0.17560042,
    "share": 9.610485230254497e-7,
    "isPda": false
   },
   {
    "owner": "3CPrbJewAwqDsU3Pirm8MowDiZKVzRof95G1ZbimaX5t",
-   "amountRaw": 172658417,
    "amountUi": 0.172658417,
    "share": 9.449471512981701e-7,
    "isPda": false
   },
   {
    "owner": "6XW8jyn3Exw82eznfCNDG8YieF7oqwoKbX2dbHGW2bWk",
-   "amountRaw": 169827196,
    "amountUi": 0.169827196,
    "share": 9.294520815232308e-7,
    "isPda": false
   },
   {
    "owner": "7biafEr2nEzfr21bMHxGvfWyyfcBzBFmNY2VDneXfmhr",
-   "amountRaw": 168856511,
    "amountUi": 0.168856511,
    "share": 9.24139592033895e-7,
    "isPda": false
   },
   {
    "owner": "DixUG6RgHg64U1TZFd6Zoxf7AfCpvDbaj2qKPK65cyU3",
-   "amountRaw": 168806044,
    "amountUi": 0.168806044,
    "share": 9.238633897570922e-7,
    "isPda": false
   },
   {
    "owner": "6wLQzVQsKXe2EcLPTNS4Zqs8CFxeZQwuQhH25NoN3cjG",
-   "amountRaw": 168806044,
    "amountUi": 0.168806044,
    "share": 9.238633897570922e-7,
    "isPda": false
   },
   {
    "owner": "JBWmXfzRa7vMCam9oRnek6RZu5REcxR94iFTk6fZ5i28",
-   "amountRaw": 168806044,
    "amountUi": 0.168806044,
    "share": 9.238633897570922e-7,
    "isPda": false
   },
   {
    "owner": "CjQqoaL28P1cAcGmrvMtDcqvNycgxupvWwDTnfBL6K2J",
-   "amountRaw": 168806044,
    "amountUi": 0.168806044,
    "share": 9.238633897570922e-7,
    "isPda": false
   },
   {
    "owner": "Aoqmp34YyaWkDBf5SUVEvd6keZA8kiPLx7gkXGYFXZkE",
-   "amountRaw": 168755398,
    "amountUi": 0.168755398,
    "share": 9.235862078261085e-7,
    "isPda": false
   },
   {
    "owner": "N1cmnGwTA338gY4X5wkaSdUD2hpEYJnJ18ZhV92YEXo",
-   "amountRaw": 168755398,
    "amountUi": 0.168755398,
    "share": 9.235862078261085e-7,
    "isPda": false
   },
   {
    "owner": "43YPGZqpLrAzPingypuuG6JZ8HATGkgv2Y2wkMeeGmRg",
-   "amountRaw": 168755398,
    "amountUi": 0.168755398,
    "share": 9.235862078261085e-7,
    "isPda": false
   },
   {
    "owner": "HEq6gvVjw3CB5Egq9x1Txy2JqAdWSAabvUwfhnamkZ4d",
-   "amountRaw": 167381192,
    "amountUi": 0.167381192,
    "share": 9.160652768019532e-7,
    "isPda": false
   },
   {
    "owner": "Au3yGnsYqjARDwSBjFQEuavbm3FVQL67THsrkXbg5hWX",
-   "amountRaw": 164261926,
    "amountUi": 0.164261926,
    "share": 8.989937573703737e-7,
    "isPda": false
   },
   {
    "owner": "PBMx1dWWCb8qCteeaNXLpd3Dwd9BSdayDhHwdcE7k9G",
-   "amountRaw": 159917049,
    "amountUi": 0.159917049,
    "share": 8.752145567079992e-7,
    "isPda": false
   },
   {
    "owner": "EqrooDNZV4D52fJKYdNNuxxaYWcnA45MSangxyMwjTWe",
-   "amountRaw": 159679563,
    "amountUi": 0.159679563,
    "share": 8.739148128375732e-7,
    "isPda": false
   },
   {
    "owner": "4fTKoyy5z68h4uq2ZH8xhvt9yYv2LfhViJKRwoRqsVc8",
-   "amountRaw": 158923775,
    "amountUi": 0.158923775,
    "share": 8.697784392393759e-7,
    "isPda": false
   },
   {
    "owner": "Ch2Xy4LAGYSmsompLGEoQRLELSaoWzBPvYHPnzCJKfsp",
-   "amountRaw": 158923775,
    "amountUi": 0.158923775,
    "share": 8.697784392393759e-7,
    "isPda": false
   },
   {
    "owner": "5uMw2wX9DCdkbyVqCMB9Hg4z8yZ7XWEFQxFNYwd4aUCr",
-   "amountRaw": 158828610,
    "amountUi": 0.15882861,
    "share": 8.692576080096231e-7,
    "isPda": false
   },
   {
    "owner": "CqafyVRnGZTXYvxxjZ4f9FLPkdBcb1PTGgv3enq7M71Y",
-   "amountRaw": 158828610,
    "amountUi": 0.15882861,
    "share": 8.692576080096231e-7,
    "isPda": false
   },
   {
    "owner": "9cYBiQzCW8sY52V4AUkwpwgYC9YVWjUiGspa6EzunJyk",
-   "amountRaw": 158828610,
    "amountUi": 0.15882861,
    "share": 8.692576080096231e-7,
    "isPda": false
   },
   {
    "owner": "FAg4anhQoTFsTsXAy5cN42KR9D9foAom8T2CLcK4xe4Q",
-   "amountRaw": 158828610,
    "amountUi": 0.15882861,
    "share": 8.692576080096231e-7,
    "isPda": false
   },
   {
    "owner": "GafiocgtbPBAX96EvgVb5jYEKpVf8HE3p47DqkE6hEZ9",
-   "amountRaw": 158734843,
    "amountUi": 0.158734843,
    "share": 8.687444279337523e-7,
    "isPda": false
   },
   {
    "owner": "Br68DGeGrpEpmrdTkUmMNw1hJXGWj6UZty8ZPccioADK",
-   "amountRaw": 154682556,
    "amountUi": 0.154682556,
    "share": 8.465665513875275e-7,
    "isPda": false
   },
   {
    "owner": "GyjPPs3wmQX7f9s5gn9Ge1wtKnJFMno4tZrqUyNuwvud",
-   "amountRaw": 149894500,
    "amountUi": 0.1498945,
    "share": 8.203618637964435e-7,
    "isPda": false
   },
   {
    "owner": "H8SutJkKLQtD5eNG3AWQs45W8khDVnCYpM2qagKrvV5E",
-   "amountRaw": 149338217,
    "amountUi": 0.149338217,
    "share": 8.173173667756838e-7,
    "isPda": false
   },
   {
    "owner": "X2RdRUCyCU7khmDNppPFuDUNrDY8iG7BAxjYCANdoLb",
-   "amountRaw": 148991039,
    "amountUi": 0.148991039,
    "share": 8.154172864448569e-7,
    "isPda": false
   },
   {
    "owner": "FsH4PEjD7WjcYbgE1GpjWVQwymvjAg8XTXkRq6SraFUJ",
-   "amountRaw": 148946509,
    "amountUi": 0.148946509,
    "share": 8.151735769438755e-7,
    "isPda": false
   },
   {
    "owner": "DTe7rihQXDNtG77Jn6R2GAASyzz5zjjECbMEt5uDxs2u",
-   "amountRaw": 148946509,
    "amountUi": 0.148946509,
    "share": 8.151735769438755e-7,
    "isPda": false
   },
   {
    "owner": "D2S7Ckt7fkda54fB7dEYyQZzhp5JZB9VysrFx9f8igAt",
-   "amountRaw": 148901822,
    "amountUi": 0.148901822,
    "share": 8.149290081931377e-7,
    "isPda": false
   },
   {
    "owner": "2oTbpcAa3KvQBU7u2xXkwCfViU9orNC5ntvYSKdUNUs7",
-   "amountRaw": 148901822,
    "amountUi": 0.148901822,
    "share": 8.149290081931377e-7,
    "isPda": false
   },
   {
    "owner": "Fxz2DszZjKRt5TsrKrhDPzr4ych1iRoMuo6WTjmFhdJo",
-   "amountRaw": 148779875,
    "amountUi": 0.148779875,
    "share": 8.142616009953794e-7,
    "isPda": false
   },
   {
    "owner": "6Ag2qrEPa8gmpJ4b8fLPxVg6CLcJbfbB79tZkcmW9ktZ",
-   "amountRaw": 140051577,
    "amountUi": 0.140051577,
    "share": 7.664922511189612e-7,
    "isPda": false
   },
   {
    "owner": "BYAwZJn215njWts33eeXeDow4kzDTPdtdgvuBZdRfyj6",
-   "amountRaw": 139268105,
    "amountUi": 0.139268105,
    "share": 7.622043649713552e-7,
    "isPda": false
   },
   {
    "owner": "Aumeb1br8MiMpcEfWupzA7R82RpF6i5rsx8yrnmQ7Zzm",
-   "amountRaw": 139058303,
    "amountUi": 0.139058303,
    "share": 7.610561336503379e-7,
    "isPda": false
   },
   {
    "owner": "9afwYAe3sAuqYZz7LbDX8uF69xpEhTEsTtrB2NuWYi6a",
-   "amountRaw": 139058303,
    "amountUi": 0.139058303,
    "share": 7.610561336503379e-7,
    "isPda": false
   },
   {
    "owner": "4JcKBkWycfofscb6FZj2QtJu2agWd1LBMWKnAk5PZHBM",
-   "amountRaw": 139058303,
    "amountUi": 0.139058303,
    "share": 7.610561336503379e-7,
    "isPda": false
   },
   {
    "owner": "5CGyZZrFVsqS7y6DW7DxuwTpCR2u4av1Q9XDFVQVQu1L",
-   "amountRaw": 138975033,
    "amountUi": 0.138975033,
    "share": 7.60600402903724e-7,
    "isPda": false
   },
   {
    "owner": "8WpL2Zjp8QApTbLKhq5E65ByzEoPrVJneNK6xvGTvJu5",
-   "amountRaw": 138975033,
    "amountUi": 0.138975033,
    "share": 7.60600402903724e-7,
    "isPda": false
   },
   {
    "owner": "7bJ6HT6TWStBonzXEaPPXXZ6LKTbkaYx1qR1vaxHqbJR",
-   "amountRaw": 138975033,
    "amountUi": 0.138975033,
    "share": 7.60600402903724e-7,
    "isPda": false
   },
   {
    "owner": "2qJJbpALLXPGo5KmnWgPKAGE5SgoSFWfH6B1H81ycAaq",
-   "amountRaw": 138975033,
    "amountUi": 0.138975033,
    "share": 7.60600402903724e-7,
    "isPda": false
   },
   {
    "owner": "7mePMizVpR6NBhAgrtE4KhxuYEf4QyTWbHWugKNzZUyu",
-   "amountRaw": 138975033,
    "amountUi": 0.138975033,
    "share": 7.60600402903724e-7,
    "isPda": false
   },
   {
    "owner": "3D7UWFVAwaJzwTeezmvUHWBfGGasK7Eki8kbNy7buJwS",
-   "amountRaw": 138975033,
    "amountUi": 0.138975033,
    "share": 7.60600402903724e-7,
    "isPda": false
   },
   {
    "owner": "CpusyWPUTnfQTDFrvTv22dw32iBd58bcuDzhLkmM49RE",
-   "amountRaw": 133755781,
    "amountUi": 0.133755781,
    "share": 7.320358104847672e-7,
    "isPda": false
   },
   {
    "owner": "34eyL2psYqh3Wxg5e9ufr7i2SU2mzKW9qtoKC34KjeZf",
-   "amountRaw": 133594877,
    "amountUi": 0.133594877,
    "share": 7.311551944159167e-7,
    "isPda": false
   },
   {
    "owner": "Csp45brW7vEbaGMLujM4XVr97SPNdyxQM3uK7HA7McEw",
-   "amountRaw": 133072718,
    "amountUi": 0.133072718,
    "share": 7.282974556033646e-7,
    "isPda": false
   },
   {
    "owner": "6D57DfQQAYpJJSuX3ThsZonDyngoUqF1WXsddtJfzxn3",
-   "amountRaw": 132122821,
    "amountUi": 0.132122821,
    "share": 7.230987373492949e-7,
    "isPda": false
   },
   {
    "owner": "YVT7rTHSeQMAJkxb8qtAbDb9ccof5Vc3e4YcZ6jMPk8",
-   "amountRaw": 131948338,
    "amountUi": 0.131948338,
    "share": 7.221438043859054e-7,
    "isPda": false
   },
   {
    "owner": "A6NP33GnGxQwX9TLKYrxvh3LabRBJ5mb9UgE66uNaWxc",
-   "amountRaw": 129048245,
    "amountUi": 0.129048245,
    "share": 7.062718030872385e-7,
    "isPda": false
   },
   {
    "owner": "6p4mJdKtFiRRzrvCJ7i3mMZsbKTmKvcm6cKURPDzjPGL",
-   "amountRaw": 124099781,
    "amountUi": 0.124099781,
    "share": 6.79189213999783e-7,
    "isPda": false
   },
   {
    "owner": "HsJjwVsaHjxb4WFZ6LqvJdWKHuBucDp74HPLoyu71Vjw",
-   "amountRaw": 123538601,
    "amountUi": 0.123538601,
    "share": 6.761179160487221e-7,
    "isPda": true
   },
   {
    "owner": "G9bQTdSxVgEMYHoPiMuAYAT7byrf225VceXdMBDxc2Ar",
-   "amountRaw": 122514516,
    "amountUi": 0.122514516,
    "share": 6.705131721836305e-7,
    "isPda": false
   },
   {
    "owner": "e8ABNLfFyPcQBVsDDx1baCtfjW7u8XednytBA6oEYNq",
-   "amountRaw": 121038312,
    "amountUi": 0.121038312,
    "share": 6.62434013410068e-7,
    "isPda": false
   },
   {
    "owner": "DysBYWR9qxF24rdwryr5GUadWHmgA1KMXjcSGGSjkhLa",
-   "amountRaw": 120114136,
    "amountUi": 0.120114136,
    "share": 6.573760643469873e-7,
    "isPda": false
   },
   {
    "owner": "23smhhWjxDNRRBGvmLGhBbTujFftAAfuXvbay3hnTERu",
-   "amountRaw": 119867528,
    "amountUi": 0.119867528,
    "share": 6.56026396423834e-7,
    "isPda": false
   },
   {
    "owner": "A7kQRZ9AEbsLG9uQT6R1wn4odN4e66o6YSqinTUDRqkV",
-   "amountRaw": 119121457,
    "amountUi": 0.119121457,
    "share": 6.519432032707531e-7,
    "isPda": false
   },
   {
    "owner": "YB3eCV1UKsQaFP7KYEhNrxvYdcstppFWVz4486X3aHy",
-   "amountRaw": 119121457,
    "amountUi": 0.119121457,
    "share": 6.519432032707531e-7,
    "isPda": false
   },
   {
    "owner": "4GFUYj2mBbbdCaaQM98s5binTHXKSyu87WH9kzqVska9",
-   "amountRaw": 118847453,
    "amountUi": 0.118847453,
    "share": 6.50443599001566e-7,
    "isPda": false
   },
   {
    "owner": "3KoMTSq2DxVemfnkzGW1C9vSmEozqjk7n3eSAVHayZGt",
-   "amountRaw": 117992222,
    "amountUi": 0.117992222,
    "share": 6.45762980985985e-7,
    "isPda": false
   },
   {
    "owner": "E3bBXoqssRo2tCoEYA2eRVQxuuz4bMNGgUC94X2v68US",
-   "amountRaw": 117640386,
    "amountUi": 0.117640386,
    "share": 6.438374077547411e-7,
    "isPda": false
   },
   {
    "owner": "9WU51tPWkYVcXfPV6wht3V2Jf6KDkANeSsdzm1eFQ5dN",
-   "amountRaw": 116416223,
    "amountUi": 0.116416223,
    "share": 6.371376513242474e-7,
    "isPda": false
   },
   {
    "owner": "exkxUWpMVrpYoQ67ZgZvTnGQLNxKe6UV7YLqAwqHd3q",
-   "amountRaw": 109293076,
    "amountUi": 0.109293076,
    "share": 5.981531779178445e-7,
    "isPda": false
   },
   {
    "owner": "4pyGpLq9vbn9Vdm3wS4nZnWjpKoGfdAo9PoaU8u9Kseo",
-   "amountRaw": 109293076,
    "amountUi": 0.109293076,
    "share": 5.981531779178445e-7,
    "isPda": false
   },
   {
    "owner": "4duDi52tJPNcNfiM8268B1oGCrSabjKWkH2vfTQ2RCSN",
-   "amountRaw": 109260095,
    "amountUi": 0.109260095,
    "share": 5.979726752667809e-7,
    "isPda": false
   },
   {
    "owner": "HEG9HZq4UrNDsEjnv8V8coxbkEMfD3v6nEWs4uCRrCqf",
-   "amountRaw": 109260095,
    "amountUi": 0.109260095,
    "share": 5.979726752667809e-7,
    "isPda": false
   },
   {
    "owner": "7FYV3fQU6w3RBkPUxdnu4XhxoHg1nL5NfQi2LrkthmPi",
-   "amountRaw": 109260095,
    "amountUi": 0.109260095,
    "share": 5.979726752667809e-7,
    "isPda": false
   },
   {
    "owner": "7bTwMbRSWquFVDbkCdppQLgGiqSyCXg52je2vtsM9KqD",
-   "amountRaw": 109194669,
    "amountUi": 0.109194669,
    "share": 5.976146034542677e-7,
    "isPda": false
   },
   {
    "owner": "FfukNpXecKNH3LBZ4E3vFb9GSVtekHZvmuJsa3dmwCuy",
-   "amountRaw": 108784178,
    "amountUi": 0.108784178,
    "share": 5.953680156086052e-7,
    "isPda": false
   },
   {
    "owner": "FsnTipBwoFHJkKRUm6LMPS1qf7K1mDnSc2hLMQXY7oSv",
-   "amountRaw": 107795231,
    "amountUi": 0.107795231,
    "share": 5.899555795011036e-7,
    "isPda": false
   },
   {
    "owner": "FirEikecTfdbPQpyamkLEhPYLzzTk9SqT71aYB9RE5ir",
-   "amountRaw": 104029751,
    "amountUi": 0.104029751,
    "share": 5.693473771261783e-7,
    "isPda": false
   },
   {
    "owner": "nQwrueQDMwgDCAnpVrq3yTdGy4wy6atMHbS6KWR9oWg",
-   "amountRaw": 103300454,
    "amountUi": 0.103300454,
    "share": 5.653559868738264e-7,
    "isPda": false
   },
   {
    "owner": "77RwaU9xx875pNnJHseswW4Rnhn7NgV9ohjWgdJkkZUu",
-   "amountRaw": 103150611,
    "amountUi": 0.103150611,
    "share": 5.645359068658418e-7,
    "isPda": false
   },
   {
    "owner": "GyccFc4VTN9VpHHioWT9N2NASJxGos5U1QbtLPzx72M2",
-   "amountRaw": 101943200,
    "amountUi": 0.1019432,
    "share": 5.579278329316526e-7,
    "isPda": true
   },
   {
    "owner": "DUt1Gzw6geepHR7yKoLfvUd2gE1HwYkb2jEYhwVv76XW",
-   "amountRaw": 101614312,
    "amountUi": 0.101614312,
    "share": 5.561278524609863e-7,
    "isPda": false
   },
   {
    "owner": "N5oHQXF2u6V29YXjXFrHmMuZjZPS3Dx8v8rkcASsEZB",
-   "amountRaw": 101187156,
    "amountUi": 0.101187156,
    "share": 5.537900582637888e-7,
    "isPda": false
   },
   {
    "owner": "52mwyDoKnG25n3irjeiqRaLpwEbLufwXitxNkSqtMqEZ",
-   "amountRaw": 101037157,
    "amountUi": 0.101037157,
    "share": 5.529691244789761e-7,
    "isPda": false
   },
   {
    "owner": "EqFwMb9H2fygb6FRuzHAiAUKiDA5CbgoxMwWAoZd8CkR",
-   "amountRaw": 100971496,
    "amountUi": 0.100971496,
    "share": 5.526097665282925e-7,
    "isPda": false
   },
   {
    "owner": "khf7VYMviWNVhigPQKi59ppn15AHW54d1hLdV9wrhQy",
-   "amountRaw": 100320633,
    "amountUi": 0.100320633,
    "share": 5.490476399408851e-7,
    "isPda": false
   },
   {
    "owner": "EV6gYSLfn9HSoYCtKnKc7W7cWjH2JMq5MFiS23YW5pqU",
-   "amountRaw": 100269463,
    "amountUi": 0.100269463,
    "share": 5.487675901954277e-7,
    "isPda": false
   },
   {
    "owner": "AkJNW2o7gwepXW5pK5iEWshjVn6x5hyBjYT3aZ5esvBS",
-   "amountRaw": 99883654,
    "amountUi": 0.099883654,
    "share": 5.466560851681622e-7,
    "isPda": false
   },
   {
    "owner": "BjtbpQ4hv3PF7URc7wdz9n2gZcuyQUe9X4RJd2a1hUCm",
-   "amountRaw": 99664790,
    "amountUi": 0.09966479,
    "share": 5.454582581701206e-7,
    "isPda": false
   },
   {
    "owner": "5Saeh3MCJHDjqyYBmuksg3pJeSiHxujr9tHWKH1ucKpj",
-   "amountRaw": 99596866,
    "amountUi": 0.099596866,
    "share": 5.45086514982502e-7,
    "isPda": false
   },
   {
    "owner": "EukryyUrpmBAFAYKcGVHHWukBrBy8T2XKeg3cbAtnWN",
-   "amountRaw": 99578794,
    "amountUi": 0.099578794,
    "share": 5.449876082207293e-7,
    "isPda": false
   },
   {
    "owner": "8sddmsQ97zE7Agxgp8xYyiufhNzwfmoACgnbFXrPu4xp",
-   "amountRaw": 99506781,
    "amountUi": 0.099506781,
    "share": 5.445934862289446e-7,
    "isPda": false
   },
   {
    "owner": "A6Y5Kj5qaFHZuud8EZL4FmxFbVXDpUVBsYfHbFvmVZXe",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "3V3HfKV8F954UQ5CxUVMRitJ2aZm5x3CwkwRksazNp7e",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "9SxcenhTBNNinEqGnGAhUu5yU8T4dBcCZP4TfAcmhVEW",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "3BhH8m6LmihdMWKEt8RNREGX8GRZw1PiwX8AVHhwCFMn",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "Ez6Zhrq7fvVbEEQUHPpivxJTxYzkACk3rgbxSjY3tu7R",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "HJKSpXTW9bvrkfte3WrD1cqZyauRxHaEmeuuPr7b65HW",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "7j8aytnmLwasESc1Ux1pqeCadAsMuKFPbFwPYg3Jy2oX",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "Hornhnq1HyQ172BZsnqb9ybnk4u5dSTTe1BKBnB3PFNB",
-   "amountRaw": 99477218,
    "amountUi": 0.099477218,
    "share": 5.444316900471006e-7,
    "isPda": false
   },
   {
    "owner": "Eb3bKGiUMq4q6z1JevnCPNZMpTJunRAzzkJ2SV8T7j7g",
-   "amountRaw": 99209416,
    "amountUi": 0.099209416,
    "share": 5.429660288797568e-7,
    "isPda": false
   },
   {
    "owner": "BktXbSE6JCUQGkz8HNEX8rDQkwRPFsGSpGpmuzYNJyeL",
-   "amountRaw": 99120631,
    "amountUi": 0.099120631,
    "share": 5.424801149330998e-7,
    "isPda": false
   },
   {
    "owner": "FKvuhf3tAAf6yZfrNXYzzAbdHybGYKrHRvzLoznnJKp5",
-   "amountRaw": 98952238,
    "amountUi": 0.098952238,
    "share": 5.415585121035746e-7,
    "isPda": false
   },
   {
    "owner": "5ZJVr4wW8G6xgZvFdBXfyyZUtMVdrkgsQq7MTopMQGXQ",
-   "amountRaw": 97674211,
    "amountUi": 0.097674211,
    "share": 5.345639618585545e-7,
    "isPda": false
   },
   {
    "owner": "5eTMnZMJq9FEoARFF4huNWeJSxyMqko6RZSEpk4DUsxx",
-   "amountRaw": 95140052,
    "amountUi": 0.095140052,
    "share": 5.206946911355024e-7,
    "isPda": false
   },
   {
    "owner": "3EK7H8jo4AZugRFbq6ADXpkmatL9ENgQoToamETw4VDK",
-   "amountRaw": 93949972,
    "amountUi": 0.093949972,
    "share": 5.141814685231525e-7,
    "isPda": false
   },
   {
    "owner": "CiewjaCeCePHTancq1NrRr9MWsQZrYPfK1tSSA5LyiW1",
-   "amountRaw": 93949972,
    "amountUi": 0.093949972,
    "share": 5.141814685231525e-7,
    "isPda": false
   },
   {
    "owner": "F1er9KjLsS1fs34jnjxNSvGz79vZqWaE4pXnBBFj7je",
-   "amountRaw": 93624727,
    "amountUi": 0.093624727,
    "share": 5.124014259305926e-7,
    "isPda": false
   },
   {
    "owner": "AQkJ3MKGCpmE6JjmymAzXnrpxaCenCfWdTcZ91D86yHA",
-   "amountRaw": 92159028,
    "amountUi": 0.092159028,
    "share": 5.043797602697139e-7,
    "isPda": false
   },
   {
    "owner": "3pxVaH5o275FjxxK1NDAoUULSSBqTE7GDHkTnBju64MF",
-   "amountRaw": 91693697,
    "amountUi": 0.091693697,
    "share": 5.018330370314212e-7,
    "isPda": false
   },
   {
    "owner": "D2817nQw3ZtmZdshKamQj9o6H2Yk9ZDczAarKkgjLbNK",
-   "amountRaw": 89394623,
    "amountUi": 0.089394623,
    "share": 4.892503696777428e-7,
    "isPda": false
   },
   {
    "owner": "AG3V7CnpRAC6Qz7pFsuxoQJ7BEUxzL93GSitxpuvk85w",
-   "amountRaw": 89394623,
    "amountUi": 0.089394623,
    "share": 4.892503696777428e-7,
    "isPda": false
   },
   {
    "owner": "9U9ADSyNh6EuMpao3FPBWxWUpXqHjya41WPfrf1NP1D4",
-   "amountRaw": 89394623,
    "amountUi": 0.089394623,
    "share": 4.892503696777428e-7,
    "isPda": false
   },
   {
    "owner": "2pZCg8KEz1LwSEPmaCwWZ5ggQPxpoiEuYzNZXMMG8mSF",
-   "amountRaw": 89381036,
    "amountUi": 0.089381036,
    "share": 4.891760089997766e-7,
    "isPda": false
   },
   {
    "owner": "2N71rXWo6oRNq3v78jamtFPqKpoafEF7vAaccyrvbve3",
-   "amountRaw": 89341093,
    "amountUi": 0.089341093,
    "share": 4.88957403821297e-7,
    "isPda": false
   },
   {
    "owner": "B6uFSTW7znpr4wfwJqEs7LvwGRcgzn5XyakTbvmPC8iu",
-   "amountRaw": 89341093,
    "amountUi": 0.089341093,
    "share": 4.88957403821297e-7,
    "isPda": false
   },
   {
    "owner": "EYi9hmPGpE1Nuif3kbo7oo862QH1DkkUVNhkS5oivLpE",
-   "amountRaw": 89288474,
    "amountUi": 0.089288474,
    "share": 4.886694238026098e-7,
    "isPda": false
   },
   {
    "owner": "2PsC5gyeKLDDLZqMjMk3sAUrUknL5dxf3qY1x8RvCnhk",
-   "amountRaw": 88884234,
    "amountUi": 0.088884234,
    "share": 4.864570472322815e-7,
    "isPda": false
   },
   {
    "owner": "ALqoegE22Ze5g3U7bVziPZrv4VKBNEfZcNmK1iUuMBu3",
-   "amountRaw": 88799709,
    "amountUi": 0.088799709,
    "share": 4.859944479605444e-7,
    "isPda": false
   },
   {
    "owner": "3rarVw5xsk6uBk62BAFF5MNw1ChJgCccEmC4bmoLUsZy",
-   "amountRaw": 87660121,
    "amountUi": 0.087660121,
    "share": 4.79757564448207e-7,
    "isPda": false
   },
   {
    "owner": "9UrYKzYDhmWpVGSj5kGoCKExaCueLXfV2pTBDSxSX7BJ",
-   "amountRaw": 87408076,
    "amountUi": 0.087408076,
    "share": 4.783781402134247e-7,
    "isPda": false
   },
   {
    "owner": "2wZda8QGysGEvMz4imbMjrmxiiAtSwVR6WwR1UKFpTKe",
-   "amountRaw": 86221130,
    "amountUi": 0.08622113,
    "share": 4.7188206975863326e-7,
    "isPda": false
   },
   {
    "owner": "5zchXrqHooYGTX8cnxfNRERg9pTK2ap8PXxvsfgEPN7Z",
-   "amountRaw": 86221130,
    "amountUi": 0.08622113,
    "share": 4.7188206975863326e-7,
    "isPda": false
   },
   {
    "owner": "DQZoVh5HkeFzQvHf9vaFaNjma1r6pbPpKM28QJkxDZXV",
-   "amountRaw": 86071034,
    "amountUi": 0.086071034,
    "share": 4.7106060509976725e-7,
    "isPda": false
   },
   {
    "owner": "9u6eU1dvzkxbBYuRcbjkme1RHqWZrtvULy29DAYuiP3C",
-   "amountRaw": 84890633,
    "amountUi": 0.084890633,
    "share": 4.6460035496125527e-7,
    "isPda": false
   },
   {
    "owner": "FAAGsjYeghLzWYi1Nv2J6jfYfFfXwHwzzmwxsuib8Eof",
-   "amountRaw": 84563079,
    "amountUi": 0.084563079,
    "share": 4.628076753770545e-7,
    "isPda": false
   },
   {
    "owner": "8SiH5auj1m3TNvVA4PFq4E2uNnT5E1tdPABSWqGKmn7Z",
-   "amountRaw": 84370890,
    "amountUi": 0.08437089,
    "share": 4.617558387436812e-7,
    "isPda": false
   },
   {
    "owner": "4gPTgNLoZ4b4yHVnDThHKgqUWc61wDRk7fGwW5iUBKdH",
-   "amountRaw": 83139906,
    "amountUi": 0.083139906,
    "share": 4.5501875146867374e-7,
    "isPda": false
   },
   {
    "owner": "DW2UHEeSDaFu4gpvqmHeDB2Zmbq7DHKGT9PKbGcxyxYb",
-   "amountRaw": 81522423,
    "amountUi": 0.081522423,
    "share": 4.4616638284581527e-7,
    "isPda": false
   },
   {
    "owner": "GrmdVwfxwp7kvAkzk3U13MQcMiDjSjx3CxBQfH6vNFxg",
-   "amountRaw": 81243085,
    "amountUi": 0.081243085,
    "share": 4.446375859766228e-7,
    "isPda": false
   },
   {
    "owner": "uzZN4P7NWu4JLiW8Cuak3MJoeAtcQ71QJtPNZi3scCP",
-   "amountRaw": 80314513,
    "amountUi": 0.080314513,
    "share": 4.3955557792036196e-7,
    "isPda": false
   },
   {
    "owner": "YbvvtgxFEYmJGUg4b7eRuZGXW8oFN1FEgK13pAH9ySw",
-   "amountRaw": 80104713,
    "amountUi": 0.080104713,
    "share": 4.3840735754520145e-7,
    "isPda": false
   },
   {
    "owner": "44iAdvQJrXFGXY7uZEHe7vYTeWsZ8SKq7pQa98jx4SXL",
-   "amountRaw": 79461887,
    "amountUi": 0.079461887,
    "share": 4.3488921688322377e-7,
    "isPda": false
   },
   {
    "owner": "E14fa1b3NuaTBM7AB8ZgWrjXw5uU6VPrzHrwcbQpwVyc",
-   "amountRaw": 79461887,
    "amountUi": 0.079461887,
    "share": 4.3488921688322377e-7,
    "isPda": false
   },
   {
    "owner": "87FonQwNT4tdPSrBuyuW2nQ7DFxwHWgoS87RSPQMwyBm",
-   "amountRaw": 79414199,
    "amountUi": 0.079414199,
    "share": 4.3462822387440273e-7,
    "isPda": false
   },
   {
    "owner": "Bxi79jQ1iFfSiqNTzWx5mwnWkwJpNwb5wALC8aqQ4x3B",
-   "amountRaw": 79115766,
    "amountUi": 0.079115766,
    "share": 4.3299492143769985e-7,
    "isPda": false
   },
   {
    "owner": "CWeg7sy6NTfLhrVD5YS82L9iwGaRLoNW14jRC1JWd2gC",
-   "amountRaw": 78525491,
    "amountUi": 0.078525491,
    "share": 4.2976438863527914e-7,
    "isPda": false
   },
   {
    "owner": "GnwBsj67y1Ryu1qbgk2GCKVdToMbXzFA4EueS6d9w4yB",
-   "amountRaw": 77511026,
    "amountUi": 0.077511026,
    "share": 4.2421229434125064e-7,
    "isPda": false
   },
   {
    "owner": "E4Gbfr8ZA6iGvjgHz2o8NbZf2WFSwAj85dEhJCJXZX6H",
-   "amountRaw": 76563153,
    "amountUi": 0.076563153,
    "share": 4.1902465329423203e-7,
    "isPda": false
   },
   {
    "owner": "HL13yGkCKyJqrkjT5vGZ4mLzESdca9UMipwiwNm8oUE9",
-   "amountRaw": 76014457,
    "amountUi": 0.076014457,
    "share": 4.160216793811288e-7,
    "isPda": false
   },
   {
    "owner": "B8LpNW2uAkT8EirPJAkkTZg41uS864yfnAHdaNaLDFTp",
-   "amountRaw": 75466551,
    "amountUi": 0.075466551,
    "share": 4.130230290814497e-7,
    "isPda": false
   },
   {
    "owner": "42SkAVWApwA9zEW4KUnp1nntMZtwqxZGVrcewQ42B2Va",
-   "amountRaw": 73917322,
    "amountUi": 0.073917322,
    "share": 4.045442097125769e-7,
    "isPda": false
   },
   {
    "owner": "7ZsB85RRYN7zAE4FUrdbN2kVUyFJryj4PfX4YbPKb6C2",
-   "amountRaw": 70942508,
    "amountUi": 0.070942508,
    "share": 3.882632657320589e-7,
    "isPda": false
   },
   {
    "owner": "3FMczb6QrbSiY7Y5AdGCDnxsihM4tsnJj1jS8QweTAbm",
-   "amountRaw": 69487516,
    "amountUi": 0.069487516,
    "share": 3.8030019871539774e-7,
    "isPda": false
   },
   {
    "owner": "4mDgJdoT9pYBrzusg2NUG4r8qe23tYMe3mB7LxdVr4YW",
-   "amountRaw": 68768705,
    "amountUi": 0.068768705,
    "share": 3.763661975900904e-7,
    "isPda": false
   },
   {
    "owner": "DSN3j1ykL3obAVNv7ZX49VsFCPe4LqzxHnmtLiPwY6xg",
-   "amountRaw": 67967757,
    "amountUi": 0.067967757,
    "share": 3.7198266654602916e-7,
    "isPda": false
   },
   {
    "owner": "BELDyDkdgSL9AHAHjoPTiejxFZ9vm7BJTZJYTLQGDtMY",
-   "amountRaw": 66430603,
    "amountUi": 0.066430603,
    "share": 3.6356993278740456e-7,
    "isPda": false
   },
   {
    "owner": "4USJGdxgCevhCQTyPcZSTXcxDhq6QFZL4SVMzQu6rBYi",
-   "amountRaw": 65929739,
    "amountUi": 0.065929739,
    "share": 3.608287399848098e-7,
    "isPda": false
   },
   {
    "owner": "8kv366nsbVE4r6V9Tx7HCSMuQEpkX3ofWhGv6xCBCDMf",
-   "amountRaw": 64185031,
    "amountUi": 0.064185031,
    "share": 3.5128007804817725e-7,
    "isPda": false
   },
   {
    "owner": "CvgoAuUBP3qJ2JFD2CDuZitm8qT2bf37M2XGYyVvx1GM",
-   "amountRaw": 63898489,
    "amountUi": 0.063898489,
    "share": 3.497118542028997e-7,
    "isPda": false
   },
   {
    "owner": "7iWnBRRhBCiNXXPhqiGzvvBkKrvFSWqqmxRyu9VyYBxE",
-   "amountRaw": 63730599,
    "amountUi": 0.063730599,
    "share": 3.48793004256352e-7,
    "isPda": false
   },
   {
    "owner": "J2nuHyVUnn1swRNVNa9xWRrRQK2dd5dh8JwGpRVmntEc",
-   "amountRaw": 62464597,
    "amountUi": 0.062464597,
    "share": 3.4186426597516074e-7,
    "isPda": false
   },
   {
    "owner": "FzGdZdU7h11xbK4b1znopXEaGWAJZtQEeVycG7zJB9ZF",
-   "amountRaw": 62285755,
    "amountUi": 0.062285755,
    "share": 3.408854765169413e-7,
    "isPda": false
   },
   {
    "owner": "2HuYYV3pahBH4tWnGDSUrkPQNm3Pfv6jN5oLq3T43MNJ",
-   "amountRaw": 61836004,
    "amountUi": 0.061836004,
    "share": 3.3842402150288596e-7,
    "isPda": false
   },
   {
    "owner": "HmhaNPrHpWn5c1QVTq1spUs1MtCbJhxMVGNHZbvxhU4r",
-   "amountRaw": 61473095,
    "amountUi": 0.061473095,
    "share": 3.364378465356356e-7,
    "isPda": false
   },
   {
    "owner": "Ccj9wsvAXMefBonhtFEkjmXKkXMDybDAgAX2DaCyAha5",
-   "amountRaw": 60977344,
    "amountUi": 0.060977344,
    "share": 3.337246368158731e-7,
    "isPda": false
   },
   {
    "owner": "592BaUJzprBb3eqVR9Y1BRt3R4HmRXFTCsJHmJV3qjpH",
-   "amountRaw": 60977344,
    "amountUi": 0.060977344,
    "share": 3.337246368158731e-7,
    "isPda": false
   },
   {
    "owner": "B457GxJbQjEcFW9ern8m7V8fhbKUAaHErDHideWjtzfu",
-   "amountRaw": 59985843,
    "amountUi": 0.059985843,
    "share": 3.282982228492763e-7,
    "isPda": false
   },
   {
    "owner": "vRDR3YdayUKN7xUrHDoZX1W7pSZeQZtcvBt3ADisHQu",
-   "amountRaw": 59807089,
    "amountUi": 0.059807089,
    "share": 3.2731991500875467e-7,
    "isPda": false
   },
   {
    "owner": "Hr3TE9J9w41t61h8gstGNuukCwG31yJew11bpLj1AHuj",
-   "amountRaw": 59336824,
    "amountUi": 0.059336824,
    "share": 3.247461883418107e-7,
    "isPda": false
   },
   {
    "owner": "3fTvBiQaTyckGqAXBDgJv5qUe426jwNNfbAFKyh6XJda",
-   "amountRaw": 58498591,
    "amountUi": 0.058498591,
    "share": 3.2015859916291697e-7,
    "isPda": false
   },
   {
    "owner": "gVWBP766creVqcUW6KcZP5YNoNLPHQ83Gfh8jfKBtkZ",
-   "amountRaw": 57836772,
    "amountUi": 0.057836772,
    "share": 3.1653651117212413e-7,
    "isPda": false
   },
   {
    "owner": "HU23r7UoZbqTUuh3vA7emAGztFtqwTeVips789vqxxBw",
-   "amountRaw": 57088882,
    "amountUi": 0.057088882,
    "share": 3.1244336276231105e-7,
    "isPda": false
   },
   {
    "owner": "E5kiArMcRZfCMSy2N5CBRrzqycLkqP1uRXLcEYExi5J6",
-   "amountRaw": 55524086,
    "amountUi": 0.055524086,
    "share": 3.038793463172699e-7,
    "isPda": false
   },
   {
    "owner": "9D9YLcQHkXYo4jr9Jrjx6r9gjfAJ6E2EdCMAm6GZG77T",
-   "amountRaw": 54755048,
    "amountUi": 0.054755048,
    "share": 2.9967045641797216e-7,
    "isPda": false
   },
   {
    "owner": "gnAaMbb22ufEeggaqSUvj4YSwwuCG5ATfv9W8cNMBYs",
-   "amountRaw": 54615010,
    "amountUi": 0.05461501,
    "share": 2.9890403847280187e-7,
    "isPda": false
   },
   {
    "owner": "HjFcoxiCsHsuzTd1wbdA92TfBaVaMYKscvNNmLNT3Afh",
-   "amountRaw": 54412736,
    "amountUi": 0.054412736,
    "share": 2.9779700735666644e-7,
    "isPda": false
   },
   {
    "owner": "J9n1jsDM4d6yxDACyGZEFrTo7BwRPCG4bFTwanQUJRbw",
-   "amountRaw": 49897198,
    "amountUi": 0.049897198,
    "share": 2.730837912631896e-7,
    "isPda": false
   },
   {
    "owner": "3fxogxh468zYxVCYfktBzgL9q3xerPQNJKKmSmwUGBxS",
-   "amountRaw": 49589926,
    "amountUi": 0.049589926,
    "share": 2.714021136124922e-7,
    "isPda": false
   },
   {
    "owner": "5gMWMVHCExoNXewvYHngxq1sb4ktcZA8pTchxHqpraNd",
-   "amountRaw": 49577829,
    "amountUi": 0.049577829,
    "share": 2.7133590759781957e-7,
    "isPda": false
   },
   {
    "owner": "8HZNzDRbWiRZEPR5QW4JZFzCbCXeEKfN6hJtJPfUcYtz",
-   "amountRaw": 49351787,
    "amountUi": 0.049351787,
    "share": 2.700987959198309e-7,
    "isPda": false
   },
   {
    "owner": "CTso4w1m7pCTof8w5eSNyz3YcmTPCKoSg1Z3S1LR1tjS",
-   "amountRaw": 48805497,
    "amountUi": 0.048805497,
    "share": 2.671089898724218e-7,
    "isPda": false
   },
   {
    "owner": "6CHpJyPvtzJevBDyziNkM1296PdqXsxQjCigQhmVh1NE",
-   "amountRaw": 48276195,
    "amountUi": 0.048276195,
    "share": 2.6421215793241614e-7,
    "isPda": false
   },
   {
    "owner": "B36V9ASKopKYJoD8ikpyhmAXjZ97H99ohXm3mcf8drnb",
-   "amountRaw": 47745663,
    "amountUi": 0.047745663,
    "share": 2.613085942904969e-7,
    "isPda": false
   },
   {
    "owner": "CY5MQtz41R6TgUxn4Mp5nRfmSAT2ppjdr2yomZ3zDvZe",
-   "amountRaw": 46479319,
    "amountUi": 0.046479319,
    "share": 2.54377984267798e-7,
    "isPda": false
   },
   {
    "owner": "5nvGHDFjZRkyht6yQ4w46DCUqmTMNnoRfuAxgWH132V1",
-   "amountRaw": 44981167,
    "amountUi": 0.044981167,
    "share": 2.461787056620428e-7,
    "isPda": false
   },
   {
    "owner": "HTQem2SomMgY5Kyfzy33JweT1TtqPypcX62yREYfxKtR",
-   "amountRaw": 44824721,
    "amountUi": 0.044824721,
    "share": 2.4532248790793244e-7,
    "isPda": false
   },
   {
    "owner": "Enk6jvEsqX7EQq7ufBv79cujk7UpnntaExBB5ACsYCA8",
-   "amountRaw": 42768405,
    "amountUi": 0.042768405,
    "share": 2.3406841770312542e-7,
    "isPda": false
   },
   {
    "owner": "5HyKvjCDa25NYfzdunppoNmuD8Zgi1xFV5iBXHUGWssk",
-   "amountRaw": 38554955,
    "amountUi": 0.038554955,
    "share": 2.1100850759959844e-7,
    "isPda": false
   },
   {
    "owner": "69yhtoJR4JYPPABZcSNkzuqbaFbwHsCkja1sP1Q2aVT5",
-   "amountRaw": 38234254,
    "amountUi": 0.038234254,
    "share": 2.092533339936197e-7,
    "isPda": false
   },
   {
    "owner": "HXbFvz72nWGqQBGP6sDMaqepXLQrq5ZfAkbFTE1FSVTY",
-   "amountRaw": 37202248,
    "amountUi": 0.037202248,
    "share": 2.0360523906279092e-7,
    "isPda": false
   },
   {
    "owner": "6h8ZoBJNSfUudYPQfg1bxbn5BrWBjFutZ1vrN6oBBBcc",
-   "amountRaw": 35715339,
    "amountUi": 0.035715339,
    "share": 1.9546749259086763e-7,
    "isPda": false
   },
   {
    "owner": "Dj9pwJVxk29hkXsH3jXD4xyfHD4HcdiRCaeAQY5Un8bZ",
-   "amountRaw": 35715339,
    "amountUi": 0.035715339,
    "share": 1.9546749259086763e-7,
    "isPda": false
   },
   {
    "owner": "BDAWheEs1VYSaYwDYnnkrxc2GxxFVS92x9EGXDJE6DNk",
-   "amountRaw": 35616129,
    "amountUi": 0.035616129,
    "share": 1.949245233657977e-7,
    "isPda": false
   },
   {
    "owner": "HAZJwWivAuDwvQkqgE51WPuxWd8P4GLZjTMfYw9eqv2N",
-   "amountRaw": 34840325,
    "amountUi": 0.034840325,
    "share": 1.906786036330474e-7,
    "isPda": false
   },
   {
    "owner": "6BfHoD9UVBYxfaAsfrxjhRYxqnw664vPzjm4CEihiW6P",
-   "amountRaw": 34018163,
    "amountUi": 0.034018163,
    "share": 1.8617896988622808e-7,
    "isPda": false
   },
   {
    "owner": "Haa2VCcNSrU1sSqXJaEifB3Ns5S9yDxsH2i7pZ53Zao1",
-   "amountRaw": 33871191,
    "amountUi": 0.033871191,
    "share": 1.8537460265563663e-7,
    "isPda": true
   },
   {
    "owner": "6m6cPQpNHsS15QwnwcA6K7fJNUKMjaX1jsEADoNvxZh1",
-   "amountRaw": 33731153,
    "amountUi": 0.033731153,
    "share": 1.8460818471046634e-7,
    "isPda": false
   },
   {
+   "owner": "5fJGKACnrjLobDFwh6ng9efqop8i7witbdFemVGAmuhi",
+   "amountUi": 0.033578446,
+   "share": 1.8377243023558724e-7,
+   "isPda": false
+  },
+  {
    "owner": "tEsT1vjsJeKHw9GH5HpnQszn2LWmjR6q1AVCDCj51nd",
-   "amountRaw": 32012145,
    "amountUi": 0.032012145,
    "share": 1.752001770333268e-7,
    "isPda": false
   },
   {
    "owner": "BH69TRCk8DtdmeP3a5j2bGWiz7XDExq6b64ywdkhWJkV",
-   "amountRaw": 31354253,
    "amountUi": 0.031354253,
    "share": 1.7159958123230158e-7,
    "isPda": false
   },
   {
    "owner": "EnUPBjMtNAqr5ZbCYm4uLcpvkEuAZefLcczLEHmqxsXo",
-   "amountRaw": 29929366,
    "amountUi": 0.029929366,
    "share": 1.6380127672466908e-7,
    "isPda": false
   },
   {
    "owner": "3xPm2gg7diypywfrmDrSju4VpfKWWV1HXDMC7Cnkwp5c",
-   "amountRaw": 29870648,
    "amountUi": 0.029870648,
    "share": 1.6347991731576215e-7,
    "isPda": false
   },
   {
    "owner": "3V9eWcrAJWaUcFhmJWKGfNv7xKcH6j1Z9RFvvoMzGzwv",
-   "amountRaw": 29730669,
    "amountUi": 0.029730669,
    "share": 1.6271382227336657e-7,
    "isPda": false
   },
   {
    "owner": "j89z3aAyfh9acLGsCqS2a7eQx1pvtLrk2mAdhsh8JqK",
-   "amountRaw": 29344396,
    "amountUi": 0.029344396,
    "share": 1.605997778073305e-7,
    "isPda": false
   },
   {
    "owner": "6EuZXdmvyXV6pknvMRocLawqLRtP8VfJySnotUq7C4y1",
-   "amountRaw": 29339641,
    "amountUi": 0.029339641,
    "share": 1.6057375403286011e-7,
    "isPda": false
   },
   {
    "owner": "12YzHXV1wf6Vs8NLSK6ActbhkHACJSgkpwvHDKdbyZ4W",
-   "amountRaw": 28667393,
    "amountUi": 0.028667393,
    "share": 1.568945888719407e-7,
    "isPda": false
   },
   {
    "owner": "FNMjQNmCWRdXMZs6uKV4A7MhgRbs53ATizeqSzJe8ceW",
-   "amountRaw": 28535953,
    "amountUi": 0.028535953,
    "share": 1.5617522716502416e-7,
    "isPda": false
   },
   {
    "owner": "3LoAYHuSd7Gh8d7RTFnhvYtiTiefdZ5ByamU42vkzd76",
-   "amountRaw": 27707781,
    "amountUi": 0.027707781,
    "share": 1.5164270111861132e-7,
    "isPda": false
   },
   {
    "owner": "Gr8n4PpCXqMxPQ2AC4kArh7ivxM1sWeAz8vVanBVXMrm",
-   "amountRaw": 26544243,
    "amountUi": 0.026544243,
    "share": 1.452747409714546e-7,
    "isPda": false
   },
   {
    "owner": "2pgvXcxz66Tp1s2x64fq3aXqBYWR3aX5wmMDzGPiRSSx",
-   "amountRaw": 26397039,
    "amountUi": 0.026397039,
    "share": 1.4446910402147782e-7,
    "isPda": false
   },
   {
    "owner": "4rgvNSAt6u2cLwkNWCNcQkkaWu47XF7w4BVhd9fp8M6p",
-   "amountRaw": 26256806,
    "amountUi": 0.026256806,
    "share": 1.4370161885527248e-7,
    "isPda": false
   },
   {
    "owner": "aHRV83C5UZVbvit7xqqEyF3AK7tPriKHZYav1FJQuAE",
-   "amountRaw": 25678448,
    "amountUi": 0.025678448,
    "share": 1.4053630694041513e-7,
    "isPda": false
   },
   {
    "owner": "FuA7PCCR4QL1Yy2Ab5HvKawqGfx19wRQGtiAg3baZHSD",
-   "amountRaw": 25015373,
    "amountUi": 0.025015373,
    "share": 1.3690734495157082e-7,
    "isPda": false
   },
   {
    "owner": "GhASoGnGJcHYHCYuucSEHJ9PQVonFAuD5tEBtwLBt9Jn",
-   "amountRaw": 24602803,
    "amountUi": 0.024602803,
    "share": 1.3464937888779596e-7,
    "isPda": false
   },
   {
    "owner": "DfJBQHemwtLBo8C3Bd5nMah3mxEx9SzDQZH7PfkwizPF",
-   "amountRaw": 24310359,
    "amountUi": 0.024310359,
    "share": 1.3304885381919046e-7,
    "isPda": false
   },
   {
    "owner": "G6GJrPVzX25CwCj1c3PsihzJxz2AB4iJcBXCzZxBGUbM",
-   "amountRaw": 23384361,
    "amountUi": 0.023384361,
    "share": 1.2798093308059247e-7,
    "isPda": false
   },
   {
    "owner": "5xz7WwJMwZ37Zn5FQUnuYEXo6MEaoNvEjTt6oiqtjZVu",
-   "amountRaw": 23309726,
    "amountUi": 0.023309726,
    "share": 1.2757246107058244e-7,
    "isPda": false
   },
   {
    "owner": "HFqp6ErWHY6Uzhj8rFyjYuDya2mXUpYEk8VW75K9PSiY",
-   "amountRaw": 22416247,
    "amountUi": 0.022416247,
    "share": 1.226825144901343e-7,
    "isPda": false
   },
   {
    "owner": "76fpkZ5CxNTva5AGMYxPZqA3NEAodWY6X9kHGmr9dec3",
-   "amountRaw": 22132506,
    "amountUi": 0.022132506,
    "share": 1.2112962031726294e-7,
    "isPda": false
   },
   {
    "owner": "GSTAoUZ4UcRaGLPe2AJrmvHEZuPzqeVH59MCsiajvS3w",
-   "amountRaw": 21663963,
    "amountUi": 0.021663963,
    "share": 1.1856531803299783e-7,
    "isPda": false
   },
   {
    "owner": "4VRN6XwB64q3aCtR6UGf9pWzjC7dutc1oSiGALcfdkLp",
-   "amountRaw": 21063478,
    "amountUi": 0.021063478,
    "share": 1.1527890663176691e-7,
    "isPda": false
   },
   {
    "owner": "2s9ikUcdmJED2bcA6pcQK7YCdY3rCadjrGKyEG5Ujjp4",
-   "amountRaw": 20232407,
    "amountUi": 0.020232407,
    "share": 1.1073051456596613e-7,
    "isPda": false
   },
   {
    "owner": "3ZDHW7uyBrRMUUgY1j7gfmYhE2wrGiLZNZFLALWTWrLs",
-   "amountRaw": 19896753,
    "amountUi": 0.019896753,
    "share": 1.0889350426184735e-7,
    "isPda": false
   },
   {
    "owner": "EtmVKf6j7tUQQtgZxRNwDsSjyfUBqs6k6UjAcWYF1Xu8",
-   "amountRaw": 19847731,
    "amountUi": 0.019847731,
    "share": 1.0862521036656082e-7,
    "isPda": false
   },
   {
    "owner": "BG74m6mDa6SVVxWTAP8jaLzUZXr9KWUABRwGR4UHcHxG",
-   "amountRaw": 19807908,
    "amountUi": 0.019807908,
    "share": 1.0840726193948733e-7,
    "isPda": false
   },
   {
    "owner": "3CgvbiM3op4vjrrjH2zcrQUwsqh5veNVRjFCB9N6sRoD",
-   "amountRaw": 19580538,
    "amountUi": 0.019580538,
    "share": 1.0716288221260344e-7,
    "isPda": false
   },
   {
    "owner": "GP8StUXNYSZjPikyRsvkTbvRV1GBxMErb59cpeCJnDf1",
-   "amountRaw": 19389433,
    "amountUi": 0.019389433,
    "share": 1.0611697823359941e-7,
    "isPda": false
   },
   {
    "owner": "5KSRWjX5PwnKgNvyipH8nbRdQYcpJyB9Y7vxmJGTmhSK",
-   "amountRaw": 19000064,
    "amountUi": 0.019000064,
    "share": 1.0398598958128358e-7,
    "isPda": false
   },
   {
    "owner": "52K9zqWhdE74Epx49c5tJFFzSQXhdXrnmzSvwS7ksAzH",
-   "amountRaw": 17847027,
    "amountUi": 0.017847027,
    "share": 9.767550065509709e-8,
    "isPda": false
   },
   {
    "owner": "CPjN7vPiLPMgDunVuAco4cn4UnhJTnwEjFDCQYUD2eFd",
-   "amountRaw": 17286921,
    "amountUi": 0.017286921,
    "share": 9.461008062912168e-8,
    "isPda": false
   },
   {
    "owner": "CNSJAGk54nrXfWsApszLKDEQQVt5vcpcEYw4kxgJ6chf",
-   "amountRaw": 17256551,
    "amountUi": 0.017256551,
    "share": 9.444386779407104e-8,
    "isPda": false
   },
   {
    "owner": "DgSd9mGMPJNs3y2ZG9wAqsfCQV7g38ENxGD3QEt4GZ6V",
-   "amountRaw": 17056661,
    "amountUi": 0.017056661,
    "share": 9.334988413920531e-8,
    "isPda": false
   },
   {
    "owner": "A72UjnQPN2ANnVdDAtHsY2Rfb2HcF9qgiTEodnxq1ZSw",
-   "amountRaw": 16293805,
    "amountUi": 0.016293805,
    "share": 8.917482788318324e-8,
    "isPda": false
   },
   {
    "owner": "BwGDpdsSa3xCGY4rpC4VjFLoyy7wdCPBGFtNiGrsb123",
-   "amountRaw": 16275201,
    "amountUi": 0.016275201,
    "share": 8.907300952350981e-8,
    "isPda": false
   },
   {
    "owner": "GACcLYte1i7WRqzcQ2nvFGPs2954dmcSVmVXKvpzqBkh",
-   "amountRaw": 14926017,
    "amountUi": 0.014926017,
    "share": 8.168902211340244e-8,
    "isPda": false
   },
   {
    "owner": "9zjWdPg44s65L9Vw1MipENhxqtn2Cr82qWHjvHG39Zit",
-   "amountRaw": 14890182,
    "amountUi": 0.014890182,
    "share": 8.149289972472809e-8,
    "isPda": false
   },
   {
    "owner": "3Rs8xUuFgcuQgiLVHrXWUnTPLbEqgpWKUJ4YjQyBM7S5",
-   "amountRaw": 14583088,
    "amountUi": 0.014583088,
    "share": 7.981219625528322e-8,
    "isPda": false
   },
   {
    "owner": "Gntaqb8qybUuztj8TCVHJZpiVmjSkPAgdviDUDjaPSHE",
-   "amountRaw": 13927763,
    "amountUi": 0.013927763,
    "share": 7.622564946142217e-8,
    "isPda": false
   },
   {
    "owner": "89gQa9DVG2NGU6LsKbp9KYDKQdVQyYJoZFzynng1DPgx",
-   "amountRaw": 13827378,
    "amountUi": 0.013827378,
    "share": 7.567624954549994e-8,
    "isPda": false
   },
   {
    "owner": "Gv8LMNNTsRRoPujyXXSKHEqHdQ3sgDHEqNXW86g9xcPi",
-   "amountRaw": 13769576,
    "amountUi": 0.013769576,
    "share": 7.535990333899361e-8,
    "isPda": false
   },
   {
    "owner": "BX8HudSwoPEM7x2yfeRfUwx4mHWG4tTiiyA8D3ttSoQZ",
-   "amountRaw": 13445407,
    "amountUi": 0.013445407,
    "share": 7.358574961737588e-8,
    "isPda": false
   },
   {
    "owner": "ByxSSsdRzAQkHCDr8VF9hBTxJawMB4kv3FXBvQuPXye6",
-   "amountRaw": 13366921,
    "amountUi": 0.013366921,
    "share": 7.315620136015544e-8,
    "isPda": false
   },
   {
    "owner": "5vDr6bPeTE2UaJ9JLH5UXfkQjp7mVMmM1sapvVBBmDDL",
-   "amountRaw": 13019575,
    "amountUi": 0.013019575,
    "share": 7.125520157735996e-8,
    "isPda": false
   },
   {
    "owner": "62Twrhzfn87YjHQNLfoCr3cwXmyogcDi32QmeHzgGLvU",
-   "amountRaw": 12881881,
    "amountUi": 0.012881881,
    "share": 7.050161217632398e-8,
    "isPda": false
   },
   {
    "owner": "DRNC7nm413LZBkck5KsuzHCjKD2KdpRaop1EiDyxHUEZ",
-   "amountRaw": 12850253,
    "amountUi": 0.012850253,
    "share": 7.032851439736508e-8,
    "isPda": false
   },
   {
    "owner": "4jJHFEAWwpwY9e3wjFkos6mCQmrABNJTYgLzMd3Wj6so",
-   "amountRaw": 12817967,
    "amountUi": 0.012817967,
    "share": 7.01518154315289e-8,
    "isPda": false
   },
   {
    "owner": "5ptmXTEaCLbTzYYjWNave3K4xM8EExciEfcXUC1u8vT",
-   "amountRaw": 12494242,
    "amountUi": 0.012494242,
    "share": 6.838009169011408e-8,
    "isPda": false
   },
   {
    "owner": "Ev23vwLqUyWtwvZ5ZkbXN8yoG2vsvEEXt76a5j18SaKW",
-   "amountRaw": 12461616,
    "amountUi": 0.012461616,
    "share": 6.8201531928627e-8,
    "isPda": false
   },
   {
    "owner": "FBE6nTLo1mux15dAxP9ysRUd4XiFQw7i6jeGndnrjTEt",
-   "amountRaw": 11905747,
    "amountUi": 0.011905747,
    "share": 6.515930070021859e-8,
    "isPda": false
   },
   {
    "owner": "4bnj6rW2eZyd1Jfn9jkzpCrrPPAeXgdPnFoZ3iGnnudL",
-   "amountRaw": 11044568,
    "amountUi": 0.011044568,
    "share": 6.044612970660403e-8,
    "isPda": false
   },
   {
    "owner": "BxBWTLbBqKkAJup54JCQJxhq48kas81mbdXE8GcSLzQc",
-   "amountRaw": 10963126,
    "amountUi": 0.010963126,
    "share": 6.000040347307772e-8,
    "isPda": false
   },
   {
    "owner": "EaETmZChx2EzAPZP7Rpe6hciadk9TRgUhnpZzoSmZTCT",
-   "amountRaw": 10658368,
    "amountUi": 0.010658368,
    "share": 5.833248476434007e-8,
    "isPda": false
   },
   {
    "owner": "5jBiX9prNNavD51wQmR7ZLJKUuzBjg9mTe3dX7NJQ46w",
-   "amountRaw": 10205577,
    "amountUi": 0.010205577,
    "share": 5.585439204799453e-8,
    "isPda": false
   },
   {
    "owner": "GjyBF7c3769Hr2S5NmXzYD9MbMmBPznGAFFyVoPUaAii",
-   "amountRaw": 9976455,
    "amountUi": 0.009976455,
    "share": 5.4600423750580225e-8,
    "isPda": false
   },
   {
    "owner": "7rDJVVb5gyzEEokMxjsTgPTpvbx4enNKMaskfz7Yj5Pc",
-   "amountRaw": 9952194,
    "amountUi": 0.009952194,
    "share": 5.446764503503319e-8,
    "isPda": false
   },
   {
    "owner": "3jEYnVtk47wQaVSUA6XANty8oGQWEwsu7RRoATKrSh8g",
-   "amountRaw": 9944786,
    "amountUi": 0.009944786,
    "share": 5.442710158155755e-8,
    "isPda": false
   },
   {
    "owner": "7fxGvxP25nE6PmzpXPUVUApQCPLNcf2ViwAvS2mDVHGP",
-   "amountRaw": 9926788,
    "amountUi": 0.009926788,
    "share": 5.4328599816485396e-8,
    "isPda": false
   },
   {
    "owner": "HUofJ89UcPaD2g8SyCnHpqxSJttj4zp4ACCx8UtMmY2W",
-   "amountRaw": 9926788,
    "amountUi": 0.009926788,
    "share": 5.4328599816485396e-8,
    "isPda": false
   },
   {
    "owner": "BYstgik2W8rSkoJFm4hZ1d6WNWVwFUhUpoFYiWgenNjo",
-   "amountRaw": 9917985,
    "amountUi": 0.009917985,
    "share": 5.428042162791276e-8,
    "isPda": false
   },
   {
    "owner": "3GWpQADdKjH3oyyGE6pWjLmqq76SWiwb45kxtqnWBobz",
-   "amountRaw": 9915015,
    "amountUi": 0.009915015,
    "share": 5.4264167030609493e-8,
    "isPda": false
   },
   {
    "owner": "FCr41CNCqUbFVqUf7Tky56UpFFb3wyLfxSrdGu33bmUs",
-   "amountRaw": 9895223,
    "amountUi": 0.009895223,
    "share": 5.415584683201475e-8,
    "isPda": false
   },
   {
    "owner": "8JhtgxzZsSJTVMFY1MNpByLTPGpWGtjagee4DS3U64wd",
-   "amountRaw": 9892346,
    "amountUi": 0.009892346,
    "share": 5.4140101217051276e-8,
    "isPda": false
   },
   {
    "owner": "9rY35mkgNYbLFTBfMoxMYwZ9XVH62DrMHvVryVggDnRD",
-   "amountRaw": 9889487,
    "amountUi": 0.009889487,
    "share": 5.4124454114798734e-8,
    "isPda": false
   },
   {
    "owner": "3P4t66w6WP42cae3ycPWXQfFUfiDYoe1JPuvQMDobuN3",
-   "amountRaw": 9878217,
    "amountUi": 0.009878217,
    "share": 5.406277421190046e-8,
    "isPda": false
   },
   {
    "owner": "3MC77znEf9CE5J1GokubSJg8jrU4Pz5LumhdFNW9MePH",
-   "amountRaw": 9479429,
    "amountUi": 0.009479429,
    "share": 5.1880236047126856e-8,
    "isPda": false
   },
   {
    "owner": "D32FnnVK5NBaRD3gtoNKL3WkY8fTehuC4kGJjcHA9wGg",
-   "amountRaw": 9318949,
    "amountUi": 0.009318949,
    "share": 5.100194049991163e-8,
    "isPda": false
   },
   {
    "owner": "9YdR5BvGzFYsTCkH17DpB16bP7STR2U5CoSqB1ACM6Ze",
-   "amountRaw": 9000064,
    "amountUi": 0.009000064,
    "share": 4.925670573187992e-8,
    "isPda": false
   },
   {
    "owner": "JDvHcevLjUpaJ6Kk28nzHhT1rHGUz5Z3vhjiDNNzNxP4",
-   "amountRaw": 8934694,
    "amountUi": 0.008934694,
    "share": 4.889894040335637e-8,
    "isPda": false
   },
   {
    "owner": "CBa1pBHJpi6Y5vR2MWEQ4nJ1ZvCBYSQn4aRLjwZQGvHm",
-   "amountRaw": 8855008,
    "amountUi": 0.008855008,
    "share": 4.846282463207401e-8,
    "isPda": false
   },
   {
    "owner": "WZGyCw2K4QaHzmfx3gL8NxBGtPFcD1JUgDui6APCyRu",
-   "amountRaw": 8763377,
    "amountUi": 0.008763377,
    "share": 4.796133473123354e-8,
    "isPda": false
   },
   {
    "owner": "FT9WoPcxXggSaDB3hQQCJFNVmFt5VaUdyBZReQL8j62k",
-   "amountRaw": 8395258,
    "amountUi": 0.008395258,
    "share": 4.594664580709768e-8,
    "isPda": false
   },
   {
    "owner": "Dz37GrweciADmGtSfRZzZRaSN1SrP6uujiuqTarfYaK7",
-   "amountRaw": 8227057,
    "amountUi": 0.008227057,
    "share": 4.502609377982232e-8,
    "isPda": false
   },
   {
    "owner": "FmR2m9mmncPcoBfipcWPW3wD3Vb5qF8suo9rx43zCiTH",
-   "amountRaw": 7798837,
    "amountUi": 0.007798837,
    "share": 4.268247638682316e-8,
    "isPda": false
   },
   {
    "owner": "Vup7XdSAqnqhMVtEYiaieiEsU9EbTGZ2oqtmJm2Bh4r",
-   "amountRaw": 7749659,
    "amountUi": 0.007749659,
    "share": 4.241332871470856e-8,
    "isPda": false
   },
   {
    "owner": "7ZcNcGSyxpJiEzMpnUTN1TMnZhxiz3jtZL9THq2SyzuN",
-   "amountRaw": 7508829,
    "amountUi": 0.007508829,
    "share": 4.1095283371763375e-8,
    "isPda": false
   },
   {
    "owner": "AE8Y2vXU1aR7NJr2YFKWJgtTWxNnfkg9DrnMLevdLTAV",
-   "amountRaw": 7295126,
    "amountUi": 0.007295126,
    "share": 3.9925702157116466e-8,
    "isPda": false
   },
   {
    "owner": "F4deTtEemxVrx5frEFcPbVv6yTaFirroaYHCbcSR8739",
-   "amountRaw": 7223083,
    "amountUi": 0.007223083,
    "share": 3.9531415977480205e-8,
    "isPda": false
   },
   {
    "owner": "G3ZEAY19iDMjF7P57dgFUZiC4bpeFvMPKShenugL7E2Y",
-   "amountRaw": 7196173,
    "amountUi": 0.007196173,
    "share": 3.938413947464146e-8,
    "isPda": false
   },
   {
    "owner": "8zvjgr4pH5G5kCcXNDhdNExZERtqmduLjxDeAVGT1FmC",
-   "amountRaw": 6924642,
    "amountUi": 0.006924642,
    "share": 3.7898069757350216e-8,
    "isPda": false
   },
   {
    "owner": "qF5q7SyBhKHNrYxjoHxH6en4wKP8ktbCs4NtWiqYHEz",
-   "amountRaw": 6924158,
    "amountUi": 0.006924158,
    "share": 3.7895420860011905e-8,
    "isPda": false
   },
   {
    "owner": "AKjjfru4dASvUggm27KA3V4wWZa4AT9UVFMGTAUva74t",
-   "amountRaw": 6879996,
    "amountUi": 0.006879996,
    "share": 3.765372539667617e-8,
    "isPda": false
   },
   {
    "owner": "DZBYZFEuERKPrS8MqLjZnMdnfgFjBEoKeTJ1NpzinFnQ",
-   "amountRaw": 6854156,
    "amountUi": 0.006854156,
    "share": 3.751230492720931e-8,
    "isPda": false
   },
   {
    "owner": "Gkk82cKGMcZdYMcuKxzr61FPmfiPLepz7WXFRWZg2xMY",
-   "amountRaw": 6276114,
    "amountUi": 0.006276114,
    "share": 3.434872245772161e-8,
    "isPda": false
   },
   {
    "owner": "3RzAzK4HDLTWNDCWPsm2NaBCKUtqYcQZUkQWrQnyjfj2",
-   "amountRaw": 5926395,
    "amountUi": 0.005926395,
    "share": 3.2434735415868657e-8,
    "isPda": false
   },
   {
    "owner": "Q3KxUibPTevQapaEgU9arQb3ihZEoo4wTQFZMXmWtuU",
-   "amountRaw": 5413764,
    "amountUi": 0.005413764,
    "share": 2.962914266496829e-8,
    "isPda": false
   },
   {
    "owner": "A6AuErGXc7dd2diikEgnYREEqscJPWsjnr79VhogkfQ3",
-   "amountRaw": 5130770,
    "amountUi": 0.00513077,
    "share": 2.8080336769600476e-8,
    "isPda": false
   },
   {
    "owner": "4tyuikF7M4tp2t9Aifmm65ccZYz3HpmzRsZVfp5hF7Sd",
-   "amountRaw": 4947611,
    "amountUi": 0.004947611,
    "share": 2.7077920679543184e-8,
    "isPda": false
   },
   {
    "owner": "DhdMBVK3GxNBMGiMSAs62ZXrMgDR4WbounzkHWss8gtn",
-   "amountRaw": 4874700,
    "amountUi": 0.0048747,
    "share": 2.6678883998068798e-8,
    "isPda": false
   },
   {
    "owner": "BqyBZFf7hpwHdrwSVmZM9Vh36Z5xQ69DjPsHnPMhxqSs",
-   "amountRaw": 4833828,
    "amountUi": 0.004833828,
    "share": 2.6455194469119513e-8,
    "isPda": false
   },
   {
    "owner": "Bu1a5Ak7YUxfaUQUPryPPaXzGHw7GHy8NFB21273VG18",
-   "amountRaw": 4696121,
    "amountUi": 0.004696121,
    "share": 2.570153392001453e-8,
    "isPda": false
   },
   {
    "owner": "2rbMgYvzAb3xDk6vXrzKkY3VwsmyDZsJTkvB3JJYsRzA",
-   "amountRaw": 4657288,
    "amountUi": 0.004657288,
    "share": 2.5489003692042142e-8,
    "isPda": false
   },
   {
    "owner": "GXxb482YjPBbCeVGLw8ogtZczuKXfGubHw9WaDCGwZsq",
-   "amountRaw": 4522380,
    "amountUi": 0.00452238,
    "share": 2.475066186948661e-8,
    "isPda": false
   },
   {
    "owner": "2n95dNUX1vDCLFPGAzSXvw7Eoa28yUKLbk2fSfgxJak1",
-   "amountRaw": 3958088,
    "amountUi": 0.003958088,
    "share": 2.1662332165291838e-8,
    "isPda": false
   },
   {
    "owner": "74jzbeL6wqiHsr2UDKJT889BGGnEfVa5oKmBKChMXeCw",
-   "amountRaw": 3638338,
    "amountUi": 0.003638338,
    "share": 1.9912363314207156e-8,
    "isPda": false
   },
   {
    "owner": "Ftza7rHcFoQPy4mU4CyzLiZtv4pBgUyvRJGUB3WY7cbc",
-   "amountRaw": 3422514,
    "amountUi": 0.003422514,
    "share": 1.873117401845579e-8,
    "isPda": false
   },
   {
    "owner": "6bt5jLPYKF65t9WXF9KSB1Vt9sZzo8DWnDpgAyRzQYR3",
-   "amountRaw": 3388602,
    "amountUi": 0.003388602,
    "share": 1.854557607106569e-8,
    "isPda": false
   },
   {
    "owner": "5HNJRXLGpCy6hRVvXcmsUmBQK6duQBhnrGSLfFXSLNVd",
-   "amountRaw": 3210601,
    "amountUi": 0.003210601,
    "share": 1.757138934561792e-8,
    "isPda": false
   },
   {
    "owner": "DNqdBdsRC7GPdCyhiK3w2LPwN81MyY4uQjLNqHocrMWB",
-   "amountRaw": 3086588,
    "amountUi": 0.003086588,
    "share": 1.689267507781631e-8,
    "isPda": false
   },
   {
    "owner": "wvzE6UNzcVFmZ82fGi5ASqZXzT3d6gNi8YQqUp6uDK8",
-   "amountRaw": 3046617,
    "amountUi": 0.003046617,
    "share": 1.6673916657341858e-8,
    "isPda": false
   },
   {
    "owner": "97McByxyir8wuLKLzm23stpWKNNUeASSC81Twg9ahs6P",
-   "amountRaw": 2982480,
    "amountUi": 0.00298248,
    "share": 1.6322899449516938e-8,
    "isPda": false
   },
   {
    "owner": "5x8ouQbDvGErHZRTSaj7R9FBuLcgSAbTyGbDn7pQs38M",
-   "amountRaw": 2941170,
    "amountUi": 0.00294117,
    "share": 1.609681277793505e-8,
    "isPda": false
   },
   {
    "owner": "5kDButesLFSfqrMEM1LTNt7ipptiCSPTT5AQaUu1Sf3C",
-   "amountRaw": 2901025,
    "amountUi": 0.002901025,
    "share": 1.5877102067921623e-8,
    "isPda": false
   },
   {
    "owner": "C55ns6CXQ1WAH2gjHgvn6qrw4MGQWf2Vc2tByrD13tLG",
-   "amountRaw": 2810723,
    "amountUi": 0.002810723,
    "share": 1.5382885688904736e-8,
    "isPda": false
   },
   {
    "owner": "4HLQNEDcG4MiMoMey9gRDDHcWqog8iQZzmcqCxKYv27i",
-   "amountRaw": 2789921,
    "amountUi": 0.002789921,
    "share": 1.5269037832641207e-8,
    "isPda": false
   },
   {
    "owner": "94ua9rQdkZ7c5MXu2RRYc27i7R7SGsKRpcyteCTKfE4E",
-   "amountRaw": 2578657,
    "amountUi": 0.002578657,
    "share": 1.4112805090325166e-8,
    "isPda": false
   },
   {
    "owner": "HbrHMJwRSYm5jepiiLSG3TrnPUxUf3pYBBTgb5eninLT",
-   "amountRaw": 2548824,
    "amountUi": 0.002548824,
    "share": 1.394953121781724e-8,
    "isPda": false
   },
   {
    "owner": "3gL4yYhdgfpVs5Vy5e5hiRv3MUxAx5BYL41vsrxMhkZp",
-   "amountRaw": 2062778,
    "amountUi": 0.002062778,
    "share": 1.1289436268030516e-8,
    "isPda": false
   },
   {
    "owner": "EWtGSJu7Qsj67e8B5JzBcJpoSxdwC62mgHuiAhdxFSZF",
-   "amountRaw": 2039851,
    "amountUi": 0.002039851,
    "share": 1.1163958438948989e-8,
    "isPda": false
   },
   {
    "owner": "FmX8ND8JBLewE3byb6x15owG41Asun3FyZg8nFdLeeZc",
-   "amountRaw": 1991874,
    "amountUi": 0.001991874,
    "share": 1.0901383753824705e-8,
    "isPda": false
   },
   {
    "owner": "B3SsUWkx91U8ZCPfL9DToE8Km5s8vFGsENQmWFCyQpZo",
-   "amountRaw": 1943404,
    "amountUi": 0.001943404,
    "share": 1.0636110915006645e-8,
    "isPda": false
   },
   {
    "owner": "DbVjdfoTpULk3uThBKQB2ZbhwmYxSA1B4ZSLCDCZNLQF",
-   "amountRaw": 1651952,
    "amountUi": 0.001651952,
    "share": 9.041014991359006e-9,
    "isPda": false
   },
   {
    "owner": "5QQ8o63DcMs9FBkSvKYVtCYKC6w14aGmnfCPt9bFqLip",
-   "amountRaw": 1553690,
    "amountUi": 0.00155369,
    "share": 8.503234102397995e-9,
    "isPda": false
   },
   {
    "owner": "F6UbBSC5WKw8idBtaVoTD5F9SzsEm2TGL4HtQ7dfXjCM",
-   "amountRaw": 1488579,
    "amountUi": 0.001488579,
    "share": 8.146886262326144e-9,
    "isPda": false
   },
   {
    "owner": "3FEEJZPAQJR2xDX4UtEb7ddynwcm9ERfbAWyfksHhemw",
-   "amountRaw": 1461316,
    "amountUi": 0.001461316,
    "share": 7.997677815767515e-9,
    "isPda": false
   },
   {
    "owner": "B4rgwJgDg8WNYHTYt6iWp3LL53AbeSB4msUxRfegYKt2",
-   "amountRaw": 1432616,
    "amountUi": 0.001432616,
    "share": 7.840604771119725e-9,
    "isPda": false
   },
   {
    "owner": "ACnqs4sAWFeKhrfoqqCWG6ghJHbGGcHzW8M2EsruozoT",
-   "amountRaw": 1083573,
    "amountUi": 0.001083573,
    "share": 5.930317428854986e-9,
    "isPda": false
   },
   {
    "owner": "6TwhFSaPfRuirgyhdTN5G5Ay44mqmZpSrYwERgtqNMmJ",
-   "amountRaw": 1039032,
    "amountUi": 0.001039032,
    "share": 5.6865477256613574e-9,
    "isPda": false
   },
   {
    "owner": "4MMDD8e9CaRp4hiKDWzWhiuExHMBHkrGRzHtNCbq2aGp",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Hpj4EheEsoFMaRgezHw6nndrcE4cgdcHa9uPKRoBYaKb",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6WrWLvBobuDyDPJsreSnmZV2eiNPxijb2swZeAZb5Xfe",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "GSBK4BpRXVW7CDx8eqfoB6xGsrqpgR9jFmXxuv3eZ5fy",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7WBYCvzT4hu7EEcJVVn17zU7t7LHsteX2ikvNn9iNMhd",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7tdja7CFKbPVRrUDK5ZhHTffenFkiDTGVSyJZj7Yq4dn",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "DwXgx26zjyhpa1oh2PCyaaHom8MyefQwundyWeJxtwVM",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "4BPqk7YdKXm9TG6XhdbXfLFtgbNxGBy3T5mH5Qn82SoP",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "3yKyi3o7xtzMQV7eD7e827jf52rUUZBgx4DQr82RQhuH",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "AhJsNcCRxyeFi5kLRYp4i8aCLNcwytKH3HG6yJiA6ntW",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7LcTnykJj2Kk2UXax1YHFTwnSbX3VVEPpzBr2YSf7iyu",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2FuNiz3Y5mZS1AibkRK3G2hnSoDNE2gV5KQet9rB1pYJ",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "485xh18atPtxaCzuvSwqyKAB5ndt9jmjZUeARysW4RsY",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8TzXwmUt9gfxBfr5g19s6iqpCoysbjguLMxniGQt3RuT",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "GYVmbawYdehj8CZRDHnBNDUvq89AtZbNGzBEjZf1fbkj",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7CEapJZLAQn5vDq6Z4sn5sDVRrCtKBsbYRUdqjxCR1bM",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "ArmjQZPSuX8rXHztJmTQfo26iWkrZU9KUxxHhRfbyvy1",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "685v3Bk8P1jZstboycAokD86mfwcuePnPQppvtR1R4BR",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "H8pPX6LXK2wCGiLrAqwrFytbibb4ios1DA5t2Q8yfcuz",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6WyruPDFxF1wuNNH3DP1Knubq9cucbum4dvQFApoWu38",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "C5Px7FZLcQ6RXxcg5wuuaS5pUuDUALUAuy66ARm1F5ay",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6rci1EZTbZymsvuGNNQaXuQXK2w8Em2FcnYaQ6T7Ze68",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "BH4ftvnRDPkbgjxJwzWewRNefhirKMrefQefRwbkKPP2",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "ABYbmfPTCmwYCeJ7ebcVVwoUoFaijaRJMM47qDoMoD3V",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "57Jaji1BaXf6PvpHaN3vkGZf91hKwMpZkpH5hEazTGvN",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "BPBEc5YLB86DvtJFjpqKbwr1uzck1TBipZdcRJh3aAe3",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "DJxdbJPr9SFFLWSvexzropxPXs6cc287VyNEXJFUHvDG",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "AgXhAmGqcucQK2qVtH1nSrmXszHE95z1x7Fffob8eBYR",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "81R18JhokqK7jGQUiMvzAwWvqgPkaCBD2Rj77Xd1p21i",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6C5G3MVRJGawzeRxX5f3WfA9TpHBusXVZupeXSnvynWw",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "E5N1WUWk2e69NuQo7zhydw613zCHHSzDNXfBjSEh9ZR2",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "FoTB91TQ4WaThmwTAUvCVjN43AAZms69NwbUu6K9yPQ7",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "yeRKA4j2HZcCYbyNdHfHMi7huVpzLGjWe4BxjMS1uKn",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "ADjJkg2PE9xZvRE2T7qMYTFHpbH6vmtRJeEyZEqDNsbC",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Gfs9Cge6s1kpxAjghAPfkei3C2WrdpNwRcEGZ4VZpQ62",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "4HKk9KDEETBavBWKKrSwLvXxRJTy8CZUvKvMq69Q2J5J",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Dr445WSanF3jafZPEMmUqZZ17rLUDbVLBxT1SKjse9uo",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "GYvpGNTnmG2mwPg6nPzbnn1FpoksgsWbo9J3zWNNjq5J",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8diAKxfzs5eSt1pvu9wSYYydWfpipHXt1QEePNr9Ctrc",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HQGH5ieHh1qFWSGXGMFhPW1cnaXvyzq6JSBYQ4yZiRTk",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "J4eKj3RzgB1Mb3qTmJGR2AiyQhmnXbQb8zaFF2BGL3vs",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2Fs5dSLKNG5AYrSpd7j5J7d9fFLB7XLztrm29UEkUA4G",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8XSKF3n16r1iXobzE7nL4xtWRsvgj4fkwPj5A7Kvx45V",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2SP36Hwe7qixHgxQXRGRsoK5DfAKXyDRPWvKpnTURyu5",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2gjpDvwLDQTz2u1kmyu9pYpF9BXY1Dc1b4gs67hHFMhd",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6yd2vEL6D95NXFWhJT8nUEAdELRiYY3z2pUEkLptFCP7",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": false
   },
   {
    "owner": "81ddyRQiMBHpMpeFV7BYwBRzLHjr5cK6awBopdy1eRor",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7pN5JbX2PuCAAV13SxZUP4qW1Vd8d3Y7BzieanL9ge2c",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6tVVapfrqhYdW6VNcr276dF9RRYGKUrFNB1FFQsRSNmL",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "3X652VLKw5DRdrRvG7wZ1nFfoo1mA865XrHL1zVdsafS",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7FkwkAbqtnjxWy2x4L7ARshVzpdatkTvR86h3i3L946V",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "5967z5d5HpToPCNMoJFXYNNnCnAJYHdgp3RRJveY7fMp",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6C6m1EWPDY39o4yUUwwAGbXvBeSDx8i8jRXGuySiUZ3z",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HfQ3YAiKNih2nugiGWL6Lnai2nf1E71iNr5C7YhStVgf",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2JrTtuyA4noiVW3P2YAxDe5UECJRRL1nWUvjiaVikamC",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Cg9t12GdnHbJnmCsKMX6sXjFv5pMzDxbYxcCuvp7oM25",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "9J8GWuVdJzwgP7Gi4roGuR6pe7Bu2zqqoHP8wkJBiYas",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "C4Ess174obnX4QKXiSyxjxCJvjXQxwJhCY5zWG8vE87F",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "BYovs1R6ZvwSbf97LRf8WDRFbBhGXEEFdRoz3oWq3wWV",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "DRvXkNDdCs4Te5EiRjwAMNyyQMJs7W6iVer2Y7CWW81y",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2nWka4MxoCtCUxMUhA5k1ePq5ZMeeHqpN7BgowqfMzNb",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "EAcueh8HKgs24YqFZyxVq4wbyiQax5YiVV3yHH8Msa4E",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8DrhZuqKT2BTXVsKPt8kXjRGVsT9xUGVpmCp1jucMMdY",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "CmCuA16fHMzqLrng7DjL9TxvgWcu39XBbqdwcNNf5RDD",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "H9MBA29FAcPascsZUUqtB6TVCjBr57JScvVdvRkTutDt",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HyfqxfR1XuLo1zavkf4sZ8cvXkRUdGA8uiHj5frKs2jQ",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "H5UyMKkgDKc8cZVmZRJgXngftEnVMQ6wxqJi7UqE61WS",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HwPBncgsFGWAmdQ9fbcXNVL8mDuShhN7iWAK7Qub9UqY",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "AoDkxtrqonGVP2MWTNmYJ9osqqynoFbTHkPfgeuUyHip",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HejciCprf3EqB7su19n885f5s1XXTrwnM8m3zjwnk6mr",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "EzQVf21C8PZWcY6DdDuUFQ8MdsdHPp7pK7TpMV6K7MsV",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "9FHjPRWymFrpH4asaT6bYVbCmTSnvX9QTCsUEAyFc2PK",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "9ZPXCrQBqZ7WjMX2idhejSPiCCgCrjBW3gTBjGqaV4xT",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Hy1DQU6qJm3hxdRzffTTdJD4UqcYpAFC96terwwrPqUR",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Ajs7gbdzEhZGGwLCfLRmqtiEUVrpUMEwPapQKCLgizef",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2REPxaJEWxth5XHt3MucPdSjVehYEtTt3QagpecW9j1w",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HM7TL4oScUNAYnZF9SgsjV465fiVQF4fmFkEB3xPutq4",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7wewfsbVgJhCF7aS1jbQM87dTJMJxADUYUsWNVEHzu2G",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8EpFGBsQiQ8uDZYY1AhnjiHe8wkq6NHgv7q12AHSQcVk",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "7PXaG14GR9eJqU76VZYQhB91ZaEPM1bVvvkjG2EQqV5Q",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "847GEKZAmqAcVsEneG51XtVEyzmvHK6A2PxcYufPAGpr",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8MFuvRFK4DUWsqPdpXHP5DGoBrs5DU6HQFMEDLVgJCH2",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "APyNcdQ9E7NJZ1iDAwySRp6oGdXtMHYpEeQQM3cpYE1X",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Bg5WaZcia8xRbcT4cjhLkQFZpWsMUTnEFx42NoY7r9up",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "FJDJdaLqzxKS7nC44dpdwoZ2fnBTHvd99ab3uHhuucne",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6Rd5TfBGA8GRYQSxJjpK5zyubCEZAW1g8QiV6ACwNezF",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "ALRsFGyJzVZsP3Ge3sJ5GPukNnZ4vZ6n3iYWYf2DYQwA",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "FVGktshYNxV2nenpoiw1ESm7njC2W55SMJdzRYorDfKJ",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "CUt8Pre86YhPEj1B9r5n3ew6Dq81CaL9RYXJpt6DJ6oR",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "5MyPZbVBj9zrAksEPkfkVckJgGkaXrXNoRPuZnSCpaot",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Cwt1wbU8QGbffo2YBp5YApuHiofgbvg6dh7GydXu2WkE",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "AC3oGHtK1uuzj1gLWQHiTKtzSsfaUdkKRkYXraAKwRcL",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "FsSd3fSazb4LGbFf9gtzdmGir6DbxSNzpWR7PcPfYQfU",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2sWpcvzrkJsVzqRWBX6jhmeniusRtKCScVhWkPsf5ruY",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2DbuJQ31WbbUn5ugzYbNdFVQAFTtVM6q4MKdtxHwwsd1",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "AMVYTHNgughkzsLYTYNn7frvHybWMH8sobDBGnXrPnpa",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "G7b2ezze1vA1MLbEq5c4hzfdGr8WDfkzXuo6pBZPpkRB",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "9qJmMnesyV58rEe6kRX4E8n5sP3AB53QkNC8DEMJRvPq",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "5beZn8Lt6ogE41cazyg44HFWcFL79LAHf2EogzHKAmtM",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "G6wsLTJjFYVAve75zADECEbTDjdZgWxudyeijV1QEGbv",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "3JUWekxuaFV1Z7sCHNeevgenrGVZfadV6MgGKGHxKd6g",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6rCcJgRYaep4kgP7CxEKCczxgdwc1C5AQRNNeqnUkYU1",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "D2sNXVSAUCbLZAU8ApRKdXvxRkLAhwh86Sc2jqsTZREn",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2o8Ac4bThyA6LnEZqPUx7om8AeQDg26tjE5aP9XoFLwC",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "D8UWPkcwX1Qsz3LJTvDZ7hXTJBBUQUSm5T8VH3S2B9Yg",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "BGF53oPKwzN9YcqPPdKd4keURxGGUAyejduPjvurQjGP",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6j4ymPQMZu2CLBJo8PtK3ERaC36J6CJM3EBmXTLy14j8",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HaUHDjEYbYSnPcLMLiAFS12ayEKQSafaDaiNCoQn7Syr",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Dkx2SpaHmnNmJPN3HpvCndtmn5rrfuHZyYAFrEXkuByA",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8vt4hZDkWosMC5sWUCwQnbLaENAPbCdAJrYv5jDUiR2N",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8Ba1EdmnBT8rCjCpW4TrsuSoAqLqJTnvymAxmD1fKdj9",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "AoUz5eD3ywr7hdMLtCkv5hjh3v4J6AK5VhDyYQuZ8ohG",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "J2AV3rewuEDEi1ZsNuowPZFNNQ9svGReGZJkmEz8GtEZ",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8RASu2gV4xnNLboGgPtbHghatbc8V8h93EBXhn1BVMhE",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8RbTJRULtXCBByd1y29eWnUkA6tiijigsD7UeERrEKJP",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "ET1znyJdNJ425i4PsBA7CQtuvGYz7isnWCpUUabqAcE1",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HsJmjYC5UhcK3XSk26xbrXZVrTrisZSuUoVBCh57iU39",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "FopbVybRv2pCrQCYqiW7TBWssaE3ja3UhCfWFp4TuJYM",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "65Nw9rHUGuXTWJuqbo4Kh1BWfUsAdHdXfCvJx4MSnyA1",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "5c6FxbZQuo98cpBpcyAFtfgZQ419C6NoBEnzHziyz7bH",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "3kykoSzT5NqHpyZuJjHK2LLokfXyrjy3ksGBWYZLDudT",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "4KLgiKH9h5rA4GpFiY5LcUDtcrFVGeYHjrWg4jj4tSxf",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "BB9nYRgk4jZHoJhNZSG3dPjB3ncWpzrSruifkLWuEKAG",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "3KWqJppH91z7xuN52N148yXCot82pEH4v9qAV6xBJcRW",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "9i2Bs1Mj3LpE7cKzj6u6miW8XwMXSnSysUVtrEW8AJ3T",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "Cj27DfuD2Xc5rnwuhNpxxui2oWh2MWanNTPLVqBWNM2C",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6R8MhML8s3NsS2TyF6qU5Ya39w65a87xuMQ9gMZ8co1A",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "CzGntUP9y8ZRFjPoDMNaKvsLeYXbMfokgenwnttALY1p",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "9QpcJJvi5ioDjBP9k7TepztQvM6sUErYH1JyzkuHL5V7",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "45XyYmBWNEQ31U5qaUjoPN864baPrkCMzu3qd91hpDuC",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6vP8CooryZqNbyyFNhuedqmBGdp7bQ217tQXebtE3V98",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "FM7N6vHCScF6hUxQkygA9PkqLGSiQnfmGNjmBuWbjfon",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "AAiLkBmYJ3GCcthJRAGWfoMNr2TGzpRu3ZVgtErHZRN8",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "DhKJ79R1RNnV1sTBeseQNf2ja7jrWF1nk9kVvLGwBJRy",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "DeNjdocDnJoMQfiCu12ZNhh6PD6g2Y64suHA28SyD8e2",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "2A7dzpkhJMLJEHJxL9PGemiE6pikkCA66Qo17jr2CRWh",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8zsuqtxhFHrbAbWX3uxhGKDJpBeLHERWFgptcPdFzMLN",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "8ux84965sxgPbqTxSdU6YeU23AS5dEmYEojVDGUQaNWw",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "99Bn6N52XYr6eqisbw5HK2Qqmv6feZLfRYLdoEgrgPBc",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "13UroCZ3RjrcBDtQk2WrM6uuGWR3HVHGp74gjCZpYvhz",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6HcM3Xr9wEwPCTbdPsdtBwERm5eNQ8z3DoBtRoY5MQZk",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "KSmqJZviu7M8jmbjweZmm6h1RFLAXfNWpkRVWs3GkrK",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "4yPeHERWMwsop1pYJ5n6rXoMdDCT3g8TNh8ugEyazbGK",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "FQbt45q5rEzGvDyHmYAADpCUSM6TyiRZkWWVcC4t4jue",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "6VSPYsN1WtoCc86hKfjjGPw8xmFvwstVmxQPJ6cdz9fF",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "5oHUemrEJkQZ4o7GNUdEtRzTLaYVeXb4bqvN23fcZUiR",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "GyDY9m7TPAUfRQpTEUFKc5vNzHihmQNHQ2ZVWUwjvD5g",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "5qK2dkVvAsmV2vgB6gtTjQod5iLP8xPR9rS73qYFcjVN",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": false
   },
   {
    "owner": "J1sizs25shwfL81JBH12vjjsjS9SUwALwi4EFNkA5EmR",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "EB3dTP1dkHTYR8JfpQFNeHi3L67aFffV8DMjryjHrKUj",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "DWEgdDQJLRqA8u5bKxkQpQijESDwg2oiuuaLBamJwCFU",
-   "amountRaw": 1000000,
    "amountUi": 0.001,
    "share": 5.472928384940365e-9,
    "isPda": true
   },
   {
    "owner": "HzBMMpftoBAeutxRMQpBTRC7CBtSgnQtiNyYzpRrppqw",
-   "amountRaw": 994855,
    "amountUi": 0.000994855,
    "share": 5.4447701683998465e-9,
    "isPda": false
   },
   {
    "owner": "CaDLXEov9tjqJZPABPaUeqPFBFHaLWD2Y1xTWKUUxfYr",
-   "amountRaw": 992976,
    "amountUi": 0.000992976,
    "share": 5.434486535964544e-9,
    "isPda": false
   },
   {
    "owner": "HuxeMxYFomYKPvZhkXkNNxMZBfGYiXtZ1M5y9W45J1XQ",
-   "amountRaw": 987602,
    "amountUi": 0.000987602,
    "share": 5.405075018823874e-9,
    "isPda": false
   },
   {
    "owner": "67izH8Sg3DDEdv7wgmqAMBKWw4Fw2pvps1gQeb14QiBy",
-   "amountRaw": 986609,
    "amountUi": 0.000986609,
    "share": 5.399640400937628e-9,
    "isPda": false
   },
   {
    "owner": "8mGGhy4QzP8K49TZpTxYSG5xFSSaGhcgXwASYsTrRwth",
-   "amountRaw": 884018,
    "amountUi": 0.000884018,
    "share": 4.838167204998211e-9,
    "isPda": false
   },
   {
    "owner": "7jRNBhP23kSk4djFq1gRjeWo7zHZg2EAkwCH2N1zGxeK",
-   "amountRaw": 871929,
    "amountUi": 0.000871929,
    "share": 4.772004973752667e-9,
    "isPda": false
   },
   {
    "owner": "E4iNScjG8UtJKcwxzH9MbneTuNuZhcxBnaU4VrvZsTea",
-   "amountRaw": 858506,
    "amountUi": 0.000858506,
    "share": 4.698541856041613e-9,
    "isPda": false
   },
   {
    "owner": "66aiBjGouBNYkWZW2gTKXTfX99qaCWLTEy4zeP29DGMR",
-   "amountRaw": 854013,
    "amountUi": 0.000854013,
    "share": 4.673951988808076e-9,
    "isPda": false
   },
   {
    "owner": "DDM6EQtz6ApSjYWfVMA3JHNRjRrKkSy9B3bnBXuAeBUH",
-   "amountRaw": 807500,
    "amountUi": 0.0008075,
    "share": 4.419389670839345e-9,
    "isPda": false
   },
   {
    "owner": "DY3yC3qYnfNguunYKZpK7R5vVzPb6BWTf7JUWFLfeUJK",
-   "amountRaw": 796347,
    "amountUi": 0.000796347,
    "share": 4.358350100562105e-9,
    "isPda": false
   },
   {
    "owner": "HhHRFBq4gWFbtVBw5sstPkxRE5q49uBtiS74MVuYLMuy",
-   "amountRaw": 787947,
    "amountUi": 0.000787947,
    "share": 4.312377502128606e-9,
    "isPda": false
   },
   {
    "owner": "EeG54u2qcgMExEhY93DXKXmaBEsDk9Vd9THZu83BkW5W",
-   "amountRaw": 753449,
    "amountUi": 0.000753449,
    "share": 4.123572418704933e-9,
    "isPda": false
   },
   {
    "owner": "2kyoEvCVfCoGmWGZG4MCzbv9xDgV7NCNDujFr776YzDQ",
-   "amountRaw": 727638,
    "amountUi": 0.000727638,
    "share": 3.982310664161237e-9,
    "isPda": false
   },
   {
    "owner": "6Ya2sHrvRmoHoWLrwWki1PUNVAQdA6WdgsZGpCPGQA8B",
-   "amountRaw": 677580,
    "amountUi": 0.00067758,
    "share": 3.7083468150678924e-9,
    "isPda": false
   },
   {
    "owner": "D8b198S3tACStFsi3sCnX5kjxnXEFBCCGkGJzn3jVBHa",
-   "amountRaw": 514563,
    "amountUi": 0.000514563,
    "share": 2.816166448540069e-9,
    "isPda": false
   },
   {
    "owner": "GWMmHgJGfEqcZJJEZCp2hLrVZQgLYcPSzecLFWCL4pb",
-   "amountRaw": 504711,
    "amountUi": 0.000504711,
    "share": 2.7622471580916366e-9,
    "isPda": false
   },
   {
    "owner": "E5YgPmL5y9EudbjEFGnzyVZKecsAruQmJ9c9gu3cvdGo",
-   "amountRaw": 444345,
    "amountUi": 0.000444345,
    "share": 2.4318683632063265e-9,
    "isPda": false
   },
   {
    "owner": "64ugHCJFh8k8BMZGWz7qhBtgVhYEDpf6q67eJ8rV1FN3",
-   "amountRaw": 375478,
    "amountUi": 0.000375478,
    "share": 2.0549642041206385e-9,
    "isPda": false
   },
   {
    "owner": "24gaFTvHRbtJZ6DaFvo1geT5xZcfPQJUvFKqZRGLBSox",
-   "amountRaw": 375183,
    "amountUi": 0.000375183,
    "share": 2.0533496902470807e-9,
    "isPda": false
   },
   {
    "owner": "6YShtREpDjy4Y3niweYqUn5QLFqGJ2QfcQiznzvhzzPD",
-   "amountRaw": 354067,
    "amountUi": 0.000354067,
    "share": 1.93778333447068e-9,
    "isPda": false
   },
   {
    "owner": "7KQLYYvdtAifGsYUCmFJNCTDnZLfPfuhijXRH3ueZRJb",
-   "amountRaw": 352191,
    "amountUi": 0.000352191,
    "share": 1.9275161208205322e-9,
    "isPda": false
   },
   {
    "owner": "6G8DRskcHUtXuEczjGPNS6Exs1qw5ukbj48LGjyx9krJ",
-   "amountRaw": 316833,
    "amountUi": 0.000316833,
    "share": 1.7340043189858106e-9,
    "isPda": false
   },
   {
    "owner": "DNPcTVyvd2kMATojCXbtj7E72BvnGFq2kdeR5P8B94hm",
-   "amountRaw": 263843,
    "amountUi": 0.000263843,
    "share": 1.4439938438678207e-9,
    "isPda": false
   },
   {
    "owner": "4BmN5CXy1yoy7eb2iiB95sqsJbT4j2MxvazQyxi7onFV",
-   "amountRaw": 226725,
    "amountUi": 0.000226725,
    "share": 1.2408496880756042e-9,
    "isPda": false
   },
   {
    "owner": "7uffYWNZ9rUaYT1JyxNYmZiWwp1nTpWwRD8EAmUpQgg",
-   "amountRaw": 208809,
    "amountUi": 0.000208809,
    "share": 1.1427967031310126e-9,
    "isPda": false
   },
   {
    "owner": "9owGT7WB3RwgPshrBvQB2RvcoAViWp4WdRPbFdi7dQcf",
-   "amountRaw": 197560,
    "amountUi": 0.00019756,
    "share": 1.0812317317288185e-9,
    "isPda": false
   },
   {
    "owner": "4yjyMpbtu16HVq5LBfDrXcB39mwdcXisDXhsuXcQYAE3",
-   "amountRaw": 196911,
    "amountUi": 0.000196911,
    "share": 1.0776798012069923e-9,
    "isPda": false
   },
   {
    "owner": "5QYwTN9Ypuq9ZNm7p1Cp8iTNtscnmgk1SBvLBrb5NGt6",
-   "amountRaw": 168887,
    "amountUi": 0.000168887,
    "share": 9.243064561474234e-10,
    "isPda": false
   },
   {
    "owner": "FuB8LV82mss8aP3ByodEyuMVo2M6pzpRHVnJwBdtaSwA",
-   "amountRaw": 165178,
    "amountUi": 0.000165178,
    "share": 9.040073647676796e-10,
    "isPda": false
   },
   {
    "owner": "4S4Z2AJcgshWiWnWhaiTP5GpKgJWsRKpr2T7bbdqm4vf",
-   "amountRaw": 139685,
    "amountUi": 0.000139685,
    "share": 7.644860014503949e-10,
    "isPda": false
   },
   {
    "owner": "HtWKhA2ubZFxpxKzHdUbakP1HAtFwtQToKhjYbtL8fAD",
-   "amountRaw": 114392,
    "amountUi": 0.000114392,
    "share": 6.260592238100982e-10,
    "isPda": false
   },
   {
    "owner": "DYPe9NwBNMDfF1TDp2UKG57j4KycU1xYqfmefdS8DQVh",
-   "amountRaw": 98952,
    "amountUi": 0.000098952,
    "share": 5.41557209546619e-10,
    "isPda": false
   },
   {
    "owner": "H5kuciXW42r15cn5vE8Mos1mdXCXYWLMY9FVAAgkmSxT",
-   "amountRaw": 98705,
    "amountUi": 0.000098705,
    "share": 5.402053962355387e-10,
    "isPda": false
   },
   {
    "owner": "AgdcXwFKuMoKG3ZN6oi4T9xR9EsSW4uzNhHWr4MRsitA",
-   "amountRaw": 88718,
    "amountUi": 0.000088718,
    "share": 4.855472604551393e-10,
    "isPda": false
   },
   {
    "owner": "8psNvWTrdNTiVRNzAgsou9kETXNJm2SXZyaKuJraVRtf",
-   "amountRaw": 84401,
    "amountUi": 0.000084401,
    "share": 4.6192062861735174e-10,
    "isPda": false
   },
   {
    "owner": "3qWFwPpshaKPS5rrhmdX49FGByi3wVQFjbNYfSnJJkdG",
-   "amountRaw": 83113,
    "amountUi": 0.000083113,
    "share": 4.5487149685754857e-10,
    "isPda": false
   },
   {
    "owner": "KGvQXtmewFMpxZDjMnjPALGhqya9FQunmRzRC558ZkQ",
-   "amountRaw": 74759,
    "amountUi": 0.000074759,
    "share": 4.0915065312975673e-10,
    "isPda": false
   },
   {
    "owner": "FC2gysZ3krXtNaScbD545DiNQrSPooSLPT2pesapf4f9",
-   "amountRaw": 73597,
    "amountUi": 0.000073597,
    "share": 4.02791110346456e-10,
    "isPda": false
   },
   {
    "owner": "5JLXgqyV8ZnEfpboCWs32cPHuL3KvXc5kJiL14d3uXWg",
-   "amountRaw": 71759,
    "amountUi": 0.000071759,
    "share": 3.9273186797493567e-10,
    "isPda": false
   },
   {
    "owner": "m2Qd6EcYnbrErSoguQPhKDfc7W6dX7NbJie1tRyjTY8",
-   "amountRaw": 71408,
    "amountUi": 0.000071408,
    "share": 3.908108701118216e-10,
    "isPda": false
   },
   {
    "owner": "6SKx27RK6AFTwJYtj9ihNQJpHWrv2JzMny5kXAL1xHsH",
-   "amountRaw": 50634,
    "amountUi": 0.000050634,
    "share": 2.7711625584307043e-10,
    "isPda": false
   },
   {
    "owner": "34FKjAdVcTax2DHqV2XnbXa9J3zmyKcFuFKWbcmgxjgm",
-   "amountRaw": 42500,
    "amountUi": 0.0000425,
    "share": 2.325994563599655e-10,
    "isPda": false
   },
   {
    "owner": "CxabTWt644j6i6tAM3Fb5pj4NUCL3kBre1HJgZXQGvBi",
-   "amountRaw": 36508,
    "amountUi": 0.000036508,
    "share": 1.9980566947740285e-10,
    "isPda": false
   },
   {
    "owner": "7Cry15xG1KA6VhY62BHezejDiNtvi7axywvJfEZx4K3j",
-   "amountRaw": 24824,
    "amountUi": 0.000024824,
    "share": 1.3585997422775961e-10,
    "isPda": false
   },
   {
    "owner": "4duyoiA2LJNGLcJk1dc1FC1YkD79zsjH28QNCFeE4oS8",
-   "amountRaw": 22427,
    "amountUi": 0.000022427,
    "share": 1.2274136488905757e-10,
    "isPda": false
   },
   {
    "owner": "A6qXFst1HG1JVUjE9ryy6Ci4p8zx1teXG37tQfSgtrzR",
-   "amountRaw": 20927,
    "amountUi": 0.000020927,
    "share": 1.1453197231164702e-10,
    "isPda": false
   },
   {
    "owner": "6sdtRV4XGrvGj9yGYHEzHfpenE7reVbZYt4ThqzVSKo8",
-   "amountRaw": 19217,
    "amountUi": 0.000019217,
    "share": 1.0517326477339899e-10,
    "isPda": false
   },
   {
    "owner": "4mkjwYWKkVY844THfNENEGCeD9A2nz4EX3XRGX6fi6aZ",
-   "amountRaw": 10547,
    "amountUi": 0.000010547,
    "share": 5.7722975675966026e-11,
    "isPda": false
   },
   {
    "owner": "8721SMDH7seguHa8yRuASNr5p2ycZP4d6X8FwjEKH5EM",
-   "amountRaw": 8864,
    "amountUi": 0.000008864,
    "share": 4.8512037204111394e-11,
    "isPda": false
   },
   {
    "owner": "FVSeMSa74KPJk1rFMrD6EKr2D5q7NRCZ5C1sTZ6PfxVz",
-   "amountRaw": 8278,
    "amountUi": 0.000008278,
    "share": 4.5304901170536344e-11,
    "isPda": false
   },
   {
    "owner": "CgLE7YUXbGwnugv7h7RjHj5mYAfxYZCvDT2WYoDLgMmX",
-   "amountRaw": 4433,
    "amountUi": 0.000004433,
    "share": 2.4261491530440638e-11,
    "isPda": false
   },
   {
    "owner": "D9GYt4W7VvteKCSvTgyjzuiBJyTy94Kmr6YiC9fbxGjW",
-   "amountRaw": 1728,
    "amountUi": 0.000001728,
    "share": 9.45722024917695e-12,
    "isPda": false
   },
   {
    "owner": "6bDj8XbuVBbvoGDLsQbS4Lm9s4AtjjxNAMmrNtsg2Tj8",
-   "amountRaw": 905,
    "amountUi": 9.05e-7,
    "share": 4.95300018837103e-12,
    "isPda": false
   },
   {
    "owner": "2fjoqyn5cMCZBVbqBanqsUSmyPu5METF6TJPtJX6ruwM",
-   "amountRaw": 734,
    "amountUi": 7.34e-7,
    "share": 4.017129434546228e-12,
    "isPda": false
   },
   {
    "owner": "3Ei4ghvRLHqDSG9PG1QB68TJY7PmQESPAyP8gNbFN7CF",
-   "amountRaw": 627,
    "amountUi": 6.27e-7,
    "share": 3.431526097357609e-12,
    "isPda": false
   },
   {
    "owner": "BURNNeQ2zERsVhL6GgJR45CvGtwdxHeWBs4B5V4zRFgL",
-   "amountRaw": 364,
    "amountUi": 3.64e-7,
    "share": 1.992145932118293e-12,
    "isPda": false
   },
   {
    "owner": "D5YqVMoSxnqeZAKAUUE1Dm3bmjtdxQ5DCF356ozqN9cM",
-   "amountRaw": 34,
    "amountUi": 3.4e-8,
    "share": 1.860795650879724e-13,
    "isPda": true
   },
   {
    "owner": "5YWCmL6iVcqLCBhdFF4MPmG5HXqP3js4TLcrDX9EhVvd",
-   "amountRaw": 2,
    "amountUi": 2e-9,
    "share": 1.094585676988073e-14,
    "isPda": false
   },
   {
    "owner": "B3Qf9NVvL4PV486VHYVxjMmyJH25wJoP64D4hDPWDG47",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
   },
   {
    "owner": "AeTG5pfJ8v223i9PH7tcoz5CjPSt7W4HCSjQcGJWGdDm",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
   },
   {
    "owner": "9xU7i4H3pY8LZkwspeLVNaQuL8PsAvyjpex1fnr28KxH",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
   },
   {
    "owner": "2hzsp5ygG5Yao2Kc1fF3vH49R59mFev9jE97bwQkZt8s",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
   },
   {
    "owner": "62dmja4YUVQRomXs66yEByVYDX54rLLgvDXq2NWQ7odx",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
   },
   {
    "owner": "CqUhUZPfcMKpGoQzt5qBf41EvFMDiKMJRgDpBsWhKMYB",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
   },
   {
    "owner": "9hZmCx3nPmBLme7quKomsVgtHqSDdeXzqeKJQGkYSkKr",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
   },
   {
    "owner": "Hybofk86gKZVR1FXtUahM886iNgiRAgHgVS9neL3To6z",
-   "amountRaw": 1,
    "amountUi": 1e-9,
    "share": 5.472928384940365e-15,
    "isPda": false
