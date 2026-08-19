@@ -79,11 +79,20 @@ async function fetchRaikuStats() {
     for (const lst of data.lsts || []) {
       if (lst.mint === MINT) {
         const pd = lst.provider_data || {};
-        return { officialHolders: pd.holders, tvlLamports: lst.tvl_lamports, latestApy: lst.latest_apy, launchDate: pd.launchDate };
+        return { officialHolders: pd.holders, tvlLamports: lst.tvl_lamports, latestApy: lst.latest_apy, avgApy: lst.avg_apy, launchDate: pd.launchDate };
       }
     }
   } catch (e) { console.log('raiku stats ERR', e.message); }
   return {};
+}
+
+async function fetchSolPriceUsd() {
+  try {
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd', { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
+    const data = await r.json();
+    const usd = Number(data?.solana?.usd);
+    return Number.isFinite(usd) && usd > 0 ? usd : null;
+  } catch { return null; }
 }
 
 (async () => {
@@ -120,6 +129,10 @@ async function fetchRaikuStats() {
   let pdaLabels = {};
   try { pdaLabels = JSON.parse(fs.readFileSync(p('pda_labels.json'), 'utf8')); } catch {}
   const stats = await fetchRaikuStats();
+  const solPriceUsd = await fetchSolPriceUsd();
+  const tvlLamports = Number(stats.tvlLamports) || 0;
+  const tvlSol = tvlLamports / 1e9;
+  console.log(`  SOL price: ${solPriceUsd} | TVL: ${tvlSol.toFixed(2)} SOL`);
   const launch = new Date(stats.launchDate || '2026-05-11T21:00:00Z').getTime();
 
   console.log('[4/4] Build holders_full + regenerate dashboard...');
@@ -136,7 +149,13 @@ async function fetchRaikuStats() {
     fetchedAt: new Date().toISOString(),
     mint: MINT,
     supplyUi,
-    stats,
+    solPriceUsd,
+    stats: {
+      ...stats,
+      tvlSol,
+      tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null,
+      rateSolPerRkuSol: supplyUi ? tvlSol / supplyUi : null,
+    },
     holders,
   };
   fs.writeFileSync(p('holders_full.json'), JSON.stringify(combined, null, 1));
