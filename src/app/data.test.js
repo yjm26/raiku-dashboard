@@ -67,29 +67,17 @@ describe('dashboard data utilities', () => {
       stats: { supply: 0 },
       topHolders: [],
     });
-    expect(fetch).toHaveBeenCalledWith('/api/dashboard');
+    expect(fetch).toHaveBeenCalledWith('/data/dashboard.json');
   });
 
-  it('falls back to the static snapshot when the API fails', async () => {
-    vi.stubGlobal('fetch', vi.fn()
-      .mockResolvedValueOnce({ ok: false, status: 502, statusText: 'Bad Gateway' })
-      .mockResolvedValueOnce({ ok: true, json: async () => ({ stats: { supply: 7 } }) }));
-
-    await expect(loadDashboardSnapshot()).resolves.toMatchObject({
-      stats: { supply: 7 },
-    });
-    expect(fetch).toHaveBeenNthCalledWith(1, '/api/dashboard');
-    expect(fetch).toHaveBeenNthCalledWith(2, '/data/dashboard.json');
-  });
-
-  it('rejects when both sources fail', async () => {
+  it('rejects a non-successful snapshot response', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
       ok: false,
       status: 503,
       statusText: 'Service Unavailable',
     }));
 
-    await expect(loadDashboardSnapshot()).rejects.toThrow(/failed to load dashboard snapshot/i);
-    expect(fetch).toHaveBeenCalledTimes(2);
+    await expect(loadDashboardSnapshot()).rejects.toThrow(/503.*service unavailable/i);
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 });

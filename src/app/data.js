@@ -103,22 +103,16 @@ export function normalizeSnapshot(raw) {
 }
 
 /**
- * Fetch and normalize the current dashboard snapshot.
- * On Vercel, `/api/dashboard` serves live on-chain data with CDN caching
- * (24h + stale-while-revalidate). Falls back to the static snapshot so the
- * page still renders on any host without the serverless function.
+ * Load the dashboard snapshot from the static file shipped with the build.
+ * Data is refreshed daily by GitHub Actions (07:15 WIB) which commits new
+ * data + triggers Vercel redeploy — no client-side network dependency.
  */
 export async function loadDashboardSnapshot() {
-  const urls = ['/api/dashboard', '/data/dashboard.json'];
-  let lastError;
-  for (const url of urls) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`${response.status}`);
-      return normalizeSnapshot(await response.json());
-    } catch (e) {
-      lastError = e;
-    }
+  const response = await fetch('/data/dashboard.json');
+  if (!response.ok) {
+    const status = response.status ? ` ${response.status}` : '';
+    const statusText = response.statusText ? ` ${response.statusText}` : '';
+    throw new Error(`Failed to load dashboard snapshot:${status}${statusText}`);
   }
-  throw new Error(`Failed to load dashboard snapshot: ${lastError?.message || 'unknown'}`);
+  return normalizeSnapshot(await response.json());
 }
