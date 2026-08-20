@@ -136,14 +136,19 @@ async function fetchSolPriceUsd() {
   const launch = new Date(stats.launchDate || '2026-05-11T21:00:00Z').getTime();
 
   console.log('[4/4] Build holders_full + regenerate dashboard...');
-  const holders = [...perOwner.entries()].map(([owner, amt]) => ({
-    owner,
-    amountUi: amt / 10 ** DECIMALS,
-    share: amt / supplyRaw,
-    // Fresh program-owner check each run: system program => real wallet,
-    // anything else (new pools/PDAs) is correctly excluded.
-    isPda: (info[owner]?.program || '') !== SYSTEM_PROGRAM,
-  })).sort((a, b) => b.amountUi - a.amountUi);
+  const holders = [...perOwner.entries()].map(([owner, amt]) => {
+    const prog = info[owner]?.program;
+    return {
+      owner,
+      amountUi: amt / 10 ** DECIMALS,
+      share: amt / supplyRaw,
+      // Fresh program-owner check each run: system program => real wallet,
+      // anything else (new pools/PDAs) is correctly excluded. Unknown/unfetchable
+      // owners are treated as non-wallet (no signature history → not a real wallet).
+      isPda: (prog && prog !== SYSTEM_PROGRAM) || !prog ? true : false,
+      ...(prog && prog !== SYSTEM_PROGRAM ? { pdaProgram: prog } : {}),
+    };
+  }).sort((a, b) => b.amountUi - a.amountUi);
 
   const combined = {
     fetchedAt: new Date().toISOString(),
