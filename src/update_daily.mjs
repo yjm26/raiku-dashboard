@@ -118,14 +118,29 @@ async function fetchSolPriceUsd() {
     try { res = await rpc('getMultipleAccounts', [batch, { encoding: 'jsonParsed' }]); }
     catch { res = []; }
     const arr = Array.isArray(res) ? res : (res?.value || []);
+    const missing = [];
     for (let j = 0; j < batch.length; j++) {
       const acc = arr[j];
-      if (!acc || typeof acc === 'string') { unknown++; continue; }
+      if (!acc || typeof acc === 'string') { missing.push(batch[j]); continue; }
       info[batch[j]] = { program: acc.owner || '', executable: !!acc.executable };
+    }
+    // Retry missing (rate-limit / transient failures) before labeling as closed/pool
+    if (missing.length) {
+      await sleep(600);
+      try {
+        const r2 = await rpc('getMultipleAccounts', [missing, { encoding: 'jsonParsed' }]);
+        const arr2 = Array.isArray(r2) ? r2 : (r2?.value || []);
+        for (let j = 0; j < missing.length; j++) {
+          const acc = arr2[j];
+          if (acc && typeof acc === 'object') {
+            info[missing[j]] = { program: acc.owner || '', executable: !!acc.executable };
+          } else { unknown++; }
+        }
+      } catch { unknown += missing.length; }
     }
     await sleep(400);
   }
-  if (unknown) console.log(`  ⚠ ${unknown} owners don't exist on-chain → pool/PDA`);
+  if (unknown) console.log(`  ⚠ ${unknown} owners unfetchable after retry (closed/pool)`);
   let pdaLabels = {};
   try { pdaLabels = JSON.parse(fs.readFileSync(p('pda_labels.json'), 'utf8')); } catch {}
   const stats = await fetchRaikuStats();
