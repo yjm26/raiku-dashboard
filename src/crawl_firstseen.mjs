@@ -26,7 +26,11 @@ function saveData(d) { fs.writeFileSync(OUT, JSON.stringify(d, null, 1)); }
 
 const state = loadState();
 const results = loadData();
-console.log('resume idx:', state.idx, 'cached:', Object.keys(results).length);
+// Always start from index 0 — wallets with cached firstSeen are skipped via the
+// `continue` guard, so this only fetches new/missing wallets each run. Resetting
+// idx ensures newly appeared holders (which shift the list) are crawled too.
+state.idx = 0;
+console.log('resume idx: 0 (full scan, cached skipped) cached:', Object.keys(results).length);
 
 async function oldestForAccount(account) {
   let before, oldest = null;
