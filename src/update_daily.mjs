@@ -165,6 +165,13 @@ async function fetchSolPriceUsd() {
     };
   }).sort((a, b) => b.amountUi - a.amountUi);
 
+  // Verify unfetchable owners via getTokenAccountsByOwner (authoritative) —
+  // wallets mislabeled as closed due to transient RPC failures are recovered.
+  const { verifyUnfetchableOwners, applyVerifiedClassification } = await import('./verify_wallets.mjs');
+  const vcache = await verifyUnfetchableOwners(holders);
+  const reclassed = applyVerifiedClassification(holders, vcache);
+  if (reclassed) console.log(`  ✓ ${reclassed} mislabeled owners recovered as real wallets`);
+
   const combined = {
     fetchedAt: new Date().toISOString(),
     mint: MINT,
