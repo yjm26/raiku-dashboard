@@ -1,6 +1,16 @@
 import MetricCard from './MetricCard.jsx';
+import Tooltip from './Tooltip.jsx';
 
-function MetricSection({ id, title, metrics, showTitle = true }) {
-  return <section aria-labelledby={showTitle ? id : undefined}>{showTitle ? <div className="mb-2 flex min-h-9 items-center border-b border-rule px-2 py-2"><h2 id={id} className="m-0 text-[15px] font-normal text-ink">{title}</h2></div> : null}<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{metrics.map((metric) => <MetricCard key={metric.label} {...metric} />)}</div></section>;
+export default function MetricGroup({ primary = [], secondary = [] }) {
+  return <section aria-label="Key figures">
+    <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-rule bg-rule lg:grid-cols-4">
+      {primary.map((metric) => <MetricCard key={metric.label} {...metric} />)}
+    </div>
+    <dl className="m-0 mt-6 grid grid-cols-2 gap-x-6 gap-y-5 sm:grid-cols-3 lg:grid-cols-5 lg:px-5">
+      {secondary.map((metric) => <div key={metric.label} className="min-w-0">
+        <dt className="text-[13px] text-muted">{metric.hint ? <Tooltip label={metric.label} hint={metric.hint} /> : metric.label}</dt>
+        <dd className="m-0 mt-1 text-[18px] font-medium tracking-[-0.015em] text-ink">{metric.value}</dd>
+      </div>)}
+    </dl>
+  </section>;
 }
-export default function MetricGroup({ primary = [], secondary = [] }) { return <div className="grid gap-5"> <MetricSection id="primary-metrics" title="Snapshot" metrics={primary} showTitle={false} /><MetricSection id="secondary-metrics" title="Performance" metrics={secondary} /></div>; }

@@ -1,13 +1,13 @@
-import PointsAccrualChart from './PointsAccrualChart.jsx';
-import HolderGrowthChart from './HolderGrowthChart.jsx';
+import SectionHeader from './SectionHeader.jsx';
 import DistributionCard from './DistributionCard.jsx';
-import TopHoldersCard from './TopHoldersCard.jsx';
 import NewHoldersCard from './NewHoldersCard.jsx';
+import HolderGrowthChart from './HolderGrowthChart.jsx';
+import PointsAccrualChart from './PointsAccrualChart.jsx';
+
 export default function InsightGrid({ snapshot }) {
-  return <section className="mt-6" aria-labelledby="insights-title">
-    <div className="mb-3 flex min-h-10 items-center border-b border-rule px-2 py-2"><h2 id="insights-title" className="m-0 text-[15px] font-normal text-ink">Performance / Network insights</h2></div>
-    <div className="grid gap-3 lg:grid-cols-[2fr_1fr]"><PointsAccrualChart data={snapshot.dailyTimeline} /><DistributionCard snapshot={snapshot} /></div>
-    <div className="mt-3 grid gap-3 lg:grid-cols-[2fr_1fr]"><HolderGrowthChart data={snapshot.holderTimeline} /><TopHoldersCard rows={snapshot.topHolders} /></div>
-    <div className="mt-3 grid gap-3 lg:grid-cols-[2fr_1fr]"><NewHoldersCard rows={snapshot.newHolders} /><div className="min-h-[280px] border border-rule bg-surface p-4"><p className="m-0 text-[12px] text-muted">Data note</p><h2 className="mt-1 text-[15px] font-normal text-ink">Coverage and method</h2><p className="mt-3 text-[13px] leading-5 text-muted">Points are estimated from balance × days held. Pool and program accounts are separated from real wallets.</p></div></div>
+  return <section className="mt-14" aria-labelledby="insights-title">
+    <SectionHeader id="insights-title" title="Distribution and growth" />
+    <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]"><DistributionCard snapshot={snapshot} /><NewHoldersCard rows={snapshot.newHolders} /></div>
+    <div className="mt-4 grid gap-4 lg:grid-cols-2"><HolderGrowthChart data={snapshot.holderTimeline} /><PointsAccrualChart data={snapshot.dailyTimeline} /></div>
   </section>;
 }

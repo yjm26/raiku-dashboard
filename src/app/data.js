@@ -48,6 +48,19 @@ export function formatNumber(value, options = {}) {
 }
 
 /**
+ * Format a large number compactly for tight spaces (e.g. 20.8M, 16K).
+ */
+export function formatCompact(value, maximumFractionDigits = 1) {
+  const number = Number(value);
+
+  if (!Number.isFinite(number)) {
+    return '—';
+  }
+
+  return new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits }).format(number);
+}
+
+/**
  * Shorten a wallet address while retaining its beginning and end for recognition.
  */
 export function formatAddress(address, head = 5, tail = 5) {

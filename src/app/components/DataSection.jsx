@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import HoldersTable from './HoldersTable.jsx';
 import PointsTable from './PointsTable.jsx';
+import SectionHeader from './SectionHeader.jsx';
 
 const PAGE_SIZE = 20;
 
@@ -24,6 +25,8 @@ function usePagedRows(rows, filter, typeFilter, page) {
   const pageRows = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
   return { filtered, pageRows, totalPages, safePage };
 }
+
+const tabClass = (active) => `-mb-px border-b-2 px-0.5 pb-3 pt-1 text-[14px] font-medium transition-colors ${active ? 'border-accent-line text-ink' : 'border-transparent text-muted hover:text-ink'}`;
 
 export default function DataSection({ rows = [], allRows = [] }) {
   const [tab, setTab] = useState('holders');
@@ -63,32 +66,32 @@ export default function DataSection({ rows = [], allRows = [] }) {
   const sortedPageRows = sortRows(pageRows);
 
   return (
-    <section className="mt-4" aria-labelledby="data-title">
-      <div className="flex flex-wrap items-end justify-between gap-3 border-b-2 border-rule bg-surface-muted px-2 py-2">
-        <div>
-          <p className="m-0 font-mono text-[12px] uppercase tracking-wide text-muted">Explore the snapshot</p>
-          <h2 id="data-title" className="m-0 text-[15px] font-bold uppercase">Holder data</h2>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <select aria-label="Filter by type" className="border border-rule bg-surface px-2 py-2 font-mono text-[12px] outline-none focus:ring-2 focus:ring-accent" value={typeFilter} onChange={(e) => { setTypeFilter(e.target.value); setPage(1); }}>
+    <section className="mt-14" aria-labelledby="data-title">
+      <SectionHeader id="data-title" title="Holder data">
+        <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
+          <select aria-label="Filter by type" className="field h-9 w-auto shrink-0 pr-2 text-[13px]" value={typeFilter} onChange={(e) => { setTypeFilter(e.target.value); setPage(1); }}>
             <option value="all">All types</option>
             <option value="wallet">Wallets</option>
-            <option value="pool">Pools / Programs</option>
+            <option value="pool">Pools and programs</option>
             <option value="closed">Closed accounts</option>
           </select>
-          <input aria-label="Filter holders" className="border border-rule bg-surface px-3 py-2 font-mono text-[13px] outline-none placeholder:text-muted focus:ring-2 focus:ring-accent" value={filter} onChange={(e) => { setFilter(e.target.value); setPage(1); }} placeholder="Filter address…" />
+          <input aria-label="Filter holders" className="field h-9 min-w-0 flex-1 font-mono text-[13px] sm:w-64 sm:flex-none" value={filter} onChange={(e) => { setFilter(e.target.value); setPage(1); }} placeholder="Filter by address" autoComplete="off" spellCheck={false} />
         </div>
-      </div>
-      <div className="mt-2 flex flex-wrap items-center gap-2 border-b border-rule pb-2" role="tablist" aria-label="Holder data views">
-        <button role="tab" aria-selected={tab === 'holders'} className={`border px-3 py-2 text-[13px] font-semibold ${tab === 'holders' ? 'border-rule bg-accent text-page' : 'border-transparent text-muted hover:border-rule'}`} onClick={() => setTab('holders')}>All holders</button>
-        <button role="tab" aria-selected={tab === 'points'} className={`border px-3 py-2 text-[13px] font-semibold ${tab === 'points' ? 'border-rule bg-accent text-page' : 'border-transparent text-muted hover:border-rule'}`} onClick={() => setTab('points')}>Points leaderboard</button>
-        <span className="ml-auto font-mono text-[12px] text-muted">{filtered.length.toLocaleString()} rows · page {safePage}/{totalPages}</span>
+      </SectionHeader>
+      <div className="flex flex-wrap items-end justify-between gap-x-4 border-b border-rule">
+        <div className="flex gap-6" role="tablist" aria-label="Holder data views">
+          <button role="tab" aria-selected={tab === 'holders'} className={tabClass(tab === 'holders')} onClick={() => setTab('holders')}>All holders</button>
+          <button role="tab" aria-selected={tab === 'points'} className={tabClass(tab === 'points')} onClick={() => setTab('points')}>Points leaderboard</button>
+        </div>
+        <span className="pb-3 text-[13px] tabular-nums text-muted">{filtered.length.toLocaleString()} accounts</span>
       </div>
       {tab === 'holders' ? <HoldersTable rows={sortedPageRows} startRank={(safePage - 1) * PAGE_SIZE} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} /> : <PointsTable rows={sortedPageRows} startRank={(safePage - 1) * PAGE_SIZE} />}
-      <nav className="mt-2 flex items-center justify-end gap-2" aria-label="Holder data pagination">
-        <button className="border border-rule bg-surface px-3 py-1.5 font-mono text-[13px] disabled:opacity-40" disabled={safePage <= 1} onClick={() => changePage(safePage - 1)}>‹ prev</button>
-        <span className="font-mono text-[12px] text-muted">{safePage} / {totalPages}</span>
-        <button className="border border-rule bg-surface px-3 py-1.5 font-mono text-[13px] disabled:opacity-40" disabled={safePage >= totalPages} onClick={() => changePage(safePage + 1)}>next ›</button>
+      <nav className="mt-3 flex items-center justify-between gap-3" aria-label="Holder data pagination">
+        <span className="text-[13px] tabular-nums text-muted">Page {safePage} of {totalPages}</span>
+        <div className="flex gap-2">
+          <button type="button" className="btn" disabled={safePage <= 1} onClick={() => changePage(safePage - 1)}>Previous</button>
+          <button type="button" className="btn" disabled={safePage >= totalPages} onClick={() => changePage(safePage + 1)}>Next</button>
+        </div>
       </nav>
     </section>
   );

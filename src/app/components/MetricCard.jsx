@@ -1,14 +1,29 @@
+import Sparkline from './Sparkline.jsx';
 import Tooltip from './Tooltip.jsx';
+import { formatNumber } from '../data.js';
 
-export default function MetricCard({ label, value, detail, tone = 'default', emphasis = false, hint, delta = null, deltaTone = null }) {
-  const accent = tone === 'green' || tone === 'blue' || tone === 'amber' ? 'border-l-2 border-l-accent' : '';
-  const deltaColor = deltaTone === 'up' ? 'text-emerald-500' : deltaTone === 'down' ? 'text-red-500' : 'text-muted';
-  return <article className={`flex min-h-[108px] flex-col justify-between border border-rule bg-surface p-3 ${accent} ${emphasis ? 'bg-surface-muted' : ''}`}>
-    <p className="m-0 text-[12px] text-ink">{hint ? <Tooltip label={label} hint={hint}>{label}</Tooltip> : label}</p>
-    <p className="m-0 font-mono text-2xl font-normal tabular-nums tracking-[-0.04em] text-ink sm:text-3xl">{value}</p>
-    <div className="flex items-end justify-between gap-2">
-      {detail ? <p className="m-0 text-[12px] text-muted">{detail}</p> : <span />}
-      {delta != null ? <span className={`whitespace-nowrap font-mono text-[12px] tabular-nums ${deltaColor}`}>{delta}</span> : null}
+// Latest one-day change; hidden when it rounds to zero.
+function Change({ value, digits = 0 }) {
+  if (value == null || !Number.isFinite(value)) return null;
+  const size = Math.abs(value);
+  if (size < 0.5 * 10 ** -digits) return null;
+  return <span className="whitespace-nowrap tabular-nums text-muted" title="Change over the latest day on record">
+    <span aria-hidden="true">{value > 0 ? '↑' : '↓'} </span><span className="sr-only">{value > 0 ? 'up ' : 'down '}</span>
+    {formatNumber(size, { minimumFractionDigits: digits, maximumFractionDigits: digits })}<span className="text-faint"> 1d</span>
+  </span>;
+}
+
+export default function MetricCard({ label, value, unit = null, detail = null, hint, change = null, changeDigits = 0, trend = [] }) {
+  return <article className="flex min-w-0 flex-col bg-surface p-4 sm:p-5">
+    <p className="m-0 text-[13px] text-muted">{hint ? <Tooltip label={label} hint={hint} placement="bottom" /> : label}</p>
+    <p className="m-0 mt-3 flex flex-wrap items-baseline gap-x-1.5 text-ink">
+      <span className="text-[26px] font-semibold leading-none tracking-[-0.035em] sm:text-[34px]">{value}</span>
+      {unit ? <span className="text-[13px] font-medium text-muted">{unit}</span> : null}
+    </p>
+    <div className="mt-2.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[13px]">
+      {detail ? <span className="text-muted">{detail}</span> : <span />}
+      <Change value={change} digits={changeDigits} />
     </div>
+    <div className="mt-auto pt-5"><Sparkline values={trend} className="h-8 w-full" label={`${label} trend`} /></div>
   </article>;
 }

@@ -1,39 +1,54 @@
 :root {
-  /* Raiku brand light */
-  --page: #fdfdfd;
+  /* Raiku brand, light */
+  --page: #f6f8fa;
   --surface: #ffffff;
-  --surface-muted: #f3f3f2;
-  --ink: #111315;
-  --muted: #73777a;
-  --rule: #e8e8e6;
-  --rule-strong: #d8d8d6;
-  --accent: #111315;
-  --accent-soft: #f2f2f1;
-  --gap: 16px;
-  --radius: 2px;
-  /* charts — light: black series, gradient fade fill */
-  --chart-points: #111315;
-  --chart-holders: #111315;
-  --chart-grid: #f1f1f0;
-  --chart-axis: #e8e8e6;
-  --chart-tick: #999;
+  --surface-muted: #eef0f3;
+  --ink: #000204;
+  --muted: #545b63;
+  --faint: #7a818a;
+  --rule: #e2e5e9;
+  --rule-strong: #c9ced4;
+  --accent: #c0ff38;
+  --accent-hover: #cfff66;
+  --accent-soft: #effcd2;
+  --on-accent: #1b1d1e;
+  /* lime is too light for lines and text on a light page, so those use ink */
+  --accent-line: #000204;
+  --focus: #000204;
+  /* charts */
+  --chart-line: #000204;
+  --chart-fill: #c0ff38;
+  --chart-fill-top: 0.55;
+  --chart-grid: #eceef1;
+  --chart-tick: #6b727a;
+  --seg-pool: #c0ff38;
+  --seg-wallet: #1b1d1e;
+  --seg-rest: #c9ced4;
 }
 
 .dark {
-  /* Raiku brand dark */
+  /* Raiku brand, dark */
   --page: #000204;
-  --surface: #0c0e0c;
-  --surface-muted: #141614;
-  --ink: #fdfdfd;
-  --muted: #9aa0a6;
-  --rule: #24282a;
-  --rule-strong: #35393b;
+  --surface: #07090b;
+  --surface-muted: #101316;
+  --ink: #f6f8fa;
+  --muted: #a0a3a9;
+  --faint: #6b6f75;
+  --rule: #26282c;
+  --rule-strong: #454c54;
   --accent: #c0ff38;
+  --accent-hover: #cfff66;
   --accent-soft: #1c2410;
-  /* charts — dark: neon series, gradient fade fill */
-  --chart-points: #c0ff38;
-  --chart-holders: #c0ff38;
-  --chart-grid: #1c201e;
-  --chart-axis: #3a3f3c;
-  --chart-tick: #fdfdfd;
+  --on-accent: #1b1d1e;
+  --accent-line: #c0ff38;
+  --focus: #c0ff38;
+  /* charts */
+  --chart-line: #c0ff38;
+  --chart-fill: #c0ff38;
+  --chart-fill-top: 0.2;
+  --chart-grid: #15181b;
+  --chart-tick: #7d8187;
+  --seg-pool: #c0ff38;
+  --seg-wallet: #f6f8fa;
+  --seg-rest: #454c54;
 }

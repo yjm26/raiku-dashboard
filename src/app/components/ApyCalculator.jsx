@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import SectionHeader from './SectionHeader.jsx';
 import { formatNumber } from '../data.js';
 
 // Staking projection: stake N SOL → how much rkuSOL you receive, daily yield,
@@ -17,67 +18,65 @@ export default function ApyCalculator({ snapshot }) {
     if (!Number.isFinite(sol) || sol <= 0) return null;
     const rkuSol = Number.isFinite(rate) && rate > 0 ? sol / rate : null;
     const dailyYieldSol = apyFraction != null ? (sol * apyFraction) / 365 : null;
-    const dailyYieldRkuSol = dailyYieldSol != null && Number.isFinite(rate) && rate > 0 ? dailyYieldSol / rate : null;
     const dailyPoints = rkuSol != null ? rkuSol : null; // 1 rkuSOL = 1 point/day
     const dailyYieldUsd = dailyYieldSol != null && Number.isFinite(solPrice) ? dailyYieldSol * solPrice : null;
     const proj30 = dailyPoints != null ? dailyPoints * 30 : null;
     const proj90 = dailyPoints != null ? dailyPoints * 90 : null;
     const proj365 = dailyPoints != null ? dailyPoints * 365 : null;
-    return { sol, rkuSol, dailyYieldSol, dailyYieldRkuSol, dailyPoints, dailyYieldUsd, proj30, proj90, proj365 };
+    return { sol, rkuSol, dailyYieldSol, dailyPoints, dailyYieldUsd, proj30, proj90, proj365 };
   }, [solInput, rate, apyFraction, solPrice]);
 
   const fmt = (v, opts) => (v == null || !Number.isFinite(Number(v))) ? '—' : formatNumber(Number(v), opts || { maximumFractionDigits: 2 });
+  // Small SOL amounts need more decimals to stay meaningful.
+  const fmtSol = (v) => (v == null ? '—' : `${fmt(v, { maximumFractionDigits: Math.abs(v) < 1 ? 4 : 2 })} SOL`);
+  const apyLabel = Number.isFinite(apy) ? `${formatNumber(apy, { maximumFractionDigits: 2 })}%` : 'the reported';
+  const rateLabel = Number.isFinite(rate) && rate > 0 ? rate.toFixed(4) : 'the current';
+  const points = (v) => (result ? fmt(v, { maximumFractionDigits: 0 }) : '—');
+
+  const cells = [
+    ['rkuSOL received', result ? fmt(result.rkuSol) : '—'],
+    ['Daily yield', result ? fmtSol(result.dailyYieldSol) : '—'],
+    ['Daily yield in USD', result && result.dailyYieldUsd != null ? `$${fmt(result.dailyYieldUsd)}` : '—'],
+    ['Yield in a year', result && result.dailyYieldSol != null ? fmtSol(result.dailyYieldSol * 365) : '—'],
+    ['Points per day', points(result?.dailyPoints)],
+    ['Points in 30 days', points(result?.proj30)],
+    ['Points in 90 days', points(result?.proj90)],
+    ['Points in a year', points(result?.proj365)],
+  ];
 
   return (
-    <section className="mt-4 border border-rule bg-surface p-4" aria-labelledby="apy-calc-title">
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="m-0 text-[12px] text-muted">Playground</p>
-          <h2 id="apy-calc-title" className="m-0 mt-0.5 text-[15px] font-normal text-ink">Staking projection</h2>
-        </div>
-        <span className="font-mono text-[13px] text-muted">{apy != null ? `${formatNumber(apy, { maximumFractionDigits: 2 })}% APY` : ''}</span>
-      </div>
-
-      <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_auto]">
-        <label className="block">
-          <span className="mb-1 block font-mono text-[12px] uppercase tracking-wide text-muted">Stake (SOL)</span>
-          <input
-            type="number"
-            min="0"
-            step="any"
-            value={solInput}
-            onChange={(e) => setSolInput(e.target.value)}
-            className="w-full border border-rule bg-page px-3 py-2 font-mono text-[14px] outline-none placeholder:text-muted focus:ring-2 focus:ring-accent"
-            placeholder="100"
-            aria-label="Stake amount in SOL"
-          />
-        </label>
-        <div className="flex items-end pb-1">
-          <span className="font-mono text-[12px] text-muted">{solPrice != null ? `SOL ≈ $${formatNumber(solPrice, { maximumFractionDigits: 2 })}` : ''}</span>
-        </div>
-      </div>
-
-      <div className="mt-3 grid grid-cols-2 gap-px border border-rule bg-rule sm:grid-cols-4" role="status" aria-live="polite">
-        {[
-          ['rkuSOL received', result ? `${fmt(result.rkuSol)} rkuSOL` : '—'],
-          ['Daily yield', result ? `${fmt(result.dailyYieldSol)} SOL` : '—'],
-          ['≈ USD/day', result && result.dailyYieldUsd != null ? `$${fmt(result.dailyYieldUsd)}` : '—'],
-          ['Points / day', result ? fmt(result.dailyPoints, { maximumFractionDigits: 0 }) : '—'],
-          ['Points · 30d', result ? fmt(result.proj30, { maximumFractionDigits: 0 }) : '—'],
-          ['Points · 90d', result ? fmt(result.proj90, { maximumFractionDigits: 0 }) : '—'],
-          ['Points · 1y', result ? fmt(result.proj365, { maximumFractionDigits: 0 }) : '—'],
-          ['Yield / 1y', result ? `${fmt(result.dailyYieldSol * 365)} SOL` : '—'],
-        ].map(([label, value]) => (
-          <div className="bg-surface p-3" key={label}>
-            <span className="block font-mono text-[12px] uppercase text-muted">{label}</span>
-            <strong className="mt-1 block font-mono text-[15px] tabular-nums text-ink">{value}</strong>
+    <section className="mt-14" aria-labelledby="apy-calc-title">
+      <SectionHeader id="apy-calc-title" title="Staking projection" aside={Number.isFinite(solPrice) ? `SOL at $${formatNumber(solPrice, { maximumFractionDigits: 2 })}` : null} />
+      <div className="panel grid overflow-hidden lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)]">
+        <div className="border-b border-rule p-4 sm:p-5 lg:border-b-0 lg:border-r">
+          <label htmlFor="stake-input" className="block text-[13px] text-muted">Stake amount</label>
+          <div className="relative mt-2">
+            <input
+              id="stake-input"
+              type="number"
+              min="0"
+              step="any"
+              inputMode="decimal"
+              value={solInput}
+              onChange={(e) => setSolInput(e.target.value)}
+              className="field h-12 pr-14 text-[20px] font-medium tabular-nums"
+              placeholder="100"
+            />
+            <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-[13px] font-medium text-muted">SOL</span>
           </div>
-        ))}
+          <p className="m-0 mt-4 text-[13px] leading-relaxed text-muted">
+            Assumes {apyLabel} APY, {rateLabel} SOL per rkuSOL, a constant balance and 1 point per rkuSOL held per day. Yield compounds, so daily figures are approximate.
+          </p>
+        </div>
+        <dl className="m-0 grid grid-cols-2 gap-px bg-rule sm:grid-cols-4" role="status" aria-live="polite">
+          {cells.map(([label, value]) => (
+            <div className="min-w-0 bg-surface px-4 py-4 sm:px-5" key={label}>
+              <dt className="text-[12px] text-muted">{label}</dt>
+              <dd className="m-0 mt-1.5 truncate text-[17px] font-medium tabular-nums tracking-[-0.01em] text-ink">{value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-
-      <p className="mb-0 mt-2 text-[12px] text-muted">
-        Estimate based on {apy != null ? `${formatNumber(apy, { maximumFractionDigits: 2 })}% APY` : 'reported APY'} and {rate != null ? `${rate.toFixed(4)} SOL/rkuSOL` : 'current rate'}. Yield compounds; daily figure is an approximation. Points assume 1 rkuSOL held = 1 point/day. Projections assume a constant balance.
-      </p>
     </section>
   );
 }
