@@ -40,6 +40,22 @@ export function decodeBase58(text) {
   return Uint8Array.from(bytes);
 }
 
+// Bytes → base58.
+export function encodeBase58(bytes) {
+  let value = 0n;
+  for (const b of bytes) value = value * 256n + BigInt(b);
+  let out = '';
+  while (value > 0n) {
+    out = ALPHABET[Number(value % 58n)] + out;
+    value /= 58n;
+  }
+  for (const b of bytes) {
+    if (b !== 0) break;
+    out = `1${out}`;
+  }
+  return out;
+}
+
 // Point decompression test: does this 32-byte key encode a point on the curve?
 function onCurve(bytes) {
   let y = 0n;

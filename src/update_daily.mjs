@@ -1,13 +1,15 @@
 import fs from 'node:fs';
 import { sleep } from './rpc.mjs';
 import { p, SRC } from './paths.mjs';
-import { exchangeRate, fetchRaikuStats } from './raiku_api.mjs';
+import { exchangeRate, fetchRaikuStats, fetchRaikuValidator } from './raiku_api.mjs';
 import { isProgramDerived } from './solana_address.mjs';
+import { fetchStakePool } from './stake_pool.mjs';
 
 // Daily update: refresh balances (1 RPC call), reuse cached firstSeen (never changes),
 // regenerate public/data/dashboard.json. Run: node src/update_daily.mjs
 
 const MINT = 'rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp';
+const STAKE_POOL = 'ERhozr6u9drmAANXGRNP1oh3quSqPKEwioKH5b8v9Kkt';
 const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
 const DECIMALS = 9;
 
@@ -138,6 +140,13 @@ async function fetchSolPriceUsd() {
   console.log(`  SOL price: ${solPriceUsd} | TVL: ${tvlSol.toFixed(2)} SOL`);
   const launch = new Date(stats.launchDate || '2026-05-11T21:00:00Z').getTime();
 
+  // Stake pool facts (fees, validators) straight from the pool account; optional.
+  let stakePool = null;
+  try {
+    stakePool = await fetchStakePool({ poolAddress: stats.poolAddress || STAKE_POOL, mint: MINT, raikuValidator: await fetchRaikuValidator() });
+    console.log(`  stake pool: fee ${stakePool?.fees.rewardsPct}% | validators ${stakePool?.validators.length} | epoch ${stakePool?.lastUpdateEpoch}`);
+  } catch (e) { console.log('  stake pool ERR', e.message); }
+
   console.log('[4/4] Build holders_full + regenerate dashboard...');
   const holders = [...perOwner.entries()].map(([owner, amt]) => {
     const prog = info[owner]?.program;
@@ -173,6 +182,7 @@ async function fetchSolPriceUsd() {
       tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null,
       rateSolPerRkuSol: exchangeRate(stats, supplyUi),
     },
+    stakePool,
     holders,
   };
   fs.writeFileSync(p('holders_full.json'), JSON.stringify(combined, null, 1));

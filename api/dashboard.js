@@ -3,8 +3,9 @@
 // dashboard JSON view-model, and serve with CDN caching so the page stays
 // fast while data refreshes at most once per day (lazy, via SWR).
 import { buildSnapshot } from '../src/build_snapshot.mjs';
-import { exchangeRate, fetchRaikuStats } from '../src/raiku_api.mjs';
+import { exchangeRate, fetchRaikuStats, fetchRaikuValidator } from '../src/raiku_api.mjs';
 import { isProgramDerived } from '../src/solana_address.mjs';
+import { fetchStakePool } from '../src/stake_pool.mjs';
 
 const MINT = 'rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp';
 const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
@@ -139,6 +140,9 @@ export default async function handler(req, res) {
 
     const stats = await fetchRaikuStats(MINT);
     const solPriceUsd = await fetchSolPriceUsd();
+    const stakePool = stats.poolAddress
+      ? await fetchStakePool({ poolAddress: stats.poolAddress, mint: MINT, raikuValidator: await fetchRaikuValidator() }).catch(() => null)
+      : null;
     const tvlLamports = Number(stats.tvlLamports) || 0;
     const tvlSol = tvlLamports / 1e9;
     console.log('[api/dashboard] Raiku stats:', JSON.stringify(stats));
@@ -155,6 +159,7 @@ export default async function handler(req, res) {
         tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null,
         rateSolPerRkuSol: exchangeRate(stats, supplyUi),
       },
+      stakePool,
       holders,
     };
     // Use committed firstSeen data for accurate days-held estimates; any brand-new

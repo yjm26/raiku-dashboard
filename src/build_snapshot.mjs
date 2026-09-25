@@ -220,5 +220,6 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     allRows: [...realRows.map((row, index) => ({ ...row, rank: index + 1 })), ...pdaRows.map((row, index) => ({ ...row, rank: realRows.length + index + 1, isPda: true }))],
     history: Array.isArray(history) ? history : [],
     coverage,
+    stakePool: holdersData.stakePool ?? null,
   };
 }
