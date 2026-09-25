@@ -61,6 +61,16 @@ export function formatCompact(value, maximumFractionDigits = 1) {
 }
 
 /**
+ * Daily APY points from snapshot history (APY stored as a fraction), oldest first.
+ */
+export function apySeries(history = []) {
+  return [...history]
+    .sort((a, b) => String(a.date).localeCompare(String(b.date)))
+    .filter((entry) => Number(entry?.apy) > 0)
+    .map((entry) => ({ label: entry.date, apy: Number(entry.apy) * 100 }));
+}
+
+/**
  * Shorten a wallet address while retaining its beginning and end for recognition.
  */
 export function formatAddress(address, head = 5, tail = 5) {

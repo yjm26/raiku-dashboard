@@ -7,6 +7,7 @@ import MetricGroup from './components/MetricGroup.jsx';
 import WalletSearch from './components/WalletSearch.jsx';
 import InsightGrid from './components/InsightGrid.jsx';
 import DataSection from './components/DataSection.jsx';
+import ApyHistory from './components/ApyHistory.jsx';
 import ApyCalculator from './components/ApyCalculator.jsx';
 import ProtocolInfo from './components/ProtocolInfo.jsx';
 import FaqSection from './components/FaqSection.jsx';
@@ -67,6 +68,7 @@ export default function App() {
       <WalletSearch rows={snapshot.realRows} />
       <InsightGrid snapshot={snapshot} />
       <DataSection rows={snapshot.realRows} allRows={snapshot.allRows} />
+      <ApyHistory history={history} />
       <ApyCalculator snapshot={snapshot} />
       <div className="mt-14 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]"><ProtocolInfo /><FaqSection coverage={snapshot.coverage} snapshot={snapshot} /></div>
     </main>
