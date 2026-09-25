@@ -55,12 +55,12 @@ export default function FaqSection({ coverage, snapshot }) {
           <p className="m-0"><strong className="font-medium text-ink">On-chain balances</strong> via Solana RPC (getProgramAccounts + getMultipleAccounts). <strong className="font-medium text-ink">Official holders, APY and TVL</strong> from the Raiku staking API. <strong className="font-medium text-ink">SOL price</strong> from CoinGecko. First acquisition per wallet from on-chain signature history.</p>
         </FaqItem>
 
-        <FaqItem q="How is the rkuSOL rate calculated?">
-          <p className="m-0"><strong className="font-medium text-ink">Rate = TVL (SOL) ÷ rkuSOL supply.</strong> TVL comes from the Raiku staking API (<code className="rounded bg-surface-muted px-1 py-0.5 font-mono text-[12px]">tvl_lamports</code>), supply from on-chain token accounts. Current: <strong className="font-medium text-ink">{rate} SOL per rkuSOL</strong>, so 1 SOL staked ≈ {(stats.rateSolPerRkuSol ? (1 / Number(stats.rateSolPerRkuSol)).toFixed(4) : '—')} rkuSOL. This is Raiku&apos;s own reported figure, not an estimate.</p>
+        <FaqItem q="Where does the rkuSOL rate come from?">
+          <p className="m-0">It&apos;s the stake pool&apos;s own exchange rate, reported by the Raiku staking API (<code className="rounded bg-surface-muted px-1 py-0.5 font-mono text-[12px]">sol_value</code>). It rises every epoch as staking rewards are added. Current: <strong className="font-medium text-ink">{rate} SOL per rkuSOL</strong>, so 1 SOL staked ≈ {(stats.rateSolPerRkuSol ? (1 / Number(stats.rateSolPerRkuSol)).toFixed(4) : '—')} rkuSOL. This is Raiku&apos;s own figure, not an estimate.</p>
         </FaqItem>
 
         <FaqItem q="Why are holders different from real wallets?">
-          <p className="m-0"><strong className="font-medium text-ink">Holders</strong> counts every token account owner, including pools and programs. <strong className="font-medium text-ink">Real wallets</strong> only counts System-Program-owned accounts. {poolShare} of supply sits in pool and program accounts, which is normal for an LST.</p>
+          <p className="m-0"><strong className="font-medium text-ink">Holders</strong> counts every token account owner, including pools and programs. <strong className="font-medium text-ink">Real wallets</strong> only counts personal wallets. Addresses controlled by a program, such as pools, lending markets, vaults and multisigs, are left out: they have no private key, so no person holds them directly. {poolShare} of supply sits in these program accounts.</p>
         </FaqItem>
 
         <FaqItem q="What's in the snapshot?">

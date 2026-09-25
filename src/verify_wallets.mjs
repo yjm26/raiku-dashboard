@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import { rpc, sleep } from './rpc.mjs';
 import { p } from './paths.mjs';
+import { isProgramDerived } from './solana_address.mjs';
 
 const MINT = 'rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp';
 const CACHE_FILE = p('verified_wallets.json');
@@ -15,7 +16,8 @@ export async function verifyUnfetchableOwners(holders) {
 
   // Owners we flagged as isPda without a known program (i.e. "closed") but which
   // getMultipleAccounts couldn't fetch. getTokenAccountsByOwner is authoritative.
-  const toCheck = holders.filter((h) => h.isPda && !h.pdaProgram && cache[h.owner] === undefined);
+  // Program-derived owners are skipped: holding tokens doesn't make them a wallet.
+  const toCheck = holders.filter((h) => h.isPda && !h.pdaProgram && !isProgramDerived(h.owner) && cache[h.owner] === undefined);
   console.log(`  verify: ${toCheck.length} unfetchable owners to check via getTokenAccountsByOwner`);
 
   const CHUNK = 25;
@@ -49,7 +51,7 @@ export async function verifyUnfetchableOwners(holders) {
 export function applyVerifiedClassification(holders, cache) {
   let reclassed = 0;
   for (const h of holders) {
-    if (!h.isPda || h.pdaProgram) continue;
+    if (!h.isPda || h.pdaProgram || isProgramDerived(h.owner)) continue;
     const bal = cache[h.owner];
     if (bal === undefined) continue;
     if (bal > 0) {

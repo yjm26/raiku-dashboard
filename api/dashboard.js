@@ -3,6 +3,8 @@
 // dashboard JSON view-model, and serve with CDN caching so the page stays
 // fast while data refreshes at most once per day (lazy, via SWR).
 import { buildSnapshot } from '../src/build_snapshot.mjs';
+import { exchangeRate, fetchRaikuStats } from '../src/raiku_api.mjs';
+import { isProgramDerived } from '../src/solana_address.mjs';
 
 const MINT = 'rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp';
 const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
@@ -94,29 +96,6 @@ async function fetchOwnerInfo(owners) {
   return { info, unknown };
 }
 
-async function fetchRaikuStats() {
-  try {
-    const r = await fetch('https://staking-api.mainnet.raiku.sh/v1/lsts', {
-      headers: { accept: 'application/json' },
-      signal: AbortSignal.timeout(30000),
-    });
-    const data = await r.json();
-    for (const lst of data.lsts || []) {
-      if (lst.mint === MINT) {
-        const pd = lst.provider_data || {};
-        return {
-          officialHolders: pd.holders,
-          tvlLamports: lst.tvl_lamports,
-          latestApy: lst.latest_apy,
-          avgApy: lst.avg_apy,
-          launchDate: pd.launchDate,
-        };
-      }
-    }
-  } catch (e) { /* stats are best-effort */ }
-  return {};
-}
-
 async function fetchSolPriceUsd() {
   try {
     const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd', {
@@ -154,11 +133,11 @@ export default async function handler(req, res) {
         amountRaw: amt,
         amountUi: amt / 10 ** DECIMALS,
         share: supplyRaw ? amt / supplyRaw : 0,
-        isPda: (info[owner]?.program || '') !== SYSTEM_PROGRAM,
+        isPda: isProgramDerived(owner) || (info[owner]?.program || '') !== SYSTEM_PROGRAM,
       }))
       .sort((a, b) => b.amountRaw - a.amountRaw);
 
-    const stats = await fetchRaikuStats();
+    const stats = await fetchRaikuStats(MINT);
     const solPriceUsd = await fetchSolPriceUsd();
     const tvlLamports = Number(stats.tvlLamports) || 0;
     const tvlSol = tvlLamports / 1e9;
@@ -174,7 +153,7 @@ export default async function handler(req, res) {
         ...stats,
         tvlSol,
         tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null,
-        rateSolPerRkuSol: supplyUi ? tvlSol / supplyUi : null,
+        rateSolPerRkuSol: exchangeRate(stats, supplyUi),
       },
       holders,
     };

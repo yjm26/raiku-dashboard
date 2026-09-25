@@ -1,3 +1,5 @@
+import { isProgramDerived } from './solana_address.mjs';
+
 const DAY_MS = 86_400_000;
 const DEFAULT_LAUNCH_DATE = '2026-05-11T21:00:00Z';
 
@@ -63,15 +65,20 @@ const PROGRAM_LABELS = {
   '11111111111111111111111111111111': 'System Program',
 };
 
-function labelPda(holder, pdaLabels) {
-  // 1. Known from pda_labels.json
+// Individual accounts identified on-chain → human label
+const ACCOUNT_LABELS = {};
+
+function labelPda(holder, pdaLabels, programDerived) {
+  // 1. Identified account
+  if (ACCOUNT_LABELS[holder.owner]) return ACCOUNT_LABELS[holder.owner];
+  // 2. Known from pda_labels.json
   const known = pdaLabels?.[holder.owner]?.known;
   if (known && known !== 'Unknown program' && known !== 'no-account (uninitialized/PDA)') return known;
-  // 2. Program address we captured during classification
+  // 3. Program address we captured during classification
   if (holder.pdaProgram && PROGRAM_LABELS[holder.pdaProgram]) return PROGRAM_LABELS[holder.pdaProgram];
-  // 3. Unknown program → generic
-  if (holder.pdaProgram) return 'Pool / Program';
-  // 4. No account on chain → closed/uninitialized
+  // 4. Unknown program → generic
+  if (holder.pdaProgram || programDerived) return 'Program account';
+  // 5. No account on chain → closed/uninitialized
   return 'Closed account';
 }
 
@@ -100,16 +107,19 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     const sharePct = Number.isFinite(Number(holder.share))
       ? Number(holder.share) * 100
       : (supply ? amount / supply * 100 : 0);
+    // Off-curve owners are program-controlled, whatever the input data says.
+    const programDerived = isProgramDerived(holder.owner);
+    const isPda = Boolean(holder.isPda) || programDerived;
 
     return {
       owner: holder.owner,
       amount,
       sharePct,
-      isPda: Boolean(holder.isPda),
+      isPda,
       firstMs,
       daysHeld,
       score: amount * daysHeld,
-      pdaLabel: holder.isPda ? labelPda(holder, pdaLabels) : null,
+      pdaLabel: isPda ? labelPda(holder, pdaLabels, programDerived) : null,
     };
   });
 

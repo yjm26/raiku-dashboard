@@ -32,3 +32,28 @@ test('buildSnapshot calculates wallet scores and first-seen coverage', () => {
   assert.ok(snapshot.realRows[0].score > 0);
   assert.deepEqual(snapshot.coverage, { found: 1, total: 2 });
 });
+
+test('buildSnapshot keeps program-derived owners out of real wallets', () => {
+  const wallet = 'Ar1HrwURVUrDRdGPpLDf22iG89XuehvMS8G34LRgkUmi';
+  const programAccount = '67hSVB3eZkPj2npXKas1xmuCzKAknWyB5PsNj5CmkQ4i';
+  const snapshot = buildSnapshot({
+    holdersData: {
+      fetchedAt: '2026-01-04T00:00:00.000Z',
+      supplyUi: 150,
+      stats: { launchDate: '2026-01-01T00:00:00.000Z' },
+      holders: [
+        { owner: wallet, amountUi: 50, share: 50 / 150, isPda: false },
+        // Mislabeled upstream as a wallet; off-curve, so it can't be one.
+        { owner: programAccount, amountUi: 100, share: 100 / 150, isPda: false },
+      ],
+    },
+    now: Date.parse('2026-01-04T00:00:00.000Z'),
+  });
+
+  assert.deepEqual(snapshot.realRows.map((row) => row.owner), [wallet]);
+  assert.equal(snapshot.stats.realWallets, 1);
+  assert.equal(snapshot.stats.totalPoints, 150);
+  const program = snapshot.allRows.find((row) => row.owner === programAccount);
+  assert.equal(program.isPda, true);
+  assert.equal(program.pdaLabel, 'Program account');
+});

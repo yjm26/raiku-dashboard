@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import { sleep } from './rpc.mjs';
 import { p, SRC } from './paths.mjs';
+import { exchangeRate, fetchRaikuStats } from './raiku_api.mjs';
+import { isProgramDerived } from './solana_address.mjs';
 
 // Daily update: refresh balances (1 RPC call), reuse cached firstSeen (never changes),
 // regenerate public/data/dashboard.json. Run: node src/update_daily.mjs
@@ -72,20 +74,6 @@ async function fetchHolderAccounts() {
   return out;
 }
 
-async function fetchRaikuStats() {
-  try {
-    const r = await fetch('https://staking-api.mainnet.raiku.sh/v1/lsts', { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(30000) });
-    const data = await r.json();
-    for (const lst of data.lsts || []) {
-      if (lst.mint === MINT) {
-        const pd = lst.provider_data || {};
-        return { officialHolders: pd.holders, tvlLamports: lst.tvl_lamports, latestApy: lst.latest_apy, avgApy: lst.avg_apy, launchDate: pd.launchDate };
-      }
-    }
-  } catch (e) { console.log('raiku stats ERR', e.message); }
-  return {};
-}
-
 async function fetchSolPriceUsd() {
   try {
     const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd', { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(15000) });
@@ -143,7 +131,7 @@ async function fetchSolPriceUsd() {
   if (unknown) console.log(`  ⚠ ${unknown} owners unfetchable after retry (closed/pool)`);
   let pdaLabels = {};
   try { pdaLabels = JSON.parse(fs.readFileSync(p('pda_labels.json'), 'utf8')); } catch {}
-  const stats = await fetchRaikuStats();
+  const stats = await fetchRaikuStats(MINT);
   const solPriceUsd = await fetchSolPriceUsd();
   const tvlLamports = Number(stats.tvlLamports) || 0;
   const tvlSol = tvlLamports / 1e9;
@@ -153,15 +141,17 @@ async function fetchSolPriceUsd() {
   console.log('[4/4] Build holders_full + regenerate dashboard...');
   const holders = [...perOwner.entries()].map(([owner, amt]) => {
     const prog = info[owner]?.program;
+    const derived = isProgramDerived(owner);
     return {
       owner,
       amountUi: amt / 10 ** DECIMALS,
       share: amt / supplyRaw,
-      // Fresh program-owner check each run: system program => real wallet,
-      // anything else (new pools/PDAs) is correctly excluded. Unknown/unfetchable
-      // owners are treated as non-wallet (no signature history → not a real wallet).
-      isPda: (prog && prog !== SYSTEM_PROGRAM) || !prog ? true : false,
+      // Fresh check each run: program-derived (off-curve) owners are never wallets;
+      // otherwise system program => real wallet, anything else (pools/PDAs) is
+      // excluded. Unknown/unfetchable owners start as non-wallet until verified.
+      isPda: derived || (prog && prog !== SYSTEM_PROGRAM) || !prog ? true : false,
       ...(prog && prog !== SYSTEM_PROGRAM ? { pdaProgram: prog } : {}),
+      ...(derived ? { programDerived: true } : {}),
     };
   }).sort((a, b) => b.amountUi - a.amountUi);
 
@@ -181,7 +171,7 @@ async function fetchSolPriceUsd() {
       ...stats,
       tvlSol,
       tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null,
-      rateSolPerRkuSol: supplyUi ? tvlSol / supplyUi : null,
+      rateSolPerRkuSol: exchangeRate(stats, supplyUi),
     },
     holders,
   };
@@ -207,6 +197,7 @@ async function fetchSolPriceUsd() {
         apy: Number(stats.latestApy ?? stats.latest_apy) || null,
         avgApy: Number(stats.avgApy ?? stats.avg_apy) || null,
         supply: supplyUi,
+        rate: exchangeRate(stats, supplyUi),
         holders: perOwner.size,
         realWallets: holders.filter((h) => !h.isPda).length,
       });

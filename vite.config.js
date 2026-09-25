@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
     environment: 'jsdom',
-    exclude: ['**/node_modules/**', 'src/build_snapshot.test.mjs'],
+    exclude: ['**/node_modules/**', 'src/*.test.mjs'],
   },
 });

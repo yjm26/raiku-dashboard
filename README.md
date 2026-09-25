@@ -24,9 +24,9 @@ Analytics dashboard for **rkuSOL**, the liquid staking token from [Raiku](https:
 | Data | Source | Method |
 |---|---|---|
 | Supply, holders, balances | Solana RPC (`getProgramAccounts` + `getMultipleAccounts`) | Public endpoints, no API key |
-| Pool/PDA classification | Program owner check | Owner != System Program → pool/PDA |
+| Pool/PDA classification | Curve check + program owner check | Off-curve owner (PDA) or owner != System Program → pool/PDA |
 | First acquisition | `getSignaturesForAddress` per token account | Cached in `data/firstseen.json` |
-| Official holders, APY, TVL | [Raiku staking API](https://staking-api.mainnet.raiku.sh/v1/lsts) | `/v1/lsts` filtered by mint |
+| Official holders, APY, TVL, rate | [Raiku staking API](https://staking-api.mainnet.raiku.sh/v1/lsts) | `/v1/lsts` filtered by mint; rate = `sol_value_lamports` |
 | SOL price | CoinGecko API | `simple/price` for solana/usd |
 | Points | Local calculation | `balance × days held` |
 
@@ -43,7 +43,7 @@ This dashboard provides **estimates, not official Raiku figures**. Details:
 
 - **Points = current balance × days held** — follows common Solana points-program convention (points stop accruing after unstake). Unstaked wallets (balance 0) are **not** counted — by design, consistent with how most points programs work.
 - **Days held** = days since a wallet's first acquisition (from per-account on-chain history). Accurate for ~100% of real wallets (coverage shown in the UI).
-- **Real wallets vs Holders**: "Holders" counts every token-account owner (including pools/PDAs). "Real wallets" only counts System-Program-owned accounts. ~51% of supply sits in pool/program accounts (normal for an LST).
+- **Real wallets vs Holders**: "Holders" counts every token-account owner (including pools/PDAs). "Real wallets" only counts personal wallets: on-curve, System-Program-owned addresses. Program-derived addresses (lending markets, vaults, multisigs) are excluded even when they hold SOL or have no account. Most of the supply sits in pool/program accounts (normal for an LST).
 - **Solscan match**: dashboard total holders ≈ Solscan (1001+), since both count all token accounts.
 - Data is public on-chain data; verify independently before making decisions.
 

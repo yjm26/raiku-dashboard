@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import { sleep } from './rpc.mjs';
 import { p } from './paths.mjs';
+import { exchangeRate, fetchRaikuStats } from './raiku_api.mjs';
+import { isProgramDerived } from './solana_address.mjs';
 
 const MINT = 'rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp';
 const TOKEN_PROGRAM = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA';
@@ -111,29 +113,6 @@ async function fetchOwnerInfo(owners) {
   return { info, unknown };
 }
 
-async function fetchRaikuStats() {
-  try {
-    const r = await fetch('https://staking-api.mainnet.raiku.sh/v1/lsts', {
-      headers: { accept: 'application/json' },
-      signal: AbortSignal.timeout(30000),
-    });
-    const data = await r.json();
-    for (const lst of data.lsts || []) {
-      if (lst.mint === MINT) {
-        const pd = lst.provider_data || {};
-        return {
-          officialHolders: pd.holders,
-          tvlLamports: lst.tvl_lamports,
-          latestApy: lst.latest_apy,
-          avgApy: lst.avg_apy,
-          launchDate: pd.launchDate,
-        };
-      }
-    }
-  } catch (e) { console.log('raiku stats ERR', e.message); }
-  return {};
-}
-
 async function fetchSolPriceUsd() {
   try {
     const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd', {
@@ -175,10 +154,12 @@ async function fetchSolPriceUsd() {
   if (unknown) console.log(`  ⚠ ${unknown} owners have no fetchable on-chain account`);
   for (const h of holders) {
     const prog = info[h.owner]?.program;
-    // isPda = owner is a KNOWN non-System program, OR unfetchable (no signature
-    // history → not a real wallet). Real wallets are System-Program accounts
-    // with on-chain activity; anything else is pool/program/closed.
-    h.isPda = (prog && prog !== SYSTEM_PROGRAM) || !prog ? true : false;
+    // isPda = owner is program-derived (off-curve), a KNOWN non-System program, OR
+    // unfetchable (no signature history → not a real wallet). Real wallets are
+    // System-Program accounts with on-chain activity; anything else is pool/program/closed.
+    const derived = isProgramDerived(h.owner);
+    h.isPda = derived || (prog && prog !== SYSTEM_PROGRAM) || !prog ? true : false;
+    if (derived) h.programDerived = true;
     if (prog && prog !== SYSTEM_PROGRAM) {
       h.pdaProgram = prog;
     } else if (!prog) {
@@ -188,7 +169,7 @@ async function fetchSolPriceUsd() {
   const nPda = holders.filter(h => h.isPda).length;
   console.log(`  ${nPda} non-wallet (pool/PDA/closed), ${holders.length - nPda} real wallets`);
 
-  const stats = await fetchRaikuStats();
+  const stats = await fetchRaikuStats(MINT);
   const solPriceUsd = await fetchSolPriceUsd();
   const tvlLamports = Number(stats.tvlLamports) || 0;
   const tvlSol = tvlLamports / 1e9;
@@ -200,7 +181,7 @@ async function fetchSolPriceUsd() {
     mint: MINT,
     supplyUi,
     solPriceUsd,
-    stats: { ...stats, tvlSol, tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null, rateSolPerRkuSol: supplyUi ? tvlSol / supplyUi : null },
+    stats: { ...stats, tvlSol, tvlUsd: Number.isFinite(solPriceUsd) ? tvlSol * solPriceUsd : null, rateSolPerRkuSol: exchangeRate(stats, supplyUi) },
     holders,
   };
   fs.writeFileSync(p('holders_full.json'), JSON.stringify(out, null, 1));

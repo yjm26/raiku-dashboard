@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:snapshot": "node --test src/build_snapshot.test.mjs",
+    "test:snapshot": "node --test src/build_snapshot.test.mjs src/solana_address.test.mjs src/raiku_api.test.mjs",
     "test:all": "npm test && npm run test:snapshot",
     "update": "node src/update_daily.mjs",
     "update:build": "npm run update && npm run build"
