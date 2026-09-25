@@ -1,8 +1,8 @@
 {
- "fetchedAt": "2026-09-25T08:41:04.349Z",
+ "fetchedAt": "2026-09-25T08:45:55.563Z",
  "mint": "rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp",
  "supplyUi": 177508.038121297,
- "solPriceUsd": 117.2,
+ "solPriceUsd": 117.03,
  "stats": {
   "officialHolders": 949,
   "tvlLamports": 180733588345528,
@@ -11,7 +11,7 @@
   "avgApy": 0.05114265914769731,
   "launchDate": "2026-05-11T21:00:00.000Z",
   "tvlSol": 180733.588345528,
-  "tvlUsd": 21181976.554095883,
+  "tvlUsd": 21151251.84407714,
   "rateSolPerRkuSol": 1.01818303
  },
  "holders": [
