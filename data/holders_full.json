@@ -1,8 +1,8 @@
 {
- "fetchedAt": "2026-09-25T13:47:05.786Z",
+ "fetchedAt": "2026-09-25T14:37:01.597Z",
  "mint": "rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp",
  "supplyUi": 177509.961408498,
- "solPriceUsd": 119.45,
+ "solPriceUsd": 120.23,
  "stats": {
   "officialHolders": 949,
   "tvlLamports": 180733588345528,
@@ -12,7 +12,7 @@
   "launchDate": "2026-05-11T21:00:00.000Z",
   "poolAddress": "ERhozr6u9drmAANXGRNP1oh3quSqPKEwioKH5b8v9Kkt",
   "tvlSol": 180733.588345528,
-  "tvlUsd": 21588627.12787332,
+  "tvlUsd": 21729599.326782834,
   "rateSolPerRkuSol": 1.01818303
  },
  "stakePool": {
@@ -41,6 +41,94 @@
    }
   ]
  },
+ "lstComparison": {
+  "currentEpoch": 1042,
+  "poolsScanned": 1846,
+  "epochSeconds": {
+   "1040": 114985,
+   "1041": 114837
+  },
+  "rows": [
+   {
+    "rank": 1,
+    "symbol": "JitoSOL",
+    "name": "Jito Staked SOL",
+    "mint": "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn",
+    "pool": "Jito4APyf642JPZPx3hGc6WWJ8zPKtRbRs4P815Awbb",
+    "tvlSol": 10378340.22,
+    "feePct": 4,
+    "rate": 1.3030394017098414,
+    "updatedEpoch": 1042,
+    "apyPct": 4.7511,
+    "epoch": 1041
+   },
+   {
+    "rank": 2,
+    "symbol": "BNSOL",
+    "name": "Binance Staked SOL",
+    "mint": "BNso1VUJnh4zcfpZa6986Ea66P6TCp59hvtNJ8b1X85",
+    "pool": "Hr9pzexrBge3vgmBNRR8u42CNQgBXdHm4UkUN2DH4a7r",
+    "tvlSol": 10248880.88,
+    "feePct": 10,
+    "rate": 1.1330745129979363,
+    "updatedEpoch": 1042,
+    "apyPct": 4.7858,
+    "epoch": 1041
+   },
+   {
+    "rank": 3,
+    "symbol": "JupSOL",
+    "name": "Jupiter Staked SOL",
+    "mint": "jupSoLaHXQiZZTSfEWMTRRgpnyFm8f6sZdosWBjx93v",
+    "pool": "8VpRhuxa7sUUepdY3kQiTmX9rS5vx4WgaXiAnXq4KCtr",
+    "tvlSol": 5181781.36,
+    "feePct": 5,
+    "rate": 1.2110553695842063,
+    "updatedEpoch": 1042,
+    "apyPct": 5.5044,
+    "epoch": 1041
+   },
+   {
+    "rank": 4,
+    "symbol": "dSOL",
+    "name": "Drift Staked SOL",
+    "mint": "Dso1bDeDjCQxTrWHqUUi63oBvV7Mdm6WaobLbQ7gnPQ",
+    "pool": "9mhGNSPArRMHpLDMSmxAvuoizBqtBGqYdT8WGuqgxNdn",
+    "tvlSol": 2820619.15,
+    "feePct": 2.5,
+    "rate": 1.2167164064972658,
+    "updatedEpoch": 1042,
+    "apyPct": 5.0641,
+    "epoch": 1041
+   },
+   {
+    "rank": 5,
+    "symbol": "dumSOL",
+    "name": "Dum Staked SOL",
+    "mint": "cPQPBN7WubB3zyQDpzTK2ormx1BMdAym9xkrYUJsctm",
+    "pool": "2iZHumJq19hyCYkD3xFoZ6dbiFbJ5nqbwALMdJBYQsJa",
+    "tvlSol": 2064547.35,
+    "feePct": 2.5,
+    "rate": 1.0508246078851469,
+    "updatedEpoch": 1042,
+    "apyPct": 5.2027,
+    "epoch": 1041
+   },
+   {
+    "rank": 26,
+    "symbol": "rkuSOL",
+    "name": "Raiku Staked SOL",
+    "mint": "rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp",
+    "pool": "ERhozr6u9drmAANXGRNP1oh3quSqPKEwioKH5b8v9Kkt",
+    "tvlSol": 180737.63,
+    "feePct": 2.5,
+    "rate": 1.0181830307023856,
+    "updatedEpoch": 1042,
+    "apyPct": 4.9587,
+    "epoch": 1041
+   }
+  ]
+ },
  "holders": [
   {
    "owner": "61Dz6DkjDbn1seiD2SgDGpQE8V81ip22RyYwVsB9CcNy",
@@ -58,8 +146,8 @@
   },
   {
    "owner": "BFvJqKjuWT6CcvRKE4A4ZvbqZFmu1uxYJpcZ5ko8nkgR",
-   "amountUi": 23936.10364269,
-   "share": 0.13484372061580593,
+   "amountUi": 23935.603654232,
+   "share": 0.13484090393749656,
    "isPda": true,
    "programDerived": true
   },
@@ -1432,18 +1520,18 @@
    "isPda": false
   },
   {
+   "owner": "puiRBGikahXM4C7weFtNRFcs7bSUx8wVn1m5v6RA91o",
+   "amountUi": 6.77680802,
+   "share": 0.00003817705759286798,
+   "isPda": true,
+   "pdaProgram": "sVau1tXvayVWfotzm9Ahcv2qfnnfRWttt78BCnNC6dD",
+   "programDerived": true
+  },
+  {
    "owner": "4HpPjyzGseMep7KpujEHopaxkRErQkPU9qpCnWt77TpB",
    "amountUi": 6.422833029,
    "share": 0.00003618294420232192,
    "isPda": false
-  },
-  {
-   "owner": "puiRBGikahXM4C7weFtNRFcs7bSUx8wVn1m5v6RA91o",
-   "amountUi": 6.276819562,
-   "share": 0.00003536037928347782,
-   "isPda": true,
-   "pdaProgram": "sVau1tXvayVWfotzm9Ahcv2qfnnfRWttt78BCnNC6dD",
-   "programDerived": true
   },
   {
    "owner": "GJrNGzuSLH4ArLmHxNmQzgfbfQsHjJdaWhcjUjPrkmM6",
