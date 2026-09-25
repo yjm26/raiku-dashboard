@@ -24,6 +24,8 @@
   --seg-pool: #c0ff38;
   --seg-wallet: #1b1d1e;
   --seg-rest: #c9ced4;
+  --skeleton: #e9ecef;
+  --skeleton-sheen: rgb(255 255 255 / 0.75);
 }
 
 .dark {
@@ -51,4 +53,6 @@
   --seg-pool: #c0ff38;
   --seg-wallet: #f6f8fa;
   --seg-rest: #454c54;
+  --skeleton: #14171a;
+  --skeleton-sheen: rgb(255 255 255 / 0.05);
 }

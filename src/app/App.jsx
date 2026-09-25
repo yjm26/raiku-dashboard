@@ -11,16 +11,7 @@ import ApyCalculator from './components/ApyCalculator.jsx';
 import ProtocolInfo from './components/ProtocolInfo.jsx';
 import FaqSection from './components/FaqSection.jsx';
 import SiteFooter from './components/SiteFooter.jsx';
-
-function LoadingState() {
-  return <main className="grid min-h-screen place-items-center bg-page px-4 text-ink" aria-busy="true">
-    <div className="text-center" role="status">
-      <div className="mx-auto h-1 w-24 overflow-hidden rounded-full bg-rule"><div className="loading-bar h-full w-1/3 rounded-full bg-accent" /></div>
-      <h1 className="m-0 mt-5 text-[15px] font-medium">Loading dashboard snapshot</h1>
-      <p className="m-0 mt-1 text-[13px] text-muted">Fetching the latest rkuSOL holder data.</p>
-    </div>
-  </main>;
-}
+import LoadingState from './components/LoadingState.jsx';
 
 function ErrorState({ error, onRetry }) {
   return <main className="grid min-h-screen place-items-center bg-page px-4 text-ink" aria-busy="false">
