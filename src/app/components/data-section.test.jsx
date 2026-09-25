@@ -17,5 +17,7 @@ describe('wallet lookup', () => {
     fireEvent.change(screen.getByLabelText('Wallet address'), { target: { value: 'walletabc' } });
     fireEvent.click(screen.getAllByRole('button', { name: 'Search wallet' })[0]);
     expect(screen.getByText('#1')).toBeInTheDocument();
+    expect(screen.getByText('36.00')).toBeInTheDocument(); // points to 2 decimals
+    expect(screen.getByText(/Other leaderboards may count a different set/)).toBeInTheDocument();
   });
 });

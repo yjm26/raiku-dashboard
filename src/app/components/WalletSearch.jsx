@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Tooltip from './Tooltip.jsx';
 import { formatAddress, formatNumber } from '../data.js';
 import { searchWallet } from './app-state.js';
 
@@ -9,12 +10,15 @@ export default function WalletSearch({ rows = [], includesFormer = false }) {
   const [result, setResult] = useState(null);
   const [searched, setSearched] = useState(false);
   function submit(event) { event.preventDefault(); setResult(searchWallet(rows, query)); setSearched(true); }
+  const rankHint = includesFormer
+    ? 'Among personal wallets since launch, including wallets that left. Other leaderboards may count a different set.'
+    : 'Among current personal wallets, by estimated points. Other leaderboards may count a different set.';
   const figures = result ? [
-    ['Rank', `#${result.rank}`],
+    ['Rank', `#${result.rank}`, false, rankHint],
     ['Wallet', formatAddress(result.owner, 6, 6), true],
     ['Balance', `${formatNumber(result.amount)} rkuSOL`],
     ['Days held', formatNumber(result.daysHeld, { maximumFractionDigits: 1 })],
-    ['Estimated points', formatNumber(result.score, { maximumFractionDigits: 0 })],
+    ['Estimated points', formatNumber(result.score, { minimumFractionDigits: 2, maximumFractionDigits: 2 })],
     result.exitMs ? ['Left on', leftOn(result.exitMs)] : ['Daily points', `+${formatNumber(result.amount)}`],
   ] : [];
 
@@ -32,8 +36,8 @@ export default function WalletSearch({ rows = [], includesFormer = false }) {
     </div>
     {searched && (result
       ? <dl className="m-0 mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-rule bg-rule sm:grid-cols-3 lg:grid-cols-6" role="status">
-        {figures.map(([label, value, mono]) => <div className="min-w-0 bg-surface px-4 py-3" key={label}>
-          <dt className="text-[12px] text-muted">{label}</dt>
+        {figures.map(([label, value, mono, hint]) => <div className="min-w-0 bg-surface px-4 py-3" key={label}>
+          <dt className="text-[12px] text-muted">{hint ? <Tooltip label={label} hint={hint} floating /> : label}</dt>
           <dd className={`m-0 mt-1 truncate text-[15px] font-medium tabular-nums text-ink ${mono ? 'font-mono text-[14px]' : ''}`}>{value}</dd>
         </div>)}
       </dl>
