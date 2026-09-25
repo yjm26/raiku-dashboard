@@ -1,3 +1,4 @@
+import { flows, ownerSummary } from './ledger.mjs';
 import { isProgramDerived } from './solana_address.mjs';
 
 const DAY_MS = 86_400_000;
@@ -92,12 +93,20 @@ function labelPda(holder, pdaLabels, programDerived) {
   return 'Closed account';
 }
 
-export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {}, now = Date.now(), history = [] }) {
+export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {}, now = Date.now(), history = [], ledger = null }) {
   if (!holdersData || !Array.isArray(holdersData.holders)) {
     throw new TypeError('holdersData.holders must be an array');
   }
 
   const nowMs = toMilliseconds(now, Date.now());
+  const nowSec = nowMs / 1000;
+  const programs = new Set(ledger?.programs || []);
+  const isLedgerWallet = (owner) => !programs.has(owner) && !isProgramDerived(owner);
+  // Exact figures from the ledger, only when its balance agrees with today's on-chain balance.
+  const fromLedger = (owner, amount) => {
+    const summary = ledger ? ownerSummary(ledger, owner, nowSec) : null;
+    return summary && Math.abs(summary.balance - amount) < 1e-9 ? summary : null;
+  };
   const statsSource = holdersData.stats && typeof holdersData.stats === 'object'
     ? holdersData.stats
     : {};
@@ -112,14 +121,17 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
 
   const rows = holdersData.holders.map((holder) => {
     const amount = asFiniteNumber(holder.amountUi);
-    const firstMs = firstMsOf(holder.owner);
-    const daysHeld = Math.max(0, (nowMs - firstMs) / DAY_MS);
     const sharePct = Number.isFinite(Number(holder.share))
       ? Number(holder.share) * 100
       : (supply ? amount / supply * 100 : 0);
     // Off-curve owners are program-controlled, whatever the input data says.
     const programDerived = isProgramDerived(holder.owner);
     const isPda = Boolean(holder.isPda) || programDerived;
+    // Ledger (personal wallets only, whose histories are complete): points for the balance actually
+    // held each day. Otherwise an estimate from today's balance.
+    const exact = !isPda && isLedgerWallet(holder.owner) ? fromLedger(holder.owner, amount) : null;
+    const firstMs = exact?.firstTime != null ? exact.firstTime * 1000 : firstMsOf(holder.owner);
+    const daysHeld = exact ? exact.daysHeld : Math.max(0, (nowMs - firstMs) / DAY_MS);
 
     return {
       owner: holder.owner,
@@ -128,8 +140,9 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
       isPda,
       firstMs,
       daysHeld,
-      score: amount * daysHeld,
+      score: exact ? exact.points : amount * daysHeld,
       pdaLabel: isPda ? labelPda(holder, pdaLabels, programDerived) : null,
+      ...(ledger ? { exact: Boolean(exact) } : {}),
     };
   });
 
@@ -158,19 +171,34 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     amounts: [...pieReal.map((row) => row.amount), pieOthers],
   };
 
-  const dayCount = Math.max(0, Math.floor((nowMs - launchMs) / DAY_MS));
+  const today = new Date(nowMs).toISOString().slice(0, 10);
   const dailyTimeline = [];
   const holderTimeline = [];
-  for (let day = 0; day <= dayCount; day += 3) {
-    const cutoff = launchMs + day * DAY_MS;
-    dailyTimeline.push({
-      label: new Date(cutoff).toISOString().slice(0, 10),
-      points: dailyPoints * day,
-    });
-    holderTimeline.push({
-      label: new Date(cutoff).toISOString().slice(0, 10),
-      holders: realRows.filter((row) => row.firstMs <= cutoff).length,
-    });
+  let formerHolders = [];
+  if (ledger?.daily?.length) {
+    // True history: wallets holding and points earned by all wallets (including those who left), per day.
+    formerHolders = Object.keys(ledger.owners)
+      .filter((owner) => isLedgerWallet(owner) && ledger.owners[owner].balance === '0')
+      .map((owner) => ownerSummary(ledger, owner, nowSec))
+      .filter((s) => s.points > 0)
+      .sort((a, b) => b.points - a.points || a.owner.localeCompare(b.owner))
+      .map((s, index) => ({ owner: s.owner, rank: index + 1, points: s.points, daysHeld: s.daysHeld, peak: s.peak, firstMs: s.firstTime * 1000, exitMs: s.lastExit * 1000 }));
+    for (const day of ledger.daily) {
+      holderTimeline.push({ label: day.date, holders: day.wallets });
+      dailyTimeline.push({ label: day.date, points: day.points });
+    }
+    holderTimeline.push({ label: today, holders: realWallets });
+    // Today's point uses the same figures as the headline total.
+    dailyTimeline.push({ label: today, points: totalPoints + formerHolders.reduce((total, row) => total + row.points, 0) });
+  } else {
+    // No ledger: estimate from today's holders only (balances assumed constant since first buy).
+    const dayCount = Math.max(0, Math.floor((nowMs - launchMs) / DAY_MS));
+    for (let day = 0; day <= dayCount; day += 3) {
+      const cutoff = launchMs + day * DAY_MS;
+      const label = new Date(cutoff).toISOString().slice(0, 10);
+      dailyTimeline.push({ label, points: realRows.reduce((total, row) => total + row.amount * Math.max(0, (cutoff - row.firstMs) / DAY_MS), 0) });
+      holderTimeline.push({ label, holders: realRows.filter((row) => row.firstMs <= cutoff).length });
+    }
   }
 
   const weekAgo = nowMs - 7 * DAY_MS;
@@ -178,9 +206,22 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     .filter((row) => row.firstMs >= weekAgo)
     .sort(compareByFirstSeenDesc);
   const coverage = {
-    found: realRows.filter((row) => hasUnixTimestamp(firstSeenData?.[row.owner])).length,
+    found: realRows.filter((row) => row.exact || hasUnixTimestamp(firstSeenData?.[row.owner])).length,
     total: realWallets,
   };
+  const formerPoints = formerHolders.reduce((total, row) => total + row.points, 0);
+  const ledgerInfo = ledger ? {
+    since: ledger.daily?.[0]?.date ?? null,
+    transactions: ledger.lastSeq + 1,
+    walletsEver: Object.keys(ledger.owners).filter(isLedgerWallet).length,
+    formerHolders: formerHolders.length,
+    formerPoints,
+    currentPoints: totalPoints,
+    exactRows: realRows.filter((row) => row.exact).length,
+    check: ledger.lastCheck ?? null,
+    chainBreaks: ledger.chainBreaks?.length ?? 0,
+  } : null;
+  const walletFlows = ledger ? { d1: flows(ledger, nowSec, 1, isLedgerWallet), d7: flows(ledger, nowSec, 7, isLedgerWallet) } : null;
   const apyPct = statsSource.latestApy
     ? (Number(statsSource.latestApy) * 100).toFixed(2)
     : null;
@@ -195,7 +236,8 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     officialHolders: statsSource.officialHolders,
     launchDate,
     apyPct,
-    totalPoints,
+    // With the ledger, points earned since launch by every wallet: sellers keep what they earned.
+    totalPoints: ledger ? totalPoints + formerPoints : totalPoints,
     dailyPoints,
     // LST economics (from Raiku API + CoinGecko)
     tvlLamports: statsSource.tvlLamports,
@@ -221,5 +263,8 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     history: Array.isArray(history) ? history : [],
     coverage,
     stakePool: holdersData.stakePool ?? null,
+    formerHolders,
+    flows: walletFlows,
+    ledger: ledgerInfo,
   };
 }

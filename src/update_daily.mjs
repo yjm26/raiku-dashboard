@@ -56,24 +56,26 @@ async function rpc(method, params) {
   throw lastErr || new Error(`${method} failed`);
 }
 
+// Balances plus the slot they were read at (the ledger check compares at that exact slot).
 async function fetchHolderAccounts() {
   const res = await rpc('getProgramAccounts', [
     TOKEN_PROGRAM,
     {
       encoding: 'base64',
+      withContext: true,
       dataSlice: { offset: 32, length: 40 },
       filters: [{ dataSize: 165 }, { memcmp: { offset: 0, bytes: MINT } }],
     },
   ]);
   const out = [];
-  for (const item of res) {
+  for (const item of res.value) {
     const dataB64 = Array.isArray(item.account.data) ? item.account.data[0] : item.account.data;
     const raw = Buffer.from(dataB64, 'base64');
     const owner = b58encode(raw.subarray(0, 32));
     const amount = Number(raw.readBigUInt64LE(32));
     if (amount > 0) out.push({ owner, amount });
   }
-  return out;
+  return { accounts: out, slot: res.context.slot };
 }
 
 async function fetchSolPriceUsd() {
@@ -87,7 +89,7 @@ async function fetchSolPriceUsd() {
 
 (async () => {
   console.log('[1/4] Fetch balances (getProgramAccounts)...');
-  const accounts = await fetchHolderAccounts();
+  const { accounts, slot: balancesSlot } = await fetchHolderAccounts();
   const perOwner = new Map();
   for (const { owner, amount } of accounts) perOwner.set(owner, (perOwner.get(owner) || 0) + amount);
   const supplyRaw = [...perOwner.values()].reduce((a, b) => a + b, 0);
@@ -186,6 +188,15 @@ async function fetchSolPriceUsd() {
     holders,
   };
   fs.writeFileSync(p('holders_full.json'), JSON.stringify(combined, null, 1));
+
+  // Holder ledger: every rkuSOL transaction since launch, checked against the balances above.
+  try {
+    const { updateLedger } = await import('./update_ledger.mjs');
+    const currentBalances = Object.fromEntries([...perOwner].map(([owner, amount]) => [owner, String(amount)]));
+    const result = await updateLedger({ mint: MINT, currentBalances, balancesSlot, now: Math.floor(Date.now() / 1000) });
+    if (result) console.log(`  ledger: +${result.added} tx | mismatches ${result.mismatches.length} | chain breaks ${result.ledger.chainBreaks.length}`);
+    else console.log('  ledger: not built yet, skipped');
+  } catch (e) { console.log('  ledger ERR', e.message); }
 
   // regenerate dashboard
   const { execSync } = await import('node:child_process');

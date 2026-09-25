@@ -33,6 +33,7 @@ function FaqItem({ q, children, defaultOpen = false }) {
 
 export default function FaqSection({ coverage, snapshot }) {
   const stats = snapshot?.stats || {};
+  const ledger = snapshot?.ledger || null;
   const fmt = (v, opts) => (v == null || !Number.isFinite(Number(v))) ? '—' : new Intl.NumberFormat('en-US', opts || { maximumFractionDigits: 0 }).format(Number(v));
   const tvlSol = fmt(stats.tvlSol);
   const rate = stats.rateSolPerRkuSol != null ? Number(stats.rateSolPerRkuSol).toFixed(4) : '—';
@@ -48,11 +49,13 @@ export default function FaqSection({ coverage, snapshot }) {
 
       <div>
         <FaqItem q="How are points calculated?" defaultOpen>
-          <p className="m-0"><strong className="font-medium text-ink">Estimated points = balance × days held</strong> since first acquisition. Points track <strong className="font-medium text-ink">active holders only</strong>, so unstaked wallets stop accruing. Coverage: {coverage?.found ?? 0} of {coverage?.total ?? 0} real wallets tracked.</p>
+          {ledger
+            ? <p className="m-0"><strong className="font-medium text-ink">1 point per rkuSOL per day actually held.</strong> Every wallet&apos;s balance history is rebuilt from all {fmt(ledger.transactions)} rkuSOL transactions since launch, so buying more later or selling part of a position counts from the day it happened. A wallet that sells out stops earning but keeps its points: they stay in the total and on the leaderboard (marked &ldquo;left&rdquo;), and the wallet is listed under <strong className="font-medium text-ink">Former holders</strong>. The rebuilt balances are checked every day against on-chain balances{ledger.check ? ` (latest check: ${ledger.check.mismatches === 0 ? 'all match' : `${ledger.check.mismatches} wallets differ, so they fall back to a balance × days estimate`})` : ''}. These are estimates, not official Raiku points.</p>
+            : <p className="m-0"><strong className="font-medium text-ink">Estimated points = balance × days held</strong> since first acquisition. Points track <strong className="font-medium text-ink">active holders only</strong>, so unstaked wallets stop accruing. Coverage: {coverage?.found ?? 0} of {coverage?.total ?? 0} real wallets tracked.</p>}
         </FaqItem>
 
         <FaqItem q="Where does the data come from?">
-          <p className="m-0"><strong className="font-medium text-ink">On-chain balances</strong> via Solana RPC (getProgramAccounts + getMultipleAccounts). <strong className="font-medium text-ink">Official holders, APY and TVL</strong> from the Raiku staking API. <strong className="font-medium text-ink">SOL price</strong> from CoinGecko. First acquisition per wallet from on-chain signature history.</p>
+          <p className="m-0"><strong className="font-medium text-ink">On-chain balances</strong> via Solana RPC (getProgramAccounts + getMultipleAccounts){ledger ? <>, and <strong className="font-medium text-ink">every rkuSOL transaction since launch</strong> for balance history and former holders</> : null}. <strong className="font-medium text-ink">Official holders, APY and TVL</strong> from the Raiku staking API. <strong className="font-medium text-ink">Staking pool fees and validator</strong> from the stake pool account on-chain. <strong className="font-medium text-ink">SOL price</strong> from CoinGecko.</p>
         </FaqItem>
 
         <FaqItem q="Where does the rkuSOL rate come from?">

@@ -18,7 +18,14 @@ try {
   // History is optional; charts simply stay empty until points accumulate.
 }
 
-const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels, history });
+let ledger = null;
+try {
+  ledger = JSON.parse(fs.readFileSync(p('ledger.json'), 'utf8'));
+} catch {
+  // No ledger yet: points fall back to the balance × days estimate.
+}
+
+const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels, history, ledger });
 const output = `${JSON.stringify(snapshot, null, 2)}\n`;
 fs.mkdirSync(path.dirname(OUT_SNAPSHOT), { recursive: true });
 fs.writeFileSync(OUT_SNAPSHOT, output, 'utf8');

@@ -7,7 +7,7 @@ const SortArrow = ({ active, dir }) => (
   <span className={`ml-1 inline-block w-2.5 ${active ? 'text-ink' : 'text-faint'}`} aria-hidden="true">{active ? (dir === 'desc' ? '↓' : '↑') : '↕'}</span>
 );
 
-function SortableTh({ label, sortKey, onSort, active, dir, hint, className = '' }) {
+export function SortableTh({ label, sortKey, onSort, active, dir, hint, className = '' }) {
   return (
     <th className={`${TH} ${className}`} aria-sort={active ? (dir === 'desc' ? 'descending' : 'ascending') : 'none'}>
       <button type="button" onClick={() => onSort(sortKey)} className="inline-flex items-center font-medium transition-colors hover:text-ink">
@@ -33,7 +33,7 @@ export default function HoldersTable({ rows = [], startRank = 0, sortKey = null,
       <th className={TH}>Wallet</th>
       <SortableTh label="rkuSOL" {...sortProps('amount')} className="text-right" />
       <SortableTh label="Share" {...sortProps('sharePct')} className={`text-right ${OPTIONAL}`} />
-      <SortableTh label="Days held" hint="Days since the wallet first acquired rkuSOL (first on-chain acquisition). Fractional days include hours." {...sortProps('daysHeld')} className={`text-right ${OPTIONAL}`} />
+      <SortableTh label="Days held" hint="Days the wallet has held rkuSOL, from its on-chain history. Gaps when it held none don't count." {...sortProps('daysHeld')} className={`text-right ${OPTIONAL}`} />
       <SortableTh label="Points" {...sortProps('score')} className="text-right" />
     </tr></thead>
     <tbody>{rows.map((r, i) => <tr className="border-t border-rule transition-colors hover:bg-surface-muted" key={r.owner}>

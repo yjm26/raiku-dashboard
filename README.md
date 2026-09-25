@@ -25,10 +25,11 @@ Analytics dashboard for **rkuSOL**, the liquid staking token from [Raiku](https:
 |---|---|---|
 | Supply, holders, balances | Solana RPC (`getProgramAccounts` + `getMultipleAccounts`) | Public endpoints, no API key |
 | Pool/PDA classification | Curve check + program owner check | Off-curve owner (PDA) or owner != System Program → pool/PDA |
-| First acquisition | `getSignaturesForAddress` per token account | Cached in `data/firstseen.json` |
+| Balance history (all wallets since launch) | Every transaction touching the rkuSOL mint, plus each wallet token account's own history (some swaps never name the mint) | Rebuilt in `data/ledger.json`; checked daily against on-chain balances |
 | Official holders, APY, TVL, rate | [Raiku staking API](https://staking-api.mainnet.raiku.sh/v1/lsts) | `/v1/lsts` filtered by mint; rate = `sol_value_lamports` |
+| Staking pool fees, validator | Stake pool account on-chain | Decoded in `src/stake_pool.mjs` |
 | SOL price | CoinGecko API | `simple/price` for solana/usd |
-| Points | Local calculation | `balance × days held` |
+| Points | Local calculation | 1 point per rkuSOL per day actually held (from the ledger) |
 
 ### Live API (Vercel)
 
@@ -41,8 +42,9 @@ Analytics dashboard for **rkuSOL**, the liquid staking token from [Raiku](https:
 
 This dashboard provides **estimates, not official Raiku figures**. Details:
 
-- **Points = current balance × days held** — follows common Solana points-program convention (points stop accruing after unstake). Unstaked wallets (balance 0) are **not** counted — by design, consistent with how most points programs work.
-- **Days held** = days since a wallet's first acquisition (from per-account on-chain history). Accurate for ~100% of real wallets (coverage shown in the UI).
+- **Points = 1 per rkuSOL per day actually held**, from each wallet's balance history since launch. A wallet that sells out stops earning but keeps its points; it stays in the total and on the leaderboard ("left") and is listed under Former holders. If a wallet's rebuilt balance ever disagrees with the chain, that wallet falls back to `balance × days held` and the FAQ shows how many.
+- **Days held** = total days the wallet held any rkuSOL (gaps with a zero balance don't count).
+- **Ledger verification (2026-09-25 backfill)**: 22,513 transactions; every personal wallet's history chains with no gaps, all 952 current balances match the chain, and replaying the history reproduces the balances in all 38 daily snapshots since Aug 19 (one difference: a sale 7 s before a snapshot was stamped).
 - **Real wallets vs Holders**: "Holders" counts every token-account owner (including pools/PDAs). "Real wallets" only counts personal wallets: on-curve, System-Program-owned addresses. Program-derived addresses (lending markets, vaults, multisigs) are excluded even when they hold SOL or have no account. Most of the supply sits in pool/program accounts (normal for an LST).
 - **Solscan match**: dashboard total holders ≈ Solscan (1001+), since both count all token accounts.
 - Data is public on-chain data; verify independently before making decisions.

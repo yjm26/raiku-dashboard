@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { formatCompact, formatNumber, loadDashboardSnapshot } from './data.js';
+import { formatCompact, formatNumber, leaderboardRows, loadDashboardSnapshot } from './data.js';
 import AppShell from './components/AppShell.jsx';
 import TopBar from './components/TopBar.jsx';
 import DashboardHeader from './components/DashboardHeader.jsx';
@@ -47,12 +47,15 @@ export default function App() {
   const tvlSolValue = Number(stats.tvlSol); const hasTvl = Number.isFinite(tvlSolValue) && tvlSolValue > 0;
   const tvlUsdValue = Number(stats.tvlUsd ?? (tvlSolValue * Number(stats.solPriceUsd)));
   const rateValue = Number(stats.rateSolPerRkuSol); const rateLabel = Number.isFinite(rateValue) && rateValue > 0 ? `${formatNumber(rateValue, { minimumFractionDigits: 4, maximumFractionDigits: 4 })} SOL` : '—';
-  const pointsTrend = (snapshot.dailyTimeline || []).slice(-12).map((entry) => entry?.points);
+  // Same measure as the figure above it (with the ledger: all points earned so far, daily).
+  const pointsTrend = (snapshot.dailyTimeline || []).slice(snapshot.ledger ? -30 : -12).map((entry) => entry?.points);
+  // With the ledger, wallets that sold out stay on the leaderboard with the points they earned.
+  const pointsRows = snapshot.ledger ? leaderboardRows(snapshot.realRows, snapshot.formerHolders) : snapshot.realRows;
   const primary = [
     { label: 'Supply', value: formatNumber(stats.supply, { maximumFractionDigits: 0 }), unit: 'rkuSOL', detail: 'in circulation', hint: 'Total rkuSOL tokens in circulation, from on-chain token accounts. This is the token count (rkuSOL), not the staked value in SOL.', change: dailyChange(history, 'supply'), changeDigits: 2, trend: recent(history, 'supply') },
     { label: 'TVL', value: hasTvl ? formatNumber(tvlSolValue, { maximumFractionDigits: 0 }) : '—', unit: hasTvl ? 'SOL' : null, detail: Number.isFinite(tvlUsdValue) && tvlUsdValue > 0 ? `≈ $${formatCompact(tvlUsdValue, 2)}` : 'total value locked', hint: 'Total SOL staked via rkuSOL, from the Raiku staking API. TVL = supply × rate — different unit (SOL) from supply (rkuSOL), so the numbers differ.', change: dailyChange(history, 'tvlSol'), trend: recent(history, 'tvlSol') },
     { label: 'Real wallets', value: formatNumber(stats.realWallets, { maximumFractionDigits: 0 }), detail: 'excl. pools and programs', hint: 'Personal wallets only. Addresses controlled by programs (pools, lending markets, vaults, multisigs) are excluded and labeled in the holder table.', change: dailyChange(history, 'realWallets'), trend: recent(history, 'realWallets') },
-    { label: 'Total estimated points', value: formatNumber(stats.totalPoints, { maximumFractionDigits: 0 }), detail: Number.isFinite(Number(stats.dailyPoints)) ? `+${formatNumber(stats.dailyPoints, { maximumFractionDigits: 0 })} a day` : 'across active holders', hint: 'Sum of balance × days held for all active holders. An estimate, not an official Raiku figure.', trend: pointsTrend },
+    { label: 'Total estimated points', value: formatNumber(stats.totalPoints, { maximumFractionDigits: 0 }), detail: Number.isFinite(Number(stats.dailyPoints)) ? `+${formatNumber(stats.dailyPoints, { maximumFractionDigits: 0 })} a day` : 'across active holders', hint: snapshot.ledger ? 'Points earned since launch by every wallet: 1 point per rkuSOL per day actually held. Wallets that sold out keep what they earned, so they count here too. An estimate, not an official Raiku figure.' : 'Sum of balance × days held for all active holders. An estimate, not an official Raiku figure.', trend: pointsTrend },
   ];
   const secondary = [
     { label: 'APY', value: apyLabel, hint: 'Annual yield reported by the Raiku staking API. Daily yield ≈ APY ÷ 365.' },
@@ -66,9 +69,9 @@ export default function App() {
     <main className="app-main min-w-0" aria-busy="false">
       <DashboardHeader snapshot={snapshot} />
       <MetricGroup primary={primary} secondary={secondary} />
-      <WalletSearch rows={snapshot.realRows} />
+      <WalletSearch rows={pointsRows} includesFormer={Boolean(snapshot.ledger)} />
       <InsightGrid snapshot={snapshot} />
-      <DataSection rows={snapshot.realRows} allRows={snapshot.allRows} />
+      <DataSection rows={pointsRows} allRows={snapshot.allRows} former={snapshot.ledger ? snapshot.formerHolders || [] : null} />
       <ApyHistory history={history} />
       <StakePoolCard pool={snapshot.stakePool} />
       <ApyCalculator snapshot={snapshot} />

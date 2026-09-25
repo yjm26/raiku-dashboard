@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { formatAddress, formatNumber } from '../data.js';
 import { searchWallet } from './app-state.js';
 
-export default function WalletSearch({ rows = [] }) {
+const leftOn = (ms) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(ms));
+
+export default function WalletSearch({ rows = [], includesFormer = false }) {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState(null);
   const [searched, setSearched] = useState(false);
@@ -13,7 +15,7 @@ export default function WalletSearch({ rows = [] }) {
     ['Balance', `${formatNumber(result.amount)} rkuSOL`],
     ['Days held', formatNumber(result.daysHeld, { maximumFractionDigits: 1 })],
     ['Estimated points', formatNumber(result.score, { maximumFractionDigits: 0 })],
-    ['Daily points', `+${formatNumber(result.amount)}`],
+    result.exitMs ? ['Left on', leftOn(result.exitMs)] : ['Daily points', `+${formatNumber(result.amount)}`],
   ] : [];
 
   return <section className="panel mt-8 p-4 sm:p-5" aria-labelledby="lookup-title">
@@ -37,7 +39,9 @@ export default function WalletSearch({ rows = [] }) {
       </dl>
       : <div className="mt-4 rounded-lg border border-rule bg-surface-muted px-4 py-3" role="status">
         <p className="m-0 text-[14px] text-ink">No matching wallet found in this snapshot.</p>
-        <p className="m-0 mt-1 text-[13px] text-muted">The wallet may have unstaked or moved its rkuSOL, or the address belongs to a pool or program. Only current holders are tracked.</p>
+        <p className="m-0 mt-1 text-[13px] text-muted">{includesFormer
+          ? 'No personal wallet with rkuSOL history since launch matches that address. Pools and program accounts are not listed here.'
+          : 'The wallet may have unstaked or moved its rkuSOL, or the address belongs to a pool or program. Only current holders are tracked.'}</p>
       </div>)}
   </section>;
 }

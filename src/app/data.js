@@ -61,6 +61,16 @@ export function formatCompact(value, maximumFractionDigits = 1) {
 }
 
 /**
+ * Points leaderboard: current holders plus wallets that sold out (they keep their points), by points.
+ */
+export function leaderboardRows(realRows = [], formerHolders = []) {
+  const former = formerHolders.map((row) => ({ owner: row.owner, amount: 0, daysHeld: row.daysHeld, score: row.points, isPda: false, firstMs: row.firstMs, exitMs: row.exitMs }));
+  return [...realRows, ...former]
+    .sort((a, b) => b.score - a.score || a.owner.localeCompare(b.owner))
+    .map((row, index) => ({ ...row, rank: index + 1 }));
+}
+
+/**
  * Daily APY points from snapshot history (APY stored as a fraction), oldest first.
  */
 export function apySeries(history = []) {
