@@ -8,7 +8,6 @@ import WalletSearch from './components/WalletSearch.jsx';
 import InsightGrid from './components/InsightGrid.jsx';
 import DataSection from './components/DataSection.jsx';
 import ApyHistory from './components/ApyHistory.jsx';
-import LstComparison from './components/LstComparison.jsx';
 import StakePoolCard from './components/StakePoolCard.jsx';
 import ApyCalculator from './components/ApyCalculator.jsx';
 import ProtocolInfo from './components/ProtocolInfo.jsx';
@@ -74,7 +73,6 @@ export default function App() {
       <InsightGrid snapshot={snapshot} />
       <DataSection rows={pointsRows} allRows={snapshot.allRows} former={snapshot.ledger ? snapshot.formerHolders || [] : null} />
       <ApyHistory history={history} />
-      <LstComparison comparison={snapshot.lstComparison} mint={snapshot.mint} />
       <StakePoolCard pool={snapshot.stakePool} />
       <ApyCalculator snapshot={snapshot} />
       <div className="mt-14 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]"><ProtocolInfo /><FaqSection coverage={snapshot.coverage} snapshot={snapshot} /></div>
