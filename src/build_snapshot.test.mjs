@@ -57,3 +57,13 @@ test('buildSnapshot keeps program-derived owners out of real wallets', () => {
   assert.equal(program.isPda, true);
   assert.equal(program.pdaLabel, 'Program account');
 });
+
+test('buildSnapshot names identified program accounts', () => {
+  const kamino = '2NhLJRL9AeooN1DYv5b2LrcyCqZZbvrPp16N4gAjQEWk';
+  const snapshot = buildSnapshot({
+    holdersData: { supplyUi: 10, holders: [{ owner: kamino, amountUi: 10, share: 1, isPda: false }] },
+    now: Date.parse('2026-01-04T00:00:00.000Z'),
+  });
+  assert.equal(snapshot.stats.realWallets, 0);
+  assert.equal(snapshot.allRows[0].pdaLabel, 'Kamino (Raiku Market)');
+});

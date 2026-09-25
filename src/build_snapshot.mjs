@@ -52,11 +52,12 @@ const compareByFirstSeenDesc = (left, right) => (
 const PROGRAM_LABELS = {
   'SP12tWFxD9oJsVWNavTTBZvMbA6gkAmxtVgxdqvyvhY': 'Sanctum Pool',
   'SPMBzsVUuoHB4Nb2nTvM5RDNpLwG4P7f3fFfLqVjQqo': 'Sanctum Validator',
-  'XP1BRLn8eCYSygrd8er5P4GKdzqKbC3DLoSsS5UYVZy': 'Sanctum Pool',
+  // Exponent Finance: SY wrapper, PT/YT market, vaults (security.txt / shared upgrade authority)
+  'XP1BRLn8eCYSygrd8er5P4GKdzqKbC3DLoSsS5UYVZy': 'Exponent',
+  'XPC1MM4dYACDfykNuXYZ5una2DsMDWL24CrYubCvarC': 'Exponent',
+  'sVau1tXvayVWfotzm9Ahcv2qfnnfRWttt78BCnNC6dD': 'Exponent vault',
   '5ocnV1qiCgaQR8Jb8xWnVbApfaygJ8tNoZfgPwsgx9kx': 'Sanctum',
   '1oopBoJG58DgkUVKkEzKgyG9dvRmpgeEm1AVjoHkF78': 'Pool (1oopBoJ)',
-  'XPC1MM4dYACDfykNuXYZ5una2DsMDWL24CrYubCvarC': 'Jupiter',
-  'sVau1tXvayVWfotzm9Ahcv2qfnnfRWttt78BCnNC6dD': 'Solv/other pool',
   'T1TANpTeScyeqVzzgNViGDNrkQ6qHz9KrSBS4aNXvGT': 'Titan',
   'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4': 'Jupiter',
   'CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK': 'Raydium CLMM',
@@ -65,8 +66,17 @@ const PROGRAM_LABELS = {
   '11111111111111111111111111111111': 'System Program',
 };
 
-// Individual accounts identified on-chain → human label
-const ACCOUNT_LABELS = {};
+// Individual accounts identified on-chain (PDA re-derived from its seeds) → human label
+const ACCOUNT_LABELS = {
+  '2NhLJRL9AeooN1DYv5b2LrcyCqZZbvrPp16N4gAjQEWk': 'Kamino (Raiku Market)',
+  'BFvJqKjuWT6CcvRKE4A4ZvbqZFmu1uxYJpcZ5ko8nkgR': 'Exponent vault',
+  'H3T2vjWyDKG25JfgpggQrrkCivDa3iFQ7ueS5ifqaT8s': 'Kamino Farms',
+  '8JS6XsMPo2u3EyeeY3p2jvzHEhdUtCKgarHpJ3PAonyv': 'Stake pool manager',
+  'EngNMbabvVgioqmxtU2VdSZhTEBX431Lf7UC4Q32SYJj': 'Squads multisig',
+  '9nBb3ovsUsDcNxdJ3sSFCEAgwTTbuwTiqYe5JUEu3uuN': 'Squads multisig',
+  'DheMp3RPekY4sfym67RrvHoCnyS1sMv8D23AR8tqweW7': 'Squads multisig',
+  '7fXDVWu2VaD51ipnm1N7C2U19bzWzuxb3Mz9fYEdQnmn': 'Squads multisig',
+};
 
 function labelPda(holder, pdaLabels, programDerived) {
   // 1. Identified account
