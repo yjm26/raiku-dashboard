@@ -10,7 +10,7 @@ const signed = (value) => `${value >= 0 ? '+' : '−'}${formatNumber(Math.abs(va
 export default function HolderFlowsCard({ flows }) {
   const [range, setRange] = useState('d7');
   const f = flows[range];
-  const movers = [...f.topIn.slice(0, 3), ...f.topOut.slice(0, 3)];
+  const movers = [...f.topIn.slice(0, 5), ...f.topOut.slice(0, 5)];
   const figures = [
     ['Joined', f.joined.count, signed(f.joined.amount), 'Wallets that held no rkuSOL at the start of the period and hold some now.'],
     ['Left', f.exited.count, signed(-f.exited.amount), 'Wallets that held rkuSOL at the start of the period and hold none now.'],

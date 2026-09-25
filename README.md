@@ -28,6 +28,7 @@ Analytics dashboard for **rkuSOL**, the liquid staking token from [Raiku](https:
 | Balance history (all wallets since launch) | Every transaction touching the rkuSOL mint, plus each wallet token account's own history (some swaps never name the mint) | Rebuilt in `data/ledger.json`; checked daily against on-chain balances |
 | Official holders, APY, TVL, rate | [Raiku staking API](https://staking-api.mainnet.raiku.sh/v1/lsts) | `/v1/lsts` filtered by mint; rate = `sol_value_lamports` |
 | Staking pool fees, validator | Stake pool account on-chain | Decoded in `src/stake_pool.mjs` |
+| LST comparison | Every stake pool on the SPL, Sanctum SPL and Sanctum SPL Multi programs | Ranked by SOL staked; APY = rate change at the pool's last update, annualized over the measured epoch length (`src/lst_compare.mjs`). Names from `data/lst_registry.json` (Sanctum LST list) |
 | SOL price | CoinGecko API | `simple/price` for solana/usd |
 | Points | Local calculation | 1 point per rkuSOL per day actually held (from the ledger) |
 

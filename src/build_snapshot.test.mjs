@@ -112,3 +112,22 @@ test('buildSnapshot names identified program accounts', () => {
   assert.equal(snapshot.stats.realWallets, 0);
   assert.equal(snapshot.allRows[0].pdaLabel, 'Kamino (Raiku Market)');
 });
+
+test('buildSnapshot groups personal wallets by balance, lower bound included', () => {
+  const amounts = [0.5, 1, 9.99, 10, 150, 1000];
+  const snapshot = buildSnapshot({
+    holdersData: {
+      fetchedAt: '2026-01-04T00:00:00.000Z',
+      supplyUi: 6171.49,
+      stats: { launchDate: '2026-01-01T00:00:00.000Z' },
+      holders: [
+        ...amounts.map((amountUi, i) => ({ owner: `wallet-${i}`, amountUi, isPda: false })),
+        { owner: 'pool', amountUi: 5000, isPda: true },
+      ],
+    },
+    now: Date.parse('2026-01-04T00:00:00.000Z'),
+  });
+
+  assert.deepEqual(snapshot.holderSizes.map(({ min, max, wallets }) => [min, max, wallets]), [[0, 1, 1], [1, 10, 2], [10, 100, 1], [100, 1000, 1], [1000, null, 1]]);
+  assert.equal(snapshot.holderSizes[1].amount, 10.99);
+});

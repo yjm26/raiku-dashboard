@@ -3,6 +3,8 @@ import { isProgramDerived } from './solana_address.mjs';
 
 const DAY_MS = 86_400_000;
 const DEFAULT_LAUNCH_DATE = '2026-05-11T21:00:00Z';
+// Personal-wallet balance buckets, in rkuSOL: [min, max).
+const SIZE_BUCKETS = [[0, 1], [1, 10], [10, 100], [100, 1000], [1000, null]];
 
 const asFiniteNumber = (value, fallback = 0) => {
   const number = Number(value);
@@ -158,6 +160,11 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
   const totalPoints = realRows.reduce((total, row) => total + row.score, 0);
   const dailyPoints = realRows.reduce((total, row) => total + row.amount, 0);
 
+  const holderSizes = SIZE_BUCKETS.map(([min, max]) => {
+    const inBucket = realRows.filter((row) => row.amount >= min && (max == null || row.amount < max));
+    return { min, max, wallets: inBucket.length, amount: inBucket.reduce((total, row) => total + row.amount, 0) };
+  });
+
   const pieReal = [...realRows].sort(compareByAmount).slice(0, 10);
   const pieRealOwners = new Set(pieReal.map((row) => row.owner));
   const pieOthers = realRows
@@ -263,6 +270,8 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     history: Array.isArray(history) ? history : [],
     coverage,
     stakePool: holdersData.stakePool ?? null,
+    lstComparison: holdersData.lstComparison ?? null,
+    holderSizes,
     formerHolders,
     flows: walletFlows,
     ledger: ledgerInfo,

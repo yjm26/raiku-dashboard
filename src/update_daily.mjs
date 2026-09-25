@@ -4,6 +4,7 @@ import { p, SRC } from './paths.mjs';
 import { exchangeRate, fetchRaikuStats, fetchRaikuValidator } from './raiku_api.mjs';
 import { isProgramDerived } from './solana_address.mjs';
 import { fetchStakePool } from './stake_pool.mjs';
+import { fetchLstComparison } from './lst_compare.mjs';
 
 // Daily update: refresh balances (1 RPC call), reuse cached firstSeen (never changes),
 // regenerate public/data/dashboard.json. Run: node src/update_daily.mjs
@@ -149,6 +150,13 @@ async function fetchSolPriceUsd() {
     console.log(`  stake pool: fee ${stakePool?.fees.rewardsPct}% | validators ${stakePool?.validators.length} | epoch ${stakePool?.lastUpdateEpoch}`);
   } catch (e) { console.log('  stake pool ERR', e.message); }
 
+  // The largest stake-pool LSTs next to rkuSOL, all read from their pool accounts; optional.
+  let lstComparison = null;
+  try {
+    lstComparison = await fetchLstComparison({ highlightMint: MINT });
+    console.log(`  LSTs: ${lstComparison.poolsScanned} pools scanned | ${lstComparison.rows.map((r) => `#${r.rank} ${r.symbol ?? r.mint} ${r.apyPct?.toFixed(2)}%`).join(' | ')}`);
+  } catch (e) { console.log('  LST comparison ERR', e.message); }
+
   console.log('[4/4] Build holders_full + regenerate dashboard...');
   const holders = [...perOwner.entries()].map(([owner, amt]) => {
     const prog = info[owner]?.program;
@@ -185,6 +193,7 @@ async function fetchSolPriceUsd() {
       rateSolPerRkuSol: exchangeRate(stats, supplyUi),
     },
     stakePool,
+    lstComparison,
     holders,
   };
   fs.writeFileSync(p('holders_full.json'), JSON.stringify(combined, null, 1));

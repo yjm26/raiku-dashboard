@@ -1,4 +1,5 @@
 import ExternalLink from './ExternalLink.jsx';
+import Tooltip from './Tooltip.jsx';
 import { formatAddress, formatNumber } from '../data.js';
 
 const KINDS = {
@@ -8,6 +9,42 @@ const KINDS = {
 };
 
 const pct = (value) => `${formatNumber(value, { maximumFractionDigits: 1 })}%`;
+const share = (value) => (value > 0 && value < 0.1 ? '<0.1%' : pct(value));
+const whole = (value) => formatNumber(value, { maximumFractionDigits: 0 });
+const sizeLabel = ({ min, max }) => (max == null ? `${whole(min)}+` : min === 0 ? `Under ${whole(max)}` : `${whole(min)}–${whole(max)}`);
+
+function Share({ value, part }) {
+  return <>
+    <span className="flex items-baseline justify-between gap-2 tabular-nums"><span className="text-ink">{value}</span><span className="text-[12px] text-muted">{share(part)}</span></span>
+    <span className="mt-1.5 block h-1 rounded-full bg-rule"><span className="block h-full rounded-full bg-[var(--chart-line)]" style={{ width: `${part}%`, minWidth: part > 0 ? 2 : 0 }} /></span>
+  </>;
+}
+
+// Personal wallets grouped by balance: how many there are and how much of the wallet-held rkuSOL they hold.
+function WalletSizes({ sizes }) {
+  const wallets = sizes.reduce((total, size) => total + size.wallets, 0);
+  const amount = sizes.reduce((total, size) => total + size.amount, 0);
+  if (!wallets) return null;
+  return <div className="mt-5 border-t border-rule pt-4">
+    <header className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+      <h4 className="m-0 text-[13px] font-semibold text-ink">Wallet sizes</h4>
+      <p className="m-0 text-[12px] text-muted">{whole(wallets)} personal wallets by balance</p>
+    </header>
+    <table className="mt-1 w-full border-collapse text-[13px]">
+      <caption className="sr-only">Personal wallets by rkuSOL balance</caption>
+      <thead className="text-left text-[12px] text-muted"><tr>
+        <th scope="col" className="py-2 pr-4 font-medium"><Tooltip label="Balance" hint="rkuSOL in the wallet. Each range includes its lower number, not the upper one." placement="bottom" /></th>
+        <th scope="col" className="py-2 pr-4 font-medium">Wallets</th>
+        <th scope="col" className="py-2 font-medium"><Tooltip label="rkuSOL" hint="rkuSOL held by the wallets in each range, and their share of all rkuSOL in personal wallets." placement="bottom" align="end" /></th>
+      </tr></thead>
+      <tbody>{sizes.map((size) => <tr key={size.min} className="border-t border-rule">
+        <th scope="row" className="whitespace-nowrap py-2.5 pr-4 text-left font-normal text-ink">{sizeLabel(size)}</th>
+        <td className="w-[38%] py-2.5 pr-4"><Share value={whole(size.wallets)} part={size.wallets / wallets * 100} /></td>
+        <td className="w-[38%] py-2.5"><Share value={formatNumber(size.amount)} part={amount ? size.amount / amount * 100 : 0} /></td>
+      </tr>)}</tbody>
+    </table>
+  </div>;
+}
 
 // Accounts holding at least 1% of supply get their own segment; everyone else shares one.
 function buildSegments(snapshot) {
@@ -67,5 +104,6 @@ export default function DistributionCard({ snapshot }) {
         </tr>)}</tbody>
       </table>
     </> : null}
+    {snapshot?.holderSizes ? <WalletSizes sizes={snapshot.holderSizes} /> : null}
   </section>;
 }
