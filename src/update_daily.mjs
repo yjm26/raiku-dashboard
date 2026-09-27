@@ -198,6 +198,14 @@ async function fetchSolPriceUsd() {
     else console.log('  ledger: not built yet, skipped');
   } catch (e) { console.log('  ledger ERR', e.message); }
 
+  // Staked YT-rkuSOL on Exponent, checked against the live positions.
+  try {
+    const { updateYtLedger } = await import('./update_yt_ledger.mjs');
+    const result = await updateYtLedger({ now: Math.floor(Date.now() / 1000) });
+    if (result) console.log(`  YT ledger: +${result.added} tx | mismatches ${result.mismatches.length} | breaks ${result.ledger.breaks.length}`);
+    else console.log('  YT ledger: not built yet, skipped');
+  } catch (e) { console.log('  YT ledger ERR', e.message); }
+
   // regenerate dashboard
   const { execSync } = await import('node:child_process');
   execSync(`node "${SRC}/generate_dashboard3.mjs"`, { stdio: 'inherit' });

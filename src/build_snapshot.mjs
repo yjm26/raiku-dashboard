@@ -1,8 +1,11 @@
 import { flows, ownerSummary } from './ledger.mjs';
+import { ytHolders } from './yt_ledger.mjs';
 import { isProgramDerived } from './solana_address.mjs';
 
 const DAY_MS = 86_400_000;
 const DEFAULT_LAUNCH_DATE = '2026-05-11T21:00:00Z';
+// Exponent lists a 3x Raiku points boost for staked YT: an estimate, not an official Raiku figure.
+const YT_POINTS_PER_DAY = 3;
 // Personal-wallet balance buckets, in rkuSOL: [min, max).
 const SIZE_BUCKETS = [[0, 1], [1, 10], [10, 100], [100, 1000], [1000, null]];
 
@@ -95,7 +98,7 @@ function labelPda(holder, pdaLabels, programDerived) {
   return 'Closed account';
 }
 
-export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {}, now = Date.now(), history = [], ledger = null }) {
+export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {}, now = Date.now(), history = [], ledger = null, ytLedger = null }) {
   if (!holdersData || !Array.isArray(holdersData.holders)) {
     throw new TypeError('holdersData.holders must be an array');
   }
@@ -228,6 +231,24 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     check: ledger.lastCheck ?? null,
     chainBreaks: ledger.chainBreaks?.length ?? 0,
   } : null;
+  // Staked YT-rkuSOL on Exponent per personal wallet, from the YT ledger.
+  const ytRows = ytLedger
+    ? ytHolders(ytLedger, nowSec)
+      .filter((row) => isLedgerWallet(row.owner) && row.ytDays > 0)
+      .map((row) => ({ owner: row.owner, yt: row.yt, ytDays: row.ytDays, points: row.ytDays * YT_POINTS_PER_DAY, firstMs: row.first * 1000 }))
+      .sort((a, b) => b.points - a.points || a.owner.localeCompare(b.owner))
+    : [];
+  const yt = ytLedger ? {
+    maturityMs: ytLedger.maturity * 1000,
+    pointsPerYtDay: YT_POINTS_PER_DAY,
+    transactions: ytLedger.transactions,
+    check: ytLedger.lastCheck ?? null,
+    breaks: ytLedger.breaks.length,
+    escrowMismatches: ytLedger.txMismatches.length,
+    stakedNow: ytRows.reduce((total, row) => total + row.yt, 0),
+    points: ytRows.reduce((total, row) => total + row.points, 0),
+    holders: ytRows,
+  } : null;
   const walletFlows = ledger ? { d1: flows(ledger, nowSec, 1, isLedgerWallet), d7: flows(ledger, nowSec, 7, isLedgerWallet) } : null;
   const apyPct = statsSource.latestApy
     ? (Number(statsSource.latestApy) * 100).toFixed(2)
@@ -271,6 +292,7 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     coverage,
     stakePool: holdersData.stakePool ?? null,
     holderSizes,
+    yt,
     formerHolders,
     flows: walletFlows,
     ledger: ledgerInfo,

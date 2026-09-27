@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import HoldersTable from './HoldersTable.jsx';
 import PointsTable from './PointsTable.jsx';
 import FormerHoldersTable from './FormerHoldersTable.jsx';
+import YtTable from './YtTable.jsx';
 import SectionHeader from './SectionHeader.jsx';
 
 const PAGE_SIZE = 20;
@@ -37,17 +38,17 @@ function usePagedRows(rows, filter, typeFilter, sortKey, sortDir, page) {
   return { filtered, pageRows, totalPages, safePage };
 }
 
-const tabClass = (active) => `-mb-px border-b-2 px-0.5 pb-3 pt-1 text-[14px] font-medium transition-colors ${active ? 'border-accent-line text-ink' : 'border-transparent text-muted hover:text-ink'}`;
-const COUNT_LABEL = { holders: 'accounts', points: 'wallets', former: 'former holders' };
+const tabClass = (active) => `-mb-px shrink-0 whitespace-nowrap border-b-2 px-0.5 pb-3 pt-1 text-[14px] font-medium transition-colors ${active ? 'border-accent-line text-ink' : 'border-transparent text-muted hover:text-ink'}`;
+const COUNT_LABEL = { holders: 'accounts', points: 'wallets', former: 'former holders', yt: 'wallets' };
 
-export default function DataSection({ rows = [], allRows = [], former = null }) {
+export default function DataSection({ rows = [], allRows = [], former = null, yt = null }) {
   const [tab, setTab] = useState('holders');
   const [filter, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [page, setPage] = useState(1);
   const [sortKey, setSortKey] = useState(null);
   const [sortDir, setSortDir] = useState('desc');
-  const rowsSource = tab === 'former' ? former || [] : tab === 'holders' && allRows.length ? allRows : rows;
+  const rowsSource = tab === 'yt' ? yt?.holders || [] : tab === 'former' ? former || [] : tab === 'holders' && allRows.length ? allRows : rows;
 
   function changeTab(next) {
     setTab(next);
@@ -86,17 +87,20 @@ export default function DataSection({ rows = [], allRows = [], former = null }) 
         </div>
       </SectionHeader>
       <div className="flex flex-wrap items-end justify-between gap-x-4 border-b border-rule">
-        <div className="flex gap-6 overflow-x-auto" role="tablist" aria-label="Holder data views">
+        <div className="flex min-w-0 max-w-full gap-6 overflow-x-auto" role="tablist" aria-label="Holder data views">
           <button role="tab" aria-selected={tab === 'holders'} className={tabClass(tab === 'holders')} onClick={() => changeTab('holders')}>All holders</button>
           <button role="tab" aria-selected={tab === 'points'} className={tabClass(tab === 'points')} onClick={() => changeTab('points')}>Points leaderboard</button>
           {former ? <button role="tab" aria-selected={tab === 'former'} className={tabClass(tab === 'former')} onClick={() => changeTab('former')}>Former holders</button> : null}
+          {yt ? <button role="tab" aria-selected={tab === 'yt'} className={tabClass(tab === 'yt')} onClick={() => changeTab('yt')}>YT on Exponent</button> : null}
         </div>
         <span className="pb-3 text-[13px] tabular-nums text-muted">{filtered.length.toLocaleString()} {COUNT_LABEL[tab]}</span>
       </div>
       {tab === 'former' ? <p className="m-0 mt-3 text-[13px] text-muted">Wallets that held rkuSOL at some point since launch and hold none today. Points are what they earned while holding.</p> : null}
+      {tab === 'yt' ? <p className="m-0 mt-3 text-[13px] text-muted">Wallets that staked YT-rkuSOL on Exponent since the market opened. YT points are an estimate and are not part of the points leaderboard.</p> : null}
       {tab === 'holders' ? <HoldersTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
         : tab === 'points' ? <PointsTable rows={pageRows} startRank={startRank} exact={Boolean(former)} />
-          : <FormerHoldersTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />}
+          : tab === 'yt' ? <YtTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} pointsPerDay={yt.pointsPerYtDay} matured={Date.now() >= yt.maturityMs} />
+            : <FormerHoldersTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />}
       <nav className="mt-3 flex items-center justify-between gap-3" aria-label="Holder data pagination">
         <span className="text-[13px] tabular-nums text-muted">Page {safePage} of {totalPages}</span>
         <div className="flex gap-2">

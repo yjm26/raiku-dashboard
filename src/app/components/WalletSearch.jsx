@@ -5,21 +5,32 @@ import { searchWallet } from './app-state.js';
 
 const leftOn = (ms) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(ms));
 
-export default function WalletSearch({ rows = [], includesFormer = false }) {
+export default function WalletSearch({ rows = [], includesFormer = false, yt = null }) {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState(null);
   const [searched, setSearched] = useState(false);
-  function submit(event) { event.preventDefault(); setResult(searchWallet(rows, query)); setSearched(true); }
+  function submit(event) {
+    event.preventDefault();
+    // A wallet may hold YT without ever holding rkuSOL itself (bought with SOL on Exponent).
+    const ytOnly = searchWallet(yt?.holders || [], query);
+    setResult(searchWallet(rows, query) ?? (ytOnly ? { owner: ytOnly.owner, amount: 0, daysHeld: 0, score: 0, rank: null } : null));
+    setSearched(true);
+  }
+  const ytRow = result && yt ? yt.holders.find((row) => row.owner === result.owner) : null;
   const rankHint = includesFormer
     ? 'Among personal wallets since launch, including wallets that left. Other leaderboards may count a different set.'
     : 'Among current personal wallets, by estimated points. Other leaderboards may count a different set.';
   const figures = result ? [
-    ['Rank', `#${result.rank}`, false, rankHint],
+    ['Rank', result.rank ? `#${result.rank}` : '—', false, rankHint],
     ['Wallet', formatAddress(result.owner, 6, 6), true],
     ['Balance', `${formatNumber(result.amount)} rkuSOL`],
     ['Days held', formatNumber(result.daysHeld, { maximumFractionDigits: 1 })],
     ['Estimated points', formatNumber(result.score, { minimumFractionDigits: 2, maximumFractionDigits: 2 })],
     result.exitMs ? ['Left on', leftOn(result.exitMs)] : ['Daily points', `+${formatNumber(result.amount)}`],
+    ...(ytRow ? [
+      ['YT staked', `${formatNumber(ytRow.yt)} YT`, false, 'YT-rkuSOL this wallet has staked on Exponent now.'],
+      ['YT points', formatNumber(ytRow.points, { minimumFractionDigits: 2, maximumFractionDigits: 2 }), false, `Estimate: ${yt.pointsPerYtDay} points per staked YT per day, the Raiku boost Exponent lists for YT. Raiku hasn't published how it counts YT, so these aren't included in Estimated points or Rank.`],
+    ] : []),
   ] : [];
 
   return <section className="panel mt-8 p-4 sm:p-5" aria-labelledby="lookup-title">
@@ -35,7 +46,7 @@ export default function WalletSearch({ rows = [], includesFormer = false }) {
       </form>
     </div>
     {searched && (result
-      ? <dl className="m-0 mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-rule bg-rule sm:grid-cols-3 lg:grid-cols-6" role="status">
+      ? <dl className={`m-0 mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-rule bg-rule ${figures.length > 6 ? 'sm:grid-cols-4' : 'sm:grid-cols-3 lg:grid-cols-6'}`} role="status">
         {figures.map(([label, value, mono, hint]) => <div className="min-w-0 bg-surface px-4 py-3" key={label}>
           <dt className="text-[12px] text-muted">{hint ? <Tooltip label={label} hint={hint} floating /> : label}</dt>
           <dd className={`m-0 mt-1 truncate text-[15px] font-medium tabular-nums text-ink ${mono ? 'font-mono text-[14px]' : ''}`}>{value}</dd>

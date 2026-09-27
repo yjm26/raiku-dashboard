@@ -75,22 +75,26 @@ export async function listAccountSignatures(account, afterSlot, untilSlot) {
   return out.reverse();
 }
 
-// Fetch transactions at a steady pace; each gets a sequence number after `startSeq`.
-export async function fetchTransactions(sigs, mint, startSeq) {
+// Fetch successful transactions at a steady pace across both endpoints; `handle(tx, sig, i)` shapes each result.
+export async function fetchEach(sigs, handle) {
   const ok = sigs.filter((s) => !s.err);
   const results = new Array(ok.length);
   let next = 0;
   const lane = async ({ perSecond }) => {
     while (next < ok.length) {
       const i = next++;
-      const s = ok[i];
-      const tx = await call('getTransaction', [s.sig, { encoding: 'json', maxSupportedTransactionVersion: 1, commitment: 'confirmed' }]);
-      results[i] = { sig: s.sig, seq: startSeq + 1 + i, slot: tx.slot, time: tx.blockTime, events: tx.meta.err ? [] : extractEvents(tx, mint) };
+      const tx = await call('getTransaction', [ok[i].sig, { encoding: 'json', maxSupportedTransactionVersion: 1, commitment: 'confirmed' }]);
+      results[i] = handle(tx, ok[i], i);
       await sleep(1000 / perSecond);
     }
   };
   await Promise.all(ENDPOINTS.map(lane));
   return results;
+}
+
+// rkuSOL balance changes per transaction; each gets a sequence number after `startSeq`.
+export async function fetchTransactions(sigs, mint, startSeq) {
+  return fetchEach(sigs, (tx, s, i) => ({ sig: s.sig, seq: startSeq + 1 + i, slot: tx.slot, time: tx.blockTime, events: tx.meta.err ? [] : extractEvents(tx, mint) }));
 }
 
 // Wallet = on-curve address whose account is missing or owned by the System Program.

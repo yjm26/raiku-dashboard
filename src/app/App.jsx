@@ -69,9 +69,9 @@ export default function App() {
     <main className="app-main min-w-0" aria-busy="false">
       <DashboardHeader snapshot={snapshot} />
       <MetricGroup primary={primary} secondary={secondary} />
-      <WalletSearch rows={pointsRows} includesFormer={Boolean(snapshot.ledger)} />
+      <WalletSearch rows={pointsRows} includesFormer={Boolean(snapshot.ledger)} yt={snapshot.yt} />
       <InsightGrid snapshot={snapshot} />
-      <DataSection rows={pointsRows} allRows={snapshot.allRows} former={snapshot.ledger ? snapshot.formerHolders || [] : null} />
+      <DataSection rows={pointsRows} allRows={snapshot.allRows} former={snapshot.ledger ? snapshot.formerHolders || [] : null} yt={snapshot.yt} />
       <ApyHistory history={history} />
       <StakePoolCard pool={snapshot.stakePool} />
       <ApyCalculator snapshot={snapshot} />

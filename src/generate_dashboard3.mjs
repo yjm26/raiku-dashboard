@@ -25,7 +25,14 @@ try {
   // No ledger yet: points fall back to the balance × days estimate.
 }
 
-const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels, history, ledger });
+let ytLedger = null;
+try {
+  ytLedger = JSON.parse(fs.readFileSync(p('yt_ledger.json'), 'utf8'));
+} catch {
+  // No YT ledger yet: the page shows no YT figures.
+}
+
+const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels, history, ledger, ytLedger });
 const output = `${JSON.stringify(snapshot, null, 2)}\n`;
 fs.mkdirSync(path.dirname(OUT_SNAPSHOT), { recursive: true });
 fs.writeFileSync(OUT_SNAPSHOT, output, 'utf8');

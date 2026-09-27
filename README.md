@@ -28,6 +28,7 @@ Analytics dashboard for **rkuSOL**, the liquid staking token from [Raiku](https:
 | Balance history (all wallets since launch) | Every transaction touching the rkuSOL mint, plus each wallet token account's own history (some swaps never name the mint) | Rebuilt in `data/ledger.json`; checked daily against on-chain balances |
 | Official holders, APY, TVL, rate | [Raiku staking API](https://staking-api.mainnet.raiku.sh/v1/lsts) | `/v1/lsts` filtered by mint; rate = `sol_value_lamports` |
 | Staking pool fees, validator | Stake pool account on-chain | Decoded in `src/stake_pool.mjs` |
+| YT-rkuSOL staked on Exponent | Exponent's deposit/withdraw events for the rkuSOL vault, from every transaction touching its YT escrow (each event carries the position's balance after) | Rebuilt in `data/yt_ledger.json`; checked daily against every live position. YT points = 3 per staked YT per day until maturity (Exponent's listed boost), an estimate |
 | SOL price | CoinGecko API | `simple/price` for solana/usd |
 | Points | Local calculation | 1 point per rkuSOL per day actually held (from the ledger) |
 
