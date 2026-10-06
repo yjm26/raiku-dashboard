@@ -23,11 +23,14 @@ function usePagedRows(rows, filter, typeFilter, sortKey, sortDir, page) {
     }
     if (sortKey) {
       const dir = sortDir === 'desc' ? -1 : 1;
+      // Program accounts earn no points, so they have no points value to sort by.
+      const value = (r) => (sortKey === 'score' && r.isPda ? null : r[sortKey]);
       out = [...out].sort((a, b) => {
-        const va = a[sortKey];
-        const vb = b[sortKey];
+        const va = value(a);
+        const vb = value(b);
+        if (va == null || vb == null) return (va == null) - (vb == null);
         if (typeof va === 'string') return va.localeCompare(vb) * dir;
-        return ((va ?? -Infinity) - (vb ?? -Infinity)) * dir;
+        return (va - vb) * dir;
       });
     }
     return out;

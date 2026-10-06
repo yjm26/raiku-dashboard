@@ -57,12 +57,15 @@ export default function App() {
     { label: 'Real wallets', value: formatNumber(stats.realWallets, { maximumFractionDigits: 0 }), detail: 'excl. pools and programs', hint: 'Personal wallets only. Addresses controlled by programs (pools, lending markets, vaults, multisigs) are excluded and labeled in the holder table.', change: dailyChange(history, 'realWallets'), trend: recent(history, 'realWallets') },
     { label: 'Total estimated points', value: formatNumber(stats.totalPoints, { maximumFractionDigits: 0 }), detail: Number.isFinite(Number(stats.dailyPoints)) ? `+${formatNumber(stats.dailyPoints, { maximumFractionDigits: 0 })} a day` : 'across active holders', hint: snapshot.ledger ? 'Points earned since launch by every wallet: 1 point per rkuSOL per day actually held. Wallets that sold out keep what they earned, so they count here too. An estimate, not an official Raiku figure.' : 'Sum of balance × days held for all active holders. An estimate, not an official Raiku figure.', trend: pointsTrend },
   ];
+  // Part of the top-10 share that sits in pool and program accounts rather than personal wallets.
+  const top10Programs = (snapshot.topHolders || []).filter((row) => row.isPda).reduce((sum, row) => sum + Number(row.sharePct || 0), 0);
+  const top10Hint = `Share of supply held by the ten largest accounts.${top10Programs > 0 ? ` ${formatNumber(top10Programs, { maximumFractionDigits: 1 })}% of supply is in pool and program accounts among them (e.g. Exponent, Kamino), which hold rkuSOL for many users.` : ''}`;
   const secondary = [
     { label: 'APY', value: apyLabel, hint: 'Annual yield reported by the Raiku staking API. Daily yield ≈ APY ÷ 365.' },
     { label: 'rkuSOL rate', value: rateLabel, hint: 'Exchange rate: 1 rkuSOL = this much SOL, as reported by the Raiku staking API. It rises every epoch as rewards are added.' },
     { label: 'Holders', value: formatNumber(stats.totalOwners, { maximumFractionDigits: 0 }), hint: 'Every owner of a rkuSOL token account, including pools and program accounts.' },
     { label: 'Official holders', value: formatNumber(stats.officialHolders, { maximumFractionDigits: 0 }), hint: 'Holder count reported by the Raiku staking API.' },
-    { label: 'Top-10 concentration', value: stats.top10Share == null ? '—' : `${formatNumber(stats.top10Share, { maximumFractionDigits: 1 })}%`, hint: 'Percentage of total supply held by the ten largest accounts.' },
+    { label: 'Top-10 concentration', value: stats.top10Share == null ? '—' : `${formatNumber(stats.top10Share, { maximumFractionDigits: 1 })}%`, hint: top10Hint },
   ];
   return <AppShell>
     <TopBar snapshot={snapshot} />

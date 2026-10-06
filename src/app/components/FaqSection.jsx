@@ -35,10 +35,7 @@ export default function FaqSection({ coverage, snapshot }) {
   const stats = snapshot?.stats || {};
   const ledger = snapshot?.ledger || null;
   const fmt = (v, opts) => (v == null || !Number.isFinite(Number(v))) ? '—' : new Intl.NumberFormat('en-US', opts || { maximumFractionDigits: 0 }).format(Number(v));
-  const tvlSol = fmt(stats.tvlSol);
   const rate = stats.rateSolPerRkuSol != null ? Number(stats.rateSolPerRkuSol).toFixed(4) : '—';
-  const solPrice = stats.solPriceUsd != null ? `$${fmt(stats.solPriceUsd, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—';
-  const apy = stats.apyPct != null ? `${fmt(stats.apyPct, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%` : '—';
   const poolShare = Number.isFinite(Number(stats.pdaShare)) ? `About ${fmt(stats.pdaShare)}%` : 'A large share';
 
   return (
@@ -68,10 +65,6 @@ export default function FaqSection({ coverage, snapshot }) {
 
         <FaqItem q="Why are holders different from real wallets?">
           <p className="m-0"><strong className="font-medium text-ink">Holders</strong> counts every token account owner, including pools and programs. <strong className="font-medium text-ink">Real wallets</strong> only counts personal wallets. Addresses controlled by a program, such as pools, lending markets, vaults and multisigs, are left out: they have no private key, so no person holds them directly. {poolShare} of supply sits in these program accounts.</p>
-        </FaqItem>
-
-        <FaqItem q="What's in the snapshot?">
-          <p className="m-0">TVL <strong className="font-medium text-ink">{tvlSol} SOL</strong>, rate <strong className="font-medium text-ink">{rate} SOL per rkuSOL</strong>, SOL price <strong className="font-medium text-ink">{solPrice}</strong> and APY <strong className="font-medium text-ink">{apy}</strong>. Data is refreshed daily.</p>
         </FaqItem>
       </div>
     </section>

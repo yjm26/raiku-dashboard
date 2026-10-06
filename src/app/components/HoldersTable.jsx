@@ -34,7 +34,7 @@ export default function HoldersTable({ rows = [], startRank = 0, sortKey = null,
       <SortableTh label="rkuSOL" {...sortProps('amount')} className="text-right" />
       <SortableTh label="Share" {...sortProps('sharePct')} className={`text-right ${OPTIONAL}`} />
       <SortableTh label="Days held" hint="Days the wallet has held rkuSOL, from its on-chain history. Gaps when it held none don't count." {...sortProps('daysHeld')} className={`text-right ${OPTIONAL}`} />
-      <SortableTh label="Points" {...sortProps('score')} className="text-right" />
+      <SortableTh label="Points" hint="1 point per rkuSOL per day, from each wallet's actual daily balance. Pool and program accounts aren't counted. An estimate, not an official Raiku figure." {...sortProps('score')} className="text-right" />
     </tr></thead>
     <tbody>{rows.map((r, i) => <tr className="border-t border-rule transition-colors hover:bg-surface-muted" key={r.owner}>
       <td className={`${TD} tabular-nums text-muted`}>{startRank + i + 1}</td>
@@ -42,7 +42,7 @@ export default function HoldersTable({ rows = [], startRank = 0, sortKey = null,
       <td className={`${TD} text-right tabular-nums`}>{formatNumber(r.amount)}</td>
       <td className={`${TD} ${OPTIONAL} text-right tabular-nums`}>{formatNumber(r.sharePct, { maximumFractionDigits: 2 })}%</td>
       <td className={`${TD} ${OPTIONAL} text-right tabular-nums`}>{formatNumber(r.daysHeld, { maximumFractionDigits: 1 })}</td>
-      <td className={`${TD} text-right tabular-nums`}>{formatNumber(r.score, { maximumFractionDigits: 0 })}</td>
+      <td className={`${TD} text-right tabular-nums`}>{r.isPda ? <span className="text-faint" title="Pool and program accounts aren't counted for points">—</span> : formatNumber(r.score, { maximumFractionDigits: 0 })}</td>
     </tr>)}</tbody>
   </table></div>;
 }

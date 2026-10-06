@@ -31,7 +31,7 @@ export default function Tooltip({ label, hint, children, placement = 'top', alig
         onMouseLeave={hide}
         onFocus={show}
         onBlur={hide}
-        className="cursor-help underline decoration-faint decoration-dotted decoration-1 underline-offset-[5px]"
+        className="cursor-help underline decoration-[var(--tick)] decoration-dotted decoration-1 underline-offset-[5px]"
       >
         {children ?? label}
       </span>

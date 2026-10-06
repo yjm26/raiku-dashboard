@@ -2,7 +2,7 @@
 
 Analytics dashboard for **rkuSOL**, the liquid staking token from [Raiku](https://raiku.com/stake) on Solana.
 
-**Live:** [raiku-dashboard.vercel.app](https://raiku-dashboard.vercel.app)
+**Live:** [raiku-dashboard-red.vercel.app](https://raiku-dashboard-red.vercel.app)
 
 ![token](https://img.shields.io/badge/token-rkuSOL-01ffd9)
 ![solana](https://img.shields.io/badge/chain-Solana-9945FF)
@@ -47,7 +47,7 @@ This dashboard provides **estimates, not official Raiku figures**. Details:
 - **Days held** = total days the wallet held any rkuSOL (gaps with a zero balance don't count).
 - **Ledger verification (2026-09-25 backfill)**: 22,513 transactions; every personal wallet's history chains with no gaps, all 952 current balances match the chain, and replaying the history reproduces the balances in all 38 daily snapshots since Aug 19 (one difference: a sale 7 s before a snapshot was stamped).
 - **Real wallets vs Holders**: "Holders" counts every token-account owner (including pools/PDAs). "Real wallets" only counts personal wallets: on-curve, System-Program-owned addresses. Program-derived addresses (lending markets, vaults, multisigs) are excluded even when they hold SOL or have no account. Most of the supply sits in pool/program accounts (normal for an LST).
-- **Solscan match**: dashboard total holders ≈ Solscan (1001+), since both count all token accounts.
+- **Solscan match**: dashboard total holders ≈ Solscan's holder count, since both count all token accounts.
 - Data is public on-chain data; verify independently before making decisions.
 
 ## Development
