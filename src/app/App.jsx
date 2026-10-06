@@ -47,18 +47,34 @@ export default function App() {
   const tvlSolValue = Number(stats.tvlSol); const hasTvl = Number.isFinite(tvlSolValue) && tvlSolValue > 0;
   const tvlUsdValue = Number(stats.tvlUsd ?? (tvlSolValue * Number(stats.solPriceUsd)));
   const rateValue = Number(stats.rateSolPerRkuSol); const rateLabel = Number.isFinite(rateValue) && rateValue > 0 ? `${formatNumber(rateValue, { minimumFractionDigits: 4, maximumFractionDigits: 4 })} SOL` : '—';
-  // Same measure as the figure above it (with the ledger: all points earned so far, daily).
-  const pointsTrend = (snapshot.dailyTimeline || []).slice(snapshot.ledger ? -30 : -12).map((entry) => entry?.points);
   // With the ledger, wallets that sold out stay on the leaderboard with the points they earned.
   const pointsRows = snapshot.ledger ? leaderboardRows(snapshot.realRows, snapshot.formerHolders) : snapshot.realRows;
-  // Pool and program accounts hold most of the supply but earn no points here.
+  // Pool and program accounts hold most of the supply but earn no points themselves.
   const programShare = Number(stats.pdaShare);
-  const walletsOnly = ` Only rkuSOL in wallets earns points here; pools and programs${Number.isFinite(programShare) ? ` (${formatNumber(programShare, { maximumFractionDigits: 0 })}% of supply)` : ''} don't.`;
+  const programNote = Number.isFinite(programShare) ? ` (${formatNumber(programShare, { maximumFractionDigits: 0 })}% of supply)` : '';
+  // YT-rkuSOL staked on Exponent, at the boost Exponent lists.
+  const yt = snapshot.yt; const ytPoints = Number(yt?.points); const hasYt = Number.isFinite(ytPoints); const ytRate = yt?.pointsPerYtDay ?? 3;
+  const ytMaturity = yt?.maturityMs ? ` until the YT matures on ${new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(yt.maturityMs))}` : '';
+  const ytDaily = hasYt && Date.parse(snapshot.ts) < yt.maturityMs ? Number(yt.stakedNow) * ytRate : 0;
+  // Total = rkuSOL holder points + YT points.
+  const holderPoints = Number(stats.totalPoints);
+  const totalPoints = holderPoints + (hasYt ? ytPoints : 0);
+  const dailyPoints = Number(stats.dailyPoints) + ytDaily;
+  // Same measure as the figure above it. History holds YT points from Oct 6, 2026, so with YT the trend starts there.
+  const today = String(snapshot.ts || '').slice(0, 10);
+  const pointsTrend = hasYt
+    ? [...history.filter((h) => h.date !== today && typeof h.points === 'number' && typeof h.ytPoints === 'number').map((h) => h.points + h.ytPoints), totalPoints].slice(-30)
+    : (snapshot.dailyTimeline || []).slice(snapshot.ledger ? -30 : -12).map((entry) => entry?.points);
+  const holderHint = `Points for holding rkuSOL in a wallet since launch: 1 point per rkuSOL per day actually held. Wallets that sold out keep what they earned. Pools and programs${programNote} earn nothing themselves.`;
+  const ytHint = `Points for YT-rkuSOL staked on Exponent: ${ytRate} points per YT per day (the boost Exponent lists)${ytMaturity}. Raiku hasn't published how it counts YT.`;
+  const totalHint = hasYt
+    ? `rkuSOL holder points plus YT points, shown separately below. Holder points: 1 per rkuSOL per day held in a wallet. YT points: ${ytRate} per YT-rkuSOL per day staked on Exponent. Pools and programs${programNote} earn nothing themselves. An estimate, not an official Raiku figure.`
+    : `${holderHint} An estimate, not an official Raiku figure.`;
   const primary = [
     { label: 'Supply', value: formatNumber(stats.supply, { maximumFractionDigits: 0 }), unit: 'rkuSOL', detail: 'in circulation', hint: 'Total rkuSOL tokens in circulation, from on-chain token accounts. This is the token count (rkuSOL), not the staked value in SOL.', change: dailyChange(history, 'supply'), changeDigits: 2, trend: recent(history, 'supply') },
     { label: 'TVL', value: hasTvl ? formatNumber(tvlSolValue, { maximumFractionDigits: 0 }) : '—', unit: hasTvl ? 'SOL' : null, detail: Number.isFinite(tvlUsdValue) && tvlUsdValue > 0 ? `≈ $${formatCompact(tvlUsdValue, 2)}` : 'total value locked', hint: 'Total SOL staked via rkuSOL, from the Raiku staking API. TVL = supply × rate — different unit (SOL) from supply (rkuSOL), so the numbers differ.', change: dailyChange(history, 'tvlSol'), trend: recent(history, 'tvlSol') },
     { label: 'Real wallets', value: formatNumber(stats.realWallets, { maximumFractionDigits: 0 }), detail: 'excl. pools and programs', hint: 'Personal wallets only. Addresses controlled by programs (pools, lending markets, vaults, multisigs) are excluded and labeled in the holder table.', change: dailyChange(history, 'realWallets'), trend: recent(history, 'realWallets') },
-    { label: 'Total estimated points', value: formatNumber(stats.totalPoints, { maximumFractionDigits: 0 }), detail: Number.isFinite(Number(stats.dailyPoints)) ? `+${formatNumber(stats.dailyPoints, { maximumFractionDigits: 0 })} a day` : 'across active holders', hint: snapshot.ledger ? `Points earned since launch by every wallet: 1 point per rkuSOL per day actually held.${walletsOnly} Wallets that sold out keep what they earned, so they count here too. An estimate, not an official Raiku figure.` : `Sum of balance × days held for all active holders.${walletsOnly} An estimate, not an official Raiku figure.`, trend: pointsTrend },
+    { label: 'Total estimated points', value: formatNumber(totalPoints, { maximumFractionDigits: 0 }), detail: Number.isFinite(dailyPoints) ? `+${formatNumber(dailyPoints, { maximumFractionDigits: 0 })} a day` : 'across active holders', hint: totalHint, trend: pointsTrend },
   ];
   // Part of the top-10 share that sits in pool and program accounts rather than personal wallets.
   const top10Programs = (snapshot.topHolders || []).filter((row) => row.isPda).reduce((sum, row) => sum + Number(row.sharePct || 0), 0);
@@ -69,6 +85,8 @@ export default function App() {
     { label: 'Holders', value: formatNumber(stats.totalOwners, { maximumFractionDigits: 0 }), hint: 'Every owner of a rkuSOL token account, including pools and program accounts.' },
     { label: 'Official holders', value: formatNumber(stats.officialHolders, { maximumFractionDigits: 0 }), hint: 'Holder count reported by the Raiku staking API.' },
     { label: 'Top-10 concentration', value: stats.top10Share == null ? '—' : `${formatNumber(stats.top10Share, { maximumFractionDigits: 1 })}%`, hint: top10Hint },
+    { label: 'rkuSOL holder points', value: Number.isFinite(holderPoints) ? formatNumber(holderPoints, { maximumFractionDigits: 0 }) : '—', hint: holderHint },
+    { label: `YT points (${ytRate}×)`, value: hasYt ? formatNumber(ytPoints, { maximumFractionDigits: 0 }) : '—', hint: ytHint },
   ];
   return <AppShell>
     <TopBar snapshot={snapshot} />

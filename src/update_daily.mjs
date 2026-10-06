@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { sleep } from './rpc.mjs';
-import { p, SRC } from './paths.mjs';
+import { OUT_SNAPSHOT, p, SRC } from './paths.mjs';
 import { exchangeRate, fetchRaikuStats, fetchRaikuValidator } from './raiku_api.mjs';
 import { isProgramDerived } from './solana_address.mjs';
 import { fetchStakePool } from './stake_pool.mjs';
@@ -218,6 +218,9 @@ async function fetchSolPriceUsd() {
     if (!Array.isArray(history)) history = [];
     const today = new Date().toISOString().slice(0, 10);
     const tvlLamports = Number(stats.tvlLamports) || 0;
+    // Points as built into today's snapshot, for the total-points trend.
+    let built = null;
+    try { built = JSON.parse(fs.readFileSync(OUT_SNAPSHOT, 'utf8')); } catch {}
     // Only append once per day (dedupe by date)
     if (!history.some((h) => h.date === today)) {
       history.push({
@@ -229,6 +232,8 @@ async function fetchSolPriceUsd() {
         rate: exchangeRate(stats, supplyUi),
         holders: perOwner.size,
         realWallets: holders.filter((h) => !h.isPda).length,
+        points: typeof built?.totalPoints === 'number' ? built.totalPoints : null,
+        ytPoints: typeof built?.yt?.points === 'number' ? built.yt.points : null,
       });
       // keep last 180 days
       history = history.slice(-180);
