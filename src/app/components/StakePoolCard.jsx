@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import SectionHeader from './SectionHeader.jsx';
 import Tooltip from './Tooltip.jsx';
 import { epochCountdown, fetchEpochStatus, formatDuration } from '../epoch.js';
-import { formatAddress } from '../data.js';
+import { formatAddress, formatNumber } from '../data.js';
 
 const REFRESH_MS = 10 * 60 * 1000;
 const TICK_MS = 30 * 1000;
@@ -52,6 +52,11 @@ function poolFacts(pool) {
     const [v] = validators;
     facts.push({ label: 'Validator', value: `${v.name || formatAddress(v.voteAccount)}${v.delinquent ? ' (delinquent)' : ''}`, hint: `All of the pool's stake is delegated to this validator, vote account ${formatAddress(v.voteAccount, 6, 6)}.` });
     if (v.commissionPct != null) facts.push({ label: 'Validator commission', value: pct(v.commissionPct), hint: "The validator's cut of staking rewards, taken before rewards reach the pool." });
+    if (v.totalStakeSol > 0) {
+      const sol = (value) => `${formatNumber(value, { maximumFractionDigits: 0 })} SOL`;
+      facts.push({ label: 'Validator total stake', value: sol(v.totalStakeSol), hint: 'All SOL staked with this validator: the rkuSOL pool plus everyone staking with it directly. Read on-chain.' });
+      facts.push({ label: 'Staked via rkuSOL', value: pct(v.activeStakeSol / v.totalStakeSol * 100, 1), hint: `The rkuSOL pool's ${sol(v.activeStakeSol)} as a share of the validator's ${sol(v.totalStakeSol)}.` });
+    }
   } else if (validators.length > 1) {
     facts.push({ label: 'Validators', value: String(validators.length), hint: `The pool's stake is spread across ${validators.length} validators.` });
   }
@@ -66,22 +71,25 @@ function poolFacts(pool) {
   return facts;
 }
 
+// Fill the last row of the 4-column grid so no gap shows the rule colour.
+const padded = (facts) => [...facts, ...Array((4 - (facts.length % 4)) % 4).fill(null)];
+
 function Countdown({ state, countdown }) {
   if (!countdown) {
     return state === 'error'
       ? <p className="m-0 text-[14px] text-muted" role="status">Live epoch data is unavailable right now.</p>
-      : <div aria-hidden="true"><span className="skeleton block h-3.5 w-20" /><span className="skeleton mt-4 block h-[34px] w-40" /><span className="skeleton mt-6 block h-1.5 w-full rounded-full" /></div>;
+      : <div aria-hidden="true"><span className="skeleton block h-3.5 w-20" /><span className="skeleton mt-4 block h-[36px] w-40" /><span className="skeleton mt-6 block h-1.5 w-full" /></div>;
   }
   const done = Math.min(100, Math.floor(countdown.progress * 100));
   const ended = countdown.secondsLeft <= 0;
   return <div role="timer">
-    <p className="m-0 text-[13px] text-muted"><Tooltip label={`Epoch ${countdown.epoch}`} hint={`Solana runs in epochs, currently about ${Math.round(countdown.epochHours)} hours each. Staking rewards are counted per epoch.`} placement="bottom" /></p>
-    <p className="m-0 mt-3 text-[34px] font-semibold leading-none tracking-[-0.035em] text-ink">{ended ? 'Now' : <><span className="text-muted">≈ </span>{formatDuration(countdown.secondsLeft)}</>}</p>
-    <p className="m-0 mt-2 text-[13px] text-muted">{ended ? `Epoch ${countdown.epoch + 1} is starting` : `until epoch ${countdown.epoch + 1}`}</p>
-    <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-rule" role="progressbar" aria-label={`Epoch ${countdown.epoch} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={done}>
-      <div className="h-full rounded-full bg-[var(--chart-line)]" style={{ width: `${done}%` }} />
+    <p className="label m-0"><Tooltip label={`Epoch ${countdown.epoch}`} hint={`Solana runs in epochs, currently about ${Math.round(countdown.epochHours)} hours each. Staking rewards are counted per epoch.`} placement="bottom" /></p>
+    <p className="m-0 mt-4 text-[36px] font-medium leading-none tracking-[-0.03em] text-ink">{ended ? 'Now' : <><span className="text-muted">≈ </span>{formatDuration(countdown.secondsLeft)}</>}</p>
+    <p className="m-0 mt-2 text-[14px] text-muted">{ended ? `Epoch ${countdown.epoch + 1} is starting` : `until epoch ${countdown.epoch + 1}`}</p>
+    <div className="mt-6 h-1.5 overflow-hidden bg-rule" role="progressbar" aria-label={`Epoch ${countdown.epoch} progress`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={done}>
+      <div className="h-full bg-[var(--chart-line)]" style={{ width: `${done}%` }} />
     </div>
-    <p className="m-0 mt-2 text-[12px] text-muted">{done}% of epoch {countdown.epoch} done</p>
+    <p className="label m-0 mt-2">{done}% of epoch {countdown.epoch} done</p>
   </div>;
 }
 
@@ -91,18 +99,18 @@ export default function StakePoolCard({ pool }) {
 
 function StakePoolPanel({ pool }) {
   const { state, countdown } = useEpoch();
-  return <section className="mt-14" aria-labelledby="stake-pool-title">
+  return <section className="mt-20 sm:mt-24" aria-labelledby="stake-pool-title">
     <SectionHeader id="stake-pool-title" title="Staking pool" aside="Read on-chain from the rkuSOL stake pool" />
-    <div className="panel grid overflow-hidden lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)]">
-      <div className="border-b border-rule p-4 sm:p-5 lg:border-b-0 lg:border-r">
+    <div className="crop panel grid lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)]">
+      <div className="border-b border-rule p-4 sm:p-6 lg:border-b-0 lg:border-r">
         <Countdown state={state} countdown={countdown} />
-        <p className="m-0 mt-5 text-[13px] leading-relaxed text-muted">rkuSOL&apos;s rate goes up once per epoch, when the pool adds the rewards of the epoch that just ended. Time left is estimated from recent block times.</p>
+        <p className="m-0 mt-6 text-[14px] leading-relaxed text-muted">rkuSOL&apos;s rate goes up once per epoch, when the pool adds the rewards of the epoch that just ended. Time left is estimated from recent block times.</p>
       </div>
-      <dl className="m-0 grid grid-cols-2 gap-px bg-rule sm:grid-cols-3">
-        {poolFacts(pool).map((fact) => <div className="min-w-0 bg-surface px-4 py-4 sm:px-5" key={fact.label}>
-          <dt className="text-[12px] text-muted"><Tooltip label={fact.label} hint={fact.hint} placement="bottom" /></dt>
-          <dd className="m-0 mt-1.5 truncate text-[17px] font-medium tabular-nums tracking-[-0.01em] text-ink">{fact.value}</dd>
-        </div>)}
+      <dl className="m-0 grid grid-cols-2 gap-px bg-rule lg:grid-cols-4">
+        {padded(poolFacts(pool)).map((fact, i) => fact ? <div className="min-w-0 bg-surface px-4 py-5 sm:px-5" key={fact.label}>
+          <dt className="label"><Tooltip label={fact.label} hint={fact.hint} placement="bottom" /></dt>
+          <dd className="m-0 mt-2 truncate text-[20px] font-medium tabular-nums tracking-[-0.012em] text-ink">{fact.value}</dd>
+        </div> : <div className="bg-surface" key={`empty-${i}`} aria-hidden="true" />)}
       </dl>
     </div>
   </section>;

@@ -1,58 +1,62 @@
+/* Raiku brand (raiku.com, Oct 2026): ink green on paper; every other tone is an
+   oklab mix of the two, precomputed so SVG charts get plain hex values. */
 :root {
-  /* Raiku brand, light */
-  --page: #f6f8fa;
-  --surface: #ffffff;
-  --surface-muted: #eef0f3;
-  --ink: #000204;
-  --muted: #545b63;
-  --faint: #7a818a;
-  --rule: #e2e5e9;
-  --rule-strong: #c9ced4;
-  --accent: #c0ff38;
-  --accent-hover: #cfff66;
-  --accent-soft: #effcd2;
-  --on-accent: #1b1d1e;
-  /* lime is too light for lines and text on a light page, so those use ink */
-  --accent-line: #000204;
-  --focus: #000204;
+  --page: #efeee9;
+  --surface: #efeee9;
+  --surface-muted: #e4e4dd;
+  --ink: #223d0e;
+  --label: #3c542c;
+  --muted: #566b48;
+  --faint: #76876a;
+  --rule: #cdd1c5;
+  --rule-strong: #a8b29e;
+  --tick: #9faa95;
+  --accent: #223d0e;
+  --accent-hover: #192e09;
+  --accent-soft: #d8dbd1;
+  --on-accent: #efeee9;
+  --accent-line: #223d0e;
+  --focus: #223d0e;
   /* charts */
-  --chart-line: #000204;
-  --chart-fill: #c0ff38;
-  --chart-fill-top: 0.55;
-  --chart-grid: #eceef1;
-  --chart-tick: #6b727a;
-  --seg-pool: #c0ff38;
-  --seg-wallet: #1b1d1e;
-  --seg-rest: #c9ced4;
-  --skeleton: #e9ecef;
-  --skeleton-sheen: rgb(255 255 255 / 0.75);
+  --chart-line: #223d0e;
+  --chart-fill: #223d0e;
+  --chart-fill-top: 0.14;
+  --chart-grid: #d8dbd1;
+  --chart-tick: #566b48;
+  --seg-pool: #223d0e;
+  --seg-wallet: #829177;
+  --seg-rest: #c2c8ba;
+  --skeleton: #dddfd6;
+  --skeleton-sheen: rgb(255 255 255 / 0.45);
 }
 
+/* Dark: the same palette inverted, paper on Raiku's deep ink. */
 .dark {
-  /* Raiku brand, dark */
-  --page: #000204;
-  --surface: #07090b;
-  --surface-muted: #101316;
-  --ink: #f6f8fa;
-  --muted: #a0a3a9;
-  --faint: #6b6f75;
-  --rule: #26282c;
-  --rule-strong: #454c54;
-  --accent: #c0ff38;
-  --accent-hover: #cfff66;
-  --accent-soft: #1c2410;
-  --on-accent: #1b1d1e;
-  --accent-line: #c0ff38;
-  --focus: #c0ff38;
+  --page: #0f1d06;
+  --surface: #0f1d06;
+  --surface-muted: #1a2711;
+  --ink: #efeee9;
+  --label: #cbcdc5;
+  --muted: #a9ada2;
+  --faint: #838a7c;
+  --rule: #2b3823;
+  --rule-strong: #4e5946;
+  --tick: #56614e;
+  --accent: #efeee9;
+  --accent-hover: #cbcdc5;
+  --accent-soft: #212f19;
+  --on-accent: #0f1d06;
+  --accent-line: #efeee9;
+  --focus: #efeee9;
   /* charts */
-  --chart-line: #c0ff38;
-  --chart-fill: #c0ff38;
-  --chart-fill-top: 0.2;
-  --chart-grid: #15181b;
-  --chart-tick: #7d8187;
-  --seg-pool: #c0ff38;
-  --seg-wallet: #f6f8fa;
-  --seg-rest: #454c54;
-  --skeleton: #14171a;
+  --chart-line: #efeee9;
+  --chart-fill: #efeee9;
+  --chart-fill-top: 0.12;
+  --chart-grid: #212f19;
+  --chart-tick: #a9ada2;
+  --seg-pool: #efeee9;
+  --seg-wallet: #757e6e;
+  --seg-rest: #35412d;
+  --skeleton: #1e2b15;
   --skeleton-sheen: rgb(255 255 255 / 0.05);
 }

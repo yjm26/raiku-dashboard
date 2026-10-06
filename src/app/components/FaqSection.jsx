@@ -17,14 +17,14 @@ function FaqItem({ q, children, defaultOpen = false }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={`faq-${id}`}
-        className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-[14px] font-medium text-ink transition-colors duration-150 hover:bg-surface-muted sm:px-5"
+        className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-[15px] font-medium text-ink transition-colors duration-150 hover:bg-surface-muted sm:px-5"
       >
         <span>{q}</span>
         <span className="shrink-0 text-muted"><Chevron open={open} /></span>
       </button>
       <div id={`faq-${id}`} role="region" aria-labelledby={`faq-${id}-button`} inert={!open} className={`grid transition-[grid-template-rows] duration-200 ease-out ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
         <div className="overflow-hidden">
-          <div className="px-4 pb-5 text-[14px] leading-relaxed text-muted sm:px-5">{children}</div>
+          <div className="px-4 pb-5 text-[15px] leading-[1.6] text-muted sm:px-5">{children}</div>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@ export default function FaqSection({ coverage, snapshot }) {
   return (
     <section id="faq" className="panel min-w-0 overflow-hidden" aria-labelledby="faq-title">
       <header className="px-4 py-5 sm:px-5">
-        <h2 id="faq-title" className="m-0 text-[20px] font-semibold leading-tight tracking-[-0.02em] text-ink">Questions</h2>
+        <h2 id="faq-title" className="m-0 text-[24px] font-medium leading-tight tracking-[-0.018em] text-ink">Questions</h2>
       </header>
 
       <div>

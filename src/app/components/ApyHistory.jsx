@@ -12,13 +12,13 @@ export default function ApyHistory({ history = [] }) {
   const average = data.length ? data.reduce((sum, point) => sum + point.apy, 0) / data.length : null;
   const figures = [['Latest', latest], [`${data.length}-day average`, average]];
 
-  return <section className="mt-14" aria-labelledby="apy-history-title">
+  return <section className="mt-20 sm:mt-24" aria-labelledby="apy-history-title">
     <SectionHeader id="apy-history-title" title="APY history" aside="Daily APY reported by the Raiku staking API" />
     <div className="panel p-4 sm:p-5">
       <dl className="m-0 flex flex-wrap gap-x-10 gap-y-3">
         {figures.map(([label, value]) => <div key={label}>
-          <dt className="text-[13px] text-muted">{label}</dt>
-          <dd className="m-0 mt-1 text-[20px] font-semibold tracking-[-0.02em] text-ink">{value == null ? '—' : pct(value)}</dd>
+          <dt className="label">{label}</dt>
+          <dd className="m-0 mt-2 text-[24px] font-medium tracking-[-0.02em] text-ink">{value == null ? '—' : pct(value)}</dd>
         </div>)}
       </dl>
       <div className="mt-5">

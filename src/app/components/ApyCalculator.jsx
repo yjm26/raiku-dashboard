@@ -45,11 +45,11 @@ export default function ApyCalculator({ snapshot }) {
   ];
 
   return (
-    <section className="mt-14" aria-labelledby="apy-calc-title">
+    <section className="mt-20 sm:mt-24" aria-labelledby="apy-calc-title">
       <SectionHeader id="apy-calc-title" title="Staking projection" aside={Number.isFinite(solPrice) ? `SOL at $${formatNumber(solPrice, { maximumFractionDigits: 2 })}` : null} />
       <div className="panel grid overflow-hidden lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)]">
         <div className="border-b border-rule p-4 sm:p-5 lg:border-b-0 lg:border-r">
-          <label htmlFor="stake-input" className="block text-[13px] text-muted">Stake amount</label>
+          <label htmlFor="stake-input" className="label block">Stake amount</label>
           <div className="relative mt-2">
             <input
               id="stake-input"
@@ -62,17 +62,17 @@ export default function ApyCalculator({ snapshot }) {
               className="field h-12 pr-14 text-[20px] font-medium tabular-nums"
               placeholder="100"
             />
-            <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-[13px] font-medium text-muted">SOL</span>
+            <span className="label pointer-events-none absolute inset-y-0 right-4 flex items-center">SOL</span>
           </div>
-          <p className="m-0 mt-4 text-[13px] leading-relaxed text-muted">
+          <p className="m-0 mt-5 text-[14px] leading-relaxed text-muted">
             Assumes {apyLabel} APY, {rateLabel} SOL per rkuSOL, a constant balance and 1 point per rkuSOL held per day. Yield compounds, so daily figures are approximate.
           </p>
         </div>
         <dl className="m-0 grid grid-cols-2 gap-px bg-rule sm:grid-cols-4" role="status" aria-live="polite">
           {cells.map(([label, value]) => (
-            <div className="min-w-0 bg-surface px-4 py-4 sm:px-5" key={label}>
-              <dt className="text-[12px] text-muted">{label}</dt>
-              <dd className="m-0 mt-1.5 truncate text-[17px] font-medium tabular-nums tracking-[-0.01em] text-ink">{value}</dd>
+            <div className="min-w-0 bg-surface px-4 py-5 sm:px-5" key={label}>
+              <dt className="label">{label}</dt>
+              <dd className="m-0 mt-2 truncate text-[20px] font-medium tabular-nums tracking-[-0.012em] text-ink">{value}</dd>
             </div>
           ))}
         </dl>

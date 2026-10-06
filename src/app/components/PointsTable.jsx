@@ -7,7 +7,7 @@ export default function PointsTable({ rows = [], startRank = 0, exact = false })
   const sorted = [...rows].sort((a, b) => b.score - a.score);
   const hint = (label, text) => <Tooltip label={label} hint={text} placement="bottom" align="end" />;
   return <div className="panel mt-4 overflow-x-auto"><table className="w-full border-collapse text-[13px] sm:min-w-[680px]"><caption className="sr-only">Estimated points leaderboard</caption>
-    <thead className="text-left text-[12px] text-muted"><tr>
+    <thead className="label text-left text-muted"><tr>
       <th className={`${TH} w-12 sm:w-16`}>#</th>
       <th className={TH}>Wallet</th>
       <th className={`${TH} text-right`}>Balance</th>

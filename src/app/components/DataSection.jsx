@@ -74,7 +74,7 @@ export default function DataSection({ rows = [], allRows = [], former = null, yt
   const startRank = (safePage - 1) * PAGE_SIZE;
 
   return (
-    <section className="mt-14" aria-labelledby="data-title">
+    <section className="mt-20 sm:mt-24" aria-labelledby="data-title">
       <SectionHeader id="data-title" title="Holder data">
         <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
           {tab === 'holders' ? <select aria-label="Filter by type" className="field h-9 w-auto shrink-0 pr-2 text-[13px]" value={typeFilter} onChange={(e) => { setTypeFilter(e.target.value); setPage(1); }}>
@@ -93,7 +93,7 @@ export default function DataSection({ rows = [], allRows = [], former = null, yt
           {former ? <button role="tab" aria-selected={tab === 'former'} className={tabClass(tab === 'former')} onClick={() => changeTab('former')}>Former holders</button> : null}
           {yt ? <button role="tab" aria-selected={tab === 'yt'} className={tabClass(tab === 'yt')} onClick={() => changeTab('yt')}>YT on Exponent</button> : null}
         </div>
-        <span className="pb-3 text-[13px] tabular-nums text-muted">{filtered.length.toLocaleString()} {COUNT_LABEL[tab]}</span>
+        <span className="label pb-3 tabular-nums">{filtered.length.toLocaleString()} {COUNT_LABEL[tab]}</span>
       </div>
       {tab === 'former' ? <p className="m-0 mt-3 text-[13px] text-muted">Wallets that held rkuSOL at some point since launch and hold none today. Points are what they earned while holding.</p> : null}
       {tab === 'yt' ? <p className="m-0 mt-3 text-[13px] text-muted">Wallets that staked YT-rkuSOL on Exponent since the market opened. YT points are an estimate and are not part of the points leaderboard.</p> : null}
@@ -102,7 +102,7 @@ export default function DataSection({ rows = [], allRows = [], former = null, yt
           : tab === 'yt' ? <YtTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} pointsPerDay={yt.pointsPerYtDay} matured={Date.now() >= yt.maturityMs} />
             : <FormerHoldersTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />}
       <nav className="mt-3 flex items-center justify-between gap-3" aria-label="Holder data pagination">
-        <span className="text-[13px] tabular-nums text-muted">Page {safePage} of {totalPages}</span>
+        <span className="label tabular-nums">Page {safePage} of {totalPages}</span>
         <div className="flex gap-2">
           <button type="button" className="btn" disabled={safePage <= 1} onClick={() => changePage(safePage - 1)}>Previous</button>
           <button type="button" className="btn" disabled={safePage >= totalPages} onClick={() => changePage(safePage + 1)}>Next</button>

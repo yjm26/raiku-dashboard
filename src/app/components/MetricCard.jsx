@@ -14,11 +14,11 @@ function Change({ value, digits = 0 }) {
 }
 
 export default function MetricCard({ label, value, unit = null, detail = null, hint, change = null, changeDigits = 0, trend = [] }) {
-  return <article className="flex min-w-0 flex-col bg-surface p-4 sm:p-5">
-    <p className="m-0 text-[13px] text-muted">{hint ? <Tooltip label={label} hint={hint} placement="bottom" /> : label}</p>
-    <p className="m-0 mt-3 flex flex-wrap items-baseline gap-x-1.5 text-ink">
-      <span className="text-[26px] font-semibold leading-none tracking-[-0.035em] sm:text-[34px]">{value}</span>
-      {unit ? <span className="text-[13px] font-medium text-muted">{unit}</span> : null}
+  return <article className="flex min-w-0 flex-col bg-surface p-4 sm:p-6">
+    <p className="label m-0">{hint ? <Tooltip label={label} hint={hint} placement="bottom" /> : label}</p>
+    <p className="m-0 mt-4 flex flex-wrap items-baseline gap-x-1.5 text-ink">
+      <span className="text-[28px] font-medium leading-none tracking-[-0.03em] sm:text-[36px]">{value}</span>
+      {unit ? <span className="label">{unit}</span> : null}
     </p>
     <div className="mt-2.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[13px]">
       {detail ? <span className="text-muted">{detail}</span> : <span />}

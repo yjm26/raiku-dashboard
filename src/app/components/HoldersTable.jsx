@@ -20,7 +20,7 @@ export function SortableTh({ label, sortKey, onSort, active, dir, hint, classNam
 export function HolderName({ row }) {
   if (!row.isPda) return <ExternalLink href={`https://solscan.io/account/${row.owner}`} icon={false} className="whitespace-nowrap font-mono text-ink underline-offset-4 hover:underline">{formatAddress(row.owner)}</ExternalLink>;
   return <span className="inline-flex items-center gap-2 whitespace-nowrap">
-    <span className="h-2 w-2 shrink-0 rounded-full bg-[var(--seg-pool)]" aria-hidden="true" />
+    <span className="h-2 w-2 shrink-0 bg-[var(--seg-pool)]" aria-hidden="true" />
     <ExternalLink href={`https://solscan.io/account/${row.owner}`} icon={false} className="text-ink underline-offset-4 hover:underline">{row.pdaLabel || 'Pool or program'}</ExternalLink>
   </span>;
 }
@@ -28,7 +28,7 @@ export function HolderName({ row }) {
 export default function HoldersTable({ rows = [], startRank = 0, sortKey = null, sortDir = 'desc', onSort = () => {} }) {
   const sortProps = (key) => ({ sortKey: key, onSort, active: sortKey === key, dir: sortDir });
   return <div className="panel mt-4 overflow-x-auto"><table className="w-full border-collapse text-[13px] sm:min-w-[720px]"><caption className="sr-only">All rkuSOL holders</caption>
-    <thead className="text-left text-[12px] text-muted"><tr>
+    <thead className="label text-left text-muted"><tr>
       <SortableTh label="#" {...sortProps('rank')} className="w-12 sm:w-16" />
       <th className={TH}>Wallet</th>
       <SortableTh label="rkuSOL" {...sortProps('amount')} className="text-right" />

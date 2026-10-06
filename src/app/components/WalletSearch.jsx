@@ -33,10 +33,10 @@ export default function WalletSearch({ rows = [], includesFormer = false, yt = n
     ] : []),
   ] : [];
 
-  return <section className="panel mt-8 p-4 sm:p-5" aria-labelledby="lookup-title">
+  return <section className="panel mt-10 p-4 sm:p-6" aria-labelledby="lookup-title">
     <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-8">
       <div className="shrink-0 lg:w-60">
-        <h2 id="lookup-title" className="m-0 text-[15px] font-semibold text-ink">Look up a wallet</h2>
+        <h2 id="lookup-title" className="m-0 text-[19px] font-medium leading-tight tracking-[-0.012em] text-ink">Look up a wallet</h2>
         <p className="m-0 mt-0.5 text-[13px] text-muted">Rank, balance and estimated points</p>
       </div>
       <form onSubmit={submit} className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row" role="search">
@@ -48,7 +48,7 @@ export default function WalletSearch({ rows = [], includesFormer = false, yt = n
     {searched && (result
       ? <dl className={`m-0 mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-rule bg-rule ${figures.length > 6 ? 'sm:grid-cols-4' : 'sm:grid-cols-3 lg:grid-cols-6'}`} role="status">
         {figures.map(([label, value, mono, hint]) => <div className="min-w-0 bg-surface px-4 py-3" key={label}>
-          <dt className="text-[12px] text-muted">{hint ? <Tooltip label={label} hint={hint} floating /> : label}</dt>
+          <dt className="label">{hint ? <Tooltip label={label} hint={hint} floating /> : label}</dt>
           <dd className={`m-0 mt-1 truncate text-[15px] font-medium tabular-nums text-ink ${mono ? 'font-mono text-[14px]' : ''}`}>{value}</dd>
         </div>)}
       </dl>

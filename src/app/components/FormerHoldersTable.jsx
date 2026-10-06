@@ -7,7 +7,7 @@ const date = (ms) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'nu
 export default function FormerHoldersTable({ rows = [], startRank = 0, sortKey = null, sortDir = 'desc', onSort = () => {} }) {
   const sortProps = (key) => ({ sortKey: key, onSort, active: sortKey === key, dir: sortDir });
   return <div className="panel mt-4 overflow-x-auto"><table className="w-full border-collapse text-[13px] sm:min-w-[720px]"><caption className="sr-only">Former rkuSOL holders</caption>
-    <thead className="text-left text-[12px] text-muted"><tr>
+    <thead className="label text-left text-muted"><tr>
       <th className={`${TH} w-12 sm:w-16`}>#</th>
       <th className={TH}>Wallet</th>
       <SortableTh label="Points earned" hint="1 point per rkuSOL per day while the wallet held it. It stopped growing once the wallet sold out." {...sortProps('points')} className="text-right" />

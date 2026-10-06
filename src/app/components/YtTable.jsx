@@ -9,7 +9,7 @@ const date = (ms) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'nu
 export default function YtTable({ rows = [], startRank = 0, sortKey = null, sortDir = 'desc', onSort = () => {}, pointsPerDay = 3, matured = false }) {
   const sortProps = (key) => ({ sortKey: key, onSort, active: sortKey === key, dir: sortDir });
   return <div className="panel mt-4 overflow-x-auto"><table className="w-full border-collapse text-[13px] sm:min-w-[720px]"><caption className="sr-only">YT-rkuSOL staked on Exponent</caption>
-    <thead className="text-left text-[12px] text-muted"><tr>
+    <thead className="label text-left text-muted"><tr>
       <th className={`${TH} w-12 sm:w-16`}>#</th>
       <th className={TH}>Wallet</th>
       <SortableTh label="YT staked" hint="YT-rkuSOL the wallet has staked on Exponent now." {...sortProps('yt')} className="text-right" />

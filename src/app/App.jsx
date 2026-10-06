@@ -18,7 +18,7 @@ import LoadingState from './components/LoadingState.jsx';
 function ErrorState({ error, onRetry }) {
   return <main className="grid min-h-screen place-items-center bg-page px-4 text-ink" aria-busy="false">
     <div className="panel w-full max-w-md p-6" role="alert">
-      <h1 className="m-0 text-[18px] font-semibold">Couldn&apos;t load the dashboard snapshot</h1>
+      <h1 className="m-0 text-[18px] font-medium">Couldn&apos;t load the dashboard snapshot</h1>
       <p className="m-0 mt-2 text-[14px] text-muted">{error.message || 'The snapshot could not be loaded right now.'}</p>
       <button className="btn btn-accent mt-5" type="button" onClick={onRetry}>Try again</button>
     </div>
@@ -75,7 +75,7 @@ export default function App() {
       <ApyHistory history={history} />
       <StakePoolCard pool={snapshot.stakePool} />
       <ApyCalculator snapshot={snapshot} />
-      <div className="mt-14 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]"><ProtocolInfo /><FaqSection coverage={snapshot.coverage} snapshot={snapshot} /></div>
+      <div className="mt-20 sm:mt-24 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]"><ProtocolInfo /><FaqSection coverage={snapshot.coverage} snapshot={snapshot} /></div>
     </main>
     <SiteFooter />
   </AppShell>;
