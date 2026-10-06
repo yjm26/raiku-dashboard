@@ -1,8 +1,8 @@
 {
- "fetchedAt": "2026-10-06T06:13:08.287Z",
+ "fetchedAt": "2026-10-06T06:22:12.871Z",
  "mint": "rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp",
  "supplyUi": 177914.823209074,
- "solPriceUsd": 119.24,
+ "solPriceUsd": 119.46,
  "stats": {
   "officialHolders": 965,
   "tvlLamports": 181405640452546,
@@ -12,7 +12,7 @@
   "launchDate": "2026-05-11T21:00:00.000Z",
   "poolAddress": "ERhozr6u9drmAANXGRNP1oh3quSqPKEwioKH5b8v9Kkt",
   "tvlSol": 181405.640452546,
-  "tvlUsd": 21630808.567561585,
+  "tvlUsd": 21670717.808461145,
   "rateSolPerRkuSol": 1.019620721
  },
  "stakePool": {
