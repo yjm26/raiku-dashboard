@@ -3,7 +3,7 @@ import AppShell from './AppShell.jsx';
 // Skeleton of the top of the dashboard, shown while the snapshot loads.
 // index.html carries a static copy so it paints before the JS bundle runs.
 const HERO = ['Supply', 'TVL', 'Real wallets', 'Total estimated points'];
-const FIGURES = ['APY', 'rkuSOL rate', 'Holders', 'Official holders', 'Top-10 concentration', 'rkuSOL holder points', 'YT points (3×)'];
+const FIGURES = ['APY', 'rkuSOL rate', 'Holders', 'Official holders', 'Top-10 concentration', 'YT points (3×)'];
 const bar = (className) => <span className={`skeleton block ${className}`} />;
 
 export default function LoadingState() {
@@ -32,7 +32,7 @@ export default function LoadingState() {
             <div className="mt-auto h-[52px]" />
           </div>)}
         </div>
-        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 md:grid-cols-4 min-[87.5rem]:grid-cols-7 lg:px-6">
+        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-3 xl:grid-cols-6 lg:px-6">
           {FIGURES.map((label) => <div key={label} className="min-w-0">
             <p className="label m-0 truncate">{label}</p>
             <div className="mt-1.5 flex h-[30px] items-center">{bar('h-5 w-20')}</div>

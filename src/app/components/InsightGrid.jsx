@@ -16,7 +16,7 @@ export default function InsightGrid({ snapshot }) {
     </div>
     <div className="mt-4 grid gap-4 lg:grid-cols-2">
       <HolderGrowthChart data={snapshot.holderTimeline} caption={exact ? 'Personal wallets holding rkuSOL each day' : undefined} />
-      <PointsAccrualChart data={snapshot.dailyTimeline} caption={exact ? 'rkuSOL holder points since launch, including wallets that left. YT points not included' : undefined} />
+      <PointsAccrualChart data={snapshot.dailyTimeline} caption={exact ? 'Points earned by all wallets since launch, including wallets that left' : undefined} />
     </div>
   </section>;
 }

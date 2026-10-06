@@ -77,15 +77,15 @@ describe('dashboard shell', () => {
     expect(screen.getAllByText('0.00%').length).toBeGreaterThan(0);
   });
 
-  it('adds YT points to the total and shows holder and YT points below', async () => {
+  it('keeps YT points out of the total and shows them apart', async () => {
     const yt = { points: 1000000, stakedNow: 100, pointsPerYtDay: 3, maturityMs: Date.parse('2026-10-31T10:00:00Z'), transactions: 10, holders: [] };
     loadDashboardSnapshot.mockResolvedValue({ ...snapshot, yt });
     render(<App />);
     await screen.findByRole('heading', { name: 'rkuSOL Holder & Points' });
-    expect(screen.getAllByText('6,571,139').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('+89,398 a day').length).toBeGreaterThan(0);
     expect(screen.getAllByText('5,571,139').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('+89,098 a day').length).toBeGreaterThan(0);
     expect(screen.getAllByText('1,000,000').length).toBeGreaterThan(0);
+    expect(screen.queryByText('6,571,139')).not.toBeInTheDocument();
   });
 
   it('shows a recoverable error state when the snapshot cannot load', async () => {
