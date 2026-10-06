@@ -111,6 +111,8 @@ export function summarizeStakePool({ address, program, pool, list, votes = {}, r
       name: raikuValidator && raikuValidator.votePubkey === v.voteAccount ? raikuValidator.name : null,
       commissionPct: votes[v.voteAccount]?.commission ?? null,
       delinquent: votes[v.voteAccount]?.delinquent ?? null,
+      // All SOL staked with the validator (the pool plus direct stakers), from getVoteAccounts.
+      totalStakeSol: votes[v.voteAccount]?.activatedStake != null ? Number(votes[v.voteAccount].activatedStake) / 1e9 : null,
     })),
   };
 }
@@ -131,7 +133,7 @@ export async function fetchStakePool({ poolAddress, mint, raikuValidator = null 
     const res = await rpc('getVoteAccounts', [{ votePubkey: voteAccount }]);
     const current = res?.current?.find((v) => v.votePubkey === voteAccount);
     const delinquent = res?.delinquent?.find((v) => v.votePubkey === voteAccount);
-    if (current || delinquent) votes[voteAccount] = { commission: (current || delinquent).commission, delinquent: Boolean(delinquent) };
+    if (current || delinquent) votes[voteAccount] = { commission: (current || delinquent).commission, delinquent: Boolean(delinquent), activatedStake: (current || delinquent).activatedStake };
   }
   return summarizeStakePool({ address: poolAddress, program: poolAccount.owner, pool, list, votes, raikuValidator, mint });
 }

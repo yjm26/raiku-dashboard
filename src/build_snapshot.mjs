@@ -63,7 +63,8 @@ const PROGRAM_LABELS = {
   'XPC1MM4dYACDfykNuXYZ5una2DsMDWL24CrYubCvarC': 'Exponent',
   'sVau1tXvayVWfotzm9Ahcv2qfnnfRWttt78BCnNC6dD': 'Exponent vault',
   '5ocnV1qiCgaQR8Jb8xWnVbApfaygJ8tNoZfgPwsgx9kx': 'Sanctum',
-  '1oopBoJG58DgkUVKkEzKgyG9dvRmpgeEm1AVjoHkF78': 'Pool (1oopBoJ)',
+  // Loopscale (named in the program's security.txt)
+  '1oopBoJG58DgkUVKkEzKgyG9dvRmpgeEm1AVjoHkF78': 'Loopscale',
   'T1TANpTeScyeqVzzgNViGDNrkQ6qHz9KrSBS4aNXvGT': 'Titan',
   'JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4': 'Jupiter',
   'CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK': 'Raydium CLMM',

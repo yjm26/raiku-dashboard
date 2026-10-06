@@ -44,11 +44,11 @@ test('decodes the validator list and names the Raiku validator', () => {
     program: 'program',
     pool: decodeStakePool(POOL),
     list,
-    votes: { [VOTE]: { commission: 0, delinquent: false } },
+    votes: { [VOTE]: { commission: 0, delinquent: false, activatedStake: 383336691518719 } },
     raikuValidator: { votePubkey: VOTE, name: 'Raiku' },
     mint: MINT,
   });
-  assert.deepEqual(summary.validators, [{ voteAccount: VOTE, activeStakeSol: 180732.147919531, sharePct: 100, name: 'Raiku', commissionPct: 0, delinquent: false }]);
+  assert.deepEqual(summary.validators, [{ voteAccount: VOTE, activeStakeSol: 180732.147919531, sharePct: 100, name: 'Raiku', commissionPct: 0, delinquent: false, totalStakeSol: 383336.691518719 }]);
   assert.deepEqual(summary.pendingFees, []);
 });
 
