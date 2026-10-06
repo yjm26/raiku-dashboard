@@ -2,7 +2,7 @@
 
 Analytics dashboard for **rkuSOL**, the liquid staking token from [Raiku](https://raiku.com/stake) on Solana.
 
-**Live:** [raiku-dashboard-red.vercel.app](https://raiku-dashboard-red.vercel.app)
+**Live:** [raikustats.xyz](https://raikustats.xyz)
 
 ![token](https://img.shields.io/badge/token-rkuSOL-01ffd9)
 ![solana](https://img.shields.io/badge/chain-Solana-9945FF)
