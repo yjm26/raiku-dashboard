@@ -13,7 +13,7 @@ const STREAMS = [
 
 export default function ProtocolInfo() {
   return <aside aria-labelledby="about-title" className="panel flex min-w-0 flex-col p-5 sm:p-6">
-    <img src="/raiku-logo-dark.png" alt="Raiku" width="119" height="18" className="h-[18px] w-auto self-start opacity-[.86] brightness-0 dark:opacity-100 dark:brightness-100" />
+    <img src="/raiku-logo-dark.png" alt="Raiku" width="119" height="18" className="h-[18px] w-auto self-start opacity-[.86] brightness-0" />
     <h2 id="about-title" className="m-0 mt-7 text-[24px] font-medium leading-tight tracking-[-0.018em] text-ink">About rkuSOL</h2>
     <p className="m-0 mt-3 text-[15px] leading-[1.6] text-muted">rkuSOL is Raiku&apos;s liquid staking token: SOL delegated to validators running Raiku&apos;s client. It can be held, traded or used as collateral across Solana while the stake keeps earning.</p>
     <p className="m-0 mt-3 text-[15px] leading-[1.6] text-muted">Raiku is building Blackline, trading software that runs next to its own validator. The more SOL is staked with Raiku, the more often that validator builds blocks.</p>

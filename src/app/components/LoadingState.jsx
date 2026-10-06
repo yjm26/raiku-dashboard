@@ -10,11 +10,11 @@ export default function LoadingState() {
   return <AppShell>
     <header className="-mx-4 flex h-[72px] items-center justify-between gap-3 border-b border-rule px-4 sm:-mx-6 sm:px-6 lg:-mx-14 lg:px-14">
       <div className="flex min-w-0 items-center gap-3">
-        <img src="/raiku-logo-dark.png" alt="Raiku" width="112" height="17" className="h-[17px] w-auto opacity-[.86] brightness-0 dark:opacity-100 dark:brightness-100" />
+        <img src="/raiku-logo-dark.png" alt="Raiku" width="112" height="17" className="h-[17px] w-auto opacity-[.86] brightness-0" />
         <span className="hidden h-4 w-px shrink-0 bg-rule-strong sm:block" aria-hidden="true" />
         <span className="label hidden truncate sm:inline">Holder dashboard</span>
       </div>
-      <div className="flex items-center gap-2" aria-hidden="true">{bar('h-10 w-10')}{bar('h-10 w-10')}{bar('h-10 w-[101px]')}</div>
+      <div className="flex items-center gap-2" aria-hidden="true">{bar('h-10 w-10')}{bar('h-10 w-[101px]')}</div>
     </header>
     <main className="app-main min-w-0" aria-busy="true">
       <p className="sr-only" role="status">Loading dashboard snapshot</p>

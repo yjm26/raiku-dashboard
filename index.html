@@ -28,15 +28,6 @@
     <!-- Start downloading the snapshot alongside the JS bundle instead of after it. -->
     <link rel="preload" href="/data/dashboard.json" as="fetch" crossorigin />
     <style>.boot-skeleton { visibility: hidden; }</style>
-    <script>
-      // Light (Raiku's own look) unless the visitor chose dark before; applied before first paint.
-      try {
-        if (localStorage.getItem('raiku-theme') === 'dark') {
-          document.documentElement.classList.add('dark');
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0f1d06');
-        }
-      } catch (e) {}
-    </script>
   </head>
   <body>
     <div id="root">
@@ -47,11 +38,11 @@
         <div class="px-4 sm:px-6 lg:px-14">
           <header class="-mx-4 flex h-[72px] items-center justify-between gap-3 border-b border-rule px-4 sm:-mx-6 sm:px-6 lg:-mx-14 lg:px-14">
             <div class="flex min-w-0 items-center gap-3">
-              <img src="/raiku-logo-dark.png" alt="Raiku" width="112" height="17" class="h-[17px] w-auto opacity-[.86] brightness-0 dark:opacity-100 dark:brightness-100" />
+              <img src="/raiku-logo-dark.png" alt="Raiku" width="112" height="17" class="h-[17px] w-auto opacity-[.86] brightness-0" />
               <span class="hidden h-4 w-px shrink-0 bg-rule-strong sm:block" aria-hidden="true"></span>
               <span class="label hidden truncate sm:inline">Holder dashboard</span>
             </div>
-            <div class="flex items-center gap-2" aria-hidden="true"><span class="skeleton block h-10 w-10"></span><span class="skeleton block h-10 w-10"></span><span class="skeleton block h-10 w-[101px]"></span></div>
+            <div class="flex items-center gap-2" aria-hidden="true"><span class="skeleton block h-10 w-10"></span><span class="skeleton block h-10 w-[101px]"></span></div>
           </header>
           <main class="app-main min-w-0" aria-busy="true">
             <p class="sr-only" role="status">Loading dashboard snapshot</p>
