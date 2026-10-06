@@ -54,7 +54,7 @@ export default function App() {
   const programNote = Number.isFinite(programShare) ? ` (${formatNumber(programShare, { maximumFractionDigits: 0 })}% of supply)` : '';
   // Same measure as the figure above it (with the ledger: all points earned so far, daily).
   const pointsTrend = (snapshot.dailyTimeline || []).slice(snapshot.ledger ? -30 : -12).map((entry) => entry?.points);
-  const pointsHint = `Points earned since launch by every wallet: 1 point per rkuSOL per day actually held. Wallets that sold out keep what they earned, so they count here too. Pools and programs${programNote} earn nothing themselves. An estimate, not an official Raiku figure.`;
+  const pointsHint = `Points earned since launch by every wallet: each day counts the SOL value held, the rkuSOL balance × the rkuSOL rate. Wallets that sold out keep what they earned, so they count here too. Pools and programs${programNote} earn nothing themselves. An estimate, not an official Raiku figure.`;
   // YT-rkuSOL staked on Exponent, at the boost Exponent lists. Kept out of the total: Polyfeed's official count had none.
   const yt = snapshot.yt; const ytPoints = Number(yt?.points); const ytRate = yt?.pointsPerYtDay ?? 3;
   const ytMaturity = yt?.maturityMs ? ` until the YT matures on ${new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(yt.maturityMs))}` : '';
@@ -81,9 +81,9 @@ export default function App() {
     <main className="app-main min-w-0" aria-busy="false">
       <DashboardHeader snapshot={snapshot} />
       <MetricGroup primary={primary} secondary={secondary} />
-      <WalletSearch rows={pointsRows} includesFormer={Boolean(snapshot.ledger)} yt={snapshot.yt} />
+      <WalletSearch rows={pointsRows} includesFormer={Boolean(snapshot.ledger)} yt={snapshot.yt} pointsRate={stats.pointsRate} />
       <InsightGrid snapshot={snapshot} />
-      <DataSection rows={pointsRows} allRows={snapshot.allRows} former={snapshot.ledger ? snapshot.formerHolders || [] : null} yt={snapshot.yt} />
+      <DataSection rows={pointsRows} allRows={snapshot.allRows} former={snapshot.ledger ? snapshot.formerHolders || [] : null} yt={snapshot.yt} pointsRate={stats.pointsRate} />
       <ApyHistory history={history} />
       <StakePoolCard pool={snapshot.stakePool} />
       <ApyCalculator snapshot={snapshot} />

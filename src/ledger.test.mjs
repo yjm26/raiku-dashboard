@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { applyTransactions, closeDaysUntil, createLedger, flows, mismatches, orderTransactions, ownerSummary } from './ledger.mjs';
+import { extractRate } from './ledger_sync.mjs';
+import { addRates, applyTransactions, closeDaysUntil, createLedger, flows, mismatches, orderTransactions, ownerSummary, rateAt } from './ledger.mjs';
 
 const DAY = 86_400;
 const T0 = Date.parse('2026-05-12T00:00:00Z') / 1000;
@@ -27,6 +28,29 @@ test('points are 1 per rkuSOL per day actually held', () => {
   assert.equal(alice.balance, 6);
   assert.equal(alice.daysHeld, 4);
   assert.equal(alice.firstTime, T0);
+});
+
+test('with pool rates, points follow SOL value: balance × the rate in effect', () => {
+  const slot = (epoch) => epoch * 432_000 + 10;
+  const ledger = createLedger();
+  // Epoch 1 starts at T0 at 1.00; epoch 2 at T0 + 2 days at 1.10 (median of its samples, from the first one).
+  addRates(ledger, [
+    { time: T0, slot: slot(1), rate: 1.0 },
+    { time: T0 + 2 * DAY + 100, slot: slot(2), rate: 1.2 },
+    { time: T0 + 2 * DAY, slot: slot(2), rate: 1.1 },
+    { time: T0 + 2 * DAY + 200, slot: slot(2), rate: 1.1 },
+  ]);
+  assert.deepEqual(ledger.rates, [[T0, 1.0, 1], [T0 + 2 * DAY, 1.1, 2]]);
+  applyTransactions(ledger, history());
+  const alice = ownerSummary(ledger, 'alice', T0 + 4 * DAY);
+  // 10 for 2 days at 1.00, then 6 for 2 days at 1.10
+  assert.ok(Math.abs(alice.points - (10 * 2 * 1.0 + 6 * 2 * 1.1)) < 1e-9);
+  assert.equal(alice.daysHeld, 4);
+  assert.equal(rateAt(ledger, T0 + DAY), 1.0);
+  assert.equal(rateAt(ledger, T0 + 3 * DAY), 1.1);
+  // An epoch already known is not replaced by later samples.
+  addRates(ledger, [{ time: T0 + 3 * DAY, slot: slot(2), rate: 1.5 }]);
+  assert.equal(ledger.rates.length, 2);
 });
 
 test('former holders keep the points they earned and stop accruing', () => {
@@ -94,4 +118,23 @@ test('flows count joins, exits and the biggest changes in the window', () => {
   const recent = flows(ledger, T0 + 3 * DAY, 1.5);
   assert.deepEqual(recent.exited, { count: 1, amount: 5 });
   assert.deepEqual(recent.topOut.map((r) => [r.owner, r.change]), [['bob', -5], ['alice', -4]]);
+});
+
+test('a SOL deposit or withdrawal shows the pool rate; other transactions show none', () => {
+  const tx = (reserveDelta, beforeRaw, afterRaw) => ({
+    transaction: { message: { accountKeys: ['payer', 'RESERVE', 'userAta'] } },
+    meta: {
+      preBalances: [5e9, 1e12, 2e6], postBalances: [5e9, 1e12 + reserveDelta, 2e6],
+      preTokenBalances: [{ accountIndex: 2, mint: 'MINT', uiTokenAmount: { amount: String(beforeRaw) } }],
+      postTokenBalances: [{ accountIndex: 2, mint: 'MINT', uiTokenAmount: { amount: String(afterRaw) } }],
+    },
+  });
+  // 20 SOL into the reserve for 19.86 rkuSOL minted
+  assert.ok(Math.abs(extractRate(tx(20e9, 0, 19.86e9), 'MINT', 'RESERVE') - 20 / 19.86) < 1e-12);
+  // 10.1 SOL out of the reserve for 10 rkuSOL burned
+  assert.ok(Math.abs(extractRate(tx(-10.1e9, 10e9, 0), 'MINT', 'RESERVE') - 1.01) < 1e-12);
+  // A swap: rkuSOL moves, the reserve doesn't
+  assert.equal(extractRate(tx(0, 0, 5e9), 'MINT', 'RESERVE'), null);
+  // The reserve isn't in the transaction
+  assert.equal(extractRate(tx(20e9, 0, 19.86e9), 'MINT', 'OTHER'), null);
 });

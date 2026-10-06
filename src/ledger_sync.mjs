@@ -48,6 +48,27 @@ export function extractEvents(tx, mint) {
   return events;
 }
 
+// Pool rate shown by a SOL deposit or withdrawal: lamports into (or out of) the reserve per rkuSOL
+// minted (or burned). Null for anything else (swaps, transfers, epoch updates).
+export function extractRate(tx, mint, reserve) {
+  const keys = [
+    ...tx.transaction.message.accountKeys.map((k) => (typeof k === 'string' ? k : k.pubkey)),
+    ...(tx.meta.loadedAddresses?.writable || []),
+    ...(tx.meta.loadedAddresses?.readonly || []),
+  ];
+  const i = keys.indexOf(reserve);
+  if (i < 0) return null;
+  const lamports = BigInt(tx.meta.postBalances[i]) - BigInt(tx.meta.preBalances[i]);
+  let minted = 0n;
+  for (const b of tx.meta.postTokenBalances || []) if (b.mint === mint) minted += BigInt(b.uiTokenAmount.amount);
+  for (const b of tx.meta.preTokenBalances || []) if (b.mint === mint) minted -= BigInt(b.uiTokenAmount.amount);
+  if (lamports === 0n || minted === 0n || (lamports > 0n) !== (minted > 0n)) return null;
+  const abs = (v) => (v < 0n ? -v : v);
+  if (abs(minted) < 1_000_000n) return null;
+  const rate = Number(abs(lamports)) / Number(abs(minted));
+  return rate > 0.9 && rate < 1.5 ? rate : null;
+}
+
 // Signatures after `until` (exclusive), oldest first.
 export async function listSignaturesSince(mint, until) {
   const out = [];
@@ -93,8 +114,9 @@ export async function fetchEach(sigs, handle) {
 }
 
 // rkuSOL balance changes per transaction; each gets a sequence number after `startSeq`.
-export async function fetchTransactions(sigs, mint, startSeq) {
-  return fetchEach(sigs, (tx, s, i) => ({ sig: s.sig, seq: startSeq + 1 + i, slot: tx.slot, time: tx.blockTime, events: tx.meta.err ? [] : extractEvents(tx, mint) }));
+// With the pool's `reserve`, SOL deposits and withdrawals also carry the pool rate they used.
+export async function fetchTransactions(sigs, mint, startSeq, reserve = null) {
+  return fetchEach(sigs, (tx, s, i) => ({ sig: s.sig, seq: startSeq + 1 + i, slot: tx.slot, time: tx.blockTime, events: tx.meta.err ? [] : extractEvents(tx, mint), rate: !tx.meta.err && reserve ? extractRate(tx, mint, reserve) : null }));
 }
 
 // Wallet = on-curve address whose account is missing or owned by the System Program.

@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader.jsx';
 import { formatNumber } from '../data.js';
 
 // Staking projection: stake N SOL → how much rkuSOL you receive, daily yield,
-// points per day, and projected points over 30/90 days (1 rkuSOL = 1 point/day).
+// points per day, and projected points over 30/90 days (1 point per SOL of value per day).
 export default function ApyCalculator({ snapshot }) {
   const stats = snapshot?.stats || {};
   const [solInput, setSolInput] = useState('100');
@@ -12,19 +12,21 @@ export default function ApyCalculator({ snapshot }) {
   const apyFraction = Number.isFinite(apy) ? apy / 100 : null;
   const rate = Number(stats.rateSolPerRkuSol);
   const solPrice = Number(stats.solPriceUsd);
+  // Points accrue on rkuSOL × the rate the ledger uses.
+  const pointsRate = Number(stats.pointsRate) || (Number.isFinite(rate) && rate > 0 ? rate : 1);
 
   const result = useMemo(() => {
     const sol = Number(solInput);
     if (!Number.isFinite(sol) || sol <= 0) return null;
     const rkuSol = Number.isFinite(rate) && rate > 0 ? sol / rate : null;
     const dailyYieldSol = apyFraction != null ? (sol * apyFraction) / 365 : null;
-    const dailyPoints = rkuSol != null ? rkuSol : null; // 1 rkuSOL = 1 point/day
+    const dailyPoints = rkuSol != null ? rkuSol * pointsRate : null;
     const dailyYieldUsd = dailyYieldSol != null && Number.isFinite(solPrice) ? dailyYieldSol * solPrice : null;
     const proj30 = dailyPoints != null ? dailyPoints * 30 : null;
     const proj90 = dailyPoints != null ? dailyPoints * 90 : null;
     const proj365 = dailyPoints != null ? dailyPoints * 365 : null;
     return { sol, rkuSol, dailyYieldSol, dailyPoints, dailyYieldUsd, proj30, proj90, proj365 };
-  }, [solInput, rate, apyFraction, solPrice]);
+  }, [solInput, rate, apyFraction, solPrice, pointsRate]);
 
   const fmt = (v, opts) => (v == null || !Number.isFinite(Number(v))) ? '—' : formatNumber(Number(v), opts || { maximumFractionDigits: 2 });
   // Small SOL amounts need more decimals to stay meaningful.
@@ -65,7 +67,7 @@ export default function ApyCalculator({ snapshot }) {
             <span className="label pointer-events-none absolute inset-y-0 right-4 flex items-center">SOL</span>
           </div>
           <p className="m-0 mt-5 text-[14px] leading-relaxed text-muted">
-            Assumes {apyLabel} APY, {rateLabel} SOL per rkuSOL, a constant balance and 1 point per rkuSOL held per day. Yield compounds, so daily figures are approximate.
+            Assumes {apyLabel} APY, {rateLabel} SOL per rkuSOL, a constant balance and 1 point per SOL of value per day. Yield compounds, so daily figures are approximate.
           </p>
         </div>
         <dl className="m-0 grid grid-cols-2 gap-px bg-rule sm:grid-cols-4" role="status" aria-live="polite">

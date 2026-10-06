@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { buildSnapshot } from './build_snapshot.mjs';
-import { applyTransactions, closeDaysUntil, createLedger } from './ledger.mjs';
+import { addRates, applyTransactions, closeDaysUntil, createLedger } from './ledger.mjs';
 
 test('buildSnapshot calculates wallet scores and first-seen coverage', () => {
   const snapshot = buildSnapshot({
@@ -87,6 +87,24 @@ test('buildSnapshot uses the ledger for exact points, former holders and history
   assert.equal(snapshot.ledger.currentPoints, 32);
   assert.equal(snapshot.ledger.formerHolders, 1);
   assert.equal(snapshot.ledger.walletsEver, 2);
+});
+
+test('buildSnapshot counts SOL value when the ledger has pool rates', () => {
+  const DAY = 86_400;
+  const t0 = Date.parse('2026-05-12T00:00:00Z') / 1000;
+  const ledger = addRates(createLedger(), [{ time: t0, slot: 432_000, rate: 1.0 }, { time: t0 + DAY, slot: 864_000, rate: 1.02 }]);
+  applyTransactions(ledger, [{ sig: 'a', seq: 0, time: t0, events: [{ account: 'accA', owner: 'alice', from: null, to: String(10e9) }] }]);
+  const now = t0 + 3 * DAY;
+  closeDaysUntil(ledger, now);
+  const snapshot = buildSnapshot({
+    holdersData: { fetchedAt: new Date(now * 1000).toISOString(), supplyUi: 10, holders: [{ owner: 'alice', amountUi: 10, share: 1, isPda: false }] },
+    now: now * 1000,
+    ledger,
+  });
+  // 10 rkuSOL for a day at 1.00, then two days at 1.02
+  assert.ok(Math.abs(snapshot.realRows[0].score - (10 * 1.0 + 10 * 2 * 1.02)) < 1e-9);
+  assert.ok(Math.abs(snapshot.stats.dailyPoints - 10 * 1.02) < 1e-9);
+  assert.equal(snapshot.stats.pointsRate, 1.02);
 });
 
 test('buildSnapshot falls back to the estimate when the ledger disagrees with the chain', () => {

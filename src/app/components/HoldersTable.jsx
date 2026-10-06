@@ -34,7 +34,7 @@ export default function HoldersTable({ rows = [], startRank = 0, sortKey = null,
       <SortableTh label="rkuSOL" {...sortProps('amount')} className="text-right" />
       <SortableTh label="Share" {...sortProps('sharePct')} className={`text-right ${OPTIONAL}`} />
       <SortableTh label="Days held" hint="Days the wallet has held rkuSOL, from its on-chain history. Gaps when it held none don't count." {...sortProps('daysHeld')} className={`text-right ${OPTIONAL}`} />
-      <SortableTh label="Points" hint="1 point per rkuSOL per day, from each wallet's actual daily balance. Pool and program accounts aren't counted. An estimate, not an official Raiku figure." {...sortProps('score')} className="text-right" />
+      <SortableTh label="Points" hint="1 point per SOL of value per day: each day's rkuSOL balance × the rkuSOL rate, from the wallet's actual history. Pool and program accounts aren't counted. An estimate, not an official Raiku figure." {...sortProps('score')} className="text-right" />
     </tr></thead>
     <tbody>{rows.map((r, i) => <tr className="border-t border-rule transition-colors hover:bg-surface-muted" key={r.owner}>
       <td className={`${TD} tabular-nums text-muted`}>{startRank + i + 1}</td>

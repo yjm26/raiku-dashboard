@@ -32,7 +32,8 @@ try {
   // No YT ledger yet: the page shows no YT figures.
 }
 
-const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels, history, ledger, ytLedger });
+// Points and days held as of the moment the balances were read.
+const snapshot = buildSnapshot({ holdersData, firstSeenData, pdaLabels, history, ledger, ytLedger, now: holdersData.fetchedAt || Date.now() });
 const output = `${JSON.stringify(snapshot, null, 2)}\n`;
 fs.mkdirSync(path.dirname(OUT_SNAPSHOT), { recursive: true });
 fs.writeFileSync(OUT_SNAPSHOT, output, 'utf8');
