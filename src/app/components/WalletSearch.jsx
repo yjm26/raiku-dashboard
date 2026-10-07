@@ -25,7 +25,7 @@ export default function WalletSearch({ rows = [], includesFormer = false, yt = n
     ['Wallet', formatAddress(result.owner, 6, 6), true],
     ['Balance', `${formatNumber(result.amount)} rkuSOL`],
     ['Days held', formatNumber(result.daysHeld, { maximumFractionDigits: 1 })],
-    ['Estimated points', formatNumber(result.score, { minimumFractionDigits: 2, maximumFractionDigits: 2 })],
+    ['Estimated points', formatNumber(result.score, { minimumFractionDigits: 2, maximumFractionDigits: 2 }), false, "1 point per rkuSOL per day, counted up to this snapshot (see 'Data as of'). Polyfeed's card updates less often, so this is usually a little ahead of it."],
     result.exitMs ? ['Left on', leftOn(result.exitMs)] : ['Daily points', `+${formatNumber(result.amount)}`],
     ...(ytRow ? [
       ['YT staked', `${formatNumber(ytRow.yt)} YT`, false, 'YT-rkuSOL this wallet has staked on Exponent now.'],
