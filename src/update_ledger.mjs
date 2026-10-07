@@ -1,27 +1,24 @@
 // Daily step: bring data/ledger.json up to date and check it against the chain's balances.
 import fs from 'node:fs';
 import { p } from './paths.mjs';
-import { addRates, applyTransactions, closeDaysUntil, mismatches, orderTransactions } from './ledger.mjs';
+import { applyTransactions, closeDaysUntil, mismatches, orderTransactions } from './ledger.mjs';
 import { classifyOwners, fetchTransactions, listAccountSignatures, listSignaturesSince } from './ledger_sync.mjs';
-
-// The stake pool's reserve: SOL deposits and withdrawals through it show the pool rate.
-const RESERVE = '9BannfeCfdp8c9TMAAaoN3w66NsbpyZEi393QBsPB4W6';
 
 /**
  * `currentBalances` ({ owner: raw string }) were read at `balancesSlot`. The ledger advances to exactly
  * that slot, so it describes the same moment as the day's balances; later transactions are picked up
  * on the next run. Wallets that still disagree after the mint's own transaction list get their token
- * accounts' histories read too (some swaps move rkuSOL without naming the mint). `currentRate` (the
- * pool's rate now) covers an epoch with no deposits yet. Returns null until the ledger exists.
+ * accounts' histories read too (some swaps move rkuSOL without naming the mint). Returns null until
+ * the ledger exists.
  */
-export async function updateLedger({ mint, currentBalances, balancesSlot, now, currentRate = null }) {
+export async function updateLedger({ mint, currentBalances, balancesSlot, now }) {
   const file = p('ledger.json');
   if (!fs.existsSync(file)) return null;
   const base = JSON.parse(fs.readFileSync(file, 'utf8'));
   const fromSlot = base.lastSlot ?? 0;
 
   const mintSigs = (await listSignaturesSince(mint, base.lastMintSignature)).filter((s) => s.slot <= balancesSlot);
-  const mintTxs = (await fetchTransactions(mintSigs, mint, -1, RESERVE)).map((tx, i) => ({ ...tx, order: i }));
+  const mintTxs = (await fetchTransactions(mintSigs, mint, -1)).map((tx, i) => ({ ...tx, order: i }));
 
   const programs = new Set(base.programs || []);
   const build = async (txs) => {
@@ -31,10 +28,6 @@ export async function updateLedger({ mint, currentBalances, balancesSlot, now, c
     const isWallet = (owner) => !programs.has(owner);
     const ledger = structuredClone(base);
     ledger.programs = [...programs].sort();
-    // Rates before balances: points accrue on balance × the pool rate in effect.
-    const samples = txs.filter((t) => t.rate).map((t) => ({ time: t.time, slot: t.slot, rate: t.rate }));
-    if (currentRate) samples.push({ time: now, slot: balancesSlot, rate: currentRate });
-    addRates(ledger, samples);
     applyTransactions(ledger, orderTransactions(txs, base.accounts, base.lastSeq), { isWallet });
     return { ledger, isWallet };
   };
@@ -52,7 +45,7 @@ export async function updateLedger({ mint, currentBalances, balancesSlot, now, c
         if (!s.err && !seen.has(s.sig)) { seen.add(s.sig); extraSigs.push(s); }
       }
     }
-    extraTxs = await fetchTransactions(extraSigs, mint, -1, RESERVE);
+    extraTxs = await fetchTransactions(extraSigs, mint, -1);
     ({ ledger, isWallet } = await build([...mintTxs, ...extraTxs]));
     diff = mismatches(ledger, currentBalances);
   }

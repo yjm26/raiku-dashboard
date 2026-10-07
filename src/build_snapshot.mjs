@@ -1,4 +1,4 @@
-import { flows, ownerSummary, rateAt } from './ledger.mjs';
+import { flows, ownerSummary } from './ledger.mjs';
 import { ytHolders } from './yt_ledger.mjs';
 import { isProgramDerived } from './solana_address.mjs';
 
@@ -108,8 +108,6 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
   const nowSec = nowMs / 1000;
   const programs = new Set(ledger?.programs || []);
   const isLedgerWallet = (owner) => !programs.has(owner) && !isProgramDerived(owner);
-  // Points accrue on SOL value: rkuSOL × the pool rate (1 when the ledger has no rates).
-  const rateNow = ledger ? rateAt(ledger, nowSec) : 1;
   // Exact figures from the ledger, only when its balance agrees with today's on-chain balance.
   const fromLedger = (owner, amount) => {
     const summary = ledger ? ownerSummary(ledger, owner, nowSec) : null;
@@ -148,7 +146,7 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
       isPda,
       firstMs,
       daysHeld,
-      score: exact ? exact.points : amount * daysHeld * rateNow,
+      score: exact ? exact.points : amount * daysHeld,
       pdaLabel: isPda ? labelPda(holder, pdaLabels, programDerived) : null,
       ...(ledger ? { exact: Boolean(exact) } : {}),
     };
@@ -164,7 +162,7 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     ? top10ByAmount.reduce((total, row) => total + row.amount, 0) / supply * 100
     : 0;
   const totalPoints = realRows.reduce((total, row) => total + row.score, 0);
-  const dailyPoints = realRows.reduce((total, row) => total + row.amount, 0) * rateNow;
+  const dailyPoints = realRows.reduce((total, row) => total + row.amount, 0);
 
   const holderSizes = SIZE_BUCKETS.map(([min, max]) => {
     const inBucket = realRows.filter((row) => row.amount >= min && (max == null || row.amount < max));
@@ -270,8 +268,6 @@ export function buildSnapshot({ holdersData, firstSeenData = {}, pdaLabels = {},
     // With the ledger, points earned since launch by every wallet: sellers keep what they earned.
     totalPoints: ledger ? totalPoints + formerPoints : totalPoints,
     dailyPoints,
-    // SOL per rkuSOL that points accrue at now (the pool rate the ledger last saw).
-    pointsRate: rateNow,
     // LST economics (from Raiku API + CoinGecko)
     tvlLamports: statsSource.tvlLamports,
     tvlSol: statsSource.tvlSol,

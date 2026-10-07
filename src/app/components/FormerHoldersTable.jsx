@@ -10,7 +10,7 @@ export default function FormerHoldersTable({ rows = [], startRank = 0, sortKey =
     <thead className="label text-left text-muted"><tr>
       <th className={`${TH} w-12 sm:w-16`}>#</th>
       <th className={TH}>Wallet</th>
-      <SortableTh label="Points earned" hint="1 point per SOL of value per day (rkuSOL × the rkuSOL rate) while the wallet held it. It stopped growing once the wallet sold out." {...sortProps('points')} className="text-right" />
+      <SortableTh label="Points earned" hint="1 point per rkuSOL per day while the wallet held it. It stopped growing once the wallet sold out." {...sortProps('points')} className="text-right" />
       <SortableTh label="Days held" hint="Total days the wallet held any rkuSOL." {...sortProps('daysHeld')} className={`text-right ${OPTIONAL}`} />
       <SortableTh label="Peak balance" hint="The most rkuSOL the wallet held at one time." {...sortProps('peak')} className={`text-right ${OPTIONAL}`} />
       <SortableTh label="Left on" hint="When the wallet's rkuSOL balance last went to zero (UTC)." {...sortProps('exitMs')} className="text-right" />

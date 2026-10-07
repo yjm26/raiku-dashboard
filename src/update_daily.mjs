@@ -193,7 +193,7 @@ async function fetchSolPriceUsd() {
   try {
     const { updateLedger } = await import('./update_ledger.mjs');
     const currentBalances = Object.fromEntries([...perOwner].map(([owner, amount]) => [owner, String(amount)]));
-    const result = await updateLedger({ mint: MINT, currentBalances, balancesSlot, now: Math.floor(Date.now() / 1000), currentRate: stakePool?.rate ?? null });
+    const result = await updateLedger({ mint: MINT, currentBalances, balancesSlot, now: Math.floor(Date.now() / 1000) });
     if (result) console.log(`  ledger: +${result.added} tx | mismatches ${result.mismatches.length} | chain breaks ${result.ledger.chainBreaks.length}`);
     else console.log('  ledger: not built yet, skipped');
   } catch (e) { console.log('  ledger ERR', e.message); }

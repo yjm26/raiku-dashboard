@@ -5,7 +5,7 @@ import { searchWallet } from './app-state.js';
 
 const leftOn = (ms) => new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(new Date(ms));
 
-export default function WalletSearch({ rows = [], includesFormer = false, yt = null, pointsRate = 1 }) {
+export default function WalletSearch({ rows = [], includesFormer = false, yt = null }) {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState(null);
   const [searched, setSearched] = useState(false);
@@ -26,7 +26,7 @@ export default function WalletSearch({ rows = [], includesFormer = false, yt = n
     ['Balance', `${formatNumber(result.amount)} rkuSOL`],
     ['Days held', formatNumber(result.daysHeld, { maximumFractionDigits: 1 })],
     ['Estimated points', formatNumber(result.score, { minimumFractionDigits: 2, maximumFractionDigits: 2 })],
-    result.exitMs ? ['Left on', leftOn(result.exitMs)] : ['Daily points', `+${formatNumber(result.amount * pointsRate)}`],
+    result.exitMs ? ['Left on', leftOn(result.exitMs)] : ['Daily points', `+${formatNumber(result.amount)}`],
     ...(ytRow ? [
       ['YT staked', `${formatNumber(ytRow.yt)} YT`, false, 'YT-rkuSOL this wallet has staked on Exponent now.'],
       ['YT points', formatNumber(ytRow.points, { minimumFractionDigits: 2, maximumFractionDigits: 2 }), false, `Estimate: ${yt.pointsPerYtDay} points per staked YT per day, the Raiku boost Exponent lists for YT. Raiku's official points (Polyfeed) showed no YT when checked, so these aren't included in Estimated points or Rank.`],

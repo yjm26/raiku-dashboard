@@ -1,81 +1,17 @@
 // rkuSOL holder ledger rebuilt from on-chain history.
 // Input: transactions that touched rkuSOL token accounts, oldest first, each reduced to balance
-// changes { account, owner, from, to } in raw units (strings). Points = SOL value held per day
-// (balance × the pool rate at the time; a rate of 1 without rates), accrued continuously between
-// balance changes, for current and former holders alike.
+// changes { account, owner, from, to } in raw units (strings). Points = 1 per rkuSOL held per day,
+// accrued continuously between balance changes, for current and former holders alike.
 
 const DAY = 86_400;
 const UNITS = 1e9;
 const RECENT_DAYS = 35;
-const SLOTS_PER_EPOCH = 432_000;
 
 const toUi = (raw) => Number(raw) / UNITS;
 const dayOf = (time) => new Date(time * 1000).toISOString().slice(0, 10);
 
 export function createLedger() {
-  return { version: 1, lastSignature: null, lastSeq: -1, lastTime: null, openDay: null, accounts: {}, owners: {}, daily: [], recent: [], chainBreaks: [], rates: [] };
-}
-
-// Pool rate (SOL per rkuSOL) by epoch: [[time, rate, epoch], ...], each in effect from its time on.
-// Samples come from SOL deposits and withdrawals; an epoch's rate is the median of its samples.
-export function addRates(ledger, samples) {
-  ledger.rates ??= [];
-  const known = new Set(ledger.rates.map((r) => r[2]));
-  const byEpoch = new Map();
-  for (const s of samples) {
-    const epoch = Math.floor(s.slot / SLOTS_PER_EPOCH);
-    if (known.has(epoch)) continue;
-    const e = byEpoch.get(epoch) ?? { time: s.time, rates: [] };
-    e.time = Math.min(e.time, s.time);
-    e.rates.push(s.rate);
-    byEpoch.set(epoch, e);
-  }
-  for (const [epoch, e] of byEpoch) {
-    const sorted = e.rates.sort((a, b) => a - b);
-    ledger.rates.push([e.time, sorted[Math.floor(sorted.length / 2)], epoch]);
-  }
-  ledger.rates.sort((a, b) => a[0] - b[0]);
-  return ledger;
-}
-
-// Running integral of the rate over time, cached per rates array.
-const rateCache = new WeakMap();
-function rateIndex(ledger) {
-  const rates = ledger.rates || [];
-  const cached = rateCache.get(rates);
-  if (cached && cached.length === rates.length) return cached;
-  const cum = [0];
-  for (let i = 1; i < rates.length; i++) cum.push(cum[i - 1] + rates[i - 1][1] * (rates[i][0] - rates[i - 1][0]));
-  const index = { length: rates.length, rates, cum };
-  rateCache.set(rates, index);
-  return index;
-}
-
-// Last rate entry at or before `t` (-1 before the first).
-function rateSlot(rates, t) {
-  let lo = -1, hi = rates.length - 1;
-  while (lo < hi) { const mid = (lo + hi + 1) >> 1; if (rates[mid][0] <= t) lo = mid; else hi = mid - 1; }
-  return lo;
-}
-
-function rateIntegral(index, t) {
-  const { rates, cum } = index;
-  if (!rates.length) return t;
-  const i = rateSlot(rates, t);
-  if (i < 0) return rates[0][1] * (t - rates[0][0]);
-  return cum[i] + rates[i][1] * (t - rates[i][0]);
-}
-
-// SOL-value days per rkuSOL between two times: (to - from) / DAY at a rate of 1.
-export function rateDays(ledger, from, to) {
-  const index = rateIndex(ledger);
-  return (rateIntegral(index, to) - rateIntegral(index, from)) / DAY;
-}
-
-export function rateAt(ledger, t) {
-  const rates = ledger.rates || [];
-  if (!rates.length) return 1;
-  return rates[Math.max(0, rateSlot(rates, t))][1];
+  return { version: 1, lastSignature: null, lastSeq: -1, lastTime: null, openDay: null, accounts: {}, owners: {}, daily: [], recent: [], chainBreaks: [] };
 }
 
 const nextDay = (date) => new Date(Date.parse(`${date}T00:00:00Z`) + DAY * 1000).toISOString().slice(0, 10);
@@ -88,11 +24,11 @@ function ownerOf(ledger, owner) {
 }
 
 // Bring an owner's points and holding time up to `time` at their current balance.
-function accrue(ledger, o, time) {
+function accrue(o, time) {
   if (o.lastTime != null && time > o.lastTime) {
     const seconds = time - o.lastTime;
     const balance = toUi(o.balance);
-    o.points += balance * rateDays(ledger, o.lastTime, time);
+    o.points += balance * (seconds / DAY);
     if (balance > 0) o.heldSeconds += seconds;
   }
   o.lastTime = time;
@@ -100,7 +36,7 @@ function accrue(ledger, o, time) {
 
 function setBalance(ledger, owner, next, time) {
   const o = ownerOf(ledger, owner);
-  accrue(ledger, o, time);
+  accrue(o, time);
   const before = BigInt(o.balance);
   if (before === 0n && next > 0n) {
     if (o.firstTime == null) o.firstTime = time;
@@ -138,7 +74,7 @@ function snapshotDay(ledger, date, endTime, isWallet) {
   for (const [owner, o] of Object.entries(ledger.owners)) {
     if (!isWallet(owner)) continue;
     const balance = toUi(o.balance);
-    const extra = o.lastTime != null && endTime > o.lastTime ? balance * rateDays(ledger, o.lastTime, endTime) : 0;
+    const extra = o.lastTime != null && endTime > o.lastTime ? balance * ((endTime - o.lastTime) / DAY) : 0;
     points += o.points + extra;
     if (balance > 0) { wallets += 1; supply += balance; }
   }
@@ -243,7 +179,7 @@ export function ownerSummary(ledger, owner, now) {
   return {
     owner,
     balance,
-    points: o.points + (since > 0 ? balance * rateDays(ledger, o.lastTime, now) : 0),
+    points: o.points + balance * (since / DAY),
     daysHeld: (o.heldSeconds + (balance > 0 ? since : 0)) / DAY,
     firstTime: o.firstTime,
     heldSince: o.heldSince,

@@ -44,7 +44,7 @@ function usePagedRows(rows, filter, typeFilter, sortKey, sortDir, page) {
 const tabClass = (active) => `-mb-px shrink-0 whitespace-nowrap border-b-2 px-0.5 pb-3 pt-1 text-[14px] font-medium transition-colors ${active ? 'border-accent-line text-ink' : 'border-transparent text-muted hover:text-ink'}`;
 const COUNT_LABEL = { holders: 'accounts', points: 'wallets', former: 'former holders', yt: 'wallets' };
 
-export default function DataSection({ rows = [], allRows = [], former = null, yt = null, pointsRate = 1 }) {
+export default function DataSection({ rows = [], allRows = [], former = null, yt = null }) {
   const [tab, setTab] = useState('holders');
   const [filter, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
@@ -101,7 +101,7 @@ export default function DataSection({ rows = [], allRows = [], former = null, yt
       {tab === 'former' ? <p className="m-0 mt-3 text-[13px] text-muted">Wallets that held rkuSOL at some point since launch and hold none today. Points are what they earned while holding.</p> : null}
       {tab === 'yt' ? <p className="m-0 mt-3 text-[13px] text-muted">Wallets that staked YT-rkuSOL on Exponent since the market opened. YT points are an estimate and are not part of the points leaderboard.</p> : null}
       {tab === 'holders' ? <HoldersTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />
-        : tab === 'points' ? <PointsTable rows={pageRows} startRank={startRank} exact={Boolean(former)} pointsRate={pointsRate} />
+        : tab === 'points' ? <PointsTable rows={pageRows} startRank={startRank} exact={Boolean(former)} />
           : tab === 'yt' ? <YtTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} pointsPerDay={yt.pointsPerYtDay} matured={Date.now() >= yt.maturityMs} />
             : <FormerHoldersTable rows={pageRows} startRank={startRank} sortKey={sortKey} sortDir={sortDir} onSort={toggleSort} />}
       <nav className="mt-3 flex items-center justify-between gap-3" aria-label="Holder data pagination">
