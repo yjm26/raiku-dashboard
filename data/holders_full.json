@@ -1,8 +1,8 @@
 {
- "fetchedAt": "2026-10-10T20:49:46.452Z",
+ "fetchedAt": "2026-10-10T23:57:23.433Z",
  "mint": "rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp",
  "supplyUi": 177983.384304031,
- "solPriceUsd": 110.34,
+ "solPriceUsd": 110.05,
  "stats": {
   "officialHolders": 970,
   "tvlLamports": 181539350260181,
@@ -12,7 +12,7 @@
   "launchDate": "2026-05-11T21:00:00.000Z",
   "poolAddress": "ERhozr6u9drmAANXGRNP1oh3quSqPKEwioKH5b8v9Kkt",
   "tvlSol": 181539.350260181,
-  "tvlUsd": 20031051.907708373,
+  "tvlUsd": 19978405.496132918,
   "rateSolPerRkuSol": 1.020157696
  },
  "stakePool": {
@@ -45,8 +45,8 @@
  "holders": [
   {
    "owner": "61Dz6DkjDbn1seiD2SgDGpQE8V81ip22RyYwVsB9CcNy",
-   "amountUi": 69350.907534988,
-   "share": 0.38964821242258696,
+   "amountUi": 69350.912612564,
+   "share": 0.38964824095095785,
    "isPda": true,
    "pdaProgram": "XP1BRLn8eCYSygrd8er5P4GKdzqKbC3DLoSsS5UYVZy",
    "programDerived": true
@@ -4268,12 +4268,6 @@
    "isPda": false
   },
   {
-   "owner": "DS6xApSQe81PVSrmt8P73h6a652bMLbGrZU6JCL42uHZ",
-   "amountUi": 0.005122639,
-   "share": 2.878155744723628e-8,
-   "isPda": false
-  },
-  {
    "owner": "Ci8McKQTzJjUXGuM8z4SKzHMBEbsTG5KG5vz5ZHkhTzb",
    "amountUi": 0.005121069,
    "share": 2.877273639910227e-8,
@@ -5729,6 +5723,12 @@
    "owner": "3DWgbJ57jNQiVC69xXcxYT2x9Hbv8XZQhS1yB4yddd2F",
    "amountUi": 0.000048394,
    "share": 2.7190178560338773e-10,
+   "isPda": false
+  },
+  {
+   "owner": "DS6xApSQe81PVSrmt8P73h6a652bMLbGrZU6JCL42uHZ",
+   "amountUi": 0.000045063,
+   "share": 2.5318655545409474e-10,
    "isPda": false
   },
   {
