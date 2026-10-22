@@ -1,8 +1,8 @@
 {
- "fetchedAt": "2026-10-21T23:47:28.382Z",
+ "fetchedAt": "2026-10-22T02:24:36.549Z",
  "mint": "rkubjTrZYioRSeXwDnhwGQzvW3qkcin72JSxUt3WMVp",
  "supplyUi": 176560.973947672,
- "solPriceUsd": 106.84,
+ "solPriceUsd": 105.48,
  "stats": {
   "officialHolders": 973,
   "tvlLamports": 180397806486242,
@@ -12,7 +12,7 @@
   "launchDate": "2026-05-11T21:00:00.000Z",
   "poolAddress": "ERhozr6u9drmAANXGRNP1oh3quSqPKEwioKH5b8v9Kkt",
   "tvlSol": 180397.806486242,
-  "tvlUsd": 19273701.644990098,
+  "tvlUsd": 19028360.62816881,
   "rateSolPerRkuSol": 1.021739802
  },
  "stakePool": {
@@ -45,8 +45,8 @@
  "holders": [
   {
    "owner": "61Dz6DkjDbn1seiD2SgDGpQE8V81ip22RyYwVsB9CcNy",
-   "amountUi": 72036.291428606,
-   "share": 0.40799668136150885,
+   "amountUi": 72036.291330288,
+   "share": 0.40799668080465873,
    "isPda": true,
    "pdaProgram": "XP1BRLn8eCYSygrd8er5P4GKdzqKbC3DLoSsS5UYVZy",
    "programDerived": true
@@ -220,18 +220,18 @@
    "programDerived": true
   },
   {
+   "owner": "AYhux5gJzCoeoc1PoJ1VxwPDe22RwcvpHviLDD1oCGvW",
+   "amountUi": 39.581514166,
+   "share": 0.00022418042493201762,
+   "isPda": true,
+   "pdaProgram": "5ocnV1qiCgaQR8Jb8xWnVbApfaygJ8tNoZfgPwsgx9kx",
+   "programDerived": true
+  },
+  {
    "owner": "4GDPQkaEhoR6mJxXUsUbMP4V18dJ6KCzYiseeWh1zoxk",
    "amountUi": 39.5022914,
    "share": 0.00022373172574199457,
    "isPda": false
-  },
-  {
-   "owner": "AYhux5gJzCoeoc1PoJ1VxwPDe22RwcvpHviLDD1oCGvW",
-   "amountUi": 37.791514166,
-   "share": 0.0002140422842094222,
-   "isPda": true,
-   "pdaProgram": "5ocnV1qiCgaQR8Jb8xWnVbApfaygJ8tNoZfgPwsgx9kx",
-   "programDerived": true
   },
   {
    "owner": "GHr1ynv3EFehCUzjYWmrBnL44aJfsmyFRbbRVGkZBPWF",
@@ -494,12 +494,6 @@
    "owner": "G6BcN7EndishXpsbB7L25ibrqVmRSUwsUVit6aJ2Vrua",
    "amountUi": 11.815000702,
    "share": 0.00006691739651086006,
-   "isPda": false
-  },
-  {
-   "owner": "AVHTG5EBYBkFXjyuM61sZRNqju7Jk5PJjGyk9RapJHYo",
-   "amountUi": 11.798818049,
-   "share": 0.00006682574175478245,
    "isPda": false
   },
   {
@@ -1214,6 +1208,12 @@
    "owner": "FiuVhejvNepreE9ZEZoums8Q8gagKHdC6uRkBzGgxfJA",
    "amountUi": 10.011200268,
    "share": 0.00005670109336260829,
+   "isPda": false
+  },
+  {
+   "owner": "AVHTG5EBYBkFXjyuM61sZRNqju7Jk5PJjGyk9RapJHYo",
+   "amountUi": 10.008818049,
+   "share": 0.00005668760103218704,
    "isPda": false
   },
   {
@@ -5584,6 +5584,12 @@
    "isPda": false
   },
   {
+   "owner": "BaRfY9UTEGyhuWkXJYsQvpAx6JM7v3rBAiK4bKqB75Rx",
+   "amountUi": 0.000373799,
+   "share": 2.117109979868961e-9,
+   "isPda": false
+  },
+  {
    "owner": "DY3yC3qYnfNguunYKZpK7R5vVzPb6BWTf7JUWFLfeUJK",
    "amountUi": 0.000361899,
    "share": 2.0497111672438855e-9,
@@ -5599,12 +5605,6 @@
    "owner": "6G8DRskcHUtXuEczjGPNS6Exs1qw5ukbj48LGjyx9krJ",
    "amountUi": 0.000316833,
    "share": 1.7944678991966873e-9,
-   "isPda": false
-  },
-  {
-   "owner": "BaRfY9UTEGyhuWkXJYsQvpAx6JM7v3rBAiK4bKqB75Rx",
-   "amountUi": 0.000275481,
-   "share": 1.560259857207433e-9,
    "isPda": false
   },
   {
